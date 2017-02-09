@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>EF - Home</title>
+      <title>EF - Home Test</title>
       <jsp:include page="./fragments/sidebar.jsp" />
       <div id="page-wrapper">
          <div class="row">
