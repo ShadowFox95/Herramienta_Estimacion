@@ -6,7 +6,7 @@
   <groupId>com.becarios</groupId>
   <artifactId>proyecto-definitivo</artifactId>
   <packaging>war</packaging>
-  <version>2.4</version>
+  <version>4.1</version>
   <name>spring mvc</name>
 
   <properties>
