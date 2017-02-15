@@ -1,26 +1,27 @@
-function calculate2(fila) {
+function calculate3(fila){
 	
-	var row = "solucion_aplica";
-	row = fila+"_aplica";
-	var aplica=document.getElementById(row).value;
+	var res = 0;	
+	res = parseInt(document.getElementById(fila+"_valoracion").value);
+	document.getElementById(fila+"_calculado").innerHTML = res;
+	document.getElementById(fila+"_calculado_hidden").value = res;
 	
-	if(aplica==0) {
-		row = fila+"_definido";
-		document.getElementById(row).disabled = true;
-		
-		row = fila+"_conocimiento";
-		document.getElementById(row).disabled = true;
-		
-		row = fila+"_impacto";
-		document.getElementById(row).innerHTML = 0;
-		
-		row = fila+"_impacto_hidden";
-		document.getElementById(row).value = 0;
-		
-		row = fila+"_riesgo";
-		document.getElementById(row).innerHTML = 0;
-		
-		row = fila+"_riesgo_hidden";
-		document.getElementById(row).value = 0;
-	}
+	refresh3();
+}
+function refresh3(){
+	
+	var total = 0;
+	 total = parseInt(document.getElementById("experiencia_valoracion").value) + 
+		parseInt(document.getElementById("capacidades_valoracion").value) + 
+		parseInt(document.getElementById("calidad_valoracion").value); 
+	
+	document.getElementById("total").innerHTML = total;
+	document.getElementById("total_hidden").value = total;
+	
+	total = new Big(1+((0.1/40)*parseInt(total)));
+	
+	
+	
+	document.getElementById("ecf").innerHTML = total.round(2,1);
+	document.getElementById("ecf_hidden").innerHTML = total.round(2,1);
+	
 }
