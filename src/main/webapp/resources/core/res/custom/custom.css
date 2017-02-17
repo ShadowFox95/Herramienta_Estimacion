@@ -66,6 +66,7 @@ a, a:visited, a:hover, a:active {
 .contenido{
 	background-color: #ddd
 }
+<<<<<<< Upstream, based on origin/marius
 	
 .align-fix{
 	margin-right: 20px;
@@ -77,6 +78,8 @@ a, a:visited, a:hover, a:active {
 .bienvenida{
 	padding-left: 15px;
 }
+=======
+>>>>>>> ccd6444 Minnor Style Changes
 .btn {
 	margin-left: 1px;
 	margin-right: 1px;
