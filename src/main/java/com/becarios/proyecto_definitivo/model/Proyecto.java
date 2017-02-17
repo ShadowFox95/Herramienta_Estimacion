@@ -3,12 +3,14 @@ package com.becarios.proyecto_definitivo.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.becarios.proyecto_definitivo.model.attributes.CUOriginal;
-import com.becarios.proyecto_definitivo.model.attributes.Integracion;
-import com.becarios.proyecto_definitivo.model.attributes.Negocio;
-import com.becarios.proyecto_definitivo.model.attributes.Perfiles;
-import com.becarios.proyecto_definitivo.model.attributes.Persistencia;
-import com.becarios.proyecto_definitivo.model.attributes.Vista;
+import com.becarios.proyecto_definitivo.model.criterios.CUOriginal;
+import com.becarios.proyecto_definitivo.model.criterios.Integracion;
+import com.becarios.proyecto_definitivo.model.criterios.Modulo;
+import com.becarios.proyecto_definitivo.model.criterios.Negocio;
+import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
+import com.becarios.proyecto_definitivo.model.criterios.Persistencia;
+import com.becarios.proyecto_definitivo.model.criterios.Tabla;
+import com.becarios.proyecto_definitivo.model.criterios.Vista;
 
 public class Proyecto {
 

@@ -1,4 +1,4 @@
-package com.becarios.proyecto_definitivo.model;
+package com.becarios.proyecto_definitivo.model.criterios;
 
 public abstract class Tabla {
     private int total;

@@ -1,6 +1,4 @@
-package com.becarios.proyecto_definitivo.model.attributes;
-
-import com.becarios.proyecto_definitivo.model.Tabla;
+package com.becarios.proyecto_definitivo.model.criterios;
 
 public class Vista extends Tabla {
 

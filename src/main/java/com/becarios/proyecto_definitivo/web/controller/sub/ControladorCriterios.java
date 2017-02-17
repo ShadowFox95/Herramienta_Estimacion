@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.becarios.proyecto_definitivo.model.Modulo;
 import com.becarios.proyecto_definitivo.model.Proyecto;
-import com.becarios.proyecto_definitivo.model.Tabla;
+import com.becarios.proyecto_definitivo.model.criterios.Modulo;
+import com.becarios.proyecto_definitivo.model.criterios.Tabla;
 
 @Controller
 public class ControladorCriterios {

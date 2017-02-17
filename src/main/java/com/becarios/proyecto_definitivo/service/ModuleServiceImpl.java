@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.becarios.proyecto_definitivo.model.Modulo;
+import com.becarios.proyecto_definitivo.model.criterios.Modulo;
 
 @Service("moduleService")
 public class ModuleServiceImpl implements ModuleService {
