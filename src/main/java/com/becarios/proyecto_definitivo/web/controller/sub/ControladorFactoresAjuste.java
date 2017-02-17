@@ -18,15 +18,24 @@ public class ControladorFactoresAjuste {
     // @Autowired
     // FactoresAjusteService service;
 
-    @RequestMapping(value = "/factores-ajuste/{id}/", method = RequestMethod.GET)
-    public String index(ModelMap model, @PathVariable("id") int id) {
+    @RequestMapping(value = "/factores-ajuste", method = RequestMethod.GET)
+    public String index(ModelMap model) {
 
-        model.addAttribute("idProyecto", id);
+        model.addAttribute("id", 600);
 
         return "factores-ajuste/factores-ajuste";
     }
 
-    @RequestMapping(value = "/factores-ajuste/{id}/save", method = RequestMethod.GET)
+    // @RequestMapping(value = "/factores-ajuste/{id}/", method =
+    // RequestMethod.GET)
+    // public String index(ModelMap model, @PathVariable("id") int id) {
+    //
+    // model.addAttribute("idProyecto", id);
+    //
+    // return "factores-ajuste/factores-ajuste";
+    // }
+
+    @RequestMapping(value = "/factores-ajuste/{id}/save", method = RequestMethod.POST)
     public String save(ModelMap model, @PathVariable("id") int id,
             @RequestParam("rendimiento_aplica") boolean rendimientoAplica,
             @RequestParam("rendimiento_definicion") int rendimientoDefinicion,
@@ -192,7 +201,7 @@ public class ControladorFactoresAjuste {
 
         // service.save(rendimiento,usabilidad,portabilidad,concurrencia,seguridad,
         // solucion,integracion,logica,despliegue);
-        return "/factores-ajuste/" + id + "/";
+        return "redirect:/factores-ajuste";
     }
 
 }
