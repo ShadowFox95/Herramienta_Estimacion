@@ -404,15 +404,15 @@
                 <td></td>
                 <td><strong>TOTAL</strong>
                 </td>
-                <td id="total">0</td>
-				<input type="hidden" id="total_hidden" value="0"/>
+                <td id="total">40</td>
+				<input type="hidden" id="total_hidden" value="40"/>
             </tr>
             <tr class="active">
                 <td></td>
                 <td><strong>ECF</strong>
                 </td>
-                <td id="ecf">0</td>
-                <input type="hidden" id="ecf_hidden" value="0"/>
+                <td id="ecf">1.1</td>
+                <input type="hidden" id="ecf_hidden" value="1.1"/>
             </tr>
         </tfoot>
     </table>

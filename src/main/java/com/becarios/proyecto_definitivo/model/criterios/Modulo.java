@@ -1,14 +1,7 @@
-package com.becarios.proyecto_definitivo.model;
+package com.becarios.proyecto_definitivo.model.criterios;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.becarios.proyecto_definitivo.model.attributes.CUOriginal;
-import com.becarios.proyecto_definitivo.model.attributes.Integracion;
-import com.becarios.proyecto_definitivo.model.attributes.Negocio;
-import com.becarios.proyecto_definitivo.model.attributes.Perfiles;
-import com.becarios.proyecto_definitivo.model.attributes.Persistencia;
-import com.becarios.proyecto_definitivo.model.attributes.Vista;
 
 public class Modulo {
     private String name;

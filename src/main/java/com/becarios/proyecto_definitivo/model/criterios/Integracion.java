@@ -1,16 +1,14 @@
-package com.becarios.proyecto_definitivo.model.attributes;
+package com.becarios.proyecto_definitivo.model.criterios;
 
-import com.becarios.proyecto_definitivo.model.Tabla;
-
-public class Perfiles extends Tabla {
+public class Integracion extends Tabla {
     private int nro;
     private int complejidad;
     private int total;
 
-    public Perfiles() {
+    public Integracion() {
         this.nro = 1;
-        this.complejidad = 5;
-        this.total = 5;
+        this.complejidad = 2;
+        this.total = 2;
     }
 
     public int getNro() {
@@ -36,5 +34,4 @@ public class Perfiles extends Tabla {
     public void setTotal(int total) {
         this.total = total;
     }
-
 }
