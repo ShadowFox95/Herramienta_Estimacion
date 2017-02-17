@@ -20,6 +20,9 @@
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-heading"></div>
+			<form name="row"
+						action="/proyecto-definitivo/factores-ajuste/${id}/save"
+						method="POST">
 			<div class="panel-body">
 				<div class="col-lg-12">
 					
@@ -28,7 +31,21 @@
 
 				</div>
 			</div>
+<<<<<<< Upstream, based on origin/vista
 
+=======
+			<div class="panel-footer table-footer-fix clearfix">
+				<span style="float: right">
+					
+						<button type="submit"
+							class="custom-color right-button corner-button">
+							<i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
+						</button>
+					
+				</span>
+			</div>
+			</form>
+>>>>>>> 99c06fb Controlador factoresAjuste Fixed!
 		</div>
 	</div>
 

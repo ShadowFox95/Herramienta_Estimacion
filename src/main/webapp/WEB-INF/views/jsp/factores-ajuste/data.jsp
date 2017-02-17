@@ -17,13 +17,13 @@
             <tr>
                 <td class="col-xs-5">Rendimiento</td>
                 <td class="col-xs-1">
-                    <select id="rendimiento_aplica" onchange="calculate('rendimiento')" class="form-control">
+                    <select id="rendimiento_aplica" name="rendimiento_aplica" onchange="calculate('rendimiento')" class="form-control">
                         <option selected value="0">No</option>
                         <option  value="1">Sí</option>
                     </select>
                 </td>
                 <td class="col-xs-1">
-                    <select id="rendimiento_definicion" disabled="disabled" onchange="calculate('rendimiento')" class="form-control">
+                    <select id="rendimiento_definicion" name="rendimiento_definicion" disabled="disabled" onchange="calculate('rendimiento')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -31,7 +31,7 @@
                     </select>
                 </td>
                 <td class="col-xs-1">
-                    <select id="rendimiento_exigencia" disabled="disabled" onchange="calculate('rendimiento')" class="form-control">
+                    <select id="rendimiento_exigencia" name="rendimiento_exigencia" disabled="disabled" onchange="calculate('rendimiento')" class="form-control">
                         <option value="0">Muy Bajo</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -40,21 +40,21 @@
                     </select>
                 </td>
                 <td id="rendimiento_impacto" class="col-xs-1">0</td>
-                <input type="hidden" id="rendimiento_impacto_hidden" value="0"/>
+                <input type="hidden"  id="rendimiento_impacto_hidden" name="rendimiento_impacto" value="0"/>
                 
                 <td id="rendimiento_riesgo" class="col-xs-1">0</td>
-                <input type="hidden" id="rendimiento_riesgo_hidden" value="0"/>
+                <input type="hidden" id="rendimiento_riesgo_hidden" name="rendimiento_riesgo" value="0"/>
             </tr>
             <tr>
                 <td>Usabilidad</td>
                 <td>
-                    <select id="usabilidad_aplica" onchange="calculate('usabilidad')" class="form-control">
+                    <select id="usabilidad_aplica" name="usabilidad_aplica" onchange="calculate('usabilidad')" class="form-control">
                         <option selected value="0">No</option>
                         <option  value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="usabilidad_definicion" disabled="disabled" onchange="calculate('usabilidad')" class="form-control">
+                    <select id="usabilidad_definicion" name="usabilidad_definicion" disabled="disabled" onchange="calculate('usabilidad')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -62,7 +62,7 @@
                     </select>
                 </td>
                 <td>
-                    <select id="usabilidad_exigencia" disabled="disabled" onchange="calculate('usabilidad')" class="form-control">
+                    <select id="usabilidad_exigencia" name="usabilidad_exigencia" disabled="disabled" onchange="calculate('usabilidad')" class="form-control">
                         <option value="0">Muy Bajo</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -71,21 +71,21 @@
                     </select>
                 </td>
                 <td id="usabilidad_impacto" >0</td>
-                <input type="hidden" id="usabilidad_impacto_hidden" value="0"/>
+                <input type="hidden" id="usabilidad_impacto_hidden" name="usabilidad_impacto" value="0"/>
                 
                 <td id="usabilidad_riesgo" >0</td>
-                <input type="hidden" id="usabilidad_riesgo_hidden" value="0"/>
+                <input type="hidden" id="usabilidad_riesgo_hidden" name="usabilidad_riesgo" value="0"/>
             </tr>
             <tr>
                 <td>Portabilidad</td>
                 <td>
-                    <select id="portabilidad_aplica" onchange="calculate('portabilidad')" class="form-control">
+                    <select id="portabilidad_aplica" name="portabilidad_aplica" onchange="calculate('portabilidad')" class="form-control">
                         <option selected value="0">No</option>
                         <option  value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="portabilidad_definicion" disabled="disabled" onchange="calculate('portabilidad')" class="form-control">
+                    <select id="portabilidad_definicion" name="portabilidad_definicion" disabled="disabled" onchange="calculate('portabilidad')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -93,7 +93,7 @@
                     </select>
                 </td>
                 <td>
-                    <select id="portabilidad_exigencia" disabled="disabled" onchange="calculate('portabilidad')" class="form-control">
+                    <select id="portabilidad_exigencia" name="portabilidad_exigencia" disabled="disabled" onchange="calculate('portabilidad')" class="form-control">
                         <option value="0">Muy Bajo</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -102,21 +102,21 @@
                     </select>
                 </td>
                 <td id="portabilidad_impacto" >0</td>
-                <input type="hidden" id="portabilidad_impacto_hidden" value="0"/>
+                <input type="hidden" id="portabilidad_impacto_hidden" name="portabilidad_impacto" value="0"/>
                 
                 <td id="portabilidad_riesgo" >0</td>
-                <input type="hidden" id="portabilidad_riesgo_hidden" value="0"/>
+                <input type="hidden" id="portabilidad_riesgo_hidden" name="portabilidad_riesgo" value="0"/>
             </tr>
             <tr>
                 <td>Concurrencia</td>
                 <td>
-                    <select id="concurrencia_aplica" onchange="calculate('concurrencia')" class="form-control">
+                    <select id="concurrencia_aplica" name="concurrencia_aplica" onchange="calculate('concurrencia')" class="form-control">
                         <option selected value="0">No</option>
                         <option  value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="concurrencia_definicion" disabled="disabled" onchange="calculate('concurrencia')" class="form-control">
+                    <select id="concurrencia_definicion" name="concurrencia_definicion" disabled="disabled" onchange="calculate('concurrencia')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -124,7 +124,7 @@
                     </select>
                 </td>
                 <td>
-                    <select id="concurrencia_exigencia" disabled="disabled" onchange="calculate('concurrencia')" class="form-control">
+                    <select id="concurrencia_exigencia" name="concurrencia_exigencia" disabled="disabled" onchange="calculate('concurrencia')" class="form-control">
                         <option value="0">Muy Bajo</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -133,22 +133,22 @@
                     </select>
                 </td>
                 <td id="concurrencia_impacto" >0</td>
-                <input type="hidden" id="concurrencia_impacto_hidden" value="0"/>
+                <input type="hidden" id="concurrencia_impacto_hidden" name="concurrencia_impacto" value="0"/>
                 
                 <td id="concurrencia_riesgo" >0</td>
-                <input type="hidden" id="concurrencia_riesgo_hidden" value="0"/>
+                <input type="hidden" id="concurrencia_riesgo_hidden" name="concurrencia_riesgo" value="0"/>
                 
             </tr>
             <tr>
                 <td>Seguridad</td>
                 <td>
-                    <select id="seguridad_aplica" onchange="calculate('seguridad')" class="form-control">
+                    <select id="seguridad_aplica" name="seguridad_aplica" onchange="calculate('seguridad')" class="form-control">
                         <option selected value="0">No</option>
                         <option  value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="seguridad_definicion" disabled="disabled" onchange="calculate('seguridad')" class="form-control">
+                    <select id="seguridad_definicion" name="seguridad_definicion" disabled="disabled" onchange="calculate('seguridad')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -156,7 +156,7 @@
                     </select>
                 </td>
                 <td>
-                    <select id="seguridad_exigencia" disabled="disabled" onchange="calculate('seguridad')" class="form-control">
+                    <select id="seguridad_exigencia" name="seguridad_exigencia" disabled="disabled" onchange="calculate('seguridad')" class="form-control">
                         <option value="0">Muy Bajo</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -165,10 +165,10 @@
                     </select>
                 </td>
                 <td id="seguridad_impacto" >0</td>
-                <input type="hidden" id="seguridad_impacto_hidden" value="0"/>
+                <input type="hidden" id="seguridad_impacto_hidden" name="seguridad_impacto" value="0"/>
                 
                 <td id="seguridad_riesgo" >0</td>
-                <input type="hidden" id="seguridad_riesgo_hidden" value="0"/>
+                <input type="hidden" id="seguridad_riesgo_hidden" name="seguridad_riesgo" value="0"/>
             </tr>
 
         </tbody>
@@ -213,19 +213,19 @@
             <tr>
                 <td class="col-xs-5">Arquitectura de Solución de Software</td>
                 <td class="col-xs-1">
-                    <select id="solucion_aplica" onchange="calculate2('solucion')" class="form-control">
+                    <select id="solucion_aplica" name="solucion_aplica" onchange="calculate2('solucion')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td class="col-xs-1">
-                    <select id="solucion_definido" disabled="disabled" onchange="calculate2('solucion')" class="form-control">
+                    <select id="solucion_definido" name="solucion_definido" disabled="disabled" onchange="calculate2('solucion')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td class="col-xs-1">
-                    <select id="solucion_conocimiento" disabled="disabled" onchange="calculate2('solucion')" class="form-control">
+                    <select id="solucion_conocimiento" name="solucion_conocimiento" disabled="disabled" onchange="calculate2('solucion')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -233,27 +233,27 @@
                     </select>
                 </td>
                 <td id="solucion_impacto" class="col-xs-1">0</td>
-                <input type="hidden" id="solucion_impacto_hidden" value="0"/>
+                <input type="hidden" id="solucion_impacto_hidden" name="solucion_impacto" value="0"/>
                 
                 <td id="solucion_riesgo" class="col-xs-1">0</td>
-                <input type="hidden" id="solucion_riesgo_hidden" value="0"/>
+                <input type="hidden" id="solucion_riesgo_hidden" name="solucion_riesgo" value="0"/>
             </tr>
             <tr>
                 <td>Artquitectura de Integración de Software</td>
                 <td>
-                    <select id="integracion_aplica" onchange="calculate2('integracion')" class="form-control">
+                    <select id="integracion_aplica" name="integracion_aplica" onchange="calculate2('integracion')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="integracion_definido" disabled="disabled" onchange="calculate2('integracion')" class="form-control">
+                    <select id="integracion_definido" name="integracion_definido" disabled="disabled" onchange="calculate2('integracion')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="integracion_conocimiento" disabled="disabled" onchange="calculate2('integracion')" class="form-control">
+                    <select id="integracion_conocimiento" name="integracion_conocimiento" disabled="disabled" onchange="calculate2('integracion')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -261,27 +261,27 @@
                     </select>
                 </td>
                 <td id="integracion_impacto">0</td>
-                <input type="hidden" id="integracion_impacto_hidden" value="0"/>
+                <input type="hidden" id="integracion_impacto_hidden" name="integracion_impacto" value="0"/>
                 
                 <td id="integracion_riesgo">0</td>
-                <input type="hidden" id="integracion_riesgo_hidden" value="0"/>
+                <input type="hidden" id="integracion_riesgo_hidden" name="integracion_riesgo" value="0"/>
             </tr>
             <tr>
                 <td>Arquitectura Lógica de Datos</td>
                 <td>
-                    <select id="logica_aplica" onchange="calculate2('logica')" class="form-control">
+                    <select id="logica_aplica" name="logica_aplica" onchange="calculate2('logica')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="logica_definido" disabled="disabled" onchange="calculate2('logica')" class="form-control">
+                    <select id="logica_definido" name="logica_definido" disabled="disabled" onchange="calculate2('logica')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="logica_conocimiento" disabled="disabled" onchange="calculate2('logica')" class="form-control">
+                    <select id="logica_conocimiento" name="logica_conocimiento" disabled="disabled" onchange="calculate2('logica')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -289,26 +289,26 @@
                     </select>
                 </td>
                 <td id="logica_impacto">0</td>
-                <input type="hidden" id="logica_impacto_hidden" value="0"/>
+                <input type="hidden" id="logica_impacto_hidden" name="logica_impacto" value="0"/>
                 <td id="logica_riesgo">0</td>
-                <input type="hidden" id="logica_riesgo_hidden" value="0"/>
+                <input type="hidden" id="logica_riesgo_hidden" name="logica_riesgo" value="0"/>
             </tr>
             <tr>
                 <td>Arquitectura de Despliegue</td>
                 <td>
-                    <select id="despliegue_aplica" onchange="calculate2('despliegue')" class="form-control">
+                    <select id="despliegue_aplica" name="despliegue_aplica" onchange="calculate2('despliegue')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="despliegue_definido" disabled="disabled" onchange="calculate2('despliegue')" class="form-control">
+                    <select id="despliegue_definido" name="despliegue_definido" disabled="disabled" onchange="calculate2('despliegue')" class="form-control">
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
                 </td>
                 <td>
-                    <select id="despliegue_conocimiento" disabled="disabled" onchange="calculate2('despliegue')" class="form-control">
+                    <select id="despliegue_conocimiento" name="despliegue_conocimiento" disabled="disabled" onchange="calculate2('despliegue')" class="form-control">
                         <option value="0">Ninguno</option>
                         <option value="1">Bajo</option>
                         <option value="2">Medio</option>
@@ -316,9 +316,9 @@
                     </select>
                 </td>
                 <td id="despliegue_impacto">0</td>
-                <input type="hidden" id="despliegue_impacto_hidden" value="0"/>
+                <input type="hidden" id="despliegue_impacto_hidden" name="despliegue_impacto" value="0"/>
                 <td id="despliegue_riesgo">0</td>
-                <input type="hidden" id="despliegue_riesgo_hidden" value="0"/>
+                <input type="hidden" id="despliegue_riesgo_hidden" name="despliegue_riesgo" value="0"/>
             </tr>
         </tbody>
         <tfoot>
@@ -357,7 +357,7 @@
             <tr>
                 <td class="col-xs-5">Experiencia en la aplicación actual</td>
                 <td class="col-xs-1">
-                    <select id="experiencia_valoracion" onchange="calculate3('experiencia')" class="form-control">
+                    <select id="experiencia_valoracion"  name="experiencia_valoracion" onchange="calculate3('experiencia')" class="form-control">
                         <option value="10">Muy Bajo</option>
                         <option value="5">Bajo</option>
                         <option value="0">Medio</option>
@@ -366,12 +366,12 @@
                     </select>
                 </td>
                 <td id="experiencia_calculado" class="col-xs-1">10</td>
-                <input type="hidden" id="experiencia_calculado_hidden" value="10"/>
+                <input type="hidden" id="experiencia_calculado_hidden"  name="experiencia_calculado" value="10"/>
             </tr>
             <tr>
                 <td>Capacidades de líder técnico</td>
                 <td>
-                    <select id="capacidades_valoracion" onchange="calculate3('capacidades')" class="form-control">
+                    <select id="capacidades_valoracion"  name="capacidades_valoracion" onchange="calculate3('capacidades')" class="form-control">
                         <option value="10">Muy Bajo</option>
                         <option value="5">Bajo</option>
                         <option value="0">Medio</option>
@@ -380,12 +380,12 @@
                     </select>
                 </td>
                 <td id="capacidades_calculado">10</td>
-				<input type="hidden" id="capacidades_calculado_hidden" value="10"/>
+				<input type="hidden" id="capacidades_calculado_hidden"  name="capacidades_calculado" value="10"/>
             </tr>
             <tr>
                 <td>Calidad de requisitos de negocio</td>
                 <td>
-                    <select id="calidad_valoracion" onchange="calculate3('calidad')" class="form-control">
+                    <select id="calidad_valoracion" name="calidad_valoracion" onchange="calculate3('calidad')" class="form-control">
                         <option value="20">Nula</option>
                         <option value="15">Muy Bajo</option>
                         <option value="10">Bajo</option>
@@ -395,7 +395,7 @@
                     </select>
                 </td>
                 <td id="calidad_calculado">20</td>
-                <input type="hidden" id="calidad_calculado_hidden" value="20"/>
+                <input type="hidden" id="calidad_calculado_hidden" name="calidad_calculado" value="20"/>
 
             </tr>
         </tbody>
