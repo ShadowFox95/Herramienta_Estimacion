@@ -1,8 +1,6 @@
-package com.becarios.proyecto_definitivo.servlet3;
+package com.becarios.proyecto_definitivo.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
-import com.becarios.proyecto_definitivo.config.SpringWebConfig;
 
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
