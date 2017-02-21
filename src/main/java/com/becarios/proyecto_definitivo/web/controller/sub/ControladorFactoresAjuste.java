@@ -36,8 +36,7 @@ public class ControladorFactoresAjuste {
     // }
 
     @RequestMapping(value = "/factores-ajuste/{id}/save", method = RequestMethod.POST)
-    public String save(ModelMap model, @PathVariable("id") int id,
-            @RequestParam("rendimiento_aplica") boolean rendimientoAplica,
+    public String save(@PathVariable("id") int id, @RequestParam("rendimiento_aplica") boolean rendimientoAplica,
             @RequestParam("rendimiento_definicion") int rendimientoDefinicion,
             @RequestParam("rendimiento_exigencia") int rendimientoExigencia,
             @RequestParam("rendimiento_impacto") int rendimientoImpacto,
