@@ -1,4 +1,4 @@
-package com.becarios.proyecto_definitivo.service;
+package com.becarios.proyecto_definitivo.service.criterios;
 
 import java.util.List;
 
