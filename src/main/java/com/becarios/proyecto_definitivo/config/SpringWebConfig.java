@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc // mvc:annotation-driven
 @Configuration
-@ComponentScan({ "com.becarios.proyecto_definitivo.web", "com.becarios.proyecto_definitivo.service" })
+@ComponentScan({ "com.becarios.proyecto_definitivo" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
     @Override

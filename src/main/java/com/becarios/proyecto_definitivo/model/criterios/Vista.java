@@ -1,23 +1,32 @@
 package com.becarios.proyecto_definitivo.model.criterios;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "VISTA", schema = "USUARI")
 public class Vista extends Tabla {
+
+    private static final long serialVersionUID = -4470615942677187015L;
 
     private int nro;
     private int complejidad;
     private int campos;
     private int listados;
     private int botones;
-    private int total;
 
-    public Vista() {
+    public Vista(String codigoRef) {
+        super.setCodigoRef(codigoRef);
         this.nro = 1;
         this.complejidad = 5;
         this.campos = 5;
         this.listados = 5;
         this.botones = 5;
-        this.total = 20;
+        super.setTotal(20);
     }
 
+    @Column(name = "NRO", precision = 0, scale = 0)
     public int getNro() {
         return nro;
     }
@@ -26,6 +35,7 @@ public class Vista extends Tabla {
         this.nro = nro;
     }
 
+    @Column(name = "COMPLEJIDAD", precision = 0, scale = 0)
     public int getComplejidad() {
         return complejidad;
     }
@@ -34,6 +44,7 @@ public class Vista extends Tabla {
         this.complejidad = complejidad;
     }
 
+    @Column(name = "BOTONES", precision = 0, scale = 0)
     public int getBotones() {
         return botones;
     }
@@ -42,6 +53,7 @@ public class Vista extends Tabla {
         this.botones = botones;
     }
 
+    @Column(name = "CAMPOS", precision = 0, scale = 0)
     public int getCampos() {
         return campos;
     }
@@ -50,20 +62,13 @@ public class Vista extends Tabla {
         this.campos = campos;
     }
 
+    @Column(name = "LISTADOS", precision = 0, scale = 0)
     public int getListados() {
         return listados;
     }
 
     public void setListados(int listados) {
         this.listados = listados;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
     }
 
 }

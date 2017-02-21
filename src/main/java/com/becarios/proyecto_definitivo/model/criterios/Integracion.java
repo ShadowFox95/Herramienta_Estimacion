@@ -1,16 +1,26 @@
 package com.becarios.proyecto_definitivo.model.criterios;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "INTEGRACION", schema = "USUARI")
 public class Integracion extends Tabla {
+
+    private static final long serialVersionUID = 4006336308830010409L;
+
     private int nro;
     private int complejidad;
-    private int total;
 
-    public Integracion() {
+    public Integracion(String codigoRef) {
+        super.setCodigoRef(codigoRef);
         this.nro = 1;
         this.complejidad = 2;
-        this.total = 2;
+        super.setTotal(2);
     }
 
+    @Column(name = "NRO", precision = 0, scale = 0)
     public int getNro() {
         return nro;
     }
@@ -19,6 +29,7 @@ public class Integracion extends Tabla {
         this.nro = nro;
     }
 
+    @Column(name = "COMPLEJIDAD", precision = 0, scale = 0)
     public int getComplejidad() {
         return complejidad;
     }
@@ -27,11 +38,4 @@ public class Integracion extends Tabla {
         this.complejidad = complejidad;
     }
 
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
 }
