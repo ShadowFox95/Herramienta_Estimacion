@@ -269,7 +269,7 @@ body,html {
 }
 .nav-side-menu ul .sub-menu li:hover,
 .nav-side-menu li .sub-menu li:hover {
-  background-color: #f8f8f8;
+  background-color: #00f9ff;
 }
 .nav-side-menu ul .sub-menu li:before,
 .nav-side-menu li .sub-menu li:before {
@@ -282,7 +282,6 @@ body,html {
 }
 .nav-side-menu li {
   padding-left: 0px;
-  border-left: 3px solid #DDD;
   border-bottom: 1px solid #DDD;
 }
 .nav-side-menu li a {
@@ -296,14 +295,18 @@ body,html {
   width: 20px;
   padding-right: 20px;
 }
-.nav-side-menu li:hover {
-  border-left: 3px solid #DDD;
-  background-color: #e6e6e6;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+.expandibles li {
+  padding-left: 0px;
+  border-left: 3px solid #F8F8F8;
+  border-top: 1px solid #DDD;
+  border-bottom: 0px solid #DDD;
+}
+.expandibles li:hover {
+  border-left: 10px solid #DDD;
+
+}
+.collapsed > .fa.arrow:before{
+	content: "\f077"
 }
 @media (max-width: 767px) {
   .nav-side-menu {
