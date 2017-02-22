@@ -29,9 +29,12 @@ function calculate(fila) {
         document.getElementById(fila + "_impacto").innerHTML = parseInt(2 + (exigencia * 2));
 
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
 =======
 
 >>>>>>> 477547e Format changes
+=======
+>>>>>>> be54e77 New Sidebar Progress
     }
 
     refresh();
@@ -39,6 +42,7 @@ function calculate(fila) {
 
 function refresh() {
     var totalImpacto = 0;
+<<<<<<< Upstream, based on origin/marius
 <<<<<<< Upstream, based on origin/marius
     totalImpacto = parseInt(document.getElementById("rendimiento_impacto_hidden").value)
             + parseInt(document.getElementById("usabilidad_impacto_hidden").value)
@@ -58,14 +62,29 @@ function refresh() {
         parseInt(document.getElementById("portabilidad_impacto_hidden").value) +
         parseInt(document.getElementById("concurrencia_impacto_hidden").value) +
         parseInt(document.getElementById("seguridad_impacto_hidden").value);
+=======
+    totalImpacto = parseInt(document.getElementById("rendimiento_impacto_hidden").value)
+            + parseInt(document.getElementById("usabilidad_impacto_hidden").value)
+            + parseInt(document.getElementById("portabilidad_impacto_hidden").value)
+            + parseInt(document.getElementById("concurrencia_impacto_hidden").value)
+            + parseInt(document.getElementById("seguridad_impacto_hidden").value);
+>>>>>>> be54e77 New Sidebar Progress
 
     var totalRiesgo = 0;
+<<<<<<< Upstream, based on origin/marius
     totalRiesgo = parseInt(document.getElementById("rendimiento_riesgo_hidden").value) +
         parseInt(document.getElementById("usabilidad_riesgo_hidden").value) +
         parseInt(document.getElementById("portabilidad_riesgo_hidden").value) +
         parseInt(document.getElementById("concurrencia_riesgo_hidden").value) +
         parseInt(document.getElementById("seguridad_riesgo_hidden").value);
 >>>>>>> 477547e Format changes
+=======
+    totalRiesgo = parseInt(document.getElementById("rendimiento_riesgo_hidden").value)
+            + parseInt(document.getElementById("usabilidad_riesgo_hidden").value)
+            + parseInt(document.getElementById("portabilidad_riesgo_hidden").value)
+            + parseInt(document.getElementById("concurrencia_riesgo_hidden").value)
+            + parseInt(document.getElementById("seguridad_riesgo_hidden").value);
+>>>>>>> be54e77 New Sidebar Progress
 
     document.getElementById("total_impacto_hidden").value = totalImpacto;
     document.getElementById("total_impacto").innerHTML = totalImpacto;
@@ -124,6 +143,7 @@ function calculate2(fila) {
 function refresh2() {
     var totalImpacto = 0;
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
     totalImpacto = parseInt(document.getElementById("solucion_impacto_hidden").value)
             + parseInt(document.getElementById("integracion_impacto_hidden").value)
             + parseInt(document.getElementById("logica_impacto_hidden").value)
@@ -157,8 +177,15 @@ function refresh2() {
         parseInt(document.getElementById("integracion_impacto_hidden").value) +
         parseInt(document.getElementById("logica_impacto_hidden").value) +
         parseInt(document.getElementById("despliegue_impacto_hidden").value);
+=======
+    totalImpacto = parseInt(document.getElementById("solucion_impacto_hidden").value)
+            + parseInt(document.getElementById("integracion_impacto_hidden").value)
+            + parseInt(document.getElementById("logica_impacto_hidden").value)
+            + parseInt(document.getElementById("despliegue_impacto_hidden").value);
+>>>>>>> be54e77 New Sidebar Progress
 
     var totalRiesgo = 0;
+<<<<<<< Upstream, based on origin/marius
     totalRiesgo = parseInt(document.getElementById("solucion_riesgo_hidden").value) +
         parseInt(document.getElementById("integracion_riesgo_hidden").value) +
         parseInt(document.getElementById("logica_riesgo_hidden").value) +
@@ -166,6 +193,12 @@ function refresh2() {
 >>>>>>> 477547e Format changes
 
 function calculate3(fila) {
+=======
+    totalRiesgo = parseInt(document.getElementById("solucion_riesgo_hidden").value)
+            + parseInt(document.getElementById("integracion_riesgo_hidden").value)
+            + parseInt(document.getElementById("logica_riesgo_hidden").value)
+            + parseInt(document.getElementById("despliegue_riesgo_hidden").value);
+>>>>>>> be54e77 New Sidebar Progress
 
 <<<<<<< Upstream, based on origin/marius
     var res = 0;
@@ -193,11 +226,10 @@ function refresh3() {
     document.getElementById("total_riesgo2_hidden").value = totalRiesgo;
     document.getElementById("total_riesgo2").innerHTML = totalRiesgo;
 
-
     var res = 0;
 
     res = new Big(((1 + (0.2 / 60) * parseInt(totalImpacto))));
-    //res = 0.1+0.2;
+    // res = 0.1+0.2;
     document.getElementById("tcf_impacto2_hidden").value = res.round(2, 1);
     document.getElementById("tcf_impacto2").innerHTML = res.round(2, 1);
 
@@ -220,17 +252,20 @@ function calculate3(fila) {
 function refresh3() {
 
     var total = 0;
-    total = parseInt(document.getElementById("experiencia_valoracion").value) +
-        parseInt(document.getElementById("capacidades_valoracion").value) +
-        parseInt(document.getElementById("calidad_valoracion").value);
+    total = parseInt(document.getElementById("experiencia_valoracion").value)
+            + parseInt(document.getElementById("capacidades_valoracion").value)
+            + parseInt(document.getElementById("calidad_valoracion").value);
 
     document.getElementById("total").innerHTML = total;
     document.getElementById("total_hidden").value = total;
 
     total = new Big(1 + ((0.1 / 40) * parseInt(total)));
+<<<<<<< Upstream, based on origin/marius
 
 
 >>>>>>> 477547e Format changes
+=======
+>>>>>>> be54e77 New Sidebar Progress
 
     document.getElementById("ecf").innerHTML = total.round(2, 1);
     document.getElementById("ecf_hidden").innerHTML = total.round(2, 1);

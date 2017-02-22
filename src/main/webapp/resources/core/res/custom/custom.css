@@ -398,6 +398,7 @@ a, a:visited, a:hover, a:active {
   width: 20px;
   padding-right: 20px;
 }
+<<<<<<< Upstream, based on origin/marius
 .nav-tabs>li>a {
     margin-right: 1px !important;
     line-height: 1.42857143;
@@ -417,6 +418,20 @@ a, a:visited, a:hover, a:active {
 .expandibles li:hover {
   border-left: 10px solid #DDD;
 
+=======
+.expandibles li {
+  padding-left: 0px;
+  border-left: 3px solid #F8F8F8;
+  border-top: 1px solid #DDD;
+  border-bottom: 0px solid #DDD;
+}
+.expandibles li:hover {
+  border-left: 10px solid #DDD;
+
+}
+.collapsed > .fa.arrow:before{
+	content: "\f077"
+>>>>>>> be54e77 New Sidebar Progress
 }
 @media (max-width: 767px) {
   .nav-side-menu {
