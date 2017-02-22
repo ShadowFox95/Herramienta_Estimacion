@@ -28,7 +28,6 @@ function calculate(fila) {
         document.getElementById(fila + "_impacto_hidden").value = parseInt(2 + (exigencia * 2));
         document.getElementById(fila + "_impacto").innerHTML = parseInt(2 + (exigencia * 2));
 
-
     }
 
     refresh();
@@ -36,18 +35,18 @@ function calculate(fila) {
 
 function refresh() {
     var totalImpacto = 0;
-    totalImpacto = parseInt(document.getElementById("rendimiento_impacto_hidden").value) +
-        parseInt(document.getElementById("usabilidad_impacto_hidden").value) +
-        parseInt(document.getElementById("portabilidad_impacto_hidden").value) +
-        parseInt(document.getElementById("concurrencia_impacto_hidden").value) +
-        parseInt(document.getElementById("seguridad_impacto_hidden").value);
+    totalImpacto = parseInt(document.getElementById("rendimiento_impacto_hidden").value)
+            + parseInt(document.getElementById("usabilidad_impacto_hidden").value)
+            + parseInt(document.getElementById("portabilidad_impacto_hidden").value)
+            + parseInt(document.getElementById("concurrencia_impacto_hidden").value)
+            + parseInt(document.getElementById("seguridad_impacto_hidden").value);
 
     var totalRiesgo = 0;
-    totalRiesgo = parseInt(document.getElementById("rendimiento_riesgo_hidden").value) +
-        parseInt(document.getElementById("usabilidad_riesgo_hidden").value) +
-        parseInt(document.getElementById("portabilidad_riesgo_hidden").value) +
-        parseInt(document.getElementById("concurrencia_riesgo_hidden").value) +
-        parseInt(document.getElementById("seguridad_riesgo_hidden").value);
+    totalRiesgo = parseInt(document.getElementById("rendimiento_riesgo_hidden").value)
+            + parseInt(document.getElementById("usabilidad_riesgo_hidden").value)
+            + parseInt(document.getElementById("portabilidad_riesgo_hidden").value)
+            + parseInt(document.getElementById("concurrencia_riesgo_hidden").value)
+            + parseInt(document.getElementById("seguridad_riesgo_hidden").value);
 
     document.getElementById("total_impacto_hidden").value = totalImpacto;
     document.getElementById("total_impacto").innerHTML = totalImpacto;
@@ -94,8 +93,10 @@ function calculate2(fila) {
             document.getElementById(fila + "_conocimiento").disabled = false;
             document.getElementById(fila + "_impacto").innerHTML = 0;
             document.getElementById(fila + "_impacto_hidden").value = 0;
-            document.getElementById(fila + "_riesgo").innerHTML = (15 - (5 * document.getElementById(fila + "_conocimiento").value));
-            document.getElementById(fila + "_riesgo_hidden").value = (15 - (5 * document.getElementById(fila + "_conocimiento").value));
+            document.getElementById(fila + "_riesgo").innerHTML = (15 - (5 * document.getElementById(fila
+                    + "_conocimiento").value));
+            document.getElementById(fila + "_riesgo_hidden").value = (15 - (5 * document.getElementById(fila
+                    + "_conocimiento").value));
         }
     }
     refresh2();
@@ -103,28 +104,26 @@ function calculate2(fila) {
 
 function refresh2() {
     var totalImpacto = 0;
-    totalImpacto = parseInt(document.getElementById("solucion_impacto_hidden").value) +
-        parseInt(document.getElementById("integracion_impacto_hidden").value) +
-        parseInt(document.getElementById("logica_impacto_hidden").value) +
-        parseInt(document.getElementById("despliegue_impacto_hidden").value);
+    totalImpacto = parseInt(document.getElementById("solucion_impacto_hidden").value)
+            + parseInt(document.getElementById("integracion_impacto_hidden").value)
+            + parseInt(document.getElementById("logica_impacto_hidden").value)
+            + parseInt(document.getElementById("despliegue_impacto_hidden").value);
 
     var totalRiesgo = 0;
-    totalRiesgo = parseInt(document.getElementById("solucion_riesgo_hidden").value) +
-        parseInt(document.getElementById("integracion_riesgo_hidden").value) +
-        parseInt(document.getElementById("logica_riesgo_hidden").value) +
-        parseInt(document.getElementById("despliegue_riesgo_hidden").value);
-
+    totalRiesgo = parseInt(document.getElementById("solucion_riesgo_hidden").value)
+            + parseInt(document.getElementById("integracion_riesgo_hidden").value)
+            + parseInt(document.getElementById("logica_riesgo_hidden").value)
+            + parseInt(document.getElementById("despliegue_riesgo_hidden").value);
 
     document.getElementById("total_impacto2_hidden").value = totalImpacto;
     document.getElementById("total_impacto2").innerHTML = totalImpacto;
     document.getElementById("total_riesgo2_hidden").value = totalRiesgo;
     document.getElementById("total_riesgo2").innerHTML = totalRiesgo;
 
-
     var res = 0;
 
     res = new Big(((1 + (0.2 / 60) * parseInt(totalImpacto))));
-    //res = 0.1+0.2;
+    // res = 0.1+0.2;
     document.getElementById("tcf_impacto2_hidden").value = res.round(2, 1);
     document.getElementById("tcf_impacto2").innerHTML = res.round(2, 1);
 
@@ -147,16 +146,14 @@ function calculate3(fila) {
 function refresh3() {
 
     var total = 0;
-    total = parseInt(document.getElementById("experiencia_valoracion").value) +
-        parseInt(document.getElementById("capacidades_valoracion").value) +
-        parseInt(document.getElementById("calidad_valoracion").value);
+    total = parseInt(document.getElementById("experiencia_valoracion").value)
+            + parseInt(document.getElementById("capacidades_valoracion").value)
+            + parseInt(document.getElementById("calidad_valoracion").value);
 
     document.getElementById("total").innerHTML = total;
     document.getElementById("total_hidden").value = total;
 
     total = new Big(1 + ((0.1 / 40) * parseInt(total)));
-
-
 
     document.getElementById("ecf").innerHTML = total.round(2, 1);
     document.getElementById("ecf_hidden").innerHTML = total.round(2, 1);
