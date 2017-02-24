@@ -122,7 +122,6 @@ public class ControladorCriterios {
         notification = "Se han aplicado los cambios";
 
         return "redirect:/criterios/";
-
     }
 
     // discard changes
@@ -133,7 +132,6 @@ public class ControladorCriterios {
         notificationType = "info";
         notification = "Se han descartado los cambios";
         return "redirect:/criterios/";
-
     }
 
     // Adds a table row
@@ -141,13 +139,11 @@ public class ControladorCriterios {
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
         proyecto.crearModulo();
-
         return "redirect:/criterios/";
-
     }
 
     // Delete a table row
-    @RequestMapping(value = "/criterios/{code}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/criterios/{code}/delete", method = RequestMethod.GET)
     public String deleteRow(@PathVariable("code") String code) {
         // Desplazar a otra clase
         Modulo row = new Modulo();

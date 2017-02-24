@@ -47,14 +47,21 @@
 					</div>-->
 					<li>
     	                             
-    	      			<a onclick="expanded()" href="#" id="collapsable" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
-    	      				<b>Proyectos</b> <span id="arrow" class="fa arrow"></span>
+    	      			<a  href="#" id="collapsable" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
+    	      				<b>Proyectos</b> <span class="fa arrow"></span>
     	      			</a>
     	      			<div class="collapse" id="toggleDemo" style="height: 0px;">
     	       				<ul class="expandibles">
-    	          				<li><a href="#">Proyecto A (YZX-4354)</a></li>
-    	         				<li><a href="#">Proyecto B (AZC-5464)</a></li>
-        	      				<li><a href="#">Proyecto C (MNV-4645)</a></li>
+    	       				<c:forEach var="proyecto" items="${projectes}">
+    	          				<li><a href="${proyecto.codigo}/edit">${proyecto.nombre} (${proyecto.codigo})</a></li>
+    	          			</c:forEach>
+    	          			<form name="row" action="/proyecto-definitivo/index/addRow" method="POST">
+    	          			<li>
+                           <button type="submit" class="custom-color left-button corner-button">
+                           <i class="glyphicon glyphicon-plus"></i> Crear Proyecto
+                           </button>
+                           </li>
+                        </form>
         	    			</ul>
         	    		</div>
         			</li>
