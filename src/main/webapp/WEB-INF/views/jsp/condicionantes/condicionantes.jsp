@@ -6,7 +6,8 @@
 <html lang="en">
    <head>
       <title>EF - Condicionantes</title>
-      <jsp:include page="../fragments/sidebar.jsp" />
+      </head>
+      <body>
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">

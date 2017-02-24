@@ -17,11 +17,22 @@ body,html {
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
+    
+    padding: 0 30px;
+    height: auto;
+
+  }
+  #page-wrapper-menu {
+    position: inherit;
     margin: 0 0 0 250px;
     padding: 0 30px;
     height: auto;
 
   }
+  .page-header-menu {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+}
   .mobile-button {
   	display: inline;
   
@@ -235,6 +246,7 @@ body,html {
      }
 */
 }
+
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
@@ -245,6 +257,9 @@ body,html {
   padding-right: 10px;
   vertical-align: middle;
   float: right;
+-webkit-transition: -webkit-transform 0.5s ; /* Safari */
+    transition:  transform 0.5s ;
+	
 }
 .nav-side-menu ul .active,
 .nav-side-menu li .active {
@@ -306,7 +321,10 @@ body,html {
 
 }
 .collapsed > .fa.arrow:before{
-	content: "\f077"
+
+-webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+	
 }
 @media (max-width: 767px) {
   .nav-side-menu {

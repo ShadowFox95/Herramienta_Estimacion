@@ -6,7 +6,8 @@
 <html lang="en">
    <head>
       <title>Error 500</title>
-      <jsp:include page="../fragments/sidebar.jsp" />
+</head>
+<body>
             <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -18,8 +19,7 @@
             <!-- /.col-lg-12 -->
          </div>
          </div>
-</head>
-<body>
+
 	<jsp:include page="../fragments/footer.jsp" />
 </body>
 </html>

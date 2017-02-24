@@ -6,8 +6,8 @@
 <html lang="en">
    <head>
       <title>EF - Criterios</title>
-      <jsp:include page="../fragments/sidebar.jsp" />
-      
+      </head>
+      <body>
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -178,7 +178,8 @@
       </div>
       <!-- /#page-wrapper -->
 
-      </div>
+
+      
       <!-- /#wrapper -->
 	    <!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
