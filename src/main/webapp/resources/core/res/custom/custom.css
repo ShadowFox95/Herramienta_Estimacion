@@ -20,6 +20,7 @@ body,html {
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
+<<<<<<< Upstream, based on origin/marius
     padding: 0 30px;
     height: 100%;
     height: auto;
@@ -29,17 +30,31 @@ body,html {
     margin: 0px 0 20px;
     border-bottom: 1px solid #eee;
 }
+=======
+    
+    padding: 0 30px;
+    height: auto;
+
+  }
+>>>>>>> efd4d37 Gestor de Proyectos
   #page-wrapper-menu {
     position: inherit;
     margin: 0 0 0 250px;
     padding: 0 30px;
     height: auto;
   }
+<<<<<<< Upstream, based on origin/marius
   .page-header-menu{
   	padding-bottom: 9px;
   	margin: 40px 0 20px;
   }
 
+=======
+  .page-header-menu {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+}
+>>>>>>> efd4d37 Gestor de Proyectos
   .mobile-button {
   	display: inline;
   }
@@ -328,6 +343,7 @@ a, a:visited, a:hover, a:active {
      }
 */
 }
+
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
@@ -340,6 +356,7 @@ a, a:visited, a:hover, a:active {
   float: right;
 -webkit-transition: -webkit-transform 0.5s ; /* Safari */
     transition:  transform 0.5s ;
+<<<<<<< Upstream, based on origin/marius
  
 	
 }
@@ -347,6 +364,8 @@ a, a:visited, a:hover, a:active {
    -webkit-transform: rotate(180deg); /* Safari */
     transform: rotate(180deg);
 
+=======
+>>>>>>> efd4d37 Gestor de Proyectos
 	
 }
 .nav-side-menu ul .active,
@@ -430,8 +449,15 @@ a, a:visited, a:hover, a:active {
 
 }
 .collapsed > .fa.arrow:before{
+<<<<<<< Upstream, based on origin/marius
 	content: "\f077"
 >>>>>>> be54e77 New Sidebar Progress
+=======
+
+-webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+	
+>>>>>>> efd4d37 Gestor de Proyectos
 }
 @media (max-width: 767px) {
   .nav-side-menu {

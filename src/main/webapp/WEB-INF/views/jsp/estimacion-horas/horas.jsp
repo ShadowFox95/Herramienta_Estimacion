@@ -6,9 +6,14 @@
 <html lang="en">
    <head>
       <title>EF - Estimación de horas</title>
+<<<<<<< Upstream, based on origin/marius
          </head>
       <body>
        
+=======
+      </head>
+      <body>
+>>>>>>> efd4d37 Gestor de Proyectos
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
