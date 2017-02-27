@@ -21,21 +21,21 @@
 	         			<tbody>
 	         				<tr>
 	         					<td>Centro de Testing</td>
-	         					<td class="center col-xs-1"><input type="text" form="save" class="form-control form-custom text-right" id="gest_por" oninput="" maxlength="2" onkeypress='return event.charCode >= 46 && event.charCode <= 57'></td>
-	         					<td>t0</td>
-         						<td></td>
+	         					<td id="testing_ext_por" class="center col-xs-1 text-right">0</td>
+	         					<td id="testing_ext_horas" class="text-right">0</td>
+         						<td id="testing_ext_coste" class="text-right">0.00</td>
 	         				</tr>
 	         				<tr>
 	         					<td>Análisis</td>
-	         				<td class="center col-xs-1"><input type="text" form="save" class="form-control form-custom text-right" id="gest_por" oninput="" maxlength="2" onkeypress='return event.charCode >= 46 && event.charCode <= 57'></td>
-	         					<td>t0</td>
-	         					<td></td>
+	         					<td id="analisis_ext_por" class="center col-xs-1 text-right">0</td>
+	         					<td id="analisis_ext_horas" class="text-right">0</td>
+	         					<td id="analisis_ext_coste" class="text-right">0.00</td>
 	         				</tr>
 	         				<tr class="active">
 	         					<td><strong>Total Delivery</strong></td>
-	         					<td class="text-right">t0%</td>
-	         					<td>t0</td>
-	         					<td></td>
+	         					<td class="text-right"><strong id="delivery_ext_por">0%</strong></td>
+	         					<td id="delivery_ext_horas" class="text-right">0</td>
+	         					<td id="delivery_ext_coste" class="text-right">&euro; 0.00</td>
 	         				</tr>
 	         			</tbody>
 	         		</table>
@@ -51,27 +51,27 @@
 	         			<tbody>
 	         				<tr>
 	         					<td>Gestión de Calidad</td>
-	         				<td class="center col-xs-1"><input type="text" form="save" class="form-control form-custom text-right" id="gest_por" oninput="" maxlength="2" onkeypress='return event.charCode >= 46 && event.charCode <= 57'></td>
-	         					<td>t72</td>
-	         				 	<td></td>
+	         					<td id="calidad_ext_por" class="center col-xs-1 text-right">0</td>
+	         					<td id="calidad_ext_horas" class="text-right">0</td>
+	         				 	<td id="calidad_ext_coste" class="text-right">0.00</td>
 	         				</tr>
 	         				<tr>
 	         					<td>Gestión de Seguridad</td>
-	         			<td class="center col-xs-1"><input type="text" form="save" class="form-control form-custom text-right" id="gest_por" oninput="" maxlength="2" onkeypress='return event.charCode >= 46 && event.charCode <= 57'></td>
-	         					<td>t50</td>
-	         					<td></td>
+	         					<td id="seguridad_ext_por" class="center col-xs-1 text-right">0</td>
+	         					<td id="seguridad_ext_horas" class="text-right">0</td>
+	         					<td id="seguridad_ext_coste" class="text-right">0.00</td>
 	         				</tr>
 	         				<tr>
 	         					<td>Gestión de Despliegues</td>
-	         					<td class="center col-xs-1"><input type="text" form="save" class="form-control form-custom text-right" id="gest_por" oninput="" maxlength="2" onkeypress='return event.charCode >= 46 && event.charCode <= 57'></td>
-	         					<td>t0</td>
-	         					<td></td>
+	         					<td id="despliegues_ext_por" class="center col-xs-1 text-right">0</td>
+	         					<td id="despliegues_ext_horas" class="text-right">0</td>
+	         					<td id="despliegues_ext_coste" class="text-right">0.00</td>
 	         				</tr>
 	         				<tr class="active">
 	         					<td><strong>Total Extras</strong></td>
-	         					<td class="text-right">i17%</td>
-	         					<td>t122</td>
-	         					<td></td>
+	         					<td class="text-right"><strong  id="extras_ext_por">0%</strong></td>
+	         					<td id="extras_ext_horas" class="text-right">0</td>
+	         					<td id="extras_ext_coste" class="text-right">&euro; 0.00</td>
 	         				</tr>
 	         			</tbody>
 	         		</table>
@@ -87,15 +87,15 @@
 	         			<tbody>
 	         				<tr>
 	         					<td>Gestión del Proyecto</td>
-	         					<td class="center col-xs-1"><input type="text" form="save" class="form-control form-custom text-right" id="gest_por" oninput="" maxlength="2" onkeypress='return event.charCode >= 46 && event.charCode <= 57'></td>
-	         					<td>t72</td>
-	         					<td></td>
+	         					<td id="gestionproyecto_ext_por" class="center text-right col-xs-1">0</td> 
+	         					<td id="gestionproyecto_ext_horas" class="text-right">0</td>
+	         					<td id="gestionproyecto_ext_coste" class="text-right">0.00</td>
 	         				</tr>
 	         				<tr class="active">
 	         					<td><strong>Total Gobierno</strong></td>
-	         					<td class="text-right"></td>
-	         					<td>t72</td>
-	         					<td></td>
+	         					<td class="text-right"><strong id="gobierno_ext_por">0%</strong></td>
+	         					<td id="gobierno_ext_horas" class="text-right">0</td>
+	         					<td id="gobierno_ext_coste" class="text-right">&euro; 0.00</td>
 	         				</tr>
 	         			</tbody>
 	         		</table>
