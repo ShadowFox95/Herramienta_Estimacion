@@ -19,7 +19,11 @@
          <!-- /.row -->
          
          <div class="row">
+<<<<<<< Upstream, based on origin/vista
          	 <div class="panel panel-default">
+=======
+         	 <div class="panel panel-default col-fix">
+>>>>>>> a725aed Test
          	 <div class="panel-heading">
          	 </div>
 	         	<div class="panel-body">
@@ -66,7 +70,11 @@
 	         			<tbody>
 	         				<tr>
 	         					<td class="col-xs-2">Horas de Contingencia</td>
+<<<<<<< Upstream, based on origin/vista
 	         					<td class="text-right col-xs-1"><strong id="horascontingencia">0.00</strong></td>
+=======
+	         					<td id="horascontingencia" class="text-right col-xs-1">0.00</td>
+>>>>>>> a725aed Test
 	         				</tr>
 	         			</tbody>
 	         		</table>

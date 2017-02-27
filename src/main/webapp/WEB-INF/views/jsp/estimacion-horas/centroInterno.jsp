@@ -36,7 +36,11 @@
 	         				</tr>
 	         				<tr>
 	         					<td>Fase de Análisis</td>
+<<<<<<< Upstream, based on origin/vista
 	         					<td class="center col-xs-1 align-fix text-right" id="analisis_por">0</td>
+=======
+	         					<td class="center col-xs-1 text-right" id="analisis_por">0</td>
+>>>>>>> a725aed Test
 	         					<td><select class="form-control form-custom" id="analisis_ip" onchange="selectDelivery('analisis')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -60,7 +64,11 @@
 	         				</tr>
 	         				<tr>
 	         					<td>Fase de Pruebas de Funcionamiento</td>
+<<<<<<< Upstream, based on origin/vista
 	         					<td class="center col-xs-1 text-right align-fix" id="testing_por">0</td>
+=======
+	         					<td class="center col-xs-1 text-right" id="testing_por">0</td>
+>>>>>>> a725aed Test
 	         					<td><select class="form-control form-custom"  id="testing_ip" onchange="selectDelivery('testing')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -97,7 +105,11 @@
                               		<option value="5">Medio</option>
                               		<option value="10">Alto</option>
                            		</select></td>
+<<<<<<< Upstream, based on origin/vista
 	         					<td id="calidad_por" class="center col-xs-1 text-right align-fix">0</td>
+=======
+	         					<td id="calidad_por" class="center col-xs-1 text-right">0</td>
+>>>>>>> a725aed Test
 	         					<td><select class="form-control form-custom"  id="calidad_ip" onchange="selectExtras('calidad')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -113,7 +125,11 @@
                               		<option value="7">Medio</option>
                               		<option value="12">Alto</option>
                            		</select></td>
+<<<<<<< Upstream, based on origin/vista
 	         					<td id="seguridad_por" class="center col-xs-1 text-right align-fix">0</td>
+=======
+	         					<td id="seguridad_por" class="center col-xs-1 text-right">0</td>
+>>>>>>> a725aed Test
 	         					<td><select class="form-control form-custom"  id="seguridad_ip" onchange="selectExtras('seguridad')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -129,7 +145,11 @@
                               		<option value="3">Medio</option>
                               		<option value="5">Alto</option>
                            		</select></td>
+<<<<<<< Upstream, based on origin/vista
 	         					<td id="despliegues_por" class="center col-xs-1 text-right align-fix">0</td>
+=======
+	         					<td id="despliegues_por" class="center col-xs-1 text-right">0</td>
+>>>>>>> a725aed Test
 	         					<td><select class="form-control form-custom"  id="despliegues_ip" onchange="selectExtras('despliegues')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
