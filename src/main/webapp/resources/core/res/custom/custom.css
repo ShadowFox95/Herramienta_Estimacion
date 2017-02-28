@@ -51,6 +51,12 @@ body,html {
 .contenido{
 	background-color: #ddd
 }
+	
+.align-fix{
+	margin-right: 20px;
+	padding-right: 13.5px !important;
+}
+
 .btn {
 	margin-left: 1px;
 	margin-right: 1px;
@@ -361,6 +367,12 @@ body,html {
     background: none;
 	}
 }
+
+.width-fix{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
