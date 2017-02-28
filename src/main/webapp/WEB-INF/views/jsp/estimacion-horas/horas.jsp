@@ -71,15 +71,7 @@
 	         		</table>
 	         		</div>
 	         	</div>
-	         	<div class="panel-footer table-footer-fix clearfix">
-	         		<span style="float:right">
-                        <form name="row" action="/proyecto-definitivo/estimacion-horas/saveHoras" method="POST">
-                           <button type="submit" class="custom-color right-button corner-button">
-                           <i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-                           </button>
-                        </form>
-                     </span> 
-	         	</div>
+
         	 </div>
          </div>
          

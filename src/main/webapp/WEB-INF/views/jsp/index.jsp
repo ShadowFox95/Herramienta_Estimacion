@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>EF - Home</title>
+      <title>Estimacion Funcionalidades</title>
       <jsp:include page="./fragments/sidebar.jsp" />
       <div id="page-wrapper-menu">
          <div class="row">
@@ -19,23 +19,36 @@
          <div class="col-lg-12">
                    <div class="page-header-menu">
 
-                            <!-- Nav tabs -->
+                            <!-- Nav tabs -->                            
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>
+                                <li id="proyectoLi" class=""><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>
                                 </li>
-                                <li class=""><a href="#criterios" data-toggle="tab" aria-expanded="false">Criterios</a>
+                                <li id="criteriosLi" class=""><a href="#criterios" data-toggle="tab" aria-expanded="false">Criterios</a>
                                 </li>
-                                <li class=""><a href="#horas" data-toggle="tab" aria-expanded="false">Horas y Costes</a>
+                                <li id="factores-ajusteLi" class=""><a href="#factores-ajuste" data-toggle="tab" aria-expanded="false">Factores de Ajuste</a>
                                 </li>
-                                <li class=""><a href="#factores-ajuste" data-toggle="tab" aria-expanded="false">Factores de Ajuste</a>
+                                <li id="horasLi" class=""><a href="#horas" data-toggle="tab" aria-expanded="false">Horas y Costes</a>
                                 </li>
-                                <li class=""><a href="#condicionantes" data-toggle="tab" aria-expanded="false">Condicionantes</a>
+                                <li id="condicionantesLi" class=""><a href="#condicionantes" data-toggle="tab" aria-expanded="false">Condicionantes</a>
                                 </li>
-                            </ul>
+                            
+
+                            <li>
+                            
+  <form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
+                           <button type="submit" class="custom-color right-button corner-button">
+                           <i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
+                           </button>
+                        </form>
+
+  </li>
+  </ul>
+  <input type="hidden" id="position" value="${control}"/>
 </div> 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane fade active in" id="proyecto">
+                            
+                                <div class="tab-pane fade" id="proyecto">
                                     <jsp:include page="./proyectos/proyectos.jsp" />
                                 </div>
                                 <div class="tab-pane fade" id="criterios">
@@ -60,5 +73,6 @@
       </div>
       <!-- /.page-wrapper -->
       <jsp:include page="./fragments/footer.jsp" />
+     
       </body>
 </html>
