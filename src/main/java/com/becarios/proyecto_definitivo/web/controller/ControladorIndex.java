@@ -21,7 +21,13 @@ public class ControladorIndex {
     // Redirect to main page
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
-        return "redirect:/index";
+        if (first) {
+            proyectos.add(new Proyecto("Proyecto de Prueba", 0, "Lorem ipsum"));
+            first = false;
+        }
+        model.addAttribute("proyectos", proyectos);
+        model.addAttribute("control", "criterios");
+        return "/index";
 
     }
 
@@ -31,7 +37,7 @@ public class ControladorIndex {
             proyectos.add(new Proyecto("Proyecto de Prueba", 0, "Lorem ipsum"));
             first = false;
         }
-        model.addAttribute("projectes", proyectos);
+        model.addAttribute("proyectos", proyectos);
 
         return "/index";
 

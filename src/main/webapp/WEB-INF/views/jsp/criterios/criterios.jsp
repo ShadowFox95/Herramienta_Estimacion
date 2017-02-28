@@ -156,13 +156,7 @@
                         </form>
                    	</span> 
 					
-                     <span style="float:right">
-                        <form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
-                           <button type="submit" class="custom-color right-button corner-button">
-                           <i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-                           </button>
-                        </form>
-                     </span> 
+
                   </div>
                   <!-- /.panel-body -->
                </div>
@@ -188,6 +182,5 @@
 			    $('[data-toggle="popover"]').popover();   
 			});
 		</script>
-      <jsp:include page="../fragments/footer.jsp" />
       </body>
 </html>
