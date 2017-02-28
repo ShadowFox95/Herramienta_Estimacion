@@ -56,7 +56,9 @@ body,html {
 	margin-right: 20px;
 	padding-right: 13.5px !important;
 }
-
+.contenido{
+	background-color: #ddd
+}
 .btn {
 	margin-left: 1px;
 	margin-right: 1px;
@@ -333,6 +335,11 @@ body,html {
   border-left: 3px solid #F8F8F8;
   border-top: 1px solid #DDD;
   border-bottom: 0px solid #DDD;
+
+}
+.expandibles li:hover {
+  border-left: 10px solid #DDD;
+
 }
 .expandibles li:hover {
   border-left: 10px solid #DDD;
