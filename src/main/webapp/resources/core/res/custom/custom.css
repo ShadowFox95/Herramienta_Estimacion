@@ -19,14 +19,17 @@ body,html {
     position: inherit;
     padding: 0 30px;
     height: 100%;
-
+    height: auto;
   }
   #page-wrapper-menu {
     position: inherit;
     margin: 0 0 0 250px;
     padding: 0 30px;
     height: auto;
-
+  }
+  .page-header-menu{
+  	padding-bottom: 9px;
+  	margin: 40px 0 20px;
   }
   .page-header-menu {
     padding-bottom: 9px;
@@ -34,7 +37,6 @@ body,html {
 }
   .mobile-button {
   	display: inline;
-  
   }
 }
 @font-face {
@@ -74,6 +76,7 @@ body,html {
   font-size: 1.2em;
   border:none;
   background:none;
+  outline: 0;
 }
 
 .table-footer-fix {
@@ -117,6 +120,11 @@ body,html {
 .corner-button:hover {
 	background-color: #2d6a9f;
 	
+}
+
+.condition-bt{
+	margin-right: -8px !important;
+    margin-bottom: 8px !important;
 }
 
 .menu-button {
@@ -390,4 +398,15 @@ body,html {
   }
 }
 
-  
+.noresize{
+	resize: none;
+}
+
+.textarea-fix{
+	margin-bottom: 0px !important;
+}
+
+.width-fix{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}

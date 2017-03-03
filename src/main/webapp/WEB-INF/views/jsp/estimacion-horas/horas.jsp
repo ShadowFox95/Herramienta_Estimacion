@@ -6,8 +6,9 @@
 <html lang="en">
    <head>
       <title>EF - Estimación de horas</title>
-      </head>
+         </head>
       <body>
+       
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -65,7 +66,7 @@
 	         			<tbody>
 	         				<tr>
 	         					<td class="col-xs-2">Horas de Contingencia</td>
-	         					<td id="horascontingencia" class="text-right col-xs-1">0.00</td>
+	         					<td class="text-right col-xs-1"><strong id="horascontingencia">0.00</strong></td>
 	         				</tr>
 	         			</tbody>
 	         		</table>
@@ -83,6 +84,6 @@
  		</div> 
       </div>
       <!-- /.page-wrapper -->
-      <jsp:include page="../fragments/footer.jsp" />
+      
       </body>
 </html>
