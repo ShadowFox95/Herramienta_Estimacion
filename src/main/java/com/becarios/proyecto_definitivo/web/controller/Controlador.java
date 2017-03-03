@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 
 @Controller
-public class ControladorIndex {
+public class Controlador {
 
     private List<Proyecto> proyectos = new ArrayList<Proyecto>();
     private boolean first = true;
+    private String control = "";
 
     // Redirect to main page
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -26,24 +27,12 @@ public class ControladorIndex {
             first = false;
         }
         model.addAttribute("proyectos", proyectos);
-        model.addAttribute("control", "criterios");
+        model.addAttribute("control", control);
         return "/index";
 
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(ModelMap model) {
-        if (first) {
-            proyectos.add(new Proyecto("Proyecto de Prueba", 0, "Lorem ipsum"));
-            first = false;
-        }
-        model.addAttribute("proyectos", proyectos);
-
-        return "/index";
-
-    }
-
-    @RequestMapping(value = "/index/{code}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/{code}/delete", method = RequestMethod.POST)
     public String deleteRow(@PathVariable("code") String code) {
         // Desplazar a otra clase
         int a = -1;
@@ -59,7 +48,7 @@ public class ControladorIndex {
 
     }
 
-    @RequestMapping(value = "/index/addRow", method = RequestMethod.POST)
+    @RequestMapping(value = "/addProject", method = RequestMethod.POST)
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
         proyectos.add(new Proyecto("Proyecto de Prueba", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1,
@@ -69,7 +58,7 @@ public class ControladorIndex {
 
     }
 
-    @RequestMapping(value = "/index/{code}/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/{code}/edit", method = RequestMethod.POST)
     public String editRow(ModelMap model, @PathVariable("code") String code) {
         for (int i = 0; i < proyectos.size(); i++) {
             if (code.equals(proyectos.get(i).getCodigo())) {
@@ -80,7 +69,7 @@ public class ControladorIndex {
 
     }
 
-    @RequestMapping(value = "/index/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/save", method = RequestMethod.GET)
     public String updateProject(@ModelAttribute("proyecto") Proyecto proyecto) {
         for (int i = 0; i < proyectos.size(); i++) {
             if (proyecto.getCodigo() == (proyectos.get(i).getCodigo())) {
@@ -89,6 +78,11 @@ public class ControladorIndex {
         }
         return "redirect:/index";
 
+    }
+
+    @RequestMapping(value = "/do/{page}/{operation}")
+    public String operate() {
+        return "";
     }
 
 }
