@@ -19,13 +19,23 @@
 <spring:url value="/resources/core/res/metisMenu/metisMenu.min.js" var="metisMenus" />
 <spring:url value="/resources/core/res/datatables/js/jquery.dataTables.min.js" var="dataTables" />
 <spring:url value="/resources/core/res/datatables-plugins/dataTables.bootstrap.min.js" var="dataTablesBS" />
+
+<spring:url value="/resources/core/res/datatables-responsive/dataTables.responsive.js" var="dataTablesRes" />
+<spring:url value="/resources/core/js/factores/factores.js" var="factoresJs" />
+<spring:url value="/resources/core/js/lib/big.js/big.min.js" var="bigDecimal" />
+
+
+<script src="${bigDecimal}"></script>
+
 <spring:url value="/resources/core/res/datatables-responsive/dataTables.responsive.js" var="dataTablesRes" />-->
+
 
 <script src="${coreJs}"></script>
 <script src="${jQuery}"></script>
 <script src="${bootstrapJs}"></script>
 <script src="${selectors}"></script>
 <script src="${control}"></script>
+<script src="${factoresJs}"></script>
 
 <!-- <script src="${metisMenu}"></script>
 <script src="${dataTables}"></script>
