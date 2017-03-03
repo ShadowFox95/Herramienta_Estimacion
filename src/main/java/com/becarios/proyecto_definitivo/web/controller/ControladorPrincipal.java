@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 
 @Controller
-public class Controlador {
+public class ControladorPrincipal {
 
     private List<Proyecto> proyectos = new ArrayList<Proyecto>();
     private boolean first = true;
