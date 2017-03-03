@@ -24,7 +24,7 @@
 <c:set var="url" value="${ pageContext.request.requestURI }" />
 	<div id="wrapper">
     	<div class="nav-side-menu">
-        	<div class="brand"><a href="/proyecto-definitivo/index/">USUARIO</a></div>
+        	<div class="brand"><a href="/proyecto-definitivo/">USUARIO</a></div>
          	<i class="glyphicon glyphicon-menu-hamburger toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
          	<div class="menu-list">
             	<ul id="menu-content" class="menu-content collapse out">
@@ -42,7 +42,7 @@
 								</ul>
 								<ul>
 							<li>
-                        <form name="row" action="/proyecto-definitivo/index/addRow" method="POST">
+                        <form name="row" action="/proyecto-definitivo/addProject" method="POST">
                            <button type="submit" class="custom-color left-button menu-button">
                            <i class="glyphicon glyphicon-plus"></i> Crear Módulo
                            </button>
