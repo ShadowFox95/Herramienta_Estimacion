@@ -15,7 +15,7 @@
 
                     </div>
                     <div class="col-xs-1">
-                        <input class="form-control" type="number" min="1" value="0" />
+                        <input id="factorProductividad" class="form-control" type="number" min="1" value="0" />
                     </div>
                     <div class="col-xs-9">
                         horas/punto complejidad

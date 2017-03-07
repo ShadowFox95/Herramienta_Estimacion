@@ -16,15 +16,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default ">
-						<!--  <div class="panel-heading ">
-                    Lista de proyectos 
-                  </div>-->
+					<div class="panel-heading custom-color">
+						Gestor de proyectos 
+					</div>
 						<!-- /.panel-heading -->
 						<table width="100%" class="table table-striped tableForm" id="dataTables-example">
 							<thead>
-								<tr class="custom-color panel-heading-custom">
-									<th colspan="3">Gestor de proyectos</th>
-								</tr>
 								<tr>
 									<th class="col-xs-4">Nombre de proyecto</th>
 									<th class="col-xs-2">Código</th>

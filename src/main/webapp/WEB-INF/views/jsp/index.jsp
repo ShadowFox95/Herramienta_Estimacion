@@ -17,34 +17,34 @@
          <!-- /.row -->
          <div class="row">
          <div class="col-lg-12">
-                   <div class="page-header-menu">
-
-                            <!-- Nav tabs -->                            
-                            <ul class="nav nav-tabs">
-                                <li id="proyectoLi" class="active"><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>
-                                </li>
-                                <li id="criteriosLi" class=""><a href="#criterios" data-toggle="tab" aria-expanded="false">Criterios</a>
-                                </li>
-                                <li id="factores-ajusteLi" class=""><a href="#factores-ajuste" data-toggle="tab" aria-expanded="false">Factores de Ajuste</a>
-                                </li>
-                                <li id="horasLi" class=""><a href="#horas" data-toggle="tab" aria-expanded="false">Horas y Costes</a>
-                                </li>
-                                <li id="condicionantesLi" class=""><a href="#condicionantes" data-toggle="tab" aria-expanded="false">Condicionantes</a>
-                                </li>
-                            
-
-                            <li>
-                            
-  <form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
-                           <button type="submit" class="custom-color right-button corner-button">
-                           <i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-                           </button>
-                        </form>
-
-  </li>
-  </ul>
-  <input type="hidden" id="position" value="${control}"/>
-</div> 
+          <div class="page-header-menu">
+             <!-- Nav tabs -->                            
+             <ul class="nav nav-tabs ">
+                    <li id="proyectoLi" class="active"><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>
+                    </li>
+                    <li id="criteriosLi" class=""><a href="#criterios" data-toggle="tab" aria-expanded="false">Criterios</a>
+                    </li>
+                    <li id="factores-ajusteLi" class=""><a href="#factores-ajuste" data-toggle="tab" aria-expanded="false">Factores de Ajuste</a>
+                    </li>
+                    <li id="horasLi" class=""><a href="#horas" data-toggle="tab" aria-expanded="false">Horas y Costes</a>
+                    </li>
+                    <li id="condicionantesLi" class=""><a href="#condicionantes" data-toggle="tab" aria-expanded="false">Condicionantes</a>
+                    </li>
+                <!--   <li class="tab-right">
+				<form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
+                     <button type="submit" class="custom-color button-tab">
+                     <i class="glyphicon glyphicon-floppy-save"></i>
+                     </button>
+                </form>
+				</li>-->
+			</ul>
+			<form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
+                     <button type="submit" class="custom-color button-tab">
+                     <i class="glyphicon glyphicon-floppy-save"></i>
+                     </button>
+                </form>
+  		<input type="hidden" id="position" value="${control}"/>
+		</div> 
                             <!-- Tab panes -->
                             <div class="tab-content">
                             
