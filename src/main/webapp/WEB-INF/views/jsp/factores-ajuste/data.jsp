@@ -14,10 +14,10 @@
                         Factor de Productividad:
 
                     </div>
-                    <div class="col-xs-2">
-                        <input class="form-control" type="number" maxlength="3" value="0" />
+                    <div class="col-xs-1">
+                        <input class="form-control" type="number" min="1" value="0" />
                     </div>
-                    <div class="col-xs-8">
+                    <div class="col-xs-9">
                         horas/punto complejidad
                     </div>
                     </td>
