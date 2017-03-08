@@ -18,9 +18,11 @@
          <div class="row">
          <div class="col-lg-12">
           <div class="page-header-menu">
-             <!-- Nav tabs -->                            
+             <!-- Nav tabs -->                   
+       
              <ul class="nav nav-tabs ">
-                    <li id="proyectoLi" class="active"><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>
+  
+                    <li id="proyectoLi" class=""><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>          
                     </li>
                     <li id="criteriosLi" class=""><a href="#criterios" data-toggle="tab" aria-expanded="false">Criterios</a>
                     </li>
@@ -48,7 +50,7 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                             
-                                <div class="tab-pane fade active in" id="proyecto">
+                                <div class="tab-pane fade" id="proyecto">
                                     <jsp:include page="./proyectos/proyectos.jsp" />
                                 </div>
                                 <div class="tab-pane fade" id="criterios">

@@ -21,9 +21,13 @@ public class ControladorFactoresAjuste {
     @RequestMapping(value = "/factores-ajuste", method = RequestMethod.GET)
     public String index(ModelMap model) {
 
+
         model.addAttribute("id", 600);
 
         return "factores-ajuste/factores-ajuste";
+
+        return "forward:/horas-costes";
+
     }
 
     // @RequestMapping(value = "/factores-ajuste/{id}/", method =

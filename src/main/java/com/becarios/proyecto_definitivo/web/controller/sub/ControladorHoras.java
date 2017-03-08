@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ControladorCondicionantes {
+public class ControladorHoras {
 
-    @RequestMapping(value = "/condicionantes", method = RequestMethod.GET)
+    @RequestMapping(value = "/horas-costes", method = RequestMethod.GET)
     public String index(ModelMap model) {
 
-        return "forward:/";
+        return "forward:/condicionantes";
     }
 
 }

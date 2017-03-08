@@ -49,7 +49,7 @@ public class ControladorCriterios {
             module.createModulo(codigoProyecto);
         }
 
-        return "criterios/criterios";
+        return "forward:/factores-ajuste";
 
     }
 
@@ -65,6 +65,27 @@ public class ControladorCriterios {
             @RequestParam("vistaBotones") int vistaBotones, @RequestParam("negocioTotal") int negocioTotal,
             @RequestParam("negocioNro") int negocioNro, @RequestParam("negocioLogica") int negocioLogica,
             @RequestParam("persistenciaTotal") int persistenciaTotal,
+
+    @RequestMapping(value = "/criterios/load/", method = RequestMethod.GET)
+    public String Tables(ModelMap model, @ModelAttribute("proyecto") Proyecto project) {
+        proyecto = project;
+        rows = proyecto.getRows();
+
+        return "redirect:/load";
+
+    }
+
+    // saves the name changes
+    @RequestMapping(value = "/criterios/saveRow", method = RequestMethod.POST)
+    public String saveRow(@RequestParam("moduleCode") String code, @RequestParam("moduleName") String name,
+            @RequestParam("moduleCaseOfUse") String caseOfUse, @RequestParam("perfilesTotal") int perfilesTotal,
+            @RequestParam("perfilesNro") int perfilesNro, @RequestParam("perfilesComplejidad") int perfilesComplejidad,
+            @RequestParam("vistaTotal") int vistaTotal, @RequestParam("vistaNro") int vistaNro,
+            @RequestParam("vistaCampos") int vistaCampos, @RequestParam("vistaComplejidad") int vistaComplejidad,
+            @RequestParam("vistaListados") int vistaListados, @RequestParam("vistaBotones") int vistaBotones,
+            @RequestParam("negocioTotal") int negocioTotal, @RequestParam("negocioNro") int negocioNro,
+            @RequestParam("negocioLogica") int negocioLogica, @RequestParam("persistenciaTotal") int persistenciaTotal,
+
             @RequestParam("persistenciaNro") int persistenciaNro,
             @RequestParam("persistenciaAccesos") int persistenciaAccesos,
             @RequestParam(value = "cuTotal", defaultValue = "0") int cuTotal,
@@ -86,7 +107,7 @@ public class ControladorCriterios {
                 negocioTotal, negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, persistenciaAccesos,
                 cuTotal, cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
 
-            return "redirect:/criterios/ErrorSaveData";
+            return "redirect:/load";
 
         }
 
@@ -95,7 +116,11 @@ public class ControladorCriterios {
         notificationType = "info";
         notification = "Se han aplicado los cambios";
 
+
         return "redirect:/criterios/";
+
+
+        return "redirect:/load";
 
     }
 
@@ -105,7 +130,11 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Se han descartado los cambios";
+
         return "redirect:/criterios/";
+
+
+        return "redirect:/load";
 
     }
 
@@ -122,7 +151,11 @@ public class ControladorCriterios {
         // Desplazar a clase para modelo por defecto
         proyecto.crearModulo();
 
+
         return "redirect:/criterios/";
+
+
+        return "redirect:/load";
 
     }
 
@@ -146,7 +179,7 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Módulo " + code + " eliminada correctamente";
-        return "redirect:/criterios/";
+        return "redirect:/load";
 
     }
 
@@ -167,7 +200,12 @@ public class ControladorCriterios {
         }
         model.addAttribute("integracion", tablasTemp.get(5));
 
+
         return "redirect:/criterios";
+
+        codigo = code;
+        return "redirect:/load";
+
 
     }
 
@@ -176,20 +214,20 @@ public class ControladorCriterios {
     public String ErrorSaveRow(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. El codigo esta repetido";
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 
     @RequestMapping(value = "/criterios/{projectCode}/ErrorSaveData", method = RequestMethod.GET)
     public String ErrorSaveData(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. Intentelo de nuevo más tarde";
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 
     @RequestMapping(value = "/criterios/{projectCode}/ErrorSaveNull", method = RequestMethod.GET)
     public String ErrorSaveNull(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. Introduzca un codigo válido";
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 }
