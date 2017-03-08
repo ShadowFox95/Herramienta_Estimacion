@@ -11,7 +11,7 @@ public class ControladorFactoresAjuste {
     @RequestMapping(value = "/factores-ajuste", method = RequestMethod.GET)
     public String index(ModelMap model) {
 
-        return "factores-ajuste/factores-ajuste";
+        return "forward:/horas-costes";
     }
 
 }
