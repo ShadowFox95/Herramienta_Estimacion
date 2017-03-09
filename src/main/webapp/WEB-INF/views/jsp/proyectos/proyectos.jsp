@@ -56,6 +56,5 @@
 			</div>
 		</div>
 		<!-- /.page-wrapper -->
-		<jsp:include page="../fragments/footer.jsp" />
 	</body>
 </html>

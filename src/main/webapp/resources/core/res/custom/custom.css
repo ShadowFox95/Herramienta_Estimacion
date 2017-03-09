@@ -13,6 +13,9 @@ body,html {
 	display: none;
 	
 }
+.active {
+    background-color: inherit;
+}
 
 @media (min-width: 768px) {
   #page-wrapper {
