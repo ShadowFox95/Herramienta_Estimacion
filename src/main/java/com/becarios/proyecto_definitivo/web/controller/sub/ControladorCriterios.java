@@ -55,7 +55,7 @@ public class ControladorCriterios {
             proyecto.crearModulo();
         }
 
-        return "criterios/criterios";
+        return "forward:/factores-ajuste";
 
     }
 
@@ -64,7 +64,7 @@ public class ControladorCriterios {
         proyecto = project;
         rows = proyecto.getRows();
 
-        return "redirect:/criterios/";
+        return "redirect:/load";
 
     }
 
@@ -108,7 +108,7 @@ public class ControladorCriterios {
                 persistenciaTotal, persistenciaNro, persistenciaAccesos, cuTotal, cuDificultad, integracionTotal,
                 integracionNro, integracionComplejidad)) {
 
-            return "redirect:/criterios/ErrorSaveData";
+            return "redirect:/load";
 
         } else {
             proyecto.CalcularTotal(codigo, perfilesTotal, vistaTotal, negocioTotal, persistenciaTotal, cuTotal,
@@ -121,7 +121,7 @@ public class ControladorCriterios {
         notificationType = "info";
         notification = "Se han aplicado los cambios";
 
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 
     // discard changes
@@ -131,7 +131,7 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Se han descartado los cambios";
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 
     // Adds a table row
@@ -139,7 +139,7 @@ public class ControladorCriterios {
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
         proyecto.crearModulo();
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 
     // Delete a table row
@@ -159,7 +159,7 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Módulo " + code + " eliminada correctamente";
-        return "redirect:/criterios/";
+        return "redirect:/load";
 
     }
 
@@ -177,15 +177,7 @@ public class ControladorCriterios {
         }
 
         codigo = code;
-        return "redirect:/criterios/";
-
-    }
-
-    @RequestMapping(value = "/criterios/saveProject", method = RequestMethod.POST)
-    public String saveProject(ModelMap model) {
-        model.addAttribute("proyecto", proyecto);
-
-        return "redirect:/index/update";
+        return "redirect:/load";
 
     }
 
@@ -194,20 +186,20 @@ public class ControladorCriterios {
     public String ErrorSaveRow(ModelMap model) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. El codigo esta repetido";
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 
     @RequestMapping(value = "/criterios/ErrorSaveData", method = RequestMethod.GET)
     public String ErrorSaveData(ModelMap model) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. Intentelo de nuevo más tarde";
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 
     @RequestMapping(value = "/criterios/ErrorSaveNull", method = RequestMethod.GET)
     public String ErrorSaveNull(ModelMap model) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. Introduzca un codigo válido";
-        return "redirect:/criterios/";
+        return "redirect:/load";
     }
 }

@@ -13,6 +13,9 @@ body,html {
 	display: none;
 	
 }
+.active {
+    background-color: inherit;
+}
 
 @media (min-width: 768px) {
   #page-wrapper {
@@ -21,6 +24,11 @@ body,html {
     height: 100%;
     height: auto;
   }
+  .page-header {
+    padding-bottom: 9px;
+    margin: 0px 0 20px;
+    border-bottom: 1px solid #eee;
+}
   #page-wrapper-menu {
     position: inherit;
     margin: 0 0 0 250px;

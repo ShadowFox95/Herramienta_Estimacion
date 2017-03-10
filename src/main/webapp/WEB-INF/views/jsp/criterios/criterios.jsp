@@ -148,7 +148,7 @@
                     <!-- Button -->
                     <div class="panel-footer table-footer-fix clearfix">	
                     	<span style="float:left">
-                        <form name="row" action="/proyecto-definitivo/criterios/addRow" method="POST">
+                        <form name="row" action="/proyecto-definitivo/goto/criterios/addRow" method="POST">
                            <button type="submit" class="custom-color left-button corner-button">
                            <i class="glyphicon glyphicon-plus"></i> Crear Módulo
                            </button>
@@ -173,8 +173,7 @@
 
       
       <!-- /#wrapper -->
-	    <!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	    
 		<script>
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   

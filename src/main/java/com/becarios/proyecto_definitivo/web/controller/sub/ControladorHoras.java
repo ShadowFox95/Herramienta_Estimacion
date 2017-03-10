@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ControladorHoras {
 
-    @RequestMapping(value = "/estimacion-horas", method = RequestMethod.GET)
+    @RequestMapping(value = "/horas-costes", method = RequestMethod.GET)
     public String index(ModelMap model) {
 
-        return "estimacion-horas/horas";
+        return "forward:/condicionantes";
     }
 
 }
