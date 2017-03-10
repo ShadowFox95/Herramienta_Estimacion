@@ -96,4 +96,11 @@ public class ControladorPrincipal {
     public String create() {
         return "/proyectos/AsistenteProyecto";
     }
+
+    @RequestMapping(value = "/dev", method = RequestMethod.GET)
+    public String index(ModelMap model) {
+
+        return "config/itrs";
+    }
+
 }

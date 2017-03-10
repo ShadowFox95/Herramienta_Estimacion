@@ -39,10 +39,7 @@ body,html {
   	padding-bottom: 9px;
   	margin: 40px 0 20px;
   }
-  .page-header-menu {
-    padding-bottom: 9px;
-    margin: 40px 0 20px;
-}
+
   .mobile-button {
   	display: inline;
   }
@@ -54,6 +51,12 @@ body,html {
   font-weight: normal;
   font-style: normal;
 }
+.page-header {
+    padding-bottom: 9px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
 a, a:visited, a:hover, a:active {
 	color: inherit;
 }
@@ -205,6 +208,13 @@ a, a:visited, a:hover, a:active {
 	height: 24px !important;
 	padding: 0 2px;
 	padding-right: 6px;
+}
+
+.form-custom-factor{
+	height: 40px !important;
+	padding-right: 0px;
+	font-weight: bold;
+	text-align: center;
 }
 
 .edit:hover {
@@ -432,11 +442,6 @@ a, a:visited, a:hover, a:active {
 	}
 }
 
-.width-fix{
-	padding-left: 5px !important;
-	padding-right: 5px !important;
-}
-
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
@@ -455,7 +460,11 @@ a, a:visited, a:hover, a:active {
 	margin-bottom: 0px !important;
 }
 
-.width-fix{
-	padding-left: 5px !important;
-	padding-right: 5px !important;
+.width-fix1{
+	padding-left: 0px !important;
+	
+}
+.width-fix2{
+	padding-right: 0px !important;
+	
 }

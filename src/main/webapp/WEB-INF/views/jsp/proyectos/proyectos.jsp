@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>EF - Home</title>
+		<title>EF - Proyectos</title>
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -14,7 +14,6 @@
 			</div>
 			<!-- /.row -->
 			<div class="row">
-				<div class="col-lg-12">
 					<div class="panel panel-default ">
 					<div class="panel-heading custom-color">
 						Gestor de proyectos 
@@ -52,7 +51,6 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
 			</div>
 		</div>
 		<!-- /.page-wrapper -->
