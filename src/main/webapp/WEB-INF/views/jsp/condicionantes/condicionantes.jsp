@@ -6,7 +6,8 @@
 <html lang="en">
    <head>
       <title>EF - Condicionantes</title>
-      <jsp:include page="../fragments/sidebar.jsp" />
+   </head>
+   <body>
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -19,59 +20,27 @@
          	 <div class="panel panel-default">
          	 	<div class="panel-heading">
 	         	 	Condicionantes de la estimación
+	         	 	<div style="float:right">
+	         	 		<button type="submit" class="button ok glyphicon glyphicon-plus condition-bt"></button>
+	         		</div>
 	         	</div>	
 	         	
 	         		<table width="100%" class="table table-condensed table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-1">Nº</th>
-	         					<th class="text-center col-xs-11">Descripción</th>
+	         					<th class="col-xs-11">Descripción</th>
 	         				</tr>
 	         			</thead>
 	         			<tbody>
 	         				<tr>
 	         					<td>1</td>
         						<td>
-        						Para las entidades "Usuarios", "Obras de Arte", "Préstamos" y "Agrupaciones",
-        						 se considera que la pantalla de presentación tendrá una complejidad "Normal", es decir,
-        						 cuya pantalla constará de 6 a 8 campos.
+        						<div class="form-group textarea-fix">
+								  <textarea class="form-control noresize"></textarea>
+								</div>
         						</td>
 	         				</tr>
-         					<tr>
-	         					<td>2</td>
-        						<td>
-        						Para las entidades "Usuarios", "Obras de Arte", "Préstamos" y "Agrupaciones",
-        						 se considera que la complejidad de la lógica de presentación será "Normal",
-        						  con comprobaciones simples en multitud de campos.
-        						</td>
-	         				</tr>
-	         				<tr>
-	         					<td>3</td>
-        						<td>
-        						La funcionalidad de "Generación etiqueta" para una obra de arte, se basará
-        						 en una exportación en formato pdf de la información básica de la obra de arte
-        						  para su posterior impresión. El identificador único de una obra de arte se limitará
-        						   al id alfanumérico único generado por la aplicación.
-        						</td>
-	         				</tr>
-	         				<tr>
-	         					<td>4</td>
-        						<td>
-        						La funcionalidad de "Asociar documentos a obra de arte" , se basará en una
-        						 búsqueda de documentos dentro del directorio del gestor documental proporcionado
-        						  por el cliente. Una vez seleccionado el documento, se guardará la ruta de dicho
-        						   fichero en los datos de la obra de arte.
-        						</td>
-	         				</tr>	
-	         				
-	         				<tr>
-	         					<td>5</td>
-        						<td>
-        						La funcionalidad de "Visor de documentos" se basará en la apertura del documento
-        						 seleccionado dentro de un iframe desarrollado dentro de la aplicación. 
-        						 No se desarrollará ningún visor adicional.
-        						</td>
-	         				</tr>	
 	         				
 	         			</tbody>
 	         		</table>
@@ -80,42 +49,43 @@
       <div class="row">
          	 <div class="panel panel-default">
          	 	<div class="panel-heading">
-	         	 	Otros condicionantes
+	         	 	Otros condicionantes 
+	         	 	<div style="float:right">
+              	    	<button type="submit" class="button ok glyphicon glyphicon-plus condition-bt"></button>
+                    </div>
 	         	</div>	
 	         	
 	         		<table width="100%" class="table table-condensed table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-1">Nº</th>
-	         					<th class="text-center col-xs-11">Descripción</th>
+	         					<th class="col-xs-11">Descripción</th>
 	         				</tr>
 	         			</thead>
 	         			<tbody>
 	         				<tr>
 	         					<td>1</td>
         						<td>
-        						El desarrollo de la aplicación se realizará siguiendo la metodología 
-        						propia de la entidad e integrando los desarrollos en la arquitectura 
-        						actual del cliente, por lo cual, se considera que el equipo que realizará 
-        						estos desarrollos tendrán conocimientos previos de dicha metodología y arquitectura, 
-        						no teniendo en cuenta ninguna curva de aprendizaje.
+        						<div class="form-group textarea-fix">
+								  <textarea class="form-control noresize"></textarea>
+								</div>
         						</td>
 	         				</tr>
-         					<tr>
-	         					<td>2</td>
-        						<td>
-        						La nueva aplicación se conectará a la herramienta corporativa de gestión documental, 
-        						donde ya existe el directorio estructurado con la información. La aplicación se limitará 
-        						a acceder a dicho directorio para la obtención de las rutas de los documentos. 
-        						No se encargará de la gestión de los documentos ni se desarrollará ningún visor adicional.
-        						</td>
-	         				</tr>
-	         				
 	         			</tbody>
 	         		</table>
 	      </div>
       </div>
       <!-- /.page-wrapper -->
-      <jsp:include page="../fragments/footer.jsp" />
+      <script type="text/javascript">
+	      $('textarea').each(function () {
+	          this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+	          if(this.scrollHeight < 40){
+	              this.setAttribute('style', 'height:40px;overflow-y:hidden;');
+	          }
+	        }).on('input', function () {
+	          this.style.height = 'auto';
+	          this.style.height = (this.scrollHeight) + 'px';
+	        });
+      </script>
       </body>
 </html>

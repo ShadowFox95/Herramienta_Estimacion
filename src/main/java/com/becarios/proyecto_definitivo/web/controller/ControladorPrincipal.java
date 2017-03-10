@@ -10,53 +10,73 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.becarios.proyecto_definitivo.service.ProjectService;
 
 @Controller
-public class ControladorIndex {
+public class ControladorPrincipal {
 
     @Autowired
     ProjectService project;
 
     private boolean first = true;
+    private String control = "";
 
     // Redirect to main page
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
-        return "redirect:/index";
-
-    }
-
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(ModelMap model) {
         if (first) {
             project.AddProject("Proyecto de Prueba", "Codigo-0", "Lorem ipsum", false);
             first = false;
         }
         model.addAttribute("projectes", project.findAllProjects());
-
+        model.addAttribute("control", control);
         return "/index";
 
     }
 
-    @RequestMapping(value = "/index/{code}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/{code}/delete", method = RequestMethod.POST)
     public String deleteRow(@PathVariable("code") String code) {
         // Desplazar a otra clase
         project.deleteProjectByCode(code);
-        return "redirect:/index";
+        return "redirect:/";
 
     }
 
-    @RequestMapping(value = "/index/addRow", method = RequestMethod.POST)
+    @RequestMapping(value = "/addProject", method = RequestMethod.POST)
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
         project.AddProject("Proyecto de Prueba", "Codigo-0", "Lorem ipsum", false);
 
-        return "redirect:/index";
+        return "redirect:/load";
+
     }
 
-    @RequestMapping(value = "/index/update", method = RequestMethod.GET)
-    public String updateProject() {
+    @RequestMapping(value = "/{code}/save", method = RequestMethod.POST)
+    public String editRow(ModelMap model, @PathVariable("code") String code) {
 
-        return "redirect:/index";
+        return "redirect:/criterios/load/";
 
+    }
+
+    @RequestMapping(value = "/load", method = RequestMethod.GET)
+    public String load() {
+        return "forward:/" + "criterios";
+    }
+
+    @RequestMapping(value = "/goto/{page}/{operation}", method = RequestMethod.POST)
+    public String operate(@PathVariable("page") String page, @PathVariable("operation") String operation) {
+        control = page;
+        return "forward:/" + page + "/" + operation + "/";
+    }
+
+    @RequestMapping(value = "/crear-proyecto", method = RequestMethod.GET)
+    public String create() {
+        control = "proyecto";
+        return "forward:/criterios";
+    }
+
+    @RequestMapping(value = "/dev", method = RequestMethod.GET)
+    public String index(ModelMap model) {
+
+        return "config/itrs";
     }
 
 }

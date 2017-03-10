@@ -7,7 +7,8 @@
 
 <head>
 <title>EF - Factores de Ajuste</title>
-<jsp:include page="../fragments/sidebar.jsp" />
+</head>
+<body>
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
@@ -17,7 +18,7 @@
 	</div>
 	<!-- /.row -->
 	<div class="row">
-		<div class="panel panel-default col-fix">
+		<div class="panel panel-default">
 			<div class="panel-heading"></div>
 			<form name="row"
 						action="/proyecto-definitivo/factores-ajuste/${id}/save"
@@ -30,24 +31,13 @@
 
 				</div>
 			</div>
-			<div class="panel-footer table-footer-fix clearfix">
-				<span style="float: right">
-					
-						<button type="submit"
-							class="custom-color right-button corner-button">
-							<i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-						</button>
-					
-				</span>
-			</div>
-			</form>
+
 		</div>
 	</div>
 
 
 </div>
 <!-- /.page-wrapper -->
-<jsp:include page="../fragments/footer.jsp" />
 </body>
 
 </html>

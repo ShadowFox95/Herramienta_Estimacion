@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-  <div class="col-lg-6">
-         	 <div class="panel panel-default col-fix">
+  <div class="col-lg-6 width-fix1">
+         	 <div class="panel panel-default">
 	         	<div class="panel-heading">
 	         	 	Centro ADM-DW
 	         	</div>	
 	         	<div class="panel-body">
-	         		<table width="100%" class="table table-fix table-striped table-bordered tableForm">
+	         		<table width="100%" class="table  table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-8 v-align-center">Delivery</th>
@@ -36,7 +36,9 @@
 	         				</tr>
 	         				<tr>
 	         					<td>Fase de Análisis</td>
-	         					<td class="center col-xs-1 text-right" id="analisis_por">0</td>
+
+	         					<td class="center col-xs-1 align-fix text-right" id="analisis_por">0</td>
+
 	         					<td><select class="form-control form-custom" id="analisis_ip" onchange="selectDelivery('analisis')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -60,7 +62,9 @@
 	         				</tr>
 	         				<tr>
 	         					<td>Fase de Pruebas de Funcionamiento</td>
-	         					<td class="center col-xs-1 text-right" id="testing_por">0</td>
+
+	         					<td class="center col-xs-1 text-right align-fix" id="testing_por">0</td>
+
 	         					<td><select class="form-control form-custom"  id="testing_ip" onchange="selectDelivery('testing')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -97,7 +101,9 @@
                               		<option value="5">Medio</option>
                               		<option value="10">Alto</option>
                            		</select></td>
-	         					<td id="calidad_por" class="center col-xs-1 text-right">0</td>
+
+	         					<td id="calidad_por" class="center col-xs-1 text-right align-fix">0</td>
+
 	         					<td><select class="form-control form-custom"  id="calidad_ip" onchange="selectExtras('calidad')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -113,7 +119,9 @@
                               		<option value="7">Medio</option>
                               		<option value="12">Alto</option>
                            		</select></td>
-	         					<td id="seguridad_por" class="center col-xs-1 text-right">0</td>
+
+	         					<td id="seguridad_por" class="center col-xs-1 text-right align-fix">0</td>
+
 	         					<td><select class="form-control form-custom"  id="seguridad_ip" onchange="selectExtras('seguridad')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>
@@ -129,7 +137,9 @@
                               		<option value="3">Medio</option>
                               		<option value="5">Alto</option>
                            		</select></td>
-	         					<td id="despliegues_por" class="center col-xs-1 text-right">0</td>
+
+	         					<td id="despliegues_por" class="center col-xs-1 text-right align-fix">0</td>
+
 	         					<td><select class="form-control form-custom"  id="despliegues_ip" onchange="selectExtras('despliegues')">
                               		<option selected value="0">No</option>
                               		<option value="1">Sí</option>

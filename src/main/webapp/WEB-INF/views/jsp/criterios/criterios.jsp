@@ -6,8 +6,8 @@
 <html lang="en">
    <head>
       <title>EF - Criterios</title>
-      <jsp:include page="../fragments/sidebar.jsp" />
-      
+      </head>
+      <body>
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -18,7 +18,6 @@
 
          <!-- /.row -->
          <div class="row">
-            <div class="col-lg-12">
                <div class="panel panel-default">
                   <div class="panel-heading">
                      Módulos 
@@ -149,26 +148,19 @@
                     <!-- Button -->
                     <div class="panel-footer table-footer-fix clearfix">	
                     	<span style="float:left">
-                        <form name="row" action="/proyecto-definitivo/criterios/addRow" method="POST">
+                        <form name="row" action="/proyecto-definitivo/goto/criterios/addRow" method="POST">
                            <button type="submit" class="custom-color left-button corner-button">
                            <i class="glyphicon glyphicon-plus"></i> Crear Módulo
                            </button>
                         </form>
                    	</span> 
 					
-                     <span style="float:right">
-                        <form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
-                           <button type="submit" class="custom-color right-button corner-button">
-                           <i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-                           </button>
-                        </form>
-                     </span> 
+
                   </div>
                   <!-- /.panel-body -->
                </div>
                <!-- /.panel -->
-            </div>
-            <!-- /.col-lg-12 -->
+
          </div>
          <!-- /.row -->
          <hr>
@@ -178,15 +170,14 @@
       </div>
       <!-- /#page-wrapper -->
 
-      </div>
+
+      
       <!-- /#wrapper -->
-	    <!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	    
 		<script>
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   
 			});
 		</script>
-      <jsp:include page="../fragments/footer.jsp" />
       </body>
 </html>

@@ -6,19 +6,19 @@ import com.becarios.proyecto_definitivo.model.criterios.Modulo;
 
 public interface ModuleService {
 
-    Modulo findByCode(String code);
+    Modulo findByCode(int code);
 
     void saveModulo(Modulo modulo);
 
     void updateModulo(Modulo modulo);
 
-    void deleteModuloByCode(String code);
+    void deleteModuloByCode(int code);
 
-    List<Modulo> findAllModulo();
+    List<Modulo> findAllModulo(int codigoProyecto);
 
     boolean isModuloCodeUnique(String code);
 
-    boolean AddModulo(String codigoProyecto, boolean editado, String code, String caseOfUse, String name,
+    boolean AddModulo(int idProyecto, String codigoProyecto, boolean editado, String code, String caseOfUse, String name,
             int perfilesTotal, int perfilesNro, int perfilesComplejidad, int vistaTotal, int vistaNro, int vistaCampos,
             int vistaComplejidad, int vistaListados, int vistaBotones, int negocioTotal, int negocioNro,
             int negocioLogica, int persistenciaTotal, int persistenciaNro, int persistenciaAccesos, int cuTotal,

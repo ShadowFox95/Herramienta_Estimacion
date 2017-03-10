@@ -6,11 +6,11 @@ import com.becarios.proyecto_definitivo.model.Proyecto;
 
 public interface ProjectDao {
 
-    Proyecto findByCode(String code);
+    Proyecto findByCode(int id);
 
     void saveProject(Proyecto proyecto);
 
-    void deleteProjectByCode(String code);
+    void deleteProjectByCode(int id);
 
     List<Proyecto> findAllProjects();
 
