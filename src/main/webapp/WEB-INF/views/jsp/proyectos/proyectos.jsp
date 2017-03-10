@@ -32,14 +32,14 @@
 								<tr>
 									<spring:url value="/criterios/saveRow" var="saveUrl" />
 									<td>
-										<input class="form-control" type="text" value="nombre" />
+										<input class="form-control" type="text" value="" />
 									</td>
 									<td>
-										<input class="form-control" type="text" value="2" />
+										<input class="form-control" type="text" value="" />
 									</td>
 									<td>
 										<div class="col-xs-11">
-											<input class="form-control" type="text" value="descripcion" />
+											<input class="form-control" type="text" value="" />
 										</div>
 										<spring:url value="/index/2/delete" var="deleteProjectUrl" />
 										<div class="col-xs-1">
