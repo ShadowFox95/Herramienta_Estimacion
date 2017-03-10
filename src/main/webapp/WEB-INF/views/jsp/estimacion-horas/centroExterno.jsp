@@ -3,8 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
   
-  <div class="col-lg-6 ">
-         	 <div class="panel panel-default col-fix">
+  <div class="col-lg-6 width-fix2">
+         	 <div class="panel panel-default">
 	         	<div class="panel-heading">
 	         	 	Externo a ADM-DW
 	         	</div>	
@@ -34,8 +34,10 @@
 	         				<tr class="active">
 	         					<td><strong>Total Delivery</strong></td>
 	         					<td class="text-right"><strong id="delivery_ext_por">0%</strong></td>
-	         					<td id="delivery_ext_horas" class="text-right">0</td>
-	         					<td id="delivery_ext_coste" class="text-right">&euro; 0.00</td>
+
+	         					<td class="text-right"><strong id="delivery_ext_horas">0</strong></td>
+	         					<td class="text-right"><strong id="delivery_ext_coste">&euro; 0.00</strong></td>
+
 	         				</tr>
 	         			</tbody>
 	         		</table>
@@ -70,8 +72,9 @@
 	         				<tr class="active">
 	         					<td><strong>Total Extras</strong></td>
 	         					<td class="text-right"><strong  id="extras_ext_por">0%</strong></td>
-	         					<td id="extras_ext_horas" class="text-right">0</td>
-	         					<td id="extras_ext_coste" class="text-right">&euro; 0.00</td>
+
+	         					<td class="text-right"><strong id="extras_ext_horas">0</strong></td>
+	         					<td class="text-right"><strong id="extras_ext_coste">&euro; 0.00</strong></td>
 	         				</tr>
 	         			</tbody>
 	         		</table>
@@ -94,8 +97,9 @@
 	         				<tr class="active">
 	         					<td><strong>Total Gobierno</strong></td>
 	         					<td class="text-right"><strong id="gobierno_ext_por">0%</strong></td>
-	         					<td id="gobierno_ext_horas" class="text-right">0</td>
-	         					<td id="gobierno_ext_coste" class="text-right">&euro; 0.00</td>
+
+	         					<td class="text-right"><strong id="gobierno_ext_horas">0</strong></td>
+	         					<td class="text-right"><strong id="gobierno_ext_coste">&euro; 0.00</strong></td>
 	         				</tr>
 	         			</tbody>
 	         		</table>

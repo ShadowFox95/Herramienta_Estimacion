@@ -6,7 +6,9 @@
 <html lang="en">
    <head>
       <title>EF - Estimación de horas</title>
-      <jsp:include page="../fragments/sidebar.jsp" />
+         </head>
+      <body>
+       
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -17,7 +19,9 @@
          <!-- /.row -->
          
          <div class="row">
-         	 <div class="panel panel-default col-fix">
+
+         	 <div class="panel panel-default">
+
          	 <div class="panel-heading">
          	 </div>
 	         	<div class="panel-body">
@@ -64,21 +68,15 @@
 	         			<tbody>
 	         				<tr>
 	         					<td class="col-xs-2">Horas de Contingencia</td>
-	         					<td id="horascontingencia" class="text-right col-xs-1">0.00</td>
+
+	         					<td class="text-right col-xs-1"><strong id="horascontingencia">0.00</strong></td>
+
 	         				</tr>
 	         			</tbody>
 	         		</table>
 	         		</div>
 	         	</div>
-	         	<div class="panel-footer table-footer-fix clearfix">
-	         		<span style="float:right">
-                        <form name="row" action="/proyecto-definitivo/estimacion-horas/saveHoras" method="POST">
-                           <button type="submit" class="custom-color right-button corner-button">
-                           <i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-                           </button>
-                        </form>
-                     </span> 
-	         	</div>
+
         	 </div>
          </div>
          
@@ -90,6 +88,6 @@
  		</div> 
       </div>
       <!-- /.page-wrapper -->
-      <jsp:include page="../fragments/footer.jsp" />
+      
       </body>
 </html>
