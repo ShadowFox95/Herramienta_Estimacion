@@ -92,9 +92,10 @@ public class ControladorPrincipal {
         return "forward:/" + page + "/" + operation + "/";
     }
 
-    @RequestMapping(value = "/crear-proyecto", method = RequestMethod.POST)
+    @RequestMapping(value = "/crear-proyecto", method = RequestMethod.GET)
     public String create() {
-        return "/proyectos/AsistenteProyecto";
+        control = "proyecto";
+        return "forward:/criterios";
     }
 
     @RequestMapping(value = "/dev", method = RequestMethod.GET)

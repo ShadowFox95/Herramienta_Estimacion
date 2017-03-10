@@ -42,7 +42,7 @@
 								</ul>
 								<ul>
 							<li>
-                        <form name="row" action="/proyecto-definitivo/crear-proyecto" method="POST">
+                        <form name="row" action="/proyecto-definitivo/crear-proyecto" method="GET">
                            <button type="submit" class="custom-color left-button menu-button">
                            <i class="glyphicon glyphicon-plus"></i> Crear Proyecto
                            </button>
