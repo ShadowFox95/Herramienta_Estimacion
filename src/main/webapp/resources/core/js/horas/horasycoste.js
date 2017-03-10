@@ -1,6 +1,6 @@
 var totalhoras=240;
-var tcf_comptecnica_riesgo=1.02;
-var tcf_arquitecturaref_riesgo=1.1;
+var tcf_comptecnica_riesgo=0;
+var tcf_arquitecturaref_riesgo=0;
 var tcf_compTecnica_impacto=0;
 var	ecf_factCompljAmbiental=0;
 var	tcf_arquitecturaRef_impacto=0;
@@ -60,8 +60,14 @@ var horasContingencia = 0;
 ////
 
 function refreshHorasYCostes(){
+	setTCFRiesgo();
 	calcTotalHoras();
 	recalcDelivery();
+}
+
+function setTCFRiesgo(){
+	tcf_comptecnica_riesgo = document.getElementById("tcf_riesgo").innerHTML;
+	tcf_arquitecturaref_riesgo = document.getElementById("tcf_riesgo2").innerHTML;
 }
 
 function recalcDelivery(){

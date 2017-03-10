@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-  <div class="col-lg-6 width-fix">
+  <div class="col-lg-6 width-fix1">
          	 <div class="panel panel-default">
 	         	<div class="panel-heading">
 	         	 	Centro ADM-DW

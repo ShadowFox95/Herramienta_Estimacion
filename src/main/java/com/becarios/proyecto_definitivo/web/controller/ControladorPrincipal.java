@@ -85,4 +85,10 @@ public class ControladorPrincipal {
         return "";
     }
 
+    @RequestMapping(value = "/dev", method = RequestMethod.GET)
+    public String index(ModelMap model) {
+
+        return "config/itrs";
+    }
+
 }

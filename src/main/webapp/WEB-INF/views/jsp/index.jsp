@@ -30,13 +30,7 @@
                     </li>
                     <li id="condicionantesLi" class=""><a href="#condicionantes" data-toggle="tab" aria-expanded="false">Condicionantes</a>
                     </li>
-                <!--   <li class="tab-right">
-				<form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
-                     <button type="submit" class="custom-color button-tab">
-                     <i class="glyphicon glyphicon-floppy-save"></i>
-                     </button>
-                </form>
-				</li>-->
+				</li>
 			</ul>
 			<form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
                      <button type="submit" class="custom-color button-tab">
