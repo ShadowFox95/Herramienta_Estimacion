@@ -4,7 +4,7 @@
 
 <c:if test="${not empty display}">
    <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 width-fix1">
          <div class="panel panel-default">
             <div class="panel-heading">
                Perfiles
@@ -75,7 +75,7 @@
       </div>
       <!-- /.col-lg-6 -->
 
-      <div class="col-lg-6">
+      <div class="col-lg-6 width-fix2">
          <div class="panel panel-default">
             <div class="panel-heading">
                Pantalla/Vista
@@ -312,7 +312,7 @@
    <!-- /.row -->
 
    <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 width-fix1">
          <div class="panel panel-default">
             <div class="panel-heading">
                Negocio
@@ -399,7 +399,7 @@
       </div>
       <!-- /.col-lg-6 -->
 
-      <div class="col-lg-6">
+      <div class="col-lg-6 width-fix2">
          <div class="panel panel-default">
             <div class="panel-heading">
                Persistencia
@@ -491,7 +491,7 @@
 	
    <div class="row">
    <c:if test="${not empty cu}">
-      <div class="col-lg-6">
+      <div class="col-lg-6 width-fix1">
          <div class="panel panel-default">
             <div class="panel-heading">
                CU Original
@@ -572,7 +572,7 @@
       </div>
       <!-- /.col-lg-6 -->
 </c:if>
-      <div class="col-lg-6">
+      <div class="col-lg-6 width-fix2">
          <div class="panel panel-default">
             <div class="panel-heading">
                Integración
