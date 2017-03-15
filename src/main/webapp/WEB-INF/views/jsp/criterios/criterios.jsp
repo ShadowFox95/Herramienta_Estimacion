@@ -124,7 +124,23 @@
 			                                   	<div style="float:right">
 			                                   		<form name="editRow" action="${editUrl}" method="POST"><button type="submit" class="button edit glyphicon glyphicon-pencil"/></form>
 			                                  	</div>
-			                                  	
+			                                  	<script type="text/javascript">
+
+    var SubmitRequest = function(){
+        $.ajax({
+                url : "criterios.jsp",
+                data: document.getElementById('${editUrl}'),
+                type: "POST",
+                dataType: "text",
+                contentType: false, 
+                processData: false,
+                success : 
+                    function(response) {
+                        $('#response').html(response);
+                    }
+        });
+    }
+    </script>
 			                                </c:when>
 			                                	</c:choose>
 			                               </td>
@@ -164,8 +180,9 @@
          </div>
          <!-- /.row -->
          <hr>
-
+<div id="testeando">
          <jsp:include page="./atributos.jsp" />
+         </div>
          
       </div>
       <!-- /#page-wrapper -->
@@ -173,15 +190,7 @@
 
       
       <!-- /#wrapper -->
-	          <script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $.ajax({url: "/", success: function(result){
-            $("#div1").html(result);
-        }});
-    });
-});
-</script>
+
 		<script>
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   
