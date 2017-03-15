@@ -18,7 +18,7 @@
 			
 					<h3>Bienvenido</h3>
 					<p>Puede ver la lista de proyectos en el menú de la izquierda.</p> 
-					<p>¿No aparece ninguno? Quizà quiera <a style="color: blue;" href="/proyecto-definitivo/crear-proyecto">crear un nuevo proyecto</a></p>
+					<p>¿No aparece ninguno? Quizà quiera <a style="color: blue;" href="/proyecto-definitivo/addProject">crear un nuevo proyecto</a></p>
 					</span>
 			</div>
 		</div>

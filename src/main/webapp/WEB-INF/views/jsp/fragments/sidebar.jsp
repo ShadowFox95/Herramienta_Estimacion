@@ -37,12 +37,12 @@
     	      			<div class="collapse" id="toggleDemo" style="height: 0px;">
     	       				<ul class="expandibles">
 								<c:forEach var="proyecto" items="${proyectos}">
-    	          					<li><a href="#">${proyecto.nombre} (${proyecto.codigo})</a></li>
+    	          					<li><a href="/proyecto-definitivo/cargar/${proyecto.codigo}">${proyecto.nombre} (${proyecto.codigo})</a></li>
 								</c:forEach>
 								</ul>
 								<ul>
 							<li>
-                        <form name="row" action="/proyecto-definitivo/crear-proyecto" method="GET">
+                        <form name="row" action="/proyecto-definitivo/addProject" method="GET">
                            <button type="submit" class="custom-color left-button menu-button">
                            <i class="glyphicon glyphicon-plus"></i> Crear Proyecto
                            </button>

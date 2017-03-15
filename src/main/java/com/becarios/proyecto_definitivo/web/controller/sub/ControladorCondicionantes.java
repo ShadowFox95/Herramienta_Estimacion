@@ -11,7 +11,7 @@ public class ControladorCondicionantes {
     @RequestMapping(value = "/condicionantes", method = RequestMethod.GET)
     public String index(ModelMap model) {
 
-        return "forward:/";
+        return "forward:/index";
     }
 
 }

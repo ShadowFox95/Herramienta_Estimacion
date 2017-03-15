@@ -173,7 +173,15 @@
 
       
       <!-- /#wrapper -->
-	    
+	          <script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.ajax({url: "/", success: function(result){
+            $("#div1").html(result);
+        }});
+    });
+});
+</script>
 		<script>
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   

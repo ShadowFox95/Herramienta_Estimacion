@@ -29,8 +29,13 @@ public class ControladorPrincipal {
         }
         model.addAttribute("proyectos", proyectos);
         model.addAttribute("control", control);
-        return "/index";
+        return "forward:/criterios";
 
+    }
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index() {
+        return "/index";
     }
 
     @RequestMapping(value = "/{code}/delete", method = RequestMethod.POST)
@@ -49,24 +54,23 @@ public class ControladorPrincipal {
 
     }
 
-    @RequestMapping(value = "/addProject", method = RequestMethod.POST)
+    @RequestMapping(value = "/addProject", method = RequestMethod.GET)
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
-        proyectos.add(new Proyecto("Proyecto de Prueba", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1,
-                "Lorem ipsum"));
-
-        return "redirect:/load";
+        proyectos.add(new Proyecto("Nuevo Proyecto", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1, ""));
+        control = "proyecto";
+        return "redirect:/";
 
     }
 
-    @RequestMapping(value = "/{code}/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/cargar/{code}", method = RequestMethod.GET)
     public String editRow(ModelMap model, @PathVariable("code") String code) {
         for (int i = 0; i < proyectos.size(); i++) {
             if (code.equals(proyectos.get(i).getCodigo())) {
-                model.addAttribute("proyecto", proyectos.get(i));
+                model.addAttribute("pro", proyectos.get(i));
             }
         }
-        return "redirect:/criterios/load/";
+        return "forward:/";
 
     }
 
@@ -83,19 +87,13 @@ public class ControladorPrincipal {
 
     @RequestMapping(value = "/load", method = RequestMethod.GET)
     public String load() {
-        return "forward:/" + "criterios";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/goto/{page}/{operation}", method = RequestMethod.POST)
     public String operate(@PathVariable("page") String page, @PathVariable("operation") String operation) {
         control = page;
         return "forward:/" + page + "/" + operation + "/";
-    }
-
-    @RequestMapping(value = "/crear-proyecto", method = RequestMethod.GET)
-    public String create() {
-        control = "proyecto";
-        return "forward:/criterios";
     }
 
     @RequestMapping(value = "/dev", method = RequestMethod.GET)

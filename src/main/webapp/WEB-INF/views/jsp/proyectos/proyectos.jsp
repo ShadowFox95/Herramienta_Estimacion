@@ -31,16 +31,16 @@
 								<tr>
 									<spring:url value="/criterios/saveRow" var="saveUrl" />
 									<td>
-										<input class="form-control" type="text" value="" />
+										<input class="form-control" type="text" value="${pro.nombre}" />
 									</td>
 									<td>
-										<input class="form-control" type="text" value="" />
+										<input class="form-control" type="text" value="${pro.codigo}" />
 									</td>
 									<td>
 										<div class="col-xs-11">
-											<input class="form-control" type="text" value="" />
+											<input class="form-control" type="text" value="${pro.descripcion}" />
 										</div>
-										<spring:url value="/index/2/delete" var="deleteProjectUrl" />
+										<spring:url value="/proyecto-definitivo/2/delete" var="deleteProjectUrl" />
 										<div class="col-xs-1">
 											<form name="deleteRow" action="${deleteProjectUrl}" method="POST">
 												<button type="submit" class="button delete glyphicon glyphicon-trash" />
