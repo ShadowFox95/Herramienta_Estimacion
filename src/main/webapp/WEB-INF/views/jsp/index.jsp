@@ -15,13 +15,18 @@
             <!-- /.col-lg-12 -->
          </div>
          <!-- /.row -->
+         <input type="hidden" id="position" value="${control}"/>
          <div class="row">
          <div class="col-lg-12">
           <div class="page-header-menu">
-             <!-- Nav tabs -->                   
-       
-             <ul class="nav nav-tabs ">
-  
+             <!-- Nav tabs -->           
+             <c:choose>
+             	<c:when test="${control == ''}">
+             		<jsp:include page="./bienvenida.jsp"/>
+             		</div>
+             	</c:when>
+             	<c:otherwise>
+             	             <ul class="nav nav-tabs ">
                     <li id="proyectoLi" class=""><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>          
                     </li>
                     <li id="criteriosLi" class=""><a href="#criterios" data-toggle="tab" aria-expanded="false">Criterios</a>
@@ -39,7 +44,7 @@
                      <i class="glyphicon glyphicon-floppy-save"></i>
                      </button>
                 </form>
-  		<input type="hidden" id="position" value="${control}"/>
+  		
 		</div> 
                             <!-- Tab panes -->
                             <div class="tab-content">
@@ -60,6 +65,10 @@
                                     <jsp:include page="./condicionantes/condicionantes.jsp" />
                                 </div>
                             </div>
+             	
+             	</c:otherwise>
+             </c:choose>        
+             
 
                    
                 </div>
@@ -68,7 +77,9 @@
          <!-- /.row -->
       </div>
       <!-- /.page-wrapper -->
+
       <jsp:include page="./fragments/footer.jsp" />
+
      
       </body>
 </html>

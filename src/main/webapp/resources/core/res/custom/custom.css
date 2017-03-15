@@ -74,6 +74,9 @@ a, a:visited, a:hover, a:active {
 .contenido{
 	background-color: #ddd
 }
+.bienvenida{
+	padding-left: 15px;
+}
 .btn {
 	margin-left: 1px;
 	margin-right: 1px;
@@ -175,7 +178,7 @@ a, a:visited, a:hover, a:active {
 }
 
 .menu-button {
-    padding: 8px 68px;
+    padding: 10px 63px;
     font-size: 14px;
     line-height: 1.5;
     text-align: left !important;
