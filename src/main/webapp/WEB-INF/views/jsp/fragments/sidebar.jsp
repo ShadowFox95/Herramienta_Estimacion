@@ -9,6 +9,11 @@
 	<spring:url value="/resources/core/res/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
 	<link href="${bootstrapCss}" rel="stylesheet" />
 	<link href="${coreCss}" rel="stylesheet" />
+<<<<<<< Upstream, based on origin/marius
+=======
+<<<<<<< Upstream, based on origin/marius
+
+>>>>>>> 5232b94 a
 	<!-- Bootstrap Core JavaScript -->
 <spring:url value="/resources/core/res/bootstrap/js/bootstrap.min.js" var="bootstrapJs" />
 
@@ -18,6 +23,11 @@
 
 
 
+=======
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="/resources/core/js/datatable.js"></script>
+>>>>>>> 9adbb87 added control.js
 </head>
 
 <body onload="check()">

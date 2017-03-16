@@ -33,7 +33,7 @@ body,html {
 =======
     
     padding: 0 30px;
-    height: auto;
+    height: 100%;
 
   }
 >>>>>>> efd4d37 Gestor de Proyectos
@@ -106,6 +106,7 @@ a, a:visited, a:hover, a:active {
   vertical-align: middle;
   margin-left: 10px;
   margin-right: 1px;
+  margin-top: 7px;
   font-size: 1.2em;
   border:none;
   background:none;
@@ -190,6 +191,7 @@ a, a:visited, a:hover, a:active {
 	
 }
 
+<<<<<<< Upstream, based on origin/marius
 .condition-bt{
 	margin-right: -8px !important;
     margin-bottom: 8px !important;
@@ -197,6 +199,10 @@ a, a:visited, a:hover, a:active {
 
 .menu-button {
     padding: 10px 63px;
+=======
+.menu-button {
+    padding: 8px 68px;
+>>>>>>> 9adbb87 added control.js
     font-size: 14px;
     line-height: 1.5;
     text-align: left !important;
@@ -329,19 +335,7 @@ a, a:visited, a:hover, a:active {
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
-  /*    
-    .collapsed{
-       .arrow:before{
-                 font-family: FontAwesome;
-                 content: "\f053";
-                 display: inline-block;
-                 padding-left:10px;
-                 padding-right: 10px;
-                 vertical-align: middle;
-                 float:right;
-            }
-     }
-*/
+
 }
 
 .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -357,6 +351,7 @@ a, a:visited, a:hover, a:active {
 -webkit-transition: -webkit-transform 0.5s ; /* Safari */
     transition:  transform 0.5s ;
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
  
 	
 }
@@ -366,6 +361,15 @@ a, a:visited, a:hover, a:active {
 
 =======
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+ 
+	
+}
+.collapsed > .fa.arrow:before{
+   -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+
+>>>>>>> 9adbb87 added control.js
 	
 }
 .nav-side-menu ul .active,
@@ -448,17 +452,23 @@ a, a:visited, a:hover, a:active {
   border-left: 10px solid #DDD;
 
 }
+<<<<<<< Upstream, based on origin/marius
 .collapsed > .fa.arrow:before{
 <<<<<<< Upstream, based on origin/marius
 	content: "\f077"
 >>>>>>> be54e77 New Sidebar Progress
 =======
+=======
+>>>>>>> 9adbb87 added control.js
 
+<<<<<<< Upstream, based on origin/marius
 -webkit-transform: rotate(180deg); /* Safari */
     transform: rotate(180deg);
 	
 >>>>>>> efd4d37 Gestor de Proyectos
 }
+=======
+>>>>>>> 9adbb87 added control.js
 @media (max-width: 767px) {
   .nav-side-menu {
     position: relative;
@@ -499,6 +509,7 @@ a, a:visited, a:hover, a:active {
   }
 }
 
+<<<<<<< Upstream, based on origin/marius
 .noresize{
 	resize: none;
 }
@@ -526,3 +537,31 @@ a, a:visited, a:hover, a:active {
 	padding-right: 0px !important;
 	
 }
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+>>>>>>> 9adbb87 added control.js
