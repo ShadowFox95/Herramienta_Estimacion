@@ -1,4 +1,5 @@
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
 var totalhoras = 240;
 var totalNROCriterios = 0;
 var tcf_comptecnica_riesgo = 0;
@@ -7,6 +8,8 @@ var tcf_compTecnica_impacto = 0;
 var ecf_factCompljAmbiental = 0;
 var tcf_arquitecturaRef_impacto = 0;
 =======
+=======
+>>>>>>> 9e0df7e a
 <<<<<<< Upstream, based on origin/marius
 var totalhoras=240;
 var tcf_comptecnica_riesgo=0;
@@ -581,6 +584,14 @@ function calcTotalHoras(){
 var TOTALHORAS=240;
 var TCF_COMPTECNICA_RIESGO=1.02;
 var TCF_ARQUITECTURAREF_RIESGO=1.1;
+=======
+var totalhoras=240;
+var tcf_comptecnica_riesgo=1.02;
+var tcf_arquitecturaref_riesgo=1.1;
+var tcf_compTecnica_impacto=0;
+var	ecf_factCompljAmbiental=0;
+var	tcf_arquitecturaRef_impacto=0;
+>>>>>>> 10662e7 Un mensaje
 
 var POR_FASEANALISIS = 11;
 var POR_FASEPRUEBAS = 10;
@@ -636,6 +647,19 @@ var totalValorFinalCoste = 0;
 var horasContingencia = 0;
 ////
 
+function refreshHorasYCostes(){
+	calcTotalHoras();
+	recalcDelivery();
+}
+
+function recalcDelivery(){
+	sumaDelivery("gestion");
+	sumaDelivery("evaluacion");
+	selectDelivery("analisis");
+	sumaDelivery("diseno");
+	sumaDelivery("construccion");
+	selectDelivery("testing");
+}
 
 function setValuesDelivery(){
 	gest= document.getElementById('gestion_por').value;
@@ -863,7 +887,6 @@ function selectDelivery(id_name){
 	calcCoste(id_name);
 	refreshTotalDelivery();
 	calcDeliveryExt(id_name, aux2);
-	//Por arreglar
 }
 
 //
@@ -1093,8 +1116,23 @@ function refreshTotalValorFinal(){
 }
 
 function calcHorasContingencia(){
-	horasContingencia = (TOTALHORAS * TCF_COMPTECNICA_RIESGO * TCF_ARQUITECTURAREF_RIESGO) - TOTALHORAS; 
+	horasContingencia = (totalhoras * tcf_comptecnica_riesgo * tcf_arquitecturaref_riesgo) - totalhoras; 
 	document.getElementById('horascontingencia').innerHTML = horasContingencia.toFixed(2);
+<<<<<<< Upstream, based on origin/marius
 >>>>>>> bd633e2 Prueba
+<<<<<<< Upstream, based on origin/marius
 >>>>>>> 6150068 a
+=======
+=======
+}
+
+function calcTotalHoras(){
+	var totalNROCriterios = document.getElementById("").value;//POR ESPECIFICAR
+	var factorProductividad = document.getElementById("factorProductividad").innerHTML;
+	tcf_compTecnica_impacto = document.getElementById("tcf_impacto").innerHTML;
+	ecf_factCompljAmbiental = document.getElementById("ecf").innerHTML;
+	tcf_arquitecturaRef_impacto = document.getElementById("tcf_impacto2").innerHTML;
+	totalhoras = totalNROCriterios * factorProductividad * tcf_compTecnica_impacto * ecf_factCompljAmbiental * tcf_arquitecturaRef_impacto;
+>>>>>>> 10662e7 Un mensaje
+>>>>>>> 9e0df7e a
 }

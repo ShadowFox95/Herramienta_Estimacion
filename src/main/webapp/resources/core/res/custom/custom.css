@@ -76,12 +76,15 @@ body,html {
   font-weight: normal;
   font-style: normal;
 }
+<<<<<<< Upstream, based on origin/marius
 .page-header {
     padding-bottom: 9px;
     margin: 0 0 20px;
     border-bottom: 1px solid #eee;
 }
 
+=======
+>>>>>>> 10662e7 Un mensaje
 a, a:visited, a:hover, a:active {
 	color: inherit;
 }
@@ -131,11 +134,11 @@ a, a:visited, a:hover, a:active {
   vertical-align: middle;
   margin-left: 10px;
   margin-right: 1px;
-  margin-top: 7px;
   font-size: 1.2em;
   border:none;
   background:none;
   outline: 0;
+<<<<<<< Upstream, based on origin/marius
 <<<<<<< Upstream, based on origin/marius
 }
 
@@ -174,6 +177,43 @@ a, a:visited, a:hover, a:active {
     position: relative;
 =======
 >>>>>>> bd633e2 Prueba
+=======
+}
+
+.button-tab {
+	display: inline-block;
+    padding: 10.6px 20px;
+    position: relative;
+    margin-top: -42px;
+    float: right;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid black;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.button-tab:hover {
+	background-color: #2d6a9f !important;
+	
+}
+
+.tab-right{
+	padding: 0;
+    text-align: right;
+    float: right;
+    position: relative;
+>>>>>>> 10662e7 Un mensaje
 }
 
 .table-footer-fix {
@@ -466,6 +506,7 @@ a, a:visited, a:hover, a:active {
   padding-right: 20px;
 }
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
 .nav-tabs>li>a {
     margin-right: 1px !important;
     line-height: 1.42857143;
@@ -486,6 +527,13 @@ a, a:visited, a:hover, a:active {
   border-left: 10px solid #DDD;
 
 =======
+=======
+.nav-tabs>li>a {
+    margin-right: 1px !important;
+    line-height: 1.42857143;
+    border-radius: 4px 4px 0 0;
+}
+>>>>>>> 10662e7 Un mensaje
 .expandibles li {
   padding-left: 0px;
   border-left: 3px solid #F8F8F8;

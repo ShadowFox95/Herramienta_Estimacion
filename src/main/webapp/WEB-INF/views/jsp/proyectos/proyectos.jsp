@@ -98,6 +98,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default ">
+<<<<<<< Upstream, based on origin/marius
 						<!--  <div class="panel-heading ">
 >>>>>>> 9adbb87 added control.js
                     Lista de proyectos 
@@ -163,12 +164,14 @@
     </html>
 >>>>>>> efd4d37 Gestor de Proyectos
 =======
+=======
+					<div class="panel-heading custom-color">
+						Gestor de proyectos 
+					</div>
+>>>>>>> 10662e7 Un mensaje
 						<!-- /.panel-heading -->
 						<table width="100%" class="table table-striped tableForm" id="dataTables-example">
 							<thead>
-								<tr class="custom-color panel-heading-custom">
-									<th colspan="3">Gestor de proyectos</th>
-								</tr>
 								<tr>
 									<th class="col-xs-4">Nombre de proyecto</th>
 									<th class="col-xs-2">Código</th>
