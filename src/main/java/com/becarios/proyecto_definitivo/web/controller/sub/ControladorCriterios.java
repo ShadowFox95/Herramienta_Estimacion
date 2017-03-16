@@ -78,8 +78,13 @@ public class ControladorCriterios {
         return "forward:/factores-ajuste";
 
     }
+<<<<<<< Upstream, based on origin/marius
 
     // saves the name changes
+=======
+
+    // saves the changes
+>>>>>>> 3188760 a
     @RequestMapping(value = "/criterios/{projectCode}/saveRow", method = RequestMethod.POST)
     public String saveRow(@PathVariable("projectCode") int idProyecto, @RequestParam("ProjectEditado") boolean editado,
             @RequestParam("moduleId") int id, @RequestParam("moduleCode") String code,
@@ -91,6 +96,34 @@ public class ControladorCriterios {
             @RequestParam("vistaBotones") int vistaBotones, @RequestParam("negocioTotal") int negocioTotal,
             @RequestParam("negocioNro") int negocioNro, @RequestParam("negocioLogica") int negocioLogica,
             @RequestParam("persistenciaTotal") int persistenciaTotal,
+<<<<<<< Upstream, based on origin/marius
+=======
+<<<<<<< Upstream, based on origin/marius
+
+=======
+
+    @RequestMapping(value = "/criterios/load/", method = RequestMethod.GET)
+    public String Tables(ModelMap model, @ModelAttribute("proyecto") Proyecto project) {
+        proyecto = project;
+        rows = proyecto.getRows();
+
+        return "redirect:/load";
+
+    }
+
+    // saves the name changes
+    @RequestMapping(value = "/criterios/saveRow", method = RequestMethod.POST)
+    public String saveRow(@RequestParam("moduleCode") String code, @RequestParam("moduleName") String name,
+            @RequestParam("moduleCaseOfUse") String caseOfUse, @RequestParam("perfilesTotal") int perfilesTotal,
+            @RequestParam("perfilesNro") int perfilesNro, @RequestParam("perfilesComplejidad") int perfilesComplejidad,
+            @RequestParam("vistaTotal") int vistaTotal, @RequestParam("vistaNro") int vistaNro,
+            @RequestParam("vistaCampos") int vistaCampos, @RequestParam("vistaComplejidad") int vistaComplejidad,
+            @RequestParam("vistaListados") int vistaListados, @RequestParam("vistaBotones") int vistaBotones,
+            @RequestParam("negocioTotal") int negocioTotal, @RequestParam("negocioNro") int negocioNro,
+            @RequestParam("negocioLogica") int negocioLogica, @RequestParam("persistenciaTotal") int persistenciaTotal,
+
+>>>>>>> 9185c57 restored
+>>>>>>> 3188760 a
             @RequestParam("persistenciaNro") int persistenciaNro,
             @RequestParam("persistenciaAccesos") int persistenciaAccesos,
             @RequestParam(value = "cuTotal", defaultValue = "0") int cuTotal,
@@ -134,8 +167,12 @@ public class ControladorCriterios {
                 negocioTotal, negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, persistenciaAccesos,
                 cuTotal, cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
 
+<<<<<<< Upstream, based on origin/marius
             return "redirect:/criterios/ErrorSaveData";
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+            return "redirect:/load";
+>>>>>>> 9185c57 restored
 
         } else {
             // proyecto.CalcularTotal(codigo, perfilesTotal, vistaTotal,
@@ -149,10 +186,17 @@ public class ControladorCriterios {
         notification = "Se han aplicado los cambios";
 
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/load";
 =======
+=======
+
+>>>>>>> 9185c57 restored
         return "redirect:/criterios/";
 >>>>>>> efd4d37 Gestor de Proyectos
+
+
+        return "redirect:/load";
 
     }
 
@@ -171,11 +215,21 @@ public class ControladorCriterios {
         notificationType = "info";
         notification = "Se han descartado los cambios";
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
 =======
+=======
+
+>>>>>>> 9185c57 restored
         return "redirect:/criterios/";
 >>>>>>> efd4d37 Gestor de Proyectos
 
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/load";
+=======
+
+        return "redirect:/load";
+
+>>>>>>> 9185c57 restored
     }
 
     // Adds a table row
@@ -209,11 +263,18 @@ public class ControladorCriterios {
         // Desplazar a clase para modelo por defecto
         proyecto.crearModulo();
 
+
         return "redirect:/criterios/";
 >>>>>>> efd4d37 Gestor de Proyectos
 >>>>>>> 345d489 Gestor de Proyectos
 
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/load";
+=======
+
+        return "redirect:/load";
+
+>>>>>>> 9185c57 restored
     }
 
 <<<<<<< Upstream, based on origin/marius
@@ -255,8 +316,12 @@ public class ControladorCriterios {
 =======
 =======
         notification = "Módulo " + code + " eliminada correctamente";
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/criterios/";
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+        return "redirect:/load";
+>>>>>>> 9185c57 restored
 
 >>>>>>> 345d489 Gestor de Proyectos
     }
@@ -279,10 +344,21 @@ public class ControladorCriterios {
         model.addAttribute("integracion", tablasTemp.get(5));
 
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/load";
 =======
+=======
+
+>>>>>>> 9185c57 restored
         return "redirect:/criterios";
+<<<<<<< Upstream, based on origin/marius
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+
+        codigo = code;
+        return "redirect:/load";
+
+>>>>>>> 9185c57 restored
 
     }
 
@@ -292,10 +368,14 @@ public class ControladorCriterios {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. El codigo esta repetido";
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/load";
 =======
         return "redirect:/criterios/";
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+        return "redirect:/load";
+>>>>>>> 9185c57 restored
     }
 
     @RequestMapping(value = "/criterios/ErrorSaveData", method = RequestMethod.GET)
@@ -311,8 +391,12 @@ public class ControladorCriterios {
         return "redirect:/load";
 =======
         notification = "Los datos no han sido guardados correctamente. Intentelo de nuevo más tarde";
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/criterios/";
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+        return "redirect:/load";
+>>>>>>> 9185c57 restored
     }
 
     @RequestMapping(value = "/criterios/ErrorSaveNull", method = RequestMethod.GET)
@@ -328,7 +412,11 @@ public class ControladorCriterios {
         return "redirect:/load";
 =======
         notification = "Los datos no han sido guardados correctamente. Introduzca un codigo válido";
+<<<<<<< Upstream, based on origin/marius
         return "redirect:/criterios/";
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+        return "redirect:/load";
+>>>>>>> 9185c57 restored
     }
 }

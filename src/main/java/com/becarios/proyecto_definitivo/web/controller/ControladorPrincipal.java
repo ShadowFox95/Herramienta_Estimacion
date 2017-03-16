@@ -137,7 +137,7 @@ public class ControladorPrincipal {
         if (a > -1) {
             proyectos.remove(a);
         }
-        return "redirect:/index";
+        return "redirect:/";
 
     }
 
@@ -147,7 +147,7 @@ public class ControladorPrincipal {
         proyectos.add(new Proyecto("Proyecto de Prueba", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1,
                 "Lorem ipsum"));
 
-        return "redirect:/index";
+        return "redirect:/load";
 
     }
 
@@ -162,21 +162,33 @@ public class ControladorPrincipal {
 
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.GET)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String updateProject(@ModelAttribute("proyecto") Proyecto proyecto) {
         for (int i = 0; i < proyectos.size(); i++) {
             if (proyecto.getCodigo() == (proyectos.get(i).getCodigo())) {
                 proyectos.set(i, proyecto);
             }
         }
-        return "redirect:/index";
+        return "redirect:/";
 
     }
 
+<<<<<<< Upstream, based on origin/marius
     @RequestMapping(value = "/do/{page}/{operation}")
     public String operate() {
         return "";
 >>>>>>> 3f184c8 pp
+=======
+    @RequestMapping(value = "/load", method = RequestMethod.GET)
+    public String load() {
+        return "forward:/" + "criterios";
+    }
+
+    @RequestMapping(value = "/goto/{page}/{operation}", method = RequestMethod.POST)
+    public String operate(@PathVariable("page") String page, @PathVariable("operation") String operation) {
+        control = page;
+        return "forward:/" + page + "/" + operation + "/";
+>>>>>>> 9185c57 restored
     }
 
 }
