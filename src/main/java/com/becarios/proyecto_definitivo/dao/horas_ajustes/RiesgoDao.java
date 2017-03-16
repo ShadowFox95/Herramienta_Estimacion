@@ -13,6 +13,4 @@ public interface RiesgoDao {
     void deleteRiesgByCode(int id);
 
     List<Riesgo> findAllRiesg(int idProyecto);
-	
-
 }

@@ -2,8 +2,7 @@ package com.becarios.proyecto_definitivo.dao.horas_ajustes;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
+import javax.persistence.criteria.CriteriaQuery;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.horas_costes.Gobierno;
@@ -22,25 +21,18 @@ public class GobiernoDaoImpl extends AbstractDao<Integer, Gobierno> implements G
 
 	@Override
 	public void deleteGobByCode(int id) {
-		 Session session ;
-		 Gobierno factor ;
-
-		    session = sessionFactory.getCurrentSession();
-		    factor = (Gobierno)session.load(Gobierno.class,id);
-		    session.delete(factor);
-
-		    //This makes the pending delete to be done
-		    session.flush() ;
-		
-		/*Query<?> query = getSession().createQuery("delete from Modulo where code = :code");
-        query.setInteger("code", idModulo);
-        query.executeUpdate();*/
+			Gobierno factor ;
+		    factor = (Gobierno)getSession().load(Gobierno.class,id);
+		    getSession().delete(factor);
+		    getSession().flush() ;
 	}
 
 	@Override
 	public List<Gobierno> findAllGob(int idProyecto) {
-		Criteria criteria = createEntityCriteria();
-        return (List<Gobierno>) criteria.list();
+		CriteriaQuery<Gobierno> cq = getSession().getCriteriaBuilder().createQuery(Gobierno.class);
+    	cq.from(Gobierno.class);
+    	List<Gobierno> listaGobierno = getSession().createQuery(cq).getResultList();  
+		return listaGobierno;
 	}
 
 }

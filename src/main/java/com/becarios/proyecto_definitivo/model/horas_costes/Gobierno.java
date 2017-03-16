@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.horas_costes;
-// Generated 10-mar-2017 14:50:15 by Hibernate Tools 5.2.0.CR1
+// Generated 15-mar-2017 15:45:53 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

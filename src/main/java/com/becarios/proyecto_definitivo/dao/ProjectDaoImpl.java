@@ -2,13 +2,13 @@ package com.becarios.proyecto_definitivo.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaQuery;
+
 import org.hibernate.Criteria;
-import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.becarios.proyecto_definitivo.dao.factores_ajustes.FactoresTecnicaDaoImpl;
+
 import com.becarios.proyecto_definitivo.model.Proyecto;
 
 @Repository
@@ -29,28 +29,19 @@ public class ProjectDaoImpl extends AbstractDao<Integer, Proyecto> implements Pr
 
     @Override
     public void deleteProjectByCode(int id) {
-
-		 Session session ;
-		 Proyecto proyecto ;
-
-		    session = getSession();//sessionFactory.getCurrentSession();
-		    proyecto = (Proyecto)session.load(Proyecto.class, id);
-		    session.delete(proyecto);
-
-		    //This makes the pending delete to be done
-		    session.flush() ;
-    	/*
-        Query<?> query = getSession().createQuery("delete from Modulo where code = :code");
-        query.setString(code, "code");
-        query.executeUpdate();*/
-
+    		Proyecto proyecto ;
+		    proyecto = (Proyecto)getSession().load(Proyecto.class, id);
+		    getSession().delete(proyecto);
+		    getSession().flush();
     }
 
-    @SuppressWarnings("unchecked")
+    
     @Override
     public List<Proyecto> findAllProjects() {
-        Criteria criteria = createEntityCriteria();
-        return (List<Proyecto>) criteria.list();
+		CriteriaQuery<Proyecto> cq = getSession().getCriteriaBuilder().createQuery(Proyecto.class);
+    	cq.from(Proyecto.class);
+    	List<Proyecto> listaProyecto = getSession().createQuery(cq).getResultList();  
+		return listaProyecto;
     }
 
 }

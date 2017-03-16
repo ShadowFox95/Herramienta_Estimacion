@@ -33,9 +33,9 @@ public class ControladorPrincipal {
     }
 
     @RequestMapping(value = "/{code}/delete", method = RequestMethod.POST)
-    public String deleteRow(@PathVariable("code") String code) {
+    public String deleteRow(@PathVariable("code") int id) {
         // Desplazar a otra clase
-        project.deleteProjectByCode(code);
+        project.deleteProjectByCode(id);
         return "redirect:/";
 
     }

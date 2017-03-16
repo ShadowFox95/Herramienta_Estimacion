@@ -2,8 +2,7 @@ package com.becarios.proyecto_definitivo.dao.horas_ajustes;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
+import javax.persistence.criteria.CriteriaQuery;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.horas_costes.Delivery;
@@ -24,26 +23,18 @@ public class GestionexternoDaoImpl extends AbstractDao<Integer,Gestionexterno> i
 
 	@Override
 	public void deleteGestextByCode(int id) {
-		 Session session ;
-		 Delivery factor ;
-
-		    session = sessionFactory.getCurrentSession();
-		    factor = (Delivery)session.load(Delivery.class,id);
-		    session.delete(factor);
-
-		    //This makes the pending delete to be done
-		    session.flush() ;
-		
-		/*Query<?> query = getSession().createQuery("delete from Modulo where code = :code");
-        query.setInteger("code", idModulo);
-        query.executeUpdate();*/
-		
+			Delivery factor ;
+		    factor = (Delivery)getSession().load(Delivery.class,id);
+		    getSession().delete(factor);
+		    getSession().flush() ;
 	}
 
 	@Override
 	public List<Gestionexterno> findAllGestext(int idProyecto) {
-		Criteria criteria = createEntityCriteria();
-        return (List<Gestionexterno>) criteria.list();
+		CriteriaQuery<Gestionexterno> cq = getSession().getCriteriaBuilder().createQuery(Gestionexterno.class);
+    	cq.from(Gestionexterno.class);
+    	List<Gestionexterno> listaGestionexterno = getSession().createQuery(cq).getResultList();  
+		return listaGestionexterno;
 	}
 	
 }

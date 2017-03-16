@@ -182,7 +182,7 @@ public class ControladorHorasCostes {
 
         // Gobierno
         Gobierno GestionProyecto = new Gobierno();
-        GestionProyecto.setNombre("Gestión del proyecto");
+        GestionProyecto.setNombre("Gestion del proyecto");
         GestionProyecto.setPorcentaje(gestionProyectoPorcentaje);
         GestionProyecto.setInternaPractica(gestionProyectoInternaPractica);
         GestionProyecto.setHoras(gestionProyectoHoras);

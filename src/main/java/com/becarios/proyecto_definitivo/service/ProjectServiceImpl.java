@@ -17,8 +17,8 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectDao dao;
 
     @Override
-    public Proyecto findByCode(String code) {
-        return dao.findByCode(code);
+    public Proyecto findByCode(int id) {
+        return dao.findByCode(id);
     }
 
     @Override
@@ -29,19 +29,18 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public void updateProject(Proyecto proyecto) {
-        Proyecto entity = dao.findByCode(proyecto.getCodigo());
+        Proyecto entity = dao.findByCode(proyecto.getId());
         if (entity != null) {
             entity.setNombre(proyecto.getNombre());
             entity.setDescripcion(proyecto.getDescripcion());
-            entity.setEditado(proyecto.isEditado());
-            entity.setRows(proyecto.loadRows());
+            entity.setIsEditado(proyecto.isIsEditado());
         }
 
     }
 
     @Override
-    public void deleteProjectByCode(String code) {
-        dao.deleteProjectByCode(code);
+    public void deleteProjectByCode(int id) {
+        dao.deleteProjectByCode(id);
 
     }
 
@@ -51,18 +50,19 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public boolean isProjectCodeUnique(String code) {
-        Proyecto proyecto = findByCode(code);
-        return (proyecto == null || ((proyecto.getCodigo() == code)));
+    public boolean isProjectCodeUnique(int id) {
+        Proyecto proyecto = findByCode(id);
+        return (proyecto == null || ((proyecto.getId() == id)));
     }
 
     @Override
-    public boolean AddProject(String nombre, String codigo, String descripcion, boolean editado) {
+    public boolean AddProject(String nombre, String codigoProyecto, String descripcion, boolean isEditado) {
         Proyecto proyecto = new Proyecto();
-        proyecto.setCodigo(codigo);
+        proyecto.setCodigoProyecto(codigoProyecto);
         proyecto.setNombre(nombre);
         proyecto.setDescripcion(descripcion);
-        proyecto.setEditado(editado);
+        proyecto.setIsEditado(isEditado);
+        dao.saveProject(proyecto);
         return false;
     }
 

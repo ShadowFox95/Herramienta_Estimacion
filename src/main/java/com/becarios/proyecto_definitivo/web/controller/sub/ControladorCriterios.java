@@ -27,11 +27,11 @@ public class ControladorCriterios {
 
     // Show main page
     @RequestMapping(value = "/criterios/{projectCode}/", method = RequestMethod.GET)
-    public String mainTables(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
+    public String mainTables(ModelMap model, @PathVariable("projectCode") int idProyecto) {
 
-        model.addAttribute("projectCode", codigoProyecto);
+        model.addAttribute("projectCode", idProyecto);
 
-        List<Modulo> modulos = module.findAllModulo();
+        List<Modulo> modulos = module.findAllModulo(idProyecto);
 
         model.addAttribute("modules", modulos);
 
@@ -46,7 +46,7 @@ public class ControladorCriterios {
 
         // Loads default row when empty
         if (modulos.isEmpty()) {
-            module.createModulo(codigoProyecto);
+            module.createModulo(idProyecto);
         }
 
         return "forward:/factores-ajuste";
@@ -55,8 +55,8 @@ public class ControladorCriterios {
 
     // saves the changes
     @RequestMapping(value = "/criterios/{projectCode}/saveRow", method = RequestMethod.POST)
-    public String saveRow(@PathVariable("projectCode") String codigoProyecto,
-            @RequestParam("ProjectEditado") boolean editado, @RequestParam("moduleCode") String code,
+    public String saveRow(@PathVariable("projectCode") int idProyecto,
+            @RequestParam("ProjectEditado") boolean editado, @RequestParam("moduleId") int id, @RequestParam("moduleCode") String code,
             @RequestParam("moduleName") String name, @RequestParam("moduleCaseOfUse") String caseOfUse,
             @RequestParam("perfilesTotal") int perfilesTotal, @RequestParam("perfilesNro") int perfilesNro,
             @RequestParam("perfilesComplejidad") int perfilesComplejidad, @RequestParam("vistaTotal") int vistaTotal,
@@ -76,18 +76,14 @@ public class ControladorCriterios {
 
         code = code.trim();
         if (code.equals("")) {
-            return "redirect:/criterios/" + codigoProyecto + "/ErrorSaveNull";
+            return "redirect:/criterios/" + idProyecto + "/ErrorSaveNull";
         }
-        if (!module.isModuloCodeUnique(code)) {
-            return "redirect:/criterios/" + codigoProyecto + "/ErrorSaveRow";
-        }
+        if (!module.AddModulo(idProyecto,id, code, caseOfUse, name, perfilesTotal, perfilesNro, 
+        		perfilesComplejidad, vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, 
+        		vistaBotones, negocioTotal, negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, 
+        		persistenciaAccesos, cuTotal, cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
 
-        if (!module.AddModulo(codigoProyecto, editado, code, caseOfUse, name, perfilesTotal, perfilesNro,
-                perfilesComplejidad, vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, vistaBotones,
-                negocioTotal, negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, persistenciaAccesos,
-                cuTotal, cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
-
-            return "redirect:/criterios/" + codigoProyecto + "/ErrorSaveData";
+            return "redirect:/criterios/" + idProyecto + "/ErrorSaveData";
 
         }
 
@@ -101,8 +97,8 @@ public class ControladorCriterios {
     }
 
     // discard changes
-    @RequestMapping(value = "/criterios/{projectCode}/discard", method = RequestMethod.POST)
-    public String discard(@PathVariable("projectCode") String codigoProyecto) {
+    @RequestMapping(value = "/criterios/discard", method = RequestMethod.POST)
+    public String discard() {
         show = "";
         notificationType = "info";
         notification = "Se han descartado los cambios";
@@ -113,9 +109,9 @@ public class ControladorCriterios {
     // Adds a table row
     @RequestMapping(value = "/criterios/{projectCode}/addRow", method = RequestMethod.POST)
 
-    public String addRow(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
+    public String addRow(ModelMap model, @PathVariable("projectCode") int idProyecto) {
 
-        module.createModulo(codigoProyecto);
+        module.createModulo(idProyecto);
 
         return "redirect:/load";
     }
@@ -123,12 +119,12 @@ public class ControladorCriterios {
     // Delete a table row
     @RequestMapping(value = "/criterios/{projectCode}/{code}/delete", method = RequestMethod.POST)
 
-    public String deleteRow(@PathVariable("projectCode") String codigoProyecto, @PathVariable("code") String code) {
-        module.deleteModuloByCode(code);
+    public String deleteRow(@PathVariable("projectCode") int idProyecto, @PathVariable("code") int id) {
+        module.deleteModuloByCode(id);
 
         show = "";
         notificationType = "info";
-        notification = "Módulo " + code + " eliminada correctamente";
+        notification = "Módulo " + id + " eliminada correctamente";
 
         return "redirect:/load";
 
@@ -136,9 +132,9 @@ public class ControladorCriterios {
 
     // Shows the tables from the module
     @RequestMapping(value = "/criterios/{projectCode}/{code}/edit", method = RequestMethod.POST)
-    public String editRow(ModelMap model, @PathVariable("projectCode") String codigoProyecto,
-            @PathVariable("code") String code) {
-        show = code;
+    public String editRow(ModelMap model, @PathVariable("projectCode") int idProyecto,
+            @PathVariable("code") String id) {
+        show = id;
         List<Tabla> tablasTemp = new ArrayList<Tabla>();
         // tablasTemp = module.findAllTablas(code);
 
@@ -157,24 +153,24 @@ public class ControladorCriterios {
 
     // Displays the error message if the code it's not unique
     @RequestMapping(value = "/criterios/{projectCode}/ErrorSaveRow", method = RequestMethod.GET)
-    public String ErrorSaveRow(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
+    public String ErrorSaveRow(ModelMap model, @PathVariable("projectCode") int codigoProyecto) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. El codigo esta repetido";
         return "redirect:/load";
     }
 
-    @RequestMapping(value = "/criterios/{projectCode}/ErrorSaveData", method = RequestMethod.GET)
-    public String ErrorSaveData(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
+    @RequestMapping(value = "/criterios/ErrorSaveData", method = RequestMethod.GET)
+    public String ErrorSaveData(ModelMap model) {
         notificationType = "danger";
-        notification = "Los datos no han sido guardados correctamente. Intentelo de nuevo más tarde";
+        notification = "Los datos no han sido guardados correctamente. Intentelo de nuevo mas tarde";
 
         return "redirect:/load";
     }
 
-    @RequestMapping(value = "/criterios/{projectCode}/ErrorSaveNull", method = RequestMethod.GET)
-    public String ErrorSaveNull(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
+    @RequestMapping(value = "/criterios/ErrorSaveNull", method = RequestMethod.GET)
+    public String ErrorSaveNull(ModelMap model) {
         notificationType = "danger";
-        notification = "Los datos no han sido guardados correctamente. Introduzca un codigo válido";
+        notification = "Los datos no han sido guardados correctamente. Introduzca un codigo valido";
 
         return "redirect:/load";
     }

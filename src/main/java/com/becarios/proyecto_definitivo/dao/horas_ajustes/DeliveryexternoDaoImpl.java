@@ -2,11 +2,9 @@ package com.becarios.proyecto_definitivo.dao.horas_ajustes;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
+import javax.persistence.criteria.CriteriaQuery;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
-import com.becarios.proyecto_definitivo.model.horas_costes.Delivery;
 import com.becarios.proyecto_definitivo.model.horas_costes.Deliveryexterno;
 
 public class DeliveryexternoDaoImpl extends AbstractDao<Integer,Deliveryexterno> implements DeliveryexternoDao {
@@ -24,26 +22,18 @@ public class DeliveryexternoDaoImpl extends AbstractDao<Integer,Deliveryexterno>
 
 	@Override
 	public void deleteDelivextByCode(int id) {
-		 Session session ;
-		 Deliveryexterno factor ;
-
-		    session = sessionFactory.getCurrentSession();
-		    factor = (Deliveryexterno)session.load(Deliveryexterno.class,id);
-		    session.delete(factor);
-
-		    //This makes the pending delete to be done
-		    session.flush() ;
-		
-		/*Query<?> query = getSession().createQuery("delete from Modulo where code = :code");
-        query.setInteger("code", idModulo);
-        query.executeUpdate();*/
-		
+ 		 Deliveryexterno factor ;
+		    factor = (Deliveryexterno)getSession().load(Deliveryexterno.class,id);
+		    getSession().delete(factor);
+		    getSession().flush() ;
 	}
 
 	@Override
 	public List<Deliveryexterno> findAllDelivext(int idProyecto) {
-		Criteria criteria = createEntityCriteria();
-        return (List<Deliveryexterno>) criteria.list();
+		CriteriaQuery<Deliveryexterno> cq = getSession().getCriteriaBuilder().createQuery(Deliveryexterno.class);
+    	cq.from(Deliveryexterno.class);
+    	List<Deliveryexterno> listaDeliveryexterno = getSession().createQuery(cq).getResultList();  
+		return listaDeliveryexterno;
 	}
 
 }

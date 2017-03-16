@@ -3,14 +3,10 @@ package com.becarios.proyecto_definitivo.dao.criterios;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
+import javax.persistence.criteria.CriteriaQuery;
 import org.springframework.stereotype.Repository;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
-import com.becarios.proyecto_definitivo.dao.factores_ajustes.FactoresTecnicaDaoImpl;
 import com.becarios.proyecto_definitivo.model.criterios.CUOriginal;
 import com.becarios.proyecto_definitivo.model.criterios.Integracion;
 import com.becarios.proyecto_definitivo.model.criterios.Modulo;
@@ -33,32 +29,21 @@ public class ModuleDaoImpl extends AbstractDao<Integer, Modulo> implements Modul
         getSession().saveOrUpdate(modulo);
     }
 
-    @SuppressWarnings("deprecation")
+    
     @Override
     public void deleteModuleByCode(int idModulo) {
-       
-    	 Session session ;
-		 Modulo modulo;
-
-		    session = sessionFactory.getCurrentSession();
-		    modulo = (Modulo)session.load(Modulo.class,idModulo);
-		    session.delete(modulo);
-
-		    //This makes the pending delete to be done
-		    session.flush() ;
-    	
-    	/*Query<?> query = getSession().createQuery("delete from Modulo where code = :code");
-        query.setInteger("code", idModulo);
-        query.executeUpdate();*/
-
+       		 Modulo modulo;
+		    modulo = (Modulo)getSession().load(Modulo.class,idModulo);
+		    getSession().delete(modulo);
+		    getSession().flush() ;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public List<Modulo> findAllModules(int id) {
-        Criteria criteria = createEntityCriteria();
-        criteria.add(Restrictions.eq("idProyecto", id));
-        return (List<Modulo>) criteria.list();
+		CriteriaQuery<Modulo> cq = getSession().getCriteriaBuilder().createQuery(Modulo.class);
+    	cq.from(Modulo.class);
+    	List<Modulo> listaModelo= getSession().createQuery(cq).getResultList();  
+		return listaModelo;
     }
 
     @Override
