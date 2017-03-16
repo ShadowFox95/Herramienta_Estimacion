@@ -7,13 +7,21 @@
    <head>
       <title>EF - Estimación de horas</title>
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
          </head>
       <body>
        
 =======
       </head>
+=======
+         </head>
+>>>>>>> bd633e2 Prueba
       <body>
+<<<<<<< Upstream, based on origin/marius
 >>>>>>> efd4d37 Gestor de Proyectos
+=======
+       
+>>>>>>> bd633e2 Prueba
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -73,7 +81,19 @@
 	         			<tbody>
 	         				<tr>
 	         					<td class="col-xs-2">Horas de Contingencia</td>
+<<<<<<< Upstream, based on origin/marius
+=======
+<<<<<<< Upstream, based on origin/marius
+
+>>>>>>> 6150068 a
 	         					<td class="text-right col-xs-1"><strong id="horascontingencia">0.00</strong></td>
+<<<<<<< Upstream, based on origin/marius
+=======
+
+=======
+	         					<td class="text-right col-xs-1"><strong id="horascontingencia">0.00</strong></td>
+>>>>>>> bd633e2 Prueba
+>>>>>>> 6150068 a
 	         				</tr>
 	         			</tbody>
 	         		</table>

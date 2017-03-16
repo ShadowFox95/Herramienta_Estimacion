@@ -37,7 +37,7 @@ body,html {
 >>>>>>> 7b6f480 error trying to solve
     padding: 0 30px;
     height: 100%;
-
+    height: auto;
   }
 >>>>>>> efd4d37 Gestor de Proyectos
   #page-wrapper-menu {
@@ -45,6 +45,13 @@ body,html {
     margin: 0 0 0 250px;
     padding: 0 30px;
     height: auto;
+<<<<<<< Upstream, based on origin/marius
+=======
+  }
+  .page-header-menu{
+  	padding-bottom: 9px;
+  	margin: 40px 0 20px;
+>>>>>>> bd633e2 Prueba
   }
 <<<<<<< Upstream, based on origin/marius
   .page-header-menu{
@@ -129,6 +136,7 @@ a, a:visited, a:hover, a:active {
   border:none;
   background:none;
   outline: 0;
+<<<<<<< Upstream, based on origin/marius
 }
 
 .button-tab {
@@ -164,6 +172,8 @@ a, a:visited, a:hover, a:active {
     text-align: right;
     float: right;
     position: relative;
+=======
+>>>>>>> bd633e2 Prueba
 }
 
 .table-footer-fix {
@@ -207,6 +217,11 @@ a, a:visited, a:hover, a:active {
 .corner-button:hover {
 	background-color: #2d6a9f;
 	
+}
+
+.condition-bt{
+	margin-right: -8px !important;
+    margin-bottom: 8px !important;
 }
 
 <<<<<<< Upstream, based on origin/marius
@@ -556,6 +571,7 @@ a, a:visited, a:hover, a:active {
 <<<<<<< Upstream, based on origin/marius
 
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
 .noresize{
 	resize: none;
 }
@@ -613,3 +629,17 @@ a, a:visited, a:hover, a:active {
 
   
 >>>>>>> 9adbb87 added control.js
+=======
+.noresize{
+	resize: none;
+}
+
+.textarea-fix{
+	margin-bottom: 0px !important;
+}
+
+.width-fix{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+>>>>>>> bd633e2 Prueba
