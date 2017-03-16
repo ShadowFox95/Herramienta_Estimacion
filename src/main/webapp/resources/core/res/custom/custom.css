@@ -335,9 +335,20 @@ a, a:visited, a:hover, a:active {
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
-
+  /*    
+    .collapsed{
+       .arrow:before{
+                 font-family: FontAwesome;
+                 content: "\f053";
+                 display: inline-block;
+                 padding-left:10px;
+                 padding-right: 10px;
+                 vertical-align: middle;
+                 float:right;
+            }
+     }
+*/
 }
-
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
@@ -453,6 +464,7 @@ a, a:visited, a:hover, a:active {
 
 }
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
 .collapsed > .fa.arrow:before{
 <<<<<<< Upstream, based on origin/marius
 	content: "\f077"
@@ -469,6 +481,8 @@ a, a:visited, a:hover, a:active {
 }
 =======
 >>>>>>> 9adbb87 added control.js
+=======
+>>>>>>> e9939aa Restored previous css
 @media (max-width: 767px) {
   .nav-side-menu {
     position: relative;
@@ -508,6 +522,7 @@ a, a:visited, a:hover, a:active {
   	float: right;
   }
 }
+<<<<<<< Upstream, based on origin/marius
 
 <<<<<<< Upstream, based on origin/marius
 .noresize{
@@ -562,6 +577,8 @@ a, a:visited, a:hover, a:active {
 
 
 
+=======
+>>>>>>> e9939aa Restored previous css
 
   
 >>>>>>> 9adbb87 added control.js

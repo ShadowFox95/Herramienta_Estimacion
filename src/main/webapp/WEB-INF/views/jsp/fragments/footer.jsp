@@ -5,6 +5,11 @@
 <!-- Custom Theme JavaScript -->
 <spring:url value="/resources/core/js/custom.min.js" var="coreJs" />
 
+<<<<<<< Upstream, based on origin/marius
+=======
+
+
+>>>>>>> e9939aa Restored previous css
 <!-- Selectors -->
 <spring:url value="/resources/core/js/criterios/selectors.js" var="selectors" />
 <<<<<<< Upstream, based on origin/marius
@@ -27,23 +32,43 @@
 
 <spring:url value="/resources/core/js/lib/big.js/big.min.js" var="bigDecimal" />
 
+<<<<<<< Upstream, based on origin/marius
+=======
+
+>>>>>>> e9939aa Restored previous css
 <script src="${controlJs}"></script>
 <script src="${bigDecimal}"></script>
 <script src="${coreJs}"></script>
 
+<<<<<<< Upstream, based on origin/marius
+=======
+
+
+ 
+>>>>>>> e9939aa Restored previous css
 <script src="${selectors}"></script>
 <script src="${control}"></script>
 <script src="${factoresJs}"></script>
+
 
 <script src="${metisMenu}"></script>
 <script src="${dataTables}"></script>
 <script src="${dataTablesBS}"></script>
 <script src="${dataTablesRes}"></script>
 <<<<<<< Upstream, based on origin/marius
+<<<<<<< Upstream, based on origin/marius
  
 =======
+=======
+>>>>>>> 3975f0a a
 <<<<<<< Upstream, based on origin/marius
 -->
 =======
 >>>>>>> 9adbb87 added control.js
+<<<<<<< Upstream, based on origin/marius
 >>>>>>> 5232b94 a
+=======
+=======
+ 
+>>>>>>> e9939aa Restored previous css
+>>>>>>> 3975f0a a
