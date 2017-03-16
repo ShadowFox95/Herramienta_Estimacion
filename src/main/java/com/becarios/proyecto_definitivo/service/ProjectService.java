@@ -6,17 +6,17 @@ import com.becarios.proyecto_definitivo.model.Proyecto;
 
 public interface ProjectService {
 
-    Proyecto findByCode(String code);
+    Proyecto findByCode(int id);
 
     void saveProject(Proyecto proyecto);
 
     void updateProject(Proyecto proyecto);
 
-    void deleteProjectByCode(String code);
+    void deleteProjectByCode(int id);
 
     List<Proyecto> findAllProjects();
 
-    boolean isProjectCodeUnique(String code);
+    boolean isProjectCodeUnique(int id);
 
     boolean AddProject(String nombre, String codigo, String descripcion, boolean editado);
 }

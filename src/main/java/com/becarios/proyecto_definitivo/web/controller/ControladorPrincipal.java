@@ -1,21 +1,20 @@
 package com.becarios.proyecto_definitivo.web.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.becarios.proyecto_definitivo.model.Proyecto;
+import com.becarios.proyecto_definitivo.service.ProjectService;
 
 @Controller
 public class ControladorPrincipal {
 
-    private List<Proyecto> proyectos = new ArrayList<Proyecto>();
+    @Autowired
+    ProjectService project;
+
     private boolean first = true;
     private String control = "";
 
@@ -24,10 +23,10 @@ public class ControladorPrincipal {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
         if (first) {
-            proyectos.add(new Proyecto("Proyecto de Prueba", 0, "Lorem ipsum"));
+            project.AddProject("Proyecto de Prueba", "Codigo-0", "Lorem ipsum", false);
             first = false;
         }
-        model.addAttribute("proyectos", proyectos);
+        model.addAttribute("projectes", project.findAllProjects());
         model.addAttribute("control", control);
         return "forward:/criterios";
 
@@ -39,27 +38,19 @@ public class ControladorPrincipal {
     }
 
     @RequestMapping(value = "/{code}/delete", method = RequestMethod.POST)
-    public String deleteRow(@PathVariable("code") String code) {
+    public String deleteRow(@PathVariable("code") int id) {
         // Desplazar a otra clase
-        int a = -1;
-        for (int i = 0; i < proyectos.size(); i++) {
-            if (code.equals(proyectos.get(i).getCodigo())) {
-                a = i;
-            }
-        }
-        if (a > -1) {
-            proyectos.remove(a);
-        }
+        project.deleteProjectByCode(id);
         return "redirect:/";
 
     }
 
-    @RequestMapping(value = "/addProject", method = RequestMethod.GET)
+    @RequestMapping(value = "/addProject", method = RequestMethod.POST)
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
-        proyectos.add(new Proyecto("Nuevo Proyecto", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1, ""));
-        control = "proyecto";
-        return "redirect:/";
+        project.AddProject("Proyecto de Prueba", "Codigo-0", "Lorem ipsum", false);
+
+        return "redirect:/load";
 
     }
 
@@ -94,6 +85,12 @@ public class ControladorPrincipal {
     public String operate(@PathVariable("page") String page, @PathVariable("operation") String operation) {
         control = page;
         return "forward:/" + page + "/" + operation + "/";
+    }
+
+    @RequestMapping(value = "/crear-proyecto", method = RequestMethod.GET)
+    public String create() {
+        control = "proyecto";
+        return "forward:/criterios";
     }
 
     @RequestMapping(value = "/dev", method = RequestMethod.GET)
