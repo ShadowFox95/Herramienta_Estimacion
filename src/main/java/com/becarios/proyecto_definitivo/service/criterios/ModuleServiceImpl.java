@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-<<<<<<< Upstream, based on origin/vista
-import com.becarios.proyecto_definitivo.dao.ModuleDao;
-=======
+
 import com.becarios.proyecto_definitivo.dao.criterios.ModuleDao;
->>>>>>> 4d88fc0 a
 import com.becarios.proyecto_definitivo.model.criterios.CUOriginal;
 import com.becarios.proyecto_definitivo.model.criterios.Integracion;
 import com.becarios.proyecto_definitivo.model.criterios.Modulo;

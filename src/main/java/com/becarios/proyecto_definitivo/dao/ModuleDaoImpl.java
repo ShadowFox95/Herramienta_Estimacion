@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
+import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.criterios.CUOriginal;
 import com.becarios.proyecto_definitivo.model.criterios.Integracion;
 import com.becarios.proyecto_definitivo.model.criterios.Modulo;

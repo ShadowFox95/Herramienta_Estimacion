@@ -1,4 +1,4 @@
-package com.becarios.proyecto_definitivo.dao;
+package com.becarios.proyecto_definitivo.dao.criterios;
 
 import java.util.ArrayList;
 import java.util.List;

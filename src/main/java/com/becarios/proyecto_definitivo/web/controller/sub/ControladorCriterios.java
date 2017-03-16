@@ -53,31 +53,10 @@ public class ControladorCriterios {
 
     }
 
-<<<<<<< Upstream, based on origin/vista
-    @RequestMapping(value = "/criterios/load/", method = RequestMethod.GET)
-    public String Tables(ModelMap model, @ModelAttribute("proyecto") Proyecto project) {
-        proyecto = project;
-        rows = proyecto.getRows();
-
-        return "redirect:/load";
-
-    }
-
-    // saves the name changes
-    @RequestMapping(value = "/criterios/saveRow", method = RequestMethod.POST)
-    public String saveRow(@RequestParam("moduleCode") String code, @RequestParam("moduleName") String name,
-            @RequestParam("moduleCaseOfUse") String caseOfUse, @RequestParam("perfilesTotal") int perfilesTotal,
-            @RequestParam("perfilesNro") int perfilesNro, @RequestParam("perfilesComplejidad") int perfilesComplejidad,
-            @RequestParam("vistaTotal") int vistaTotal, @RequestParam("vistaNro") int vistaNro,
-            @RequestParam("vistaCampos") int vistaCampos, @RequestParam("vistaComplejidad") int vistaComplejidad,
-            @RequestParam("vistaListados") int vistaListados, @RequestParam("vistaBotones") int vistaBotones,
-            @RequestParam("negocioTotal") int negocioTotal, @RequestParam("negocioNro") int negocioNro,
-            @RequestParam("negocioLogica") int negocioLogica, @RequestParam("persistenciaTotal") int persistenciaTotal,
-=======
     // saves the changes
     @RequestMapping(value = "/criterios/{projectCode}/saveRow", method = RequestMethod.POST)
-    public String saveRow(@PathVariable("projectCode") int idProyecto,
-            @RequestParam("ProjectEditado") boolean editado, @RequestParam("moduleId") int id, @RequestParam("moduleCode") String code,
+    public String saveRow(@PathVariable("projectCode") int idProyecto, @RequestParam("ProjectEditado") boolean editado,
+            @RequestParam("moduleId") int id, @RequestParam("moduleCode") String code,
             @RequestParam("moduleName") String name, @RequestParam("moduleCaseOfUse") String caseOfUse,
             @RequestParam("perfilesTotal") int perfilesTotal, @RequestParam("perfilesNro") int perfilesNro,
             @RequestParam("perfilesComplejidad") int perfilesComplejidad, @RequestParam("vistaTotal") int vistaTotal,
@@ -86,7 +65,6 @@ public class ControladorCriterios {
             @RequestParam("vistaBotones") int vistaBotones, @RequestParam("negocioTotal") int negocioTotal,
             @RequestParam("negocioNro") int negocioNro, @RequestParam("negocioLogica") int negocioLogica,
             @RequestParam("persistenciaTotal") int persistenciaTotal,
->>>>>>> 04b980e DATABASE Configuration Implementation
             @RequestParam("persistenciaNro") int persistenciaNro,
             @RequestParam("persistenciaAccesos") int persistenciaAccesos,
             @RequestParam(value = "cuTotal", defaultValue = "0") int cuTotal,
@@ -99,25 +77,12 @@ public class ControladorCriterios {
         if (code.equals("")) {
             return "redirect:/criterios/" + idProyecto + "/ErrorSaveNull";
         }
-        if (!module.AddModulo(idProyecto,id, code, caseOfUse, name, perfilesTotal, perfilesNro, 
-        		perfilesComplejidad, vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, 
-        		vistaBotones, negocioTotal, negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, 
-        		persistenciaAccesos, cuTotal, cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
+        if (!module.AddModulo(idProyecto, id, code, caseOfUse, name, perfilesTotal, perfilesNro, perfilesComplejidad,
+                vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, vistaBotones, negocioTotal,
+                negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, persistenciaAccesos, cuTotal,
+                cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
 
-<<<<<<< Upstream, based on origin/vista
-        if (!module.AddModulo(codigoProyecto, editado, code, caseOfUse, name, perfilesTotal, perfilesNro,
-                perfilesComplejidad, vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, vistaBotones,
-                negocioTotal, negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, persistenciaAccesos,
-                cuTotal, cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
-
-<<<<<<< Upstream, based on origin/vista
             return "redirect:/load";
-=======
-            return "redirect:/criterios/" + codigoProyecto + "/ErrorSaveData";
->>>>>>> 04b980e DATABASE Configuration Implementation
-=======
-            return "redirect:/criterios/" + idProyecto + "/ErrorSaveData";
->>>>>>> 4d88fc0 a
 
         }
 
@@ -126,12 +91,7 @@ public class ControladorCriterios {
         notificationType = "info";
         notification = "Se han aplicado los cambios";
 
-<<<<<<< Upstream, based on origin/vista
         return "redirect:/load";
-=======
-        return "redirect:/criterios/" + codigoProyecto + "/";
-
->>>>>>> 04b980e DATABASE Configuration Implementation
     }
 
     // discard changes
@@ -140,40 +100,26 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Se han descartado los cambios";
-<<<<<<< Upstream, based on origin/vista
         return "redirect:/load";
-=======
-        return "redirect:/criterios/" + codigoProyecto + "/";
 
->>>>>>> 04b980e DATABASE Configuration Implementation
     }
 
     // Adds a table row
-<<<<<<< Upstream, based on origin/vista
-    @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
-    public String addRow(ModelMap model) {
-        // Desplazar a clase para modelo por defecto
-        proyecto.crearModulo();
-        return "redirect:/load";
-=======
-    @RequestMapping(value = "/criterios/{projectCode}/addRow", method = RequestMethod.POST)
-<<<<<<< Upstream, based on origin/vista
-    public String addRow(ModelMap model, @PathVariable("projectCode") String codigoProyecto) {
-=======
 
+    @RequestMapping(value = "/criterios/{projectCode}/addRow", method = RequestMethod.POST)
     public String addRow(ModelMap model, @PathVariable("projectCode") int idProyecto) {
->>>>>>> 4d88fc0 a
 
         module.createModulo(idProyecto);
 
-        return "redirect:/criterios/" + codigoProyecto + "/";
+        return "redirect:/criterios/" + idProyecto + "/";
 
->>>>>>> 04b980e DATABASE Configuration Implementation
     }
 
     // Delete a table row
-<<<<<<< Upstream, based on origin/vista
-    @RequestMapping(value = "/criterios/{code}/delete", method = RequestMethod.GET)
+    <<<<<<<Upstream,
+
+    based on origin/vista @RequestMapping(value="/criterios/{code}/delete",method=RequestMethod.GET)
+
     public String deleteRow(@PathVariable("code") String code) {
         // Desplazar a otra clase
         Modulo row = new Modulo();
@@ -189,6 +135,7 @@ public class ControladorCriterios {
 =======
     @RequestMapping(value = "/criterios/{projectCode}/{code}/delete", method = RequestMethod.POST)
 <<<<<<< Upstream, based on origin/vista
+
     public String deleteRow(@PathVariable("projectCode") String codigoProyecto, @PathVariable("code") String code) {
         module.deleteModuloByCode(code);
 >>>>>>> 04b980e DATABASE Configuration Implementation
@@ -197,20 +144,12 @@ public class ControladorCriterios {
     public String deleteRow(@PathVariable("projectCode") int idProyecto, @PathVariable("code") int id) {
         module.deleteModuloByCode(id);
 
->>>>>>> 4d88fc0 a
         show = "";
         notificationType = "info";
-<<<<<<< Upstream, based on origin/vista
-        notification = "Módulo " + code + " eliminada correctamente";
-<<<<<<< Upstream, based on origin/vista
-=======
+
         notification = "Módulo " + id + " eliminada correctamente";
 
->>>>>>> 4d88fc0 a
         return "redirect:/load";
-=======
-        return "redirect:/criterios/" + codigoProyecto + "/";
->>>>>>> 04b980e DATABASE Configuration Implementation
 
     }
 
