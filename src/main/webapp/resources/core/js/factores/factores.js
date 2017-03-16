@@ -60,7 +60,7 @@ function refresh() {
     res = new Big(1 + ((0.05 / 75) * totalRiesgo));
     document.getElementById("tcf_riesgo_hidden").value = res.round(2, 1);
     document.getElementById("tcf_riesgo").innerHTML = res.round(2, 1);
-
+    refreshHorasYCostes();
 }
 
 function calculate2(fila) {
@@ -130,7 +130,7 @@ function refresh2() {
     res = new Big(((1 + (0.1 / 60) * parseInt(totalRiesgo))));
     document.getElementById("tcf_riesgo2_hidden").value = res.round(2, 1);
     document.getElementById("tcf_riesgo2").innerHTML = res.round(2, 1);
-
+    refreshHorasYCostes();
 }
 
 function calculate3(fila) {
@@ -157,5 +157,5 @@ function refresh3() {
 
     document.getElementById("ecf").innerHTML = total.round(2, 1);
     document.getElementById("ecf_hidden").innerHTML = total.round(2, 1);
-
+    refreshHorasYCostes();
 }
