@@ -6,7 +6,65 @@
 <html lang="en">
    <head>
       <title>EF - Criterios</title>
-      </head>
+      <script type="text/javascript">
+      	function refreshTable(module){
+	      	 var table = "";
+	         for(i=0; i < module.length; i++){
+	             table += "<tr><td>"+module[i].name+"</td>";
+	             table += "<td>"+module[i].code+"</td>";
+	             table += "<td>"+module[i].caseOfUse+"</td>";
+	             table += "<td>"+module[i].total+"</td>";
+	             table += "<td>Muy Facil";//Falta if
+	             table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].code+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].code+"' onClick='doAjaxEdit(id)'/></div>";
+	         	table += "</td></tr>";
+	         }
+	         $("#insert").html(table); 
+      	}
+	      function doAjaxPost() {
+                $.ajax({
+                    type: "POST",
+                    url: "testing/addRow",
+                    success: function(module){      
+                       console.log(module);
+                       refreshTable(module);
+                    },
+	                error: function(e){
+	                	alert('Error: ' + e);
+	                }
+                });
+               
+            }
+	      function doAjaxEdit(){
+	          $.ajax({
+	                    type: "POST",
+	                    url: "testing",
+	                    success: function(module){      
+	                        console.log(module);
+	                        var table = "";
+	                        
+	                        $("#insert").html(table); 
+	                    },
+		                error: function(e){
+		                	alert('Error: ' + e);
+		                }
+	                });
+	      }
+	      function doAjaxDelete(id){
+	          $.ajax({
+	                    type: "DELETE",
+	                    url: "testing/delete/"+id,
+	                    success: function(module){      
+	                        console.log(module);
+							refreshTable(module);
+	                        console.log("deleted");
+	                    },
+		                error: function(e){
+		                	alert('Error: ' + e);
+		                }
+	                });
+	      }
+		</script>
+    </head>
       <body>
       <div id="page-wrapper">
          <div class="row">
@@ -27,14 +85,14 @@
                      <table width="100%" class="table table-responsive table-striped table-bordered table-hover tableForm" id="dataTables-example">
                         <thead>
                            <tr>
-                               <th class="col-xs-2">Nombre</th>
+                              <th class="col-xs-2">Nombre</th>
                               <th class="col-xs-2">Código</th>
                               <th class="col-xs-2">Caso de uso</th>
                               <th class="col-xs-1">Total</th>
                               <th class="col-xs-2">Valoración</th>
                            </tr>
                         </thead>
-					    <tbody>
+					    <tbody id="moduleTable">
                            <c:forEach var="module" items="${modules}">
                           			<c:choose>
                             		<c:when test="${module.code eq display}"> 
@@ -67,18 +125,19 @@
 		                                   				Muy Complicado
 	                                	   		</c:when>
 	                                	   	</c:choose>
-	                                 	  			<div style="float:right">
+	                                	   	</form>
+                                 	  			<div style="float:right">
 	                             	      			<div style="float:left">
 	                             	      				<button type="submit" class="button ok glyphicon glyphicon-ok"></button>
 	                     	             			</div>
-	                   		               			</form>
+	                   		               			
 	                   		               			<spring:url value="/criterios/discard" var="discardUrl" />
 	                    	           				<div style="float:right">
 	                     	   	           				<form name="deleteRow" action="${discardUrl}" method="POST">
 	                           	        				<button type="submit" class="button delete glyphicon glyphicon-remove"></button>
 														</form>
 	                                  				</div>
-	                                  				</div>
+                                  				</div>
 	                                  			
 	                              			</td>
 	                           			</tr>
@@ -148,11 +207,14 @@
                     <!-- Button -->
                     <div class="panel-footer table-footer-fix clearfix">	
                     	<span style="float:left">
-                        <form name="row" action="/proyecto-definitivo/goto/criterios/addRow" method="POST">
+                        <!-- <form name="row" action="/proyecto-definitivo/goto/criterios/addRow" method="POST">
                            <button type="submit" class="custom-color left-button corner-button">
                            <i class="glyphicon glyphicon-plus"></i> Crear Módulo
                            </button>
-                        </form>
+                        </form> -->
+                         <button type="submit" class="custom-color left-button corner-button" onClick='doAjaxPost()'>
+                           <i class="glyphicon glyphicon-plus"></i> Crear Módulo
+                           </button>
                    	</span> 
 					
 
@@ -173,15 +235,6 @@
 
       
       <!-- /#wrapper -->
-	          <script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $.ajax({url: "/", success: function(result){
-            $("#div1").html(result);
-        }});
-    });
-});
-</script>
 		<script>
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   

@@ -3,6 +3,7 @@ package com.becarios.proyecto_definitivo.web.controller.sub;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.becarios.proyecto_definitivo.model.Modulo;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 import com.becarios.proyecto_definitivo.model.Tabla;
+import com.becarios.proyecto_definitivo.service.ModuleService;
 
 @Controller
 public class ControladorCriterios {
@@ -25,7 +28,42 @@ public class ControladorCriterios {
     private String notification = "";
     private String notificationType = "info";
 
+    @Autowired
+    private ModuleService moduleService;
+
     // Show main page
+    @RequestMapping(value = "/testing", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Modulo> showTables(ModelMap model) {
+        rows = proyecto.getRows();
+        return rows;
+    }
+
+    @RequestMapping(value = "/testing/delete/{idToDelete}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public List<Modulo> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") String code) {
+        Modulo row = new Modulo();
+        int c = 0;
+        while (c < rows.size()) {
+            row = rows.get(c);
+            if (code.equals(row.getCode())) {
+                rows.remove(c);
+                proyecto.setRows(rows);
+            }
+            c++;
+        }
+        rows = proyecto.getRows();
+        return rows;
+    }
+
+    @RequestMapping(value = "/testing/addRow", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Modulo> addRowAjax(ModelMap model) {
+        proyecto.crearModulo();
+        rows = proyecto.getRows();
+        return rows;
+    }
+
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
     public String mainTables(ModelMap model) {
         model.addAttribute("modules", rows);
