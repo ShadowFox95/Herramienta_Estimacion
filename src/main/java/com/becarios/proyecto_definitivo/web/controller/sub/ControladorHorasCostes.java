@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.becarios.proyecto_definitivo.model.horas_costes.Delivery;
-import com.becarios.proyecto_definitivo.model.horas_costes.DeliveryExterno;
+import com.becarios.proyecto_definitivo.model.horas_costes.Deliveryexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Gestion;
-import com.becarios.proyecto_definitivo.model.horas_costes.GestionExterno;
+import com.becarios.proyecto_definitivo.model.horas_costes.Gestionexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Gobierno;
-import com.becarios.proyecto_definitivo.model.horas_costes.GobiernoExterno;
+import com.becarios.proyecto_definitivo.model.horas_costes.Gobiernoexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Riesgo;
-import com.becarios.proyecto_definitivo.model.horas_costes.ValoracionFinal;
+import com.becarios.proyecto_definitivo.model.horas_costes.Valoracionfinal;
 
 @Controller
 public class ControladorHorasCostes {
@@ -195,54 +195,54 @@ public class ControladorHorasCostes {
         GestionDm.setHoras(gestionDmHoras);
         GestionDm.setCoste(gestionDmCoste);
 
-        DeliveryExterno testingExterno = new DeliveryExterno();
+        Deliveryexterno testingExterno = new Deliveryexterno();
         testingExterno.setNombre("Centro de Testing");
         testingExterno.setPorcentaje(testingExtPorcentaje);
         testingExterno.setHoras(testingExtHoras);
         testingExterno.setCoste(testingExtCoste);
 
-        DeliveryExterno analisisExterno = new DeliveryExterno();
+        Deliveryexterno analisisExterno = new Deliveryexterno();
         analisisExterno.setNombre("Análisis");
         analisisExterno.setPorcentaje(analisisExtPorcentaje);
         analisisExterno.setHoras(AnalisisExtHoras);
         analisisExterno.setCoste(AnalisisExtCoste);
 
-        GestionExterno calidadExterno = new GestionExterno();
+        Gestionexterno calidadExterno = new Gestionexterno();
         calidadExterno.setNombre("Gestión de calidad");
         calidadExterno.setPorcentaje(calidadExtPorcentaje);
         calidadExterno.setHoras(calidadExtHoras);
         calidadExterno.setCoste(calidadExtCoste);
 
-        GestionExterno seguridadExterno = new GestionExterno();
+        Gestionexterno seguridadExterno = new Gestionexterno();
         seguridadExterno.setNombre("Gestión de seguridad");
         seguridadExterno.setPorcentaje(seguridadExtPorcentaje);
         seguridadExterno.setHoras(seguridadExtHoras);
         seguridadExterno.setCoste(seguridadExtCoste);
 
-        GestionExterno desplieguesExterno = new GestionExterno();
+        Gestionexterno desplieguesExterno = new Gestionexterno();
         desplieguesExterno.setNombre("Gestión de despliegues");
         desplieguesExterno.setPorcentaje(desplieguesExtPorcentaje);
         desplieguesExterno.setHoras(desplieguesExtHoras);
         desplieguesExterno.setCoste(desplieguesExtCoste);
 
-        GobiernoExterno gestionProyectoExterno = new GobiernoExterno();
+        Gobiernoexterno gestionProyectoExterno = new Gobiernoexterno();
         gestionProyectoExterno.setNombre("Gestión del proyecto");
         gestionProyectoExterno.setPorcentaje(gestionProyectoExtPorcentaje);
         gestionProyectoExterno.setHoras(gestionProyectoExtHoras);
         gestionProyectoExterno.setCoste(gestionProyectoExtCoste);
 
         // Valoracion Final
-        ValoracionFinal totalADM = new ValoracionFinal();
+        Valoracionfinal totalADM = new Valoracionfinal();
         totalADM.setNombre("Total ADM-DW");
         totalADM.setHoras(totalADMHoras);
         totalADM.setCoste(totalADMCoste);
 
-        ValoracionFinal totalTesting = new ValoracionFinal();
+        Valoracionfinal totalTesting = new Valoracionfinal();
         totalTesting.setNombre("Total centro de Testing");
         totalTesting.setHoras(totalTestingHoras);
         totalTesting.setCoste(totalTestingCoste);
 
-        ValoracionFinal TotalOnSite = new ValoracionFinal();
+        Valoracionfinal TotalOnSite = new Valoracionfinal();
         TotalOnSite.setNombre("Total OnSite");
         TotalOnSite.setHoras(totalOnSiteHoras);
         TotalOnSite.setCoste(totalOnSiteCoste);
@@ -250,7 +250,7 @@ public class ControladorHorasCostes {
         // Riesgo
         Riesgo riesgo = new Riesgo();
         riesgo.setNombre("Horas de Contingencia");
-        riesgo.setHoras(horasContingencia);
+        riesgo.setNum(horasContingencia);
 
     }
 

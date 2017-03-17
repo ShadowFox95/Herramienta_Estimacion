@@ -3,13 +3,13 @@ package com.becarios.proyecto_definitivo.service.horas_costes;
 import java.util.List;
 
 import com.becarios.proyecto_definitivo.model.horas_costes.Delivery;
-import com.becarios.proyecto_definitivo.model.horas_costes.DeliveryExterno;
+import com.becarios.proyecto_definitivo.model.horas_costes.Deliveryexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Gestion;
-import com.becarios.proyecto_definitivo.model.horas_costes.GestionExterno;
+import com.becarios.proyecto_definitivo.model.horas_costes.Gestionexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Gobierno;
-import com.becarios.proyecto_definitivo.model.horas_costes.GobiernoExterno;
+import com.becarios.proyecto_definitivo.model.horas_costes.Gobiernoexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Riesgo;
-import com.becarios.proyecto_definitivo.model.horas_costes.ValoracionFinal;
+import com.becarios.proyecto_definitivo.model.horas_costes.Valoracionfinal;
 
 public class HorasCostesServiceImpl implements HorasCostesService {
 
@@ -23,8 +23,8 @@ public class HorasCostesServiceImpl implements HorasCostesService {
     }
 
     @Override
-    public List<DeliveryExterno> findDeliveryExternoById(int id) {
-        // dao.getAllDeliveryExterno(id);
+    public List<Deliveryexterno> findDeliveryExternoById(int id) {
+        // dao.getAllDeliveryexterno(id);
         return null;
     }
 
@@ -35,8 +35,8 @@ public class HorasCostesServiceImpl implements HorasCostesService {
     }
 
     @Override
-    public List<GestionExterno> findGestionExternoById(int id) {
-        // dao.getAllGestionExterno(id);
+    public List<Gestionexterno> findGestionExternoById(int id) {
+        // dao.getAllGestionexterno(id);
         return null;
     }
 
@@ -47,8 +47,8 @@ public class HorasCostesServiceImpl implements HorasCostesService {
     }
 
     @Override
-    public List<GobiernoExterno> findGobietnoExternoById(int id) {
-        // dao.getAllGobiernoExterno(id);
+    public List<Gobiernoexterno> findGobietnoExternoById(int id) {
+        // dao.getAllGobiernoexterno(id);
         return null;
     }
 
@@ -59,8 +59,8 @@ public class HorasCostesServiceImpl implements HorasCostesService {
     }
 
     @Override
-    public List<ValoracionFinal> findValoracionFinalById(int id) {
-        // dao.getAllValoracinoFinal(id);
+    public List<Valoracionfinal> findValoracionFinalById(int id) {
+        // dao.getAllValoracinofinal(id);
         return null;
     }
 
@@ -68,20 +68,20 @@ public class HorasCostesServiceImpl implements HorasCostesService {
     public boolean save(Object row) {
         if (row instanceof Delivery) {
             // dao.saveDelivery(row)
-        } else if (row instanceof DeliveryExterno) {
-            // dao.saveDeliveryExterno(row)
+        } else if (row instanceof Deliveryexterno) {
+            // dao.saveDeliveryexterno(row)
         } else if (row instanceof Gestion) {
             // dao.saveGestion(row)
-        } else if (row instanceof GestionExterno) {
-            // dao.saveGestionExterno(row)
+        } else if (row instanceof Gestionexterno) {
+            // dao.saveGestionexterno(row)
         } else if (row instanceof Gobierno) {
             // dao.saveGobierno(row)
-        } else if (row instanceof GobiernoExterno) {
-            // dao.saveGobiernoExterno(row)
+        } else if (row instanceof Gobiernoexterno) {
+            // dao.saveGobiernoexterno(row)
         } else if (row instanceof Riesgo) {
             // dao.saveRiesgo(row)
-        } else if (row instanceof ValoracionFinal) {
-            // dao.saveValoracinoFinal(row)
+        } else if (row instanceof Valoracionfinal) {
+            // dao.saveValoracinofinal(row)
         }
         return false;
     }

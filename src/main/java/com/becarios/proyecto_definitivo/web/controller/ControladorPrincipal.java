@@ -3,6 +3,7 @@ package com.becarios.proyecto_definitivo.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +36,7 @@ public class ControladorPrincipal {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
         return "/index";
+
     }
 
     @RequestMapping(value = "/{code}/delete", method = RequestMethod.POST)

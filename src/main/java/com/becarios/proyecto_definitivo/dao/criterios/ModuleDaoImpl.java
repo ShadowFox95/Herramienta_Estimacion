@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaQuery;
+
 import org.springframework.stereotype.Repository;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
@@ -29,21 +30,20 @@ public class ModuleDaoImpl extends AbstractDao<Integer, Modulo> implements Modul
         getSession().saveOrUpdate(modulo);
     }
 
-    
     @Override
     public void deleteModuleByCode(int idModulo) {
-       		 Modulo modulo;
-		    modulo = (Modulo)getSession().load(Modulo.class,idModulo);
-		    getSession().delete(modulo);
-		    getSession().flush() ;
+        Modulo modulo;
+        modulo = (Modulo) getSession().load(Modulo.class, idModulo);
+        getSession().delete(modulo);
+        getSession().flush();
     }
 
     @Override
     public List<Modulo> findAllModules(int id) {
-		CriteriaQuery<Modulo> cq = getSession().getCriteriaBuilder().createQuery(Modulo.class);
-    	cq.from(Modulo.class);
-    	List<Modulo> listaModelo= getSession().createQuery(cq).getResultList();  
-		return listaModelo;
+        CriteriaQuery<Modulo> cq = getSession().getCriteriaBuilder().createQuery(Modulo.class);
+        cq.from(Modulo.class);
+        List<Modulo> listaModelo = getSession().createQuery(cq).getResultList();
+        return listaModelo;
     }
 
     @Override

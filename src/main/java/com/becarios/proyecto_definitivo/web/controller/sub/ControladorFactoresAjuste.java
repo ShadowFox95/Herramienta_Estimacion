@@ -24,6 +24,7 @@ public class ControladorFactoresAjuste {
         model.addAttribute("id", 600);
 
         return "forward:/horas-costes";
+
     }
 
     // @RequestMapping(value = "/factores-ajuste/{id}/", method =

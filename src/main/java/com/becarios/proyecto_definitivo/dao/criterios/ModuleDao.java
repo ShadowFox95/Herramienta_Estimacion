@@ -8,13 +8,13 @@ import com.becarios.proyecto_definitivo.model.criterios.Tabla;
 
 public interface ModuleDao {
 
-    Modulo findByCode(String code);
+    Modulo findByCode(int idModulo);
 
     void saveModule(Modulo modulo);
 
-    void deleteModuleByCode(String code);
+    void deleteModuleByCode(int idModulo);
 
-    List<Modulo> findAllModules();
+    List<Modulo> findAllModules(int id);
 
-    ArrayList<Tabla> FindAllTablas(String code);
+    ArrayList<Tabla> FindAllTablas(int idModulo);
 }

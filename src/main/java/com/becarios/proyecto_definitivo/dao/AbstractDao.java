@@ -19,14 +19,14 @@ public abstract class AbstractDao<PK extends Serializable, T> {
     }
 
     @Autowired
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 
     protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 
-    public T getByKey(String code) {
-        return (T) getSession().get(persistentClass, code);
+    public T getByKey(int id) {
+        return (T) getSession().get(persistentClass, id);
     }
 
     public void persist(T entity) {

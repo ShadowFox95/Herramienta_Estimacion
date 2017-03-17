@@ -8,14 +8,13 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-
 import com.becarios.proyecto_definitivo.model.Proyecto;
 
 @Repository
 public class ProjectDaoImpl extends AbstractDao<Integer, Proyecto> implements ProjectDao {
 
     @Override
-    public Proyecto findByCode(String code) {
+    public Proyecto findByCode(int code) {
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("code", code));
         return (Proyecto) criteria.uniqueResult();
