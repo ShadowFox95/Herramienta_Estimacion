@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.becarios.proyecto_definitivo.model.Proyecto;
 import com.becarios.proyecto_definitivo.service.ProjectService;
 
 @Controller
@@ -57,23 +58,16 @@ public class ControladorPrincipal {
     }
 
     @RequestMapping(value = "/cargar/{code}", method = RequestMethod.GET)
-    public String editRow(ModelMap model, @PathVariable("code") String code) {
-        for (int i = 0; i < proyectos.size(); i++) {
-            if (code.equals(proyectos.get(i).getCodigo())) {
-                model.addAttribute("pro", proyectos.get(i));
-            }
-        }
+    public String editRow(ModelMap model, @PathVariable("code") int id) {
+        // module.findtables(id);
+
         return "forward:/";
 
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String updateProject(@ModelAttribute("proyecto") Proyecto proyecto) {
-        for (int i = 0; i < proyectos.size(); i++) {
-            if (proyecto.getCodigo() == (proyectos.get(i).getCodigo())) {
-                proyectos.set(i, proyecto);
-            }
-        }
+        project.saveProject(proyecto);
         return "redirect:/";
 
     }

@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,20 +27,19 @@ public class ControladorCriterios {
 
     // Show main page
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
-    public String mainTables(ModelMap model, @RequestParam("ProjectCode")int idProyecto) {
-        model.addAttribute("modules", rows);
-        if (!show.isEmpty()) {
-            model.addAttribute("perfiles", tablasTemp.get(0));
-            model.addAttribute("vista", tablasTemp.get(1));
-            model.addAttribute("negocio", tablasTemp.get(2));
-            model.addAttribute("persistencia", tablasTemp.get(3));
-
-            if (true) { /* proyecto.isEditado() */
-                model.addAttribute("cu", tablasTemp.get(4));
-            }
-            model.addAttribute("projectCode", idProyecto);
-
-            model.addAttribute("integracion", tablasTemp.get(5));
+    public String mainTables(ModelMap model, @RequestParam("ProjectCode") int idProyecto) {
+        // if (!show.isEmpty()) {
+        // model.addAttribute("perfiles", tablasTemp.get(0));
+        // model.addAttribute("vista", tablasTemp.get(1));
+        // model.addAttribute("negocio", tablasTemp.get(2));
+        // model.addAttribute("persistencia", tablasTemp.get(3));
+        //
+        // if (true) { /* proyecto.isEditado() */
+        // model.addAttribute("cu", tablasTemp.get(4));
+        // }
+        // model.addAttribute("integracion", tablasTemp.get(5));
+        //
+        model.addAttribute("projectCode", idProyecto);
         List<Modulo> modulos = module.findAllModulo(idProyecto);
 
         model.addAttribute("modules", modulos);
@@ -61,15 +59,6 @@ public class ControladorCriterios {
         }
 
         return "forward:/factores-ajuste";
-
-    }
-
-    @RequestMapping(value = "/criterios/load/", method = RequestMethod.GET)
-    public String Tables(ModelMap model, @ModelAttribute("proyecto") Proyecto project) {
-        proyecto = project;
-        rows = proyecto.getRows();
-
-        return "redirect:/load";
 
     }
 
@@ -106,11 +95,11 @@ public class ControladorCriterios {
             return "redirect:/criterios/" + idProyecto + "/ErrorSaveData";
 
         } else {
-            proyecto.CalcularTotal(codigo, perfilesTotal, vistaTotal, negocioTotal, persistenciaTotal, cuTotal,
-                    integracionTotal);
+            // proyecto.CalcularTotal(codigo, perfilesTotal, vistaTotal,
+            // negocioTotal, persistenciaTotal, cuTotal,integracionTotal);
         }
-        rows.get(index).apply(code, name, caseOfUse);
-        proyecto.setRows(rows);
+        // rows.get(index).apply(code, name, caseOfUse);
+        // proyecto.setRows(rows);
         show = "";
 
         notificationType = "info";
@@ -148,7 +137,7 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Módulo " + id + " eliminada correctamente";
-        
+
         return "redirect:/load";
     }
 
@@ -169,7 +158,6 @@ public class ControladorCriterios {
         }
         model.addAttribute("integracion", tablasTemp.get(5));
 
-        codigo = code;
         return "redirect:/load";
 
     }

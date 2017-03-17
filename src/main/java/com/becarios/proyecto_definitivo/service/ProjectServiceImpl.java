@@ -33,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
         if (entity != null) {
             entity.setNombre(proyecto.getNombre());
             entity.setDescripcion(proyecto.getDescripcion());
-            entity.setIsEditado(proyecto.isIsEditado());
+            entity.setEditado(proyecto.isEditado());
         }
 
     }
@@ -61,7 +61,7 @@ public class ProjectServiceImpl implements ProjectService {
         proyecto.setCodigoProyecto(codigoProyecto);
         proyecto.setNombre(nombre);
         proyecto.setDescripcion(descripcion);
-        proyecto.setIsEditado(isEditado);
+        proyecto.setEditado(isEditado);
         dao.saveProject(proyecto);
         return false;
     }

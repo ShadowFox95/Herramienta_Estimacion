@@ -129,6 +129,7 @@ public class ModuleServiceImpl implements ModuleService {
 
             float total;
             // lo calcula el procedure de la base de datos.
+            // if (editado){
             if (!true) {
                 total = (float) ((perfilesTotal + vistaTotal + negocioTotal + persistenciaTotal) / 7);
             } else {
@@ -136,11 +137,11 @@ public class ModuleServiceImpl implements ModuleService {
                         + integracionTotal * 0.2);
             }
 
-            // modulo.setTotal(total);
+            modulo.setTotalFila(total);
 
             this.saveModulo(modulo);
             // Not implemented yet
-            // dao.saveTablas(perfiles,vista,negocio,persistencia,cuoriginal,integracion)
+            // dao.saveTablas(perfiles,vista,negocio,persistencia,cu,integracion)
 
         } catch (Exception e) {
             return false;

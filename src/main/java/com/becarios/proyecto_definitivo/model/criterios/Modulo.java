@@ -16,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 public class Modulo implements Serializable {
     private Integer id;
     private String codigo;
-    private int totalFila;
+    private float totalFila;
     private String nombre;
     private String modulo;
     private int idProyecto;
@@ -24,7 +24,7 @@ public class Modulo implements Serializable {
     public Modulo() {
     }
 
-    public Modulo(String codigo, int totalFila, String nombre, String modulo, int idProyecto) {
+    public Modulo(String codigo, float totalFila, String nombre, String modulo, int idProyecto) {
         this.codigo = codigo;
         this.totalFila = totalFila;
         this.nombre = nombre;
@@ -54,12 +54,12 @@ public class Modulo implements Serializable {
     }
 
     @Column(name = "TotalFila", nullable = false)
-    public int getTotalFila() {
+    public float getTotalFila() {
         return this.totalFila;
     }
 
-    public void setTotalFila(int totalFila) {
-        this.totalFila = totalFila;
+    public void setTotalFila(float total) {
+        this.totalFila = total;
     }
 
     @Column(name = "Nombre", nullable = false, length = 45)
