@@ -52,8 +52,11 @@
                                 <div class="tab-pane fade" id="proyecto">
                                     <jsp:include page="./proyectos/proyectos.jsp" />
                                 </div>
+                                
                                 <div class="tab-pane fade" id="criterios">
+                                	<div id="content">
                                     <jsp:include page="./criterios/criterios.jsp" />
+                                    </div>
                                 </div>
                                 <div class="tab-pane fade" id="horas">
                                     <jsp:include page="./estimacion-horas/horas.jsp" />
@@ -77,6 +80,7 @@
          <!-- /.row -->
       </div>
       <!-- /.page-wrapper -->
+
 
       <jsp:include page="./fragments/footer.jsp" />
 

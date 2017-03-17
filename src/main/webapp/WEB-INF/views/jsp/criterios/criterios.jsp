@@ -226,8 +226,9 @@
          </div>
          <!-- /.row -->
          <hr>
-
+<div id="testeando">
          <jsp:include page="./atributos.jsp" />
+         </div>
          
       </div>
       <!-- /#page-wrapper -->
