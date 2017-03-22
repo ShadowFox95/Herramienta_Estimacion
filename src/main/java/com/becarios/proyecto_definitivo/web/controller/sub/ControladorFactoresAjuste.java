@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.becarios.proyecto_definitivo.model.factores_ajuste.ArquitecturaReferencia;
-import com.becarios.proyecto_definitivo.model.factores_ajuste.FactorComplejidadAmbiental;
-import com.becarios.proyecto_definitivo.model.factores_ajuste.FactorComplejidadTecnica;
+import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencia;
+import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
+import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
 
 @Controller
 public class ControladorFactoresAjuste {
@@ -102,7 +102,7 @@ public class ControladorFactoresAjuste {
 
         // Clase FactoresAjuste
         FactorComplejidadTecnica rendimiento = new FactorComplejidadTecnica();
-        rendimiento.setId(id);
+        rendimiento.setIdProyecto(id);
         rendimiento.setNombre("rendimiento");
         rendimiento.setAplica(rendimientoAplica);
         rendimiento.setGradoDefinicion(rendimientoDefinicion);
@@ -111,7 +111,7 @@ public class ControladorFactoresAjuste {
         rendimiento.setRiesgo(rendimientoRiesgo);
 
         FactorComplejidadTecnica usabilidad = new FactorComplejidadTecnica();
-        usabilidad.setId(id);
+        usabilidad.setIdProyecto(id);
         usabilidad.setNombre("usabilidad");
         usabilidad.setAplica(usabilidadAplica);
         usabilidad.setGradoDefinicion(usabilidadDefinicion);
@@ -120,7 +120,7 @@ public class ControladorFactoresAjuste {
         usabilidad.setRiesgo(usabilidadRiesgo);
 
         FactorComplejidadTecnica portabilidad = new FactorComplejidadTecnica();
-        portabilidad.setId(id);
+        portabilidad.setIdProyecto(id);
         portabilidad.setNombre("portabilidad");
         portabilidad.setAplica(rendimientoAplica);
         portabilidad.setGradoDefinicion(portabilidadDefinicion);
@@ -128,7 +128,7 @@ public class ControladorFactoresAjuste {
         portabilidad.setRiesgo(portabilidadRiesgo);
 
         FactorComplejidadTecnica concurrencia = new FactorComplejidadTecnica();
-        concurrencia.setId(id);
+        concurrencia.setIdProyecto(id);
         concurrencia.setNombre("concurrencia");
         concurrencia.setAplica(concurrenciaAplica);
         concurrencia.setGradoDefinicion(concurrenciaDefinicion);
@@ -137,7 +137,7 @@ public class ControladorFactoresAjuste {
         concurrencia.setRiesgo(concurrenciaRiesgo);
 
         FactorComplejidadTecnica seguridad = new FactorComplejidadTecnica();
-        seguridad.setId(id);
+        seguridad.setIdProyecto(id);
         seguridad.setNombre("seguridad");
         seguridad.setAplica(seguridadAplica);
         seguridad.setGradoDefinicion(seguridadDefinicion);
@@ -146,55 +146,55 @@ public class ControladorFactoresAjuste {
         seguridad.setRiesgo(seguridadRiesgo);
 
         ArquitecturaReferencia solucion = new ArquitecturaReferencia();
-        solucion.setId(id);
+        solucion.setIdProyecto(id);
         solucion.setNombre("solucion");
         solucion.setAplica(solucionAplica);
         solucion.setDefinido(solucionDefinido);
-        solucion.setGradoConocimiento(solucionConocimiento);
+        solucion.setGradoConocimento(solucionConocimiento);
         solucion.setImpacto(solucionImpacto);
         solucion.setRiesgo(solucionRiesgo);
 
         ArquitecturaReferencia integracion = new ArquitecturaReferencia();
-        integracion.setId(id);
+        integracion.setIdProyecto(id);
         integracion.setNombre("integracion");
         integracion.setAplica(integracionAplica);
         integracion.setDefinido(integracionDefinido);
-        integracion.setGradoConocimiento(integracionConocimiento);
+        integracion.setGradoConocimento(integracionConocimiento);
         integracion.setImpacto(integracionImpacto);
         integracion.setRiesgo(integracionRiesgo);
 
         ArquitecturaReferencia logica = new ArquitecturaReferencia();
-        logica.setId(id);
+        logica.setIdProyecto(id);
         logica.setNombre("logica");
         logica.setAplica(logicaAplica);
         logica.setDefinido(logicaDefinido);
-        logica.setGradoConocimiento(logicaConocimiento);
+        logica.setGradoConocimento(logicaConocimiento);
         logica.setImpacto(logicaImpacto);
         logica.setRiesgo(logicaRiesgo);
 
         ArquitecturaReferencia despliegue = new ArquitecturaReferencia();
-        despliegue.setId(id);
+        despliegue.setIdProyecto(id);
         despliegue.setNombre("despliegue");
         despliegue.setAplica(despliegueAplica);
         despliegue.setDefinido(despliegueDefinido);
-        despliegue.setGradoConocimiento(despliegueConocimiento);
+        despliegue.setGradoConocimento(despliegueConocimiento);
         despliegue.setImpacto(despliegueImpacto);
         despliegue.setRiesgo(despliegueRiesgo);
 
         FactorComplejidadAmbiental experiencia = new FactorComplejidadAmbiental();
-        experiencia.setId(id);
+        experiencia.setIdProyecto(id);
         experiencia.setNombre("experiencia");
         experiencia.setValoracion(experienciaValoracion);
         experiencia.setFactorCalculado(experienciaFactorCalculado);
 
         FactorComplejidadAmbiental capacidades = new FactorComplejidadAmbiental();
-        capacidades.setId(id);
+        capacidades.setIdProyecto(id);
         capacidades.setNombre("capacidades");
         capacidades.setValoracion(capacidadesValoracion);
         capacidades.setFactorCalculado(capacidadesFactorCalculado);
 
         FactorComplejidadAmbiental calidad = new FactorComplejidadAmbiental();
-        calidad.setId(id);
+        calidad.setIdProyecto(id);
         calidad.setNombre("calidad");
         calidad.setValoracion(calidadValoracion);
         calidad.setFactorCalculado(calidadFactorCalculado);

@@ -9,47 +9,41 @@ import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorAjuste;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
 
-
-
 public class FactoresAjusteServiceImpl implements FactoresAjusteService {
 
-     @Autowired
-     FactorAjusteDao dao;
+    @Autowired
+    FactorAjusteDao dao;
 
     @Override
     public List<FactorAjuste> findFactoresAjusteById(int id) {
-        // dao.getAllFactoresAjuste(id);
-        return null;
+        return dao.getAllFactoresAjuste(id);
     }
 
     @Override
     public List<FactorComplejidadAmbiental> findFactoresComplejidadAmbientalById(int id) {
-        // dao.getAllFactorComplejidadAmbiental(id);
-        return null;
+        return dao.getAllFactorComplejidadAmbiental(id);
     }
 
     @Override
     public List<FactorComplejidadTecnica> findFactoresComplejidadTecnicaById(int id) {
-        // dao.getAllFactorComplejidadTecnica(id);
-        return null;
+        return dao.getAllFactorComplejidadTecnica(id);
     }
 
     @Override
     public List<ArquitecturaReferencia> findArquitecturaReferenciaById(int id) {
         return dao.getAllArquitecturaReferencia(id);
-        
     }
 
     @Override
     public boolean save(Object row) {
         if (row instanceof FactorAjuste) {
-            // dao.saveFactoresAjuste(row);
+            dao.saveFactoresAjuste(row);
         } else if (row instanceof FactorComplejidadAmbiental) {
-            // dao.saveFactorComplejidadAmbiental(row);
+            dao.saveFactorComplejidadAmbiental(row);
         } else if (row instanceof FactorComplejidadTecnica) {
-            // dao.saveFactorComplejidadTecnica(row);
+            dao.saveFactorComplejidadTecnica(row);
         } else if (row instanceof ArquitecturaReferencia) {
-            // dao.saveArquitecturaReferencia(row);
+            dao.saveArquitecturaReferencia(row);
         }
         return false;
     }
