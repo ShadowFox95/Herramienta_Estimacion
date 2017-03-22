@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.criterios;
-// Generated 20-mar-2017 16:18:07 by Hibernate Tools 5.2.0.CR1
+// Generated 22-mar-2017 16:51:30 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,13 +15,13 @@ public class Persistencia extends Tabla implements java.io.Serializable {
 
 	private int casosdeUsosCodigo;
 	private int nro;
-	private String accesos;
+	private int accesos;
 	private int total;
 
 	public Persistencia() {
 	}
 
-	public Persistencia(int casosdeUsosCodigo, int nro, String accesos, int total) {
+	public Persistencia(int casosdeUsosCodigo, int nro, int accesos, int total) {
 		this.casosdeUsosCodigo = casosdeUsosCodigo;
 		this.nro = nro;
 		this.accesos = accesos;
@@ -48,12 +48,12 @@ public class Persistencia extends Tabla implements java.io.Serializable {
 		this.nro = nro;
 	}
 
-	@Column(name = "Accesos", nullable = false, length = 45)
-	public String getAccesos() {
+	@Column(name = "Accesos", nullable = false)
+	public int getAccesos() {
 		return this.accesos;
 	}
 
-	public void setAccesos(String accesos) {
+	public void setAccesos(int accesos) {
 		this.accesos = accesos;
 	}
 

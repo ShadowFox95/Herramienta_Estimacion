@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencia;
+import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorAjuste;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
 
@@ -13,10 +14,10 @@ import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidad
 public class FactoresAjusteServiceImpl implements FactoresAjusteService {
 
      @Autowired
-     FactoresAjusteDao dao;
+     FactorAjusteDao dao;
 
     @Override
-    public List<FactoresAjuste> findFactoresAjusteById(int id) {
+    public List<FactorAjuste> findFactoresAjusteById(int id) {
         // dao.getAllFactoresAjuste(id);
         return null;
     }
@@ -41,7 +42,7 @@ public class FactoresAjusteServiceImpl implements FactoresAjusteService {
 
     @Override
     public boolean save(Object row) {
-        if (row instanceof FactoresAjuste) {
+        if (row instanceof FactorAjuste) {
             // dao.saveFactoresAjuste(row);
         } else if (row instanceof FactorComplejidadAmbiental) {
             // dao.saveFactorComplejidadAmbiental(row);

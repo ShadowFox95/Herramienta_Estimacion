@@ -3,6 +3,7 @@ package com.becarios.proyecto_definitivo.service.criterios;
 import java.util.List;
 
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
+import com.becarios.proyecto_definitivo.model.criterios.CasosDeUsoId;
 
 public interface ModuleService {
 

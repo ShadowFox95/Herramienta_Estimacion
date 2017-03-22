@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.criterios;
-// Generated 20-mar-2017 16:23:01 by Hibernate Tools 5.2.0.CR1
+// Generated 22-mar-2017 16:51:30 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,13 +14,13 @@ import javax.persistence.Table;
 public class Cuoriginal extends Tabla implements java.io.Serializable {
 
 	private int casosdeUsosCodigo;
-	private String complejidad;
+	private int complejidad;
 	private int total;
 
 	public Cuoriginal() {
 	}
 
-	public Cuoriginal(int casosdeUsosCodigo, String complejidad, int total) {
+	public Cuoriginal(int casosdeUsosCodigo, int complejidad, int total) {
 		this.casosdeUsosCodigo = casosdeUsosCodigo;
 		this.complejidad = complejidad;
 		this.total = total;
@@ -37,12 +37,12 @@ public class Cuoriginal extends Tabla implements java.io.Serializable {
 		this.casosdeUsosCodigo = casosdeUsosCodigo;
 	}
 
-	@Column(name = "Complejidad", nullable = false, length = 45)
-	public String getComplejidad() {
+	@Column(name = "Complejidad", nullable = false)
+	public int getComplejidad() {
 		return this.complejidad;
 	}
 
-	public void setComplejidad(String complejidad) {
+	public void setComplejidad(int complejidad) {
 		this.complejidad = complejidad;
 	}
 

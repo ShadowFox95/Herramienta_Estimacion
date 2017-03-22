@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.becarios.proyecto_definitivo.dao.criterios.ModuleDao;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUsoId;
+import com.becarios.proyecto_definitivo.model.criterios.Cuoriginal;
 import com.becarios.proyecto_definitivo.model.criterios.Integracion;
 import com.becarios.proyecto_definitivo.model.criterios.Negocio;
 import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
@@ -35,7 +36,7 @@ public class ModuleServiceImpl implements ModuleService {
 
     @Override
     public void updateModulo(CasosDeUso modulo) {
-    	CasosDeUso entity = dao.findByCode(modulo.getId());
+    	CasosDeUso entity = dao.findByCode(modulo.getCasosDeUsoId().getId());
         if (entity != null) {
             entity.setNombre(modulo.getNombre());
             entity.setModulo(modulo.getModulo());
@@ -79,22 +80,22 @@ public class ModuleServiceImpl implements ModuleService {
         try {
             // Crear el Objeto a Guardar
         	CasosDeUso modulo = new CasosDeUso();
-            modulo.setId(id);
+            modulo.setCodigo(code);
             modulo.setModulo(caseOfUse);
             modulo.setNombre(name);
 
             // Llamar al service para que lo guarde
 
             // Crea objeto Perfiles
-            Perfiles perfiles = new Perfiles(code);
-            perfiles.setCodigoRef(code);
+            Perfiles perfiles = new Perfiles();
+            perfiles.setCasosdeUsosCodigo(id);
             perfiles.setNro(perfilesNro);
             perfiles.setComplejidad(perfilesComplejidad);
             perfiles.setTotal(perfilesTotal);
 
             // Crea objeto Vista
-            Vista vista = new Vista(code);
-            vista.setCodigoRef(code);
+            Vista vista = new Vista();
+            vista.setCasosdeUsosCodigo(id);
             vista.setNro(vistaNro);
             vista.setBotones(vistaBotones);
             vista.setCampos(vistaCampos);
@@ -103,28 +104,28 @@ public class ModuleServiceImpl implements ModuleService {
             vista.setTotal(vistaTotal);
 
             // Crea objeto Negocio
-            Negocio negocio = new Negocio(code);
-            negocio.setCodigoRef(code);
+            Negocio negocio = new Negocio();
+            negocio.setCasosdeUsosCodigo(id);
             negocio.setNro(negocioNro);
             negocio.setLogica(negocioLogica);
             negocio.setTotal(negocioTotal);
 
             // Crea objeto Persistencia
-            Persistencia persistencia = new Persistencia(code);
-            persistencia.setCodigoRef(code);
+            Persistencia persistencia = new Persistencia();
+            persistencia.setCasosdeUsosCodigo(id);
             persistencia.setNro(persistenciaNro);
             persistencia.setAccesos(persistenciaAccesos);
             persistencia.setTotal(persistenciaTotal);
 
             // Crea objeto CUOriginal
-            CUOriginal cu = new CUOriginal(code);
-            cu.setCodigoRef(code);
-            cu.setDificultad(cuDificultad);
+            Cuoriginal cu = new Cuoriginal();
+            cu.setCasosdeUsosCodigo(id);
+            cu.setComplejidad(cuDificultad);
             cu.setTotal(cuTotal);
 
             // Crea objeto Integracion
-            Integracion integracion = new Integracion(code);
-            integracion.setCodigoRef(code);
+            Integracion integracion = new Integracion();
+            integracion.setCasosdeUsosCodigo(id);
             integracion.setNro(integracionNro);
             integracion.setComplejidad(integracionComplejidad);
             integracion.setTotal(integracionTotal);

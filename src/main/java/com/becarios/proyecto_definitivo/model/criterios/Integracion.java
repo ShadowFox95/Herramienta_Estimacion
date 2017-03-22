@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.criterios;
-// Generated 20-mar-2017 16:18:07 by Hibernate Tools 5.2.0.CR1
+// Generated 22-mar-2017 16:51:30 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,13 +15,13 @@ public class Integracion extends Tabla implements java.io.Serializable {
 
 	private int casosdeUsosCodigo;
 	private int nro;
-	private String complejidad;
+	private int complejidad;
 	private int total;
 
 	public Integracion() {
 	}
 
-	public Integracion(int casosdeUsosCodigo, int nro, String complejidad, int total) {
+	public Integracion(int casosdeUsosCodigo, int nro, int complejidad, int total) {
 		this.casosdeUsosCodigo = casosdeUsosCodigo;
 		this.nro = nro;
 		this.complejidad = complejidad;
@@ -48,12 +48,12 @@ public class Integracion extends Tabla implements java.io.Serializable {
 		this.nro = nro;
 	}
 
-	@Column(name = "Complejidad", nullable = false, length = 45)
-	public String getComplejidad() {
+	@Column(name = "Complejidad", nullable = false)
+	public int getComplejidad() {
 		return this.complejidad;
 	}
 
-	public void setComplejidad(String complejidad) {
+	public void setComplejidad(int complejidad) {
 		this.complejidad = complejidad;
 	}
 

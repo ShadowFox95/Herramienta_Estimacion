@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.factores_ajustes;
-// Generated 20-mar-2017 16:23:01 by Hibernate Tools 5.2.0.CR1
+// Generated 22-mar-2017 16:09:41 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

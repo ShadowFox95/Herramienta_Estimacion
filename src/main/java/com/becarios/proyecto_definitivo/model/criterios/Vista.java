@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.criterios;
-// Generated 20-mar-2017 16:18:07 by Hibernate Tools 5.2.0.CR1
+// Generated 22-mar-2017 16:46:32 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,17 +15,16 @@ public class Vista extends Tabla implements java.io.Serializable {
 
 	private int casosdeUsosCodigo;
 	private int nro;
-	private String complejidad;
+	private int complejidad;
 	private int total;
-	private String campos;
-	private String listados;
-	private String botones;
+	private int campos;
+	private int listados;
+	private int botones;
 
 	public Vista() {
 	}
 
-	public Vista(int casosdeUsosCodigo, int nro, String complejidad, int total, String campos, String listados,
-			String botones) {
+	public Vista(int casosdeUsosCodigo, int nro, int complejidad, int total, int campos, int listados, int botones) {
 		this.casosdeUsosCodigo = casosdeUsosCodigo;
 		this.nro = nro;
 		this.complejidad = complejidad;
@@ -55,12 +54,12 @@ public class Vista extends Tabla implements java.io.Serializable {
 		this.nro = nro;
 	}
 
-	@Column(name = "Complejidad", nullable = false, length = 45)
-	public String getComplejidad() {
+	@Column(name = "Complejidad", nullable = false)
+	public int getComplejidad() {
 		return this.complejidad;
 	}
 
-	public void setComplejidad(String complejidad) {
+	public void setComplejidad(int complejidad) {
 		this.complejidad = complejidad;
 	}
 
@@ -73,30 +72,30 @@ public class Vista extends Tabla implements java.io.Serializable {
 		this.total = total;
 	}
 
-	@Column(name = "Campos", nullable = false, length = 45)
-	public String getCampos() {
+	@Column(name = "Campos", nullable = false)
+	public int getCampos() {
 		return this.campos;
 	}
 
-	public void setCampos(String campos) {
+	public void setCampos(int campos) {
 		this.campos = campos;
 	}
 
-	@Column(name = "Listados", nullable = false, length = 45)
-	public String getListados() {
+	@Column(name = "Listados", nullable = false)
+	public int getListados() {
 		return this.listados;
 	}
 
-	public void setListados(String listados) {
+	public void setListados(int listados) {
 		this.listados = listados;
 	}
 
-	@Column(name = "Botones", nullable = false, length = 45)
-	public String getBotones() {
+	@Column(name = "Botones", nullable = false)
+	public int getBotones() {
 		return this.botones;
 	}
 
-	public void setBotones(String botones) {
+	public void setBotones(int botones) {
 		this.botones = botones;
 	}
 
