@@ -2,19 +2,19 @@ package com.becarios.proyecto_definitivo.service.criterios;
 
 import java.util.List;
 
-import com.becarios.proyecto_definitivo.model.criterios.Modulo;
+import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 
 public interface ModuleService {
 
-    Modulo findByCode(int id);
+    CasosDeUso findByCode(int id);
 
-    void saveModulo(Modulo modulo);
+    void saveModulo(CasosDeUso modulo);
 
-    void updateModulo(Modulo modulo);
+    void updateModulo(CasosDeUso modulo);
 
     void deleteModuloByCode(int id);
 
-    List<Modulo> findAllModulo(int id);
+    List<CasosDeUso> findAllModulo(int id);
 
     void createModulo(int id);
 

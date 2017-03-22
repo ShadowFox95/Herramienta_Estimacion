@@ -8,9 +8,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import org.springframework.stereotype.Repository;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
-import com.becarios.proyecto_definitivo.model.criterios.CUOriginal;
+import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
+import com.becarios.proyecto_definitivo.model.criterios.Cuoriginal;
 import com.becarios.proyecto_definitivo.model.criterios.Integracion;
-import com.becarios.proyecto_definitivo.model.criterios.Modulo;
 import com.becarios.proyecto_definitivo.model.criterios.Negocio;
 import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
 import com.becarios.proyecto_definitivo.model.criterios.Persistencia;
@@ -18,31 +18,31 @@ import com.becarios.proyecto_definitivo.model.criterios.Tabla;
 import com.becarios.proyecto_definitivo.model.criterios.Vista;
 
 @Repository
-public class ModuleDaoImpl extends AbstractDao<Integer, Modulo> implements ModuleDao {
+public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements ModuleDao {
 
     @Override
-    public Modulo findByCode(int idModulo) {
+    public CasosDeUso findByCode(int idModulo) {
         return getByKey(idModulo);
     }
 
     @Override
-    public void saveModule(Modulo modulo) {
+    public void saveModule(CasosDeUso modulo) {
         getSession().saveOrUpdate(modulo);
     }
 
     @Override
     public void deleteModuleByCode(int idModulo) {
-        Modulo modulo;
-        modulo = (Modulo) getSession().load(Modulo.class, idModulo);
+    	CasosDeUso modulo;
+        modulo = (CasosDeUso) getSession().load(CasosDeUso.class, idModulo);
         getSession().delete(modulo);
         getSession().flush();
     }
 
     @Override
-    public List<Modulo> findAllModules(int id) {
-        CriteriaQuery<Modulo> cq = getSession().getCriteriaBuilder().createQuery(Modulo.class);
-        cq.from(Modulo.class);
-        List<Modulo> listaModelo = getSession().createQuery(cq).getResultList();
+    public List<CasosDeUso> findAllModules(int id) {
+        CriteriaQuery<CasosDeUso> cq = getSession().getCriteriaBuilder().createQuery(CasosDeUso.class);
+        cq.from(CasosDeUso.class);
+        List<CasosDeUso> listaModelo = getSession().createQuery(cq).getResultList();
         return listaModelo;
     }
 
@@ -54,7 +54,7 @@ public class ModuleDaoImpl extends AbstractDao<Integer, Modulo> implements Modul
         lista.add(getSession().get(Vista.class, idModulo));
         lista.add(getSession().get(Negocio.class, idModulo));
         lista.add(getSession().get(Persistencia.class, idModulo));
-        lista.add(getSession().get(CUOriginal.class, idModulo));
+        lista.add(getSession().get(Cuoriginal.class, idModulo));
         lista.add(getSession().get(Integracion.class, idModulo));
 
         return lista;

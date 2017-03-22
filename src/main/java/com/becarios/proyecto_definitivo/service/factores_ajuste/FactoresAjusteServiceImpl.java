@@ -2,15 +2,18 @@ package com.becarios.proyecto_definitivo.service.factores_ajuste;
 
 import java.util.List;
 
-import com.becarios.proyecto_definitivo.model.factores_ajuste.ArquitecturaReferencia;
-import com.becarios.proyecto_definitivo.model.factores_ajuste.FactorComplejidadAmbiental;
-import com.becarios.proyecto_definitivo.model.factores_ajuste.FactorComplejidadTecnica;
-import com.becarios.proyecto_definitivo.model.factores_ajuste.FactoresAjuste;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencia;
+import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
+import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
+
+
 
 public class FactoresAjusteServiceImpl implements FactoresAjusteService {
 
-    // @Autowired
-    // FactoresAjusteDao dao;
+     @Autowired
+     FactoresAjusteDao dao;
 
     @Override
     public List<FactoresAjuste> findFactoresAjusteById(int id) {
@@ -32,8 +35,8 @@ public class FactoresAjusteServiceImpl implements FactoresAjusteService {
 
     @Override
     public List<ArquitecturaReferencia> findArquitecturaReferenciaById(int id) {
-        // dao.getAllArquitecturaReferencia(id);
-        return null;
+        return dao.getAllArquitecturaReferencia(id);
+        
     }
 
     @Override

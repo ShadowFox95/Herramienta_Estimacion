@@ -1,10 +1,8 @@
 package com.becarios.proyecto_definitivo.model.factores_ajustes;
-// Generated 28-feb-2017 16:10:32 by Hibernate Tools 5.2.0.CR1
+// Generated 20-mar-2017 16:23:01 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "factor_complejidad_ambiental", catalog = "HE")
 public class FactorComplejidadAmbiental implements java.io.Serializable {
 
-	private Integer id;
+	private int idProyecto;
 	private String nombre;
 	private int valoracion;
 	private int factorCalculado;
@@ -23,22 +21,22 @@ public class FactorComplejidadAmbiental implements java.io.Serializable {
 	public FactorComplejidadAmbiental() {
 	}
 
-	public FactorComplejidadAmbiental(String nombre, int valoracion, int factorCalculado) {
+	public FactorComplejidadAmbiental(int idProyecto, String nombre, int valoracion, int factorCalculado) {
+		this.idProyecto = idProyecto;
 		this.nombre = nombre;
 		this.valoracion = valoracion;
 		this.factorCalculado = factorCalculado;
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
+	@Column(name = "idProyecto", unique = true, nullable = false)
+	public int getIdProyecto() {
+		return this.idProyecto;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdProyecto(int idProyecto) {
+		this.idProyecto = idProyecto;
 	}
 
 	@Column(name = "Nombre", nullable = false, length = 45)

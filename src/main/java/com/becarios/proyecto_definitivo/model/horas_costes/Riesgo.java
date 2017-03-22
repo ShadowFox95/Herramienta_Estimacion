@@ -1,12 +1,8 @@
-
 package com.becarios.proyecto_definitivo.model.horas_costes;
-// Generated 28-feb-2017 16:10:32 by Hibernate Tools 5.2.0.CR1
-
-import static javax.persistence.GenerationType.IDENTITY;
+// Generated 20-mar-2017 16:23:01 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,46 +13,46 @@ import javax.persistence.Table;
 @Table(name = "riesgo", catalog = "HE")
 public class Riesgo implements java.io.Serializable {
 
-    private Integer id;
-    private String nombre;
-    private int num;
+	private int idProyecto;
+	private String nombre;
+	private int num;
 
-    public Riesgo() {
-    }
+	public Riesgo() {
+	}
 
-    public Riesgo(String nombre, int num) {
-        this.nombre = nombre;
-        this.num = num;
-    }
+	public Riesgo(int idProyecto, String nombre, int num) {
+		this.idProyecto = idProyecto;
+		this.nombre = nombre;
+		this.num = num;
+	}
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
+	@Id
 
-    @Column(name = "ID", unique = true, nullable = false)
-    public Integer getId() {
-        return this.id;
-    }
+	@Column(name = "idProyecto", unique = true, nullable = false)
+	public int getIdProyecto() {
+		return this.idProyecto;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setIdProyecto(int idProyecto) {
+		this.idProyecto = idProyecto;
+	}
 
-    @Column(name = "Nombre", nullable = false, length = 45)
-    public String getNombre() {
-        return this.nombre;
-    }
+	@Column(name = "Nombre", nullable = false, length = 45)
+	public String getNombre() {
+		return this.nombre;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    @Column(name = "Num", nullable = false)
-    public int getNum() {
-        return this.num;
-    }
+	@Column(name = "Num", nullable = false)
+	public int getNum() {
+		return this.num;
+	}
 
-    public void setNum(int num) {
-        this.num = num;
-    }
+	public void setNum(int num) {
+		this.num = num;
+	}
 
 }

@@ -2,13 +2,11 @@ package com.becarios.proyecto_definitivo.dao.factores_ajustes;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
+import javax.persistence.criteria.CriteriaQuery;
+
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencial;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
 
 public class FactoresAmbientalDaoImpl extends AbstractDao<Integer, FactorComplejidadAmbiental> implements FactoresAmbientalDao {
 
@@ -25,26 +23,18 @@ public class FactoresAmbientalDaoImpl extends AbstractDao<Integer, FactorComplej
 
 	@Override
 	public void deleteFacAmbByCode(int id) {
-		 Session session ;
 		 FactorComplejidadAmbiental factor ;
-
-		    session = sessionFactory.getCurrentSession();
-		    factor = (FactorComplejidadAmbiental)session.load(FactorComplejidadAmbiental.class,id);
-		    session.delete(factor);
-
-		    //This makes the pending delete to be done
-		    session.flush() ;
-		
-		/*Query<?> query = getSession().createQuery("delete from Modulo where code = :code");
-        query.setInteger("code", idModulo);
-        query.executeUpdate();*/
-		
+		    factor = (FactorComplejidadAmbiental)getSession().load(FactorComplejidadAmbiental.class,id);
+		    getSession().delete(factor);
+		    getSession().flush() ;
 	}
 
 	@Override
 	public List<FactorComplejidadAmbiental> findAllFactAmb(int idProyecto) {
-		Criteria criteria = createEntityCriteria();
-        return (List<FactorComplejidadAmbiental>) criteria.list();
+		CriteriaQuery<FactorComplejidadAmbiental> cq = getSession().getCriteriaBuilder().createQuery(FactorComplejidadAmbiental.class);
+    	cq.from(FactorComplejidadAmbiental.class);
+    	List<FactorComplejidadAmbiental> listaArquRef = getSession().createQuery(cq).getResultList();  
+		return listaArquRef;
 	}
 	
 }

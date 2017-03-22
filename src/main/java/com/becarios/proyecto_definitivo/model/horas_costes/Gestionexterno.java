@@ -1,10 +1,8 @@
 package com.becarios.proyecto_definitivo.model.horas_costes;
-// Generated 28-feb-2017 16:10:32 by Hibernate Tools 5.2.0.CR1
+// Generated 20-mar-2017 16:23:01 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "gestionexterno", catalog = "HE")
 public class Gestionexterno implements java.io.Serializable {
 
-	private Integer id;
+	private int idProyecto;
 	private String nombre;
 	private int porcentaje;
 	private int horas;
@@ -24,7 +22,8 @@ public class Gestionexterno implements java.io.Serializable {
 	public Gestionexterno() {
 	}
 
-	public Gestionexterno(String nombre, int porcentaje, int horas, int coste) {
+	public Gestionexterno(int idProyecto, String nombre, int porcentaje, int horas, int coste) {
+		this.idProyecto = idProyecto;
 		this.nombre = nombre;
 		this.porcentaje = porcentaje;
 		this.horas = horas;
@@ -32,15 +31,14 @@ public class Gestionexterno implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
+	@Column(name = "idProyecto", unique = true, nullable = false)
+	public int getIdProyecto() {
+		return this.idProyecto;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdProyecto(int idProyecto) {
+		this.idProyecto = idProyecto;
 	}
 
 	@Column(name = "Nombre", nullable = false, length = 45)

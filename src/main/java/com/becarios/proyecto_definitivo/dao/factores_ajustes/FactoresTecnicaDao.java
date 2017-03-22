@@ -1,5 +1,4 @@
 package com.becarios.proyecto_definitivo.dao.factores_ajustes;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
