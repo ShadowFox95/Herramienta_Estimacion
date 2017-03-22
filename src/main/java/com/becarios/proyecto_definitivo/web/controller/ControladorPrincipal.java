@@ -1,5 +1,6 @@
 package com.becarios.proyecto_definitivo.web.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.becarios.proyecto_definitivo.dto.ProyectoDTO;
 import com.becarios.proyecto_definitivo.model.Proyecto;
+
+import testing.ReadExcel;
 
 @Controller
 public class ControladorPrincipal {
@@ -18,6 +22,7 @@ public class ControladorPrincipal {
     private List<Proyecto> proyectos = new ArrayList<Proyecto>();
     private boolean first = true;
     private String control = "";
+    private ProyectoDTO p = new ProyectoDTO();
 
     // Redirect to main page
 
@@ -27,7 +32,14 @@ public class ControladorPrincipal {
             proyectos.add(new Proyecto("Proyecto de Prueba", 0, "Lorem ipsum"));
             first = false;
         }
+        try {
+            ReadExcel.main();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         model.addAttribute("proyectos", proyectos);
+        model.addAttribute("pro", p);
         model.addAttribute("control", control);
         return "forward:/criterios";
 
@@ -64,13 +76,19 @@ public class ControladorPrincipal {
     }
 
     @RequestMapping(value = "/cargar/{code}", method = RequestMethod.GET)
-    public String editRow(ModelMap model, @PathVariable("code") String code) {
+    public String editRow(ModelMap model, @PathVariable("code") int code) {
         for (int i = 0; i < proyectos.size(); i++) {
-            if (code.equals(proyectos.get(i).getCodigo())) {
-                model.addAttribute("pro", proyectos.get(i));
+            if (code == (proyectos.get(i).getCodigo())) {
+
+                p.setCodigo(proyectos.get(i).getCodigo());
+                p.setNombre(proyectos.get(i).getNombre());
+                p.setDescripcion(proyectos.get(i).getDescripcion());
+                p.setEditado(proyectos.get(i).isEditado());
+                System.out.println(proyectos.get(i).getDescripcion());
             }
         }
-        return "forward:/";
+        control = "proyecto";
+        return "redirect:/";
 
     }
 
