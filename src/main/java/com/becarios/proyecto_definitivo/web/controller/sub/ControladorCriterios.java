@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.model.criterios.Modulo;
 import com.becarios.proyecto_definitivo.model.criterios.Tabla;
 import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
@@ -40,7 +41,7 @@ public class ControladorCriterios {
         // model.addAttribute("integracion", tablasTemp.get(5));
         //
         model.addAttribute("projectCode", idProyecto);
-        List<Modulo> modulos = module.findAllModulo(idProyecto);
+        List<CasosDeUso> modulos = module.findAllModulo(idProyecto);
 
         model.addAttribute("modules", modulos);
 
