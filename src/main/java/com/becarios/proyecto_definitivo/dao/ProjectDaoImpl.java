@@ -3,9 +3,6 @@ package com.becarios.proyecto_definitivo.dao;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaQuery;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.becarios.proyecto_definitivo.model.Proyecto;
@@ -15,9 +12,7 @@ public class ProjectDaoImpl extends AbstractDao<Integer, Proyecto> implements Pr
 
     @Override
     public Proyecto findByCode(int code) {
-        Criteria criteria = createEntityCriteria();
-        criteria.add(Restrictions.eq("code", code));
-        return (Proyecto) criteria.uniqueResult();
+    	return getByKey(code);
     }
 
     @Override
