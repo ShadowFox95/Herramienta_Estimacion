@@ -41,7 +41,7 @@ public class ReadExcel {
             for (int cn = 0; cn < lastColumn; cn++) {
                 Cell c = r.getCell(cn, Row.RETURN_BLANK_AS_NULL);
                 if (c == null) {
-                    System.out.print("- | ");
+                    System.out.print("-|");
                 } else {
                     switch (c.getCellType()) {
                     case Cell.CELL_TYPE_STRING:
