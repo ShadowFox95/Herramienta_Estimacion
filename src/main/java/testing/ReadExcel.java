@@ -10,6 +10,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.becarios.proyecto_definitivo.model.Modulo;
+
 public class ReadExcel {
 
     @SuppressWarnings("deprecation")
@@ -22,7 +24,6 @@ public class ReadExcel {
 
         int rownum = 10;
         int maxrow = 49;
-        int colnum = sheet.getPhysicalNumberOfRows();
         System.out.println(rownum + "/" + maxrow);
 
         int rowStart = 9;
@@ -43,32 +44,8 @@ public class ReadExcel {
                 if (c == null) {
                     System.out.print("-|");
                 } else {
-                    switch (c.getCellType()) {
-                    case Cell.CELL_TYPE_STRING:
-                        System.out.print(c.getStringCellValue());
-                        break;
-                    case Cell.CELL_TYPE_BOOLEAN:
-                        System.out.print(c.getBooleanCellValue());
-                        break;
-                    case Cell.CELL_TYPE_NUMERIC:
-                        System.out.print(c.getNumericCellValue());
-                        break;
-                    case Cell.CELL_TYPE_BLANK:
-                        System.out.print(" ");
-                        break;
-                    case Cell.CELL_TYPE_FORMULA:
-                        switch (c.getCachedFormulaResultType()) {
-                        case Cell.CELL_TYPE_NUMERIC:
-                            System.out.print(c.getNumericCellValue());
-                            break;
-                        case Cell.CELL_TYPE_STRING:
-                            System.out.print(c.getRichStringCellValue());
-                            break;
 
-                        default:
-                            break;
-                        }
-                    }
+                    pass(cn, c, new Modulo());
                     System.out.print(" | ");
 
                 }
@@ -89,6 +66,62 @@ public class ReadExcel {
 
         workbook.close();
         inputStream.close();
+
+    }
+
+    @SuppressWarnings("deprecation")
+    private static void pass(int cn, Cell c, Modulo m) {
+        switch (cn) {
+        case 1:
+            m.setName(c.getStringCellValue());
+            break;
+        case 3:
+            m.setCode(c.getStringCellValue());
+            break;
+        case 4:
+            m.setCaseOfUse(c.getStringCellValue());
+            break;
+        case 5:
+            c.getStringCellValue();
+            break;
+        case 6:
+            m.setCaseOfUse(c.getStringCellValue());
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    private static void checktype(Cell c) {
+        switch (c.getCellType()) {
+        case Cell.CELL_TYPE_STRING:
+            System.out.print(c.getStringCellValue());
+
+            break;
+        case Cell.CELL_TYPE_BOOLEAN:
+            System.out.print(c.getBooleanCellValue());
+            break;
+        case Cell.CELL_TYPE_NUMERIC:
+            System.out.print(c.getNumericCellValue());
+
+            break;
+        case Cell.CELL_TYPE_BLANK:
+
+            break;
+        case Cell.CELL_TYPE_FORMULA:
+            switch (c.getCachedFormulaResultType()) {
+            case Cell.CELL_TYPE_NUMERIC:
+                System.out.print(c.getNumericCellValue());
+                break;
+            case Cell.CELL_TYPE_STRING:
+                System.out.print(c.getRichStringCellValue());
+                break;
+
+            default:
+                break;
+            }
+        }
 
     }
 
