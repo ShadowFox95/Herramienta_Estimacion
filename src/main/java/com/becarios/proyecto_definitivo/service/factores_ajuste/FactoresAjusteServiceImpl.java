@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.becarios.proyecto_definitivo.dao.factores_ajustes.ArquitecturaReferenciaDao;
+import com.becarios.proyecto_definitivo.dao.factores_ajustes.FactoresAmbientalDao;
+import com.becarios.proyecto_definitivo.dao.factores_ajustes.FactoresTecnicaDao;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencia;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorAjuste;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
@@ -11,39 +14,50 @@ import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidad
 
 public class FactoresAjusteServiceImpl implements FactoresAjusteService {
 
+    // @Autowired
+    // FactorAjusteDao factoresAjusteDao;
     @Autowired
-    FactorAjusteDao dao;
+    ArquitecturaReferenciaDao arquitecturaReferenciaDao;
+    @Autowired
+    FactoresAmbientalDao factoresAmbientalDao;
+    @Autowired
+    FactoresTecnicaDao factoresTecnicaDao;
 
     @Override
     public List<FactorAjuste> findFactoresAjusteById(int id) {
-        return dao.getAllFactoresAjuste(id);
+        // return factoresAjusteDao.getAllFactoresAjuste(id);
+        return null;
     }
 
     @Override
     public List<FactorComplejidadAmbiental> findFactoresComplejidadAmbientalById(int id) {
-        return dao.getAllFactorComplejidadAmbiental(id);
+        return factoresAmbientalDao.findAllFactAmb(id);
     }
 
     @Override
     public List<FactorComplejidadTecnica> findFactoresComplejidadTecnicaById(int id) {
-        return dao.getAllFactorComplejidadTecnica(id);
+        return factoresTecnicaDao.findAllFacTec(id);
     }
 
     @Override
     public List<ArquitecturaReferencia> findArquitecturaReferenciaById(int id) {
-        return dao.getAllArquitecturaReferencia(id);
+        return arquitecturaReferenciaDao.findAllArqRef(id);
     }
 
     @Override
     public boolean save(Object row) {
         if (row instanceof FactorAjuste) {
-            dao.saveFactoresAjuste(row);
+            // factoresAjusteDao.saveFactoresAjuste((FactorAjuste) row);
+
         } else if (row instanceof FactorComplejidadAmbiental) {
-            dao.saveFactorComplejidadAmbiental(row);
+            factoresAmbientalDao.saveFacAmb((FactorComplejidadAmbiental) row);
+
         } else if (row instanceof FactorComplejidadTecnica) {
-            dao.saveFactorComplejidadTecnica(row);
+            factoresTecnicaDao.saveFacTec((FactorComplejidadTecnica) row);
+
         } else if (row instanceof ArquitecturaReferencia) {
-            dao.saveArquitecturaReferencia(row);
+            arquitecturaReferenciaDao.saveArqRef((ArquitecturaReferencia) row);
+
         }
         return false;
     }
