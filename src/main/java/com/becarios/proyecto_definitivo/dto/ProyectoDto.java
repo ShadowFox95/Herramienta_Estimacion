@@ -12,7 +12,7 @@ import com.becarios.proyecto_definitivo.model.attributes.Perfiles;
 import com.becarios.proyecto_definitivo.model.attributes.Persistencia;
 import com.becarios.proyecto_definitivo.model.attributes.Vista;
 
-public class ProyectoDTO {
+public class ProyectoDto {
 
     private String nombre;
     private int codigo;
@@ -20,11 +20,11 @@ public class ProyectoDTO {
     private boolean editado = false;
     List<Modulo> rows = new ArrayList<Modulo>();
 
-    public ProyectoDTO() {
+    public ProyectoDto() {
 
     }
 
-    public ProyectoDTO(String nombre, int codigo, String descripcion) {
+    public ProyectoDto(String nombre, int codigo, String descripcion) {
         this.setNombre(nombre);
         this.codigo = codigo;
         this.setDescripcion(descripcion);

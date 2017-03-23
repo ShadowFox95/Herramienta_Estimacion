@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.becarios.proyecto_definitivo.dto.ProyectoDTO;
+import com.becarios.proyecto_definitivo.dto.ProyectoDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 
 import testing.ReadExcel;
@@ -22,7 +22,7 @@ public class ControladorPrincipal {
     private List<Proyecto> proyectos = new ArrayList<Proyecto>();
     private boolean first = true;
     private String control = "";
-    private ProyectoDTO p = new ProyectoDTO();
+    private ProyectoDto p = new ProyectoDto();
 
     // Redirect to main page
 
