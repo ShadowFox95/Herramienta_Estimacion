@@ -17,7 +17,6 @@ public class ItrDaoImpl extends AbstractDao<Integer, Itr> implements ItrDao {
 	@Override
 	public void saveItr(Itr factor) {
 		getSession().saveOrUpdate(factor);
-		
 	}
 
 	@Override
