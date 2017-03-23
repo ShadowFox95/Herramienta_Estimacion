@@ -11,48 +11,48 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cuoriginal", catalog = "HE")
-public class Cuoriginal extends Tabla implements java.io.Serializable {
+public class Cuoriginal implements java.io.Serializable {
 
-	private int casosdeUsosCodigo;
-	private int complejidad;
-	private int total;
+    private int casosdeUsosCodigo;
+    private int complejidad;
+    private int total;
 
-	public Cuoriginal() {
-	}
+    public Cuoriginal() {
+    }
 
-	public Cuoriginal(int casosdeUsosCodigo, int complejidad, int total) {
-		this.casosdeUsosCodigo = casosdeUsosCodigo;
-		this.complejidad = complejidad;
-		this.total = total;
-	}
+    public Cuoriginal(int casosdeUsosCodigo, int complejidad, int total) {
+        this.casosdeUsosCodigo = casosdeUsosCodigo;
+        this.complejidad = complejidad;
+        this.total = total;
+    }
 
-	@Id
+    @Id
 
-	@Column(name = "CasosdeUsos_Codigo", unique = true, nullable = false)
-	public int getCasosdeUsosCodigo() {
-		return this.casosdeUsosCodigo;
-	}
+    @Column(name = "CasosdeUsos_Codigo", unique = true, nullable = false)
+    public int getCasosdeUsosCodigo() {
+        return this.casosdeUsosCodigo;
+    }
 
-	public void setCasosdeUsosCodigo(int casosdeUsosCodigo) {
-		this.casosdeUsosCodigo = casosdeUsosCodigo;
-	}
+    public void setCasosdeUsosCodigo(int casosdeUsosCodigo) {
+        this.casosdeUsosCodigo = casosdeUsosCodigo;
+    }
 
-	@Column(name = "Complejidad", nullable = false)
-	public int getComplejidad() {
-		return this.complejidad;
-	}
+    @Column(name = "Complejidad", nullable = false)
+    public int getComplejidad() {
+        return this.complejidad;
+    }
 
-	public void setComplejidad(int complejidad) {
-		this.complejidad = complejidad;
-	}
+    public void setComplejidad(int complejidad) {
+        this.complejidad = complejidad;
+    }
 
-	@Column(name = "Total", nullable = false)
-	public int getTotal() {
-		return this.total;
-	}
+    @Column(name = "Total", nullable = false)
+    public int getTotal() {
+        return this.total;
+    }
 
-	public void setTotal(int total) {
-		this.total = total;
-	}
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
 }

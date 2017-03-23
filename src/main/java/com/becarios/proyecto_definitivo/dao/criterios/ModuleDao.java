@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
-import com.becarios.proyecto_definitivo.model.criterios.CasosDeUsoId;
-import com.becarios.proyecto_definitivo.model.criterios.Tabla;
 
 public interface ModuleDao {
 
-	CasosDeUso findByCode(int Id);
+    CasosDeUso findByCode(int Id);
 
     void saveModule(CasosDeUso modulo);
 
@@ -17,5 +15,5 @@ public interface ModuleDao {
 
     List<CasosDeUso> findAllModules(int id);
 
-    ArrayList<Tabla> FindAllTablas(int idModulo);
+    ArrayList<Object> FindAllTablas(int idModulo);
 }

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
-
-import com.becarios.proyecto_definitivo.model.criterios.Tabla;
 import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
 
 @Controller
@@ -147,7 +145,7 @@ public class ControladorCriterios {
     public String editRow(ModelMap model, @PathVariable("projectCode") int idProyecto,
             @PathVariable("code") String id) {
         show = id;
-        List<Tabla> tablasTemp = new ArrayList<Tabla>();
+        List<Object> tablasTemp = new ArrayList<Object>();
         // tablasTemp = module.findAllTablas(code);
 
         model.addAttribute("perfiles", tablasTemp.get(0));

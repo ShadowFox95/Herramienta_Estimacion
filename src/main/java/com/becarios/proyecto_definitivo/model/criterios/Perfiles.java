@@ -11,59 +11,59 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "perfiles", catalog = "HE")
-public class Perfiles extends Tabla implements java.io.Serializable {
+public class Perfiles implements java.io.Serializable {
 
-	private int casosdeUsosCodigo;
-	private int nro;
-	private int complejidad;
-	private int total;
+    private int casosdeUsosCodigo;
+    private int nro;
+    private int complejidad;
+    private int total;
 
-	public Perfiles() {
-	}
+    public Perfiles() {
+    }
 
-	public Perfiles(int casosdeUsosCodigo, int nro, int complejidad, int total) {
-		this.casosdeUsosCodigo = casosdeUsosCodigo;
-		this.nro = nro;
-		this.complejidad = complejidad;
-		this.total = total;
-	}
+    public Perfiles(int casosdeUsosCodigo, int nro, int complejidad, int total) {
+        this.casosdeUsosCodigo = casosdeUsosCodigo;
+        this.nro = nro;
+        this.complejidad = complejidad;
+        this.total = total;
+    }
 
-	@Id
+    @Id
 
-	@Column(name = "CasosdeUsos_Codigo", unique = true, nullable = false)
-	public int getCasosdeUsosCodigo() {
-		return this.casosdeUsosCodigo;
-	}
+    @Column(name = "CasosdeUsos_Codigo", unique = true, nullable = false)
+    public int getCasosdeUsosCodigo() {
+        return this.casosdeUsosCodigo;
+    }
 
-	public void setCasosdeUsosCodigo(int casosdeUsosCodigo) {
-		this.casosdeUsosCodigo = casosdeUsosCodigo;
-	}
+    public void setCasosdeUsosCodigo(int casosdeUsosCodigo) {
+        this.casosdeUsosCodigo = casosdeUsosCodigo;
+    }
 
-	@Column(name = "Nro", nullable = false)
-	public int getNro() {
-		return this.nro;
-	}
+    @Column(name = "Nro", nullable = false)
+    public int getNro() {
+        return this.nro;
+    }
 
-	public void setNro(int nro) {
-		this.nro = nro;
-	}
+    public void setNro(int nro) {
+        this.nro = nro;
+    }
 
-	@Column(name = "Complejidad", nullable = false)
-	public int getComplejidad() {
-		return this.complejidad;
-	}
+    @Column(name = "Complejidad", nullable = false)
+    public int getComplejidad() {
+        return this.complejidad;
+    }
 
-	public void setComplejidad(int complejidad) {
-		this.complejidad = complejidad;
-	}
+    public void setComplejidad(int complejidad) {
+        this.complejidad = complejidad;
+    }
 
-	@Column(name = "Total", nullable = false)
-	public int getTotal() {
-		return this.total;
-	}
+    @Column(name = "Total", nullable = false)
+    public int getTotal() {
+        return this.total;
+    }
 
-	public void setTotal(int total) {
-		this.total = total;
-	}
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
 }

@@ -14,7 +14,6 @@ import com.becarios.proyecto_definitivo.model.criterios.Integracion;
 import com.becarios.proyecto_definitivo.model.criterios.Negocio;
 import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
 import com.becarios.proyecto_definitivo.model.criterios.Persistencia;
-import com.becarios.proyecto_definitivo.model.criterios.Tabla;
 import com.becarios.proyecto_definitivo.model.criterios.Vista;
 
 @Repository
@@ -32,7 +31,7 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
 
     @Override
     public void deleteModuleByCode(int idModulo) {
-    	CasosDeUso modulo;
+        CasosDeUso modulo;
         modulo = (CasosDeUso) getSession().load(CasosDeUso.class, idModulo);
         getSession().delete(modulo);
         getSession().flush();
@@ -47,8 +46,8 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
     }
 
     @Override
-    public ArrayList<Tabla> FindAllTablas(int idModulo) {
-        ArrayList<Tabla> lista = new ArrayList<Tabla>();
+    public ArrayList<Object> FindAllTablas(int idModulo) {
+        ArrayList<Object> lista = new ArrayList<Object>();
 
         lista.add(getSession().get(Perfiles.class, idModulo));
         lista.add(getSession().get(Vista.class, idModulo));

@@ -11,59 +11,59 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "negocio", catalog = "HE")
-public class Negocio extends Tabla implements java.io.Serializable {
+public class Negocio implements java.io.Serializable {
 
-	private int casosdeUsosCodigo;
-	private int nro;
-	private int logica;
-	private int total;
+    private int casosdeUsosCodigo;
+    private int nro;
+    private int logica;
+    private int total;
 
-	public Negocio() {
-	}
+    public Negocio() {
+    }
 
-	public Negocio(int casosdeUsosCodigo, int nro, int logica, int total) {
-		this.casosdeUsosCodigo = casosdeUsosCodigo;
-		this.nro = nro;
-		this.logica = logica;
-		this.total = total;
-	}
+    public Negocio(int casosdeUsosCodigo, int nro, int logica, int total) {
+        this.casosdeUsosCodigo = casosdeUsosCodigo;
+        this.nro = nro;
+        this.logica = logica;
+        this.total = total;
+    }
 
-	@Id
+    @Id
 
-	@Column(name = "CasosdeUsos_Codigo", unique = true, nullable = false)
-	public int getCasosdeUsosCodigo() {
-		return this.casosdeUsosCodigo;
-	}
+    @Column(name = "CasosdeUsos_Codigo", unique = true, nullable = false)
+    public int getCasosdeUsosCodigo() {
+        return this.casosdeUsosCodigo;
+    }
 
-	public void setCasosdeUsosCodigo(int casosdeUsosCodigo) {
-		this.casosdeUsosCodigo = casosdeUsosCodigo;
-	}
+    public void setCasosdeUsosCodigo(int casosdeUsosCodigo) {
+        this.casosdeUsosCodigo = casosdeUsosCodigo;
+    }
 
-	@Column(name = "Nro", nullable = false)
-	public int getNro() {
-		return this.nro;
-	}
+    @Column(name = "Nro", nullable = false)
+    public int getNro() {
+        return this.nro;
+    }
 
-	public void setNro(int nro) {
-		this.nro = nro;
-	}
+    public void setNro(int nro) {
+        this.nro = nro;
+    }
 
-	@Column(name = "Logica", nullable = false)
-	public int getLogica() {
-		return this.logica;
-	}
+    @Column(name = "Logica", nullable = false)
+    public int getLogica() {
+        return this.logica;
+    }
 
-	public void setLogica(int logica) {
-		this.logica = logica;
-	}
+    public void setLogica(int logica) {
+        this.logica = logica;
+    }
 
-	@Column(name = "Total", nullable = false)
-	public int getTotal() {
-		return this.total;
-	}
+    @Column(name = "Total", nullable = false)
+    public int getTotal() {
+        return this.total;
+    }
 
-	public void setTotal(int total) {
-		this.total = total;
-	}
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
 }
