@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.criterios;
-// Generated 22-mar-2017 16:09:41 by Hibernate Tools 5.2.0.CR1
+// Generated 23-mar-2017 16:52:30 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -37,7 +37,7 @@ public class CasosDeUso implements java.io.Serializable {
 
 	@AttributeOverrides({ @AttributeOverride(name = "id", column = @Column(name = "Id", nullable = false)),
 			@AttributeOverride(name = "idProyecto", column = @Column(name = "IdProyecto", unique = true, nullable = false)) })
-	public CasosDeUsoId getCasosDeUsoId() {
+	public CasosDeUsoId getId() {
 		return this.id;
 	}
 
