@@ -29,6 +29,7 @@ public class ReadExcel {
         int rowStart = 9;
         int rowEnd = sheet.getLastRowNum() - 32;
         for (int rowNum = rowStart; rowNum < rowEnd; rowNum++) {
+            System.out.println("== ROW - " + (rowNum + 1) + " ==");
             Row r = sheet.getRow(rowNum);
             if (r == null) {
                 // This whole row is empty
@@ -42,7 +43,8 @@ public class ReadExcel {
             for (int cn = 0; cn < lastColumn; cn++) {
                 Cell c = r.getCell(cn, Row.RETURN_BLANK_AS_NULL);
                 if (c == null) {
-                    System.out.print("-|");
+                    // System.out.print("?");
+                    // System.out.print(" | ");
                 } else {
 
                     pass(cn, c, new Modulo());
@@ -73,19 +75,29 @@ public class ReadExcel {
     private static void pass(int cn, Cell c, Modulo m) {
         switch (cn) {
         case 1:
+            System.out.print("Name: ");
             m.setName(c.getStringCellValue());
+            System.out.println(c.getStringCellValue());
             break;
         case 3:
+            System.out.print("Code: ");
             m.setCode(c.getStringCellValue());
+            System.out.println(c.getStringCellValue());
             break;
         case 4:
+            System.out.print("Case of use: ");
             m.setCaseOfUse(c.getStringCellValue());
+            System.out.println(c.getStringCellValue());
             break;
         case 5:
-            c.getStringCellValue();
+            System.out.print("Perfiles NRO: ");
+            c.getNumericCellValue();
+            System.out.println(c.getNumericCellValue());
             break;
         case 6:
+            System.out.print("Perfiles complejidad: ");
             m.setCaseOfUse(c.getStringCellValue());
+            System.out.println(c.getStringCellValue());
             break;
 
         default:
