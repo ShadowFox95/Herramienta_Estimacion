@@ -58,5 +58,16 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
 
         return lista;
     }
+    
+    @Override
+    public void saveAllTablas(Perfiles perfiles, Vista vista, Negocio negocio, Persistencia persistencia, Cuoriginal cuoriginal, Integracion integracion){
+    	getSession().saveOrUpdate(perfiles);
+    	getSession().saveOrUpdate(vista);
+    	getSession().saveOrUpdate(negocio);
+    	getSession().saveOrUpdate(persistencia);
+    	getSession().saveOrUpdate(cuoriginal);
+    	getSession().saveOrUpdate(integracion);
+    }
+    
 
 }
