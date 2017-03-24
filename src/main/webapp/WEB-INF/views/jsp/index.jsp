@@ -44,7 +44,6 @@
                      <i class="glyphicon glyphicon-floppy-save"></i>
                      </button>
                 </form>
-  		
 		</div> 
                             <!-- Tab panes -->
                             <div class="tab-content">

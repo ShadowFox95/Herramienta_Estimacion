@@ -482,3 +482,26 @@ a, a:visited, a:hover, a:active {
 	padding-right: 0px !important;
 	
 }
+
+/*David*/
+
+.config-panel {
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    line-height:180%;
+}
+.panel-blue {
+    border-color: #337ab7;
+        width: 480%;
+}
+
+.glyphicon.glyphicon-wrench {
+    font-size: 300%;
+}
+
+.config-box {
+	margin-top: 15px;
+	font-size : 50px;
+}
