@@ -7,20 +7,134 @@
    <head>
       <title>EF - Criterios</title>
       <script type="text/javascript">
+      	$( "#moduleTable" ).ready(function() {
+      	 $.ajax({
+             type: "POST",
+             url: "testing",
+             success: function(module){
+                refreshTable(module);
+                $("#showAtributos").hide();
+             },
+              error: function(e){
+              	console.log('Error: ' + e);
+              }
+         });
+        });
       	function refreshTable(module){
 	      	 var table = "";
-	         for(i=0; i < module.length; i++){
-	             table += "<tr><td>"+module[i].name+"</td>";
-	             table += "<td>"+module[i].code+"</td>";
-	             table += "<td>"+module[i].caseOfUse+"</td>";
-	             table += "<td>"+module[i].total+"</td>";
-	             table += "<td>Muy Facil";//Falta if
-	             table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].code+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].code+"' onClick='doAjaxEdit(id)'/></div>";
-	         	table += "</td></tr>";
-	         }
-	         $("#insert").html(table); 
+	      	 if(module.length == 0) {
+	      	     table = "<tr><td colspan='5'>No hay datos para mostrar</td></tr>";
+	      	     $("#showAtributos").hide();
+	      	 } else {
+		      	 for(i=0; i < module.length; i++){
+			            table += "<tr><td>"+module[i].name+"</td>";
+			            table += "<td>"+module[i].code+"</td>";
+			            table += "<td>"+module[i].caseOfUse+"</td>";
+			            table += "<td>"+module[i].total+"</td>";
+						if(module[i].total < 7.5){
+						    table += "<td class='center info'>Muy Fácil";
+						} else if(module[i].total < 12.5){
+						    table += "<td class='center success'>Fácil";
+						} else if(module[i].total < 17.5) {
+						    table += "<td class='center warning'>Normal";
+						} else if(module[i].total < 22.5){
+						    table += "<td class='center danger'>Complicado";
+						} else {
+						    table += "<td class='center danger2'>Muy Complicado";
+						} 
+			            table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].code
+			      	     	+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].code+"' onClick='doAjaxEdit(id)'/></div>";
+			         	table += "</td></tr>";
+			      }
+	      	 }
+	        
+	         $("#moduleTable").html(table); 
       	}
-	      function doAjaxPost() {
+      	
+      	function editTable(module, id){
+	      	 var table = "";
+	      	 var selected = "";
+	      	 console.log(id);
+	      	 if(module.length == 0) {
+	      	     table = "<tr><td colspan='5'>No hay datos para mostrar</td></tr>";
+	      	     $("#showAtributos").hide();
+	      	 } else {
+		      	 for(i=0; i < module.length; i++){
+		      	     	if (id == module[i].code){
+	      	     	    	table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='"+module[i].name+"' maxlength='25'></td>";
+			      	     	table += "<td><input type='text' class='altura form-control' id='selected_code' value='"+module[i].code+"' maxlength='10'></td>";
+					      	table += "<td><input type='text' class='altura form-control' id='selected_caseOfUse' value='"+module[i].caseOfUse+"' maxlength='30'></td>";
+					      	table += "<td>"+module[i].total+"</td>";
+					      	if(module[i].total < 7.5){
+					      	table += "<td class='center info'>Muy Fácil";
+							} else if(module[i].total < 12.5){
+							    table += "<td class='center success'>Fácil";
+							} else if(module[i].total < 17.5) {
+							    table += "<td class='center warning'>Normal";
+							} else if(module[i].total < 22.5){
+							    table += "<td class='center danger'>Complicado";
+							} else {
+							    table += "<td class='center danger2'>Muy Complicado";
+							} 
+					      	table += "<div style='float:right'><div style='float:left'><button type='submit' class='button ok glyphicon glyphicon-ok' id='"+module[i].code
+				      	     	+"' onClick='doAjaxSaveRow(id)'></button></div><div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' onClick='doAjaxEdit()'></button></div></div>";
+				      	  	table += "</td></tr>";
+					      	populateAtributos(module[i].tablas);
+		      	     	} else{
+			      	      	table += "<tr><td>"+module[i].name+"</td>";
+				            table += "<td>"+module[i].code+"</td>";
+				            table += "<td>"+module[i].caseOfUse+"</td>";
+				            table += "<td>"+module[i].total+"</td>";
+							if(module[i].total < 7.5){
+							    table += "<td class='center info'>Muy Fácil";
+							} else if(module[i].total < 12.5){
+							    table += "<td class='center success'>Fácil";
+							} else if(module[i].total < 17.5) {
+							    table += "<td class='center warning'>Normal";
+							} else if(module[i].total < 22.5){
+							    table += "<td class='center danger'>Complicado";
+							} else {
+							    table += "<td class='center danger2'>Muy Complicado";
+							} 
+							
+				            //table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].code
+				      	    // 	+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].code+"' onClick='doAjaxEdit(id)'/></div>";
+				         	table += "</td></tr>";
+		      	     	}
+			      }
+		      	 // table = selected + table;
+	      	 }
+	        
+	         $("#moduleTable").html(table); 
+ 	}
+      	function populateAtributos(tabla){
+      		document.getElementById('sel_perf').value=tabla[0].complejidad;
+      		$("#mult_perf").value=tabla[0].nro;
+      		$("#out_perf").html(tabla[0].total);
+      		
+      		document.getElementById('sel_pv_boto').value=tabla[1].botones;
+      		document.getElementById('sel_pv_camp').value=tabla[1].campos;
+      		document.getElementById('sel_pv_comp').value=tabla[1].complejidad;
+      		document.getElementById('sel_pv_list').value=tabla[1].listados;
+      		$("#mult_pv").value=tabla[1].nro;
+      		$("#out_pv").html(tabla[1].total);
+      		
+      		document.getElementById('sel_neg').value=tabla[2].logica;
+      		$("#mult_neg").value=tabla[2].nro;
+      		$("#out_neg").html(tabla[2].total);
+      		
+      		document.getElementById('sel_pers').value=tabla[3].accesos;
+      		$("#mult_pers").value=tabla[3].nro;
+      		$("#out_pers").html(tabla[3].total);
+      		
+      		document.getElementById('sel_cu').value=tabla[4].dificultad;
+      		$("#out_cu").html(tabla[4].total);
+      		
+      		document.getElementById('sel_inte').value=tabla[5].complejidad;
+      		$("#mult_inte").value=tabla[5].nro;
+      		$("#out_inte").html(tabla[5].total);
+ 		}
+	      function doAjaxAddRow() {
                 $.ajax({
                     type: "POST",
                     url: "testing/addRow",
@@ -29,24 +143,52 @@
                        refreshTable(module);
                     },
 	                error: function(e){
-	                	alert('Error: ' + e);
+	                	console.log('Error: ' + e);
 	                }
                 });
                
             }
-	      function doAjaxEdit(){
+	      function doAjaxEdit(id){
 	          $.ajax({
 	                    type: "POST",
 	                    url: "testing",
-	                    success: function(module){      
-	                        console.log(module);
-	                        var table = "";
-	                        
-	                        $("#insert").html(table); 
+	                    success: function(module){     
+	                        if(id == undefined){
+	                            refreshTable(module);
+	                        } else {
+	                            editTable(module, id);
+	                        }
+	                        $("#showAtributos").show();
 	                    },
 		                error: function(e){
-		                	alert('Error: ' + e);
+		                    console.log('Error: ' + e);
 		                }
+	                });
+	      }
+	      function doAjaxSaveRow(id){
+	          var perfiles = {};
+	          perfiles["complejidad"] = 0;
+	          perfiles["nro"] = 0;
+	          perfiles["total"] = 5;
+	          var data = {};
+	          data["name"] = "test52";
+	          data["caseOfUse"] = "test123";
+	          data["code"] = "test";
+	          data["tablas"] = [perfiles];
+	          $.ajax({
+	                    type: "POST",
+	                    url: "testing/saveRow/"+id,
+	                    dataType: "json",
+		                contentType: "application/json; charset=utf-8",
+	                    data: JSON.stringify(data),
+	                    success: function(module){     
+	                        refreshTable(module);
+	                        $("#showAtributos").hide();
+	                    },
+		                error: function(e){
+		                    console.log('Error: ' + e);
+		                }
+		                
 	                });
 	      }
 	      function doAjaxDelete(id){
@@ -56,10 +198,9 @@
 	                    success: function(module){      
 	                        console.log(module);
 							refreshTable(module);
-	                        console.log("deleted");
 	                    },
 		                error: function(e){
-		                	alert('Error: ' + e);
+		                    console.log('Error: ' + e);
 		                }
 	                });
 	      }
@@ -93,7 +234,7 @@
                            </tr>
                         </thead>
 					    <tbody id="moduleTable">
-                           <c:forEach var="module" items="${modules}">
+                           <!--<c:forEach var="module" items="${modules}">
                           			<c:choose>
                             		<c:when test="${module.code eq display}"> 
 	                           			<tr class="odd active">
@@ -190,7 +331,7 @@
 			                           	</tr>
                             		</c:when>
                           			</c:choose>
-                           </c:forEach>
+                           </c:forEach>-->
                         </tbody>
                      </table>
                      <!-- /.table-responsive -->
@@ -212,7 +353,7 @@
                            <i class="glyphicon glyphicon-plus"></i> Crear Módulo
                            </button>
                         </form> -->
-                         <button type="submit" class="custom-color left-button corner-button" onClick='doAjaxPost()'>
+                         <button type="submit" class="custom-color left-button corner-button" onClick='doAjaxAddRow()'>
                            <i class="glyphicon glyphicon-plus"></i> Crear Módulo
                            </button>
                    	</span> 
@@ -226,16 +367,12 @@
          </div>
          <!-- /.row -->
          <hr>
-<div id="testeando">
-         <jsp:include page="./atributos.jsp" />
-         </div>
-         
+		<div id="showAtributos">
+       		<jsp:include page="./atributos.jsp" />
+		</div>
+		
       </div>
       <!-- /#page-wrapper -->
-
-
-      
-      <!-- /#wrapper -->
 		<script>
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   

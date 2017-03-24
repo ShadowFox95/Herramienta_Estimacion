@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,15 +35,29 @@ public class ControladorCriterios {
 
     // Show main page
     @RequestMapping(value = "/testing", method = RequestMethod.POST)
-    @ResponseBody
-    public List<Modulo> showTables(ModelMap model) {
+    public @ResponseBody List<Modulo> showTables(ModelMap model) {
+        rows = proyecto.getRows();
+        return rows;
+    }
+
+    @RequestMapping(value = "/testing/addRow", method = RequestMethod.POST)
+    public @ResponseBody List<Modulo> addRowAjax(ModelMap model) {
+        proyecto.crearModulo();
+        rows = proyecto.getRows();
+        return rows;
+    }
+
+    @RequestMapping(value = "/testing/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody List<Modulo> saveRowAjax(ModelMap model, @PathVariable("idToSave") String code,
+            @RequestBody Modulo data) {
+        System.out.println(data.getTablas().get(0) + " " + "TEST");
+
         rows = proyecto.getRows();
         return rows;
     }
 
     @RequestMapping(value = "/testing/delete/{idToDelete}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public List<Modulo> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") String code) {
+    public @ResponseBody List<Modulo> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") String code) {
         Modulo row = new Modulo();
         int c = 0;
         while (c < rows.size()) {
@@ -56,13 +72,14 @@ public class ControladorCriterios {
         return rows;
     }
 
-    @RequestMapping(value = "/testing/addRow", method = RequestMethod.POST)
-    @ResponseBody
-    public List<Modulo> addRowAjax(ModelMap model) {
-        proyecto.crearModulo();
-        rows = proyecto.getRows();
-        return rows;
-    }
+    /*
+     * @RequestMapping(value = "/testing/edit", method = RequestMethod.PUT)
+     * 
+     * @ResponseBody public List<Tabla> editRowAjax(ModelMap model) { Modulo row
+     * = new Modulo(); int c = 0; while (c < rows.size()) { row = rows.get(c);
+     * if (code.equals(row.getCode())) { tablasTemp = row.getTablas(); break; }
+     * c++; } rows = proyecto.getRows(); return tablasTemp; }
+     */
 
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
     public String mainTables(ModelMap model) {
