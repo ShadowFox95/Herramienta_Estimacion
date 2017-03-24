@@ -22,7 +22,7 @@ public class ControladorPrincipal {
     private List<Proyecto> proyectos = new ArrayList<Proyecto>();
     private boolean first = true;
     private String control = "";
-    private ProyectoDto p = new ProyectoDto();
+    private static ProyectoDto p = new ProyectoDto();
 
     // Redirect to main page
 
@@ -33,7 +33,7 @@ public class ControladorPrincipal {
             first = false;
         }
         try {
-            ReadExcel.main();
+            ReadExcel.Importar();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -69,7 +69,12 @@ public class ControladorPrincipal {
     @RequestMapping(value = "/addProject", method = RequestMethod.GET)
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
-        proyectos.add(new Proyecto("Nuevo Proyecto", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1, ""));
+        Proyecto pro = new Proyecto("Nuevo Proyecto", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1, "");
+        proyectos.add(pro);
+        p.setCodigo(pro.getCodigo());
+        p.setNombre(pro.getNombre());
+        p.setDescripcion(pro.getDescripcion());
+        p.setEditado(pro.isEditado());
         control = "proyecto";
         return "redirect:/";
 
