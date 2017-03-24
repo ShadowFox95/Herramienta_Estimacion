@@ -1,6 +1,5 @@
 package com.becarios.proyecto_definitivo.web.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.becarios.proyecto_definitivo.dto.ProyectoDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
-
-import testing.ReadExcel;
 
 @Controller
 public class ControladorPrincipal {
@@ -32,12 +29,12 @@ public class ControladorPrincipal {
             proyectos.add(new Proyecto("Proyecto de Prueba", 0, "Lorem ipsum"));
             first = false;
         }
-        try {
-            ReadExcel.Importar();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        // try {
+        // ReadExcel.Importar();
+        // } catch (IOException e) {
+        // // TODO Auto-generated catch block
+        // e.printStackTrace();
+        // }
         model.addAttribute("proyectos", proyectos);
         model.addAttribute("pro", p);
         model.addAttribute("control", control);
