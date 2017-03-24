@@ -24,12 +24,9 @@ public class ControladorPrincipal {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
-        if (first) {
-            project.AddProject("Proyecto de Prueba", "Codigo-0", "Lorem ipsum", false);
-            first = false;
-        }
-       // model.addAttribute("projectes", project.findAllProjects());
-        //model.addAttribute("control", control);
+        model.addAttribute("projectes", project.findAllProjects());
+        model.addAttribute("control", control);
+        
         return "forward:/criterios";
 
     }
@@ -52,6 +49,7 @@ public class ControladorPrincipal {
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
         project.AddProject("Nombre", "Codigo", "Descripcion", false);
+        control = "proyecto";
         return "redirect:/";
 
     }

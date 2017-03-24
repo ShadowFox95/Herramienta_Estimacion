@@ -26,7 +26,7 @@ public class ControladorCriterios {
 
     // Show main page
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
-    public String mainTables(ModelMap model, @RequestParam("ProjectCode") int idProyecto) {
+    public String mainTables(ModelMap model, @RequestParam(value="ProjectCode",required=false) Integer idProyecto ) {
         // if (!show.isEmpty()) {
         // model.addAttribute("perfiles", tablasTemp.get(0));
         // model.addAttribute("vista", tablasTemp.get(1));
@@ -38,11 +38,14 @@ public class ControladorCriterios {
         // }
         // model.addAttribute("integracion", tablasTemp.get(5));
         //
+    	if (idProyecto!=null) {
+			
+		
         model.addAttribute("projectCode", idProyecto);
         List<CasosDeUso> modulos = module.findAllModulo(idProyecto);
 
         model.addAttribute("modules", modulos);
-
+    	
         model.addAttribute("display", show);
 
         // Notifications
@@ -56,7 +59,7 @@ public class ControladorCriterios {
         if (modulos.isEmpty()) {
             module.createModulo(idProyecto);
         }
-
+    	}
         return "forward:/factores-ajuste";
 
     }
