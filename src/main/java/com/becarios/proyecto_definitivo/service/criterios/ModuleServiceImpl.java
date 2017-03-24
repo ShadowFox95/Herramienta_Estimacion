@@ -36,7 +36,7 @@ public class ModuleServiceImpl implements ModuleService {
 
     @Override
     public void updateModulo(CasosDeUso modulo) {
-        CasosDeUso entity = dao.findByCode(modulo.getCasosDeUsoId().getId());
+        CasosDeUso entity = dao.findByCode(modulo.getId().getId());
         if (entity != null) {
             entity.setNombre(modulo.getNombre());
             entity.setModulo(modulo.getModulo());
