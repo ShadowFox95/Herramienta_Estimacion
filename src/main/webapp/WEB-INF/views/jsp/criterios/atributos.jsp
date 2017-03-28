@@ -19,7 +19,7 @@
                         	Complejidad 
                         	<span style="float:right">
                         	<spring:url value="/resources/core/images/perfiles.png" var="image_perf" />
-                        	<a href="#"  title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_perf}' height='91' width='739'>">
+                        	<a href="" onclick="return false" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_perf}' height='91' width='739'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span></a></span>
                         </th>
                         <th>Total</th>

@@ -69,7 +69,7 @@ a, a:visited, a:hover, a:active {
 	
 .align-fix{
 	margin-right: 20px;
-	padding-right: 13.5px !important;
+	padding-right: 11px !important;
 }
 .contenido{
 	background-color: #ddd
@@ -248,6 +248,9 @@ a, a:visited, a:hover, a:active {
   content: "\f0de";
 }
 
+.table{
+	margin-bottom: 5px;
+}
 
 .table>tbody>tr.danger2>td,
 .table>tbody>tr.danger2>th,
@@ -272,8 +275,8 @@ a, a:visited, a:hover, a:active {
 }
 
 .popover{
-		max-width:none;
-		position:fixed;
+	max-width:none;
+	position:fixed;
 }
 
 .nav-side-menu {

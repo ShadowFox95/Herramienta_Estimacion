@@ -11,8 +11,8 @@
       	 $.ajax({
              type: "POST",
              url: "testing",
-             success: function(module){
-                refreshTable(module);
+             success: function(data){
+                refreshTable(data);
                 $("#showAtributos").hide();
              },
               error: function(e){
@@ -141,6 +141,7 @@
                     success: function(module){      
                        console.log(module);
                        refreshTable(module);
+                       $("#showAtributos").hide();
                     },
 	                error: function(e){
 	                	console.log('Error: ' + e);
@@ -155,10 +156,12 @@
 	                    success: function(module){     
 	                        if(id == undefined){
 	                            refreshTable(module);
+	                            $("#showAtributos").hide();
 	                        } else {
 	                            editTable(module, id);
+	                            $("#showAtributos").show();
 	                        }
-	                        $("#showAtributos").show();
+	                        
 	                    },
 		                error: function(e){
 		                    console.log('Error: ' + e);
@@ -223,7 +226,7 @@
                   </div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
-                     <table width="100%" class="table table-responsive table-striped table-bordered table-hover tableForm" id="dataTables-example">
+                     <table width="100%" class="table table-responsive table-striped table-bordered table-hover tableForm" id="criteriosTable">
                         <thead>
                            <tr>
                               <th class="col-xs-2">Nombre</th>
@@ -234,104 +237,6 @@
                            </tr>
                         </thead>
 					    <tbody id="moduleTable">
-                           <!--<c:forEach var="module" items="${modules}">
-                          			<c:choose>
-                            		<c:when test="${module.code eq display}"> 
-	                           			<tr class="odd active">
-	                           			<spring:url value="/criterios/saveRow" var="saveUrl"/>
-	                           			<form name="SaveRow" action="${saveUrl}" id="save" method="POST">
-	                               			<td><input type="text" name="moduleName" class="altura form-control" value="${module.name}" maxlength="25"></td>
-	                               			<td><input type="text" name="moduleCode" class="altura form-control" value="${module.code}" maxlength="10"></td>
-	                               			<td><input type="text" name="moduleCaseOfUse" class="altura form-control" value="${module.caseOfUse}" maxlength="30"></td>
-	                               			<td>${module.total}</td>
-	                               			<c:choose>
-                            		        	<c:when test="${module.total < 7.5}"> 
-		                               				<td class="center info">
-		                                   				Muy Fácil
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total < 12.5}"> 
-		                               				<td class="center success">
-		                                   				Fácil
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total < 17.5}"> 
-		                               				<td class="center warning">
-		                                   				Normal
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total < 22.5}"> 
-		                               				<td class="center danger">
-		                                   				Complicado
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total > 22.5}"> 
-		                               				<td class="center danger2">
-		                                   				Muy Complicado
-	                                	   		</c:when>
-	                                	   	</c:choose>
-	                                	   	</form>
-                                 	  			<div style="float:right">
-	                             	      			<div style="float:left">
-	                             	      				<button type="submit" class="button ok glyphicon glyphicon-ok"></button>
-	                     	             			</div>
-	                   		               			
-	                   		               			<spring:url value="/criterios/discard" var="discardUrl" />
-	                    	           				<div style="float:right">
-	                     	   	           				<form name="deleteRow" action="${discardUrl}" method="POST">
-	                           	        				<button type="submit" class="button delete glyphicon glyphicon-remove"></button>
-														</form>
-	                                  				</div>
-                                  				</div>
-	                                  			
-	                              			</td>
-	                           			</tr>
-                            		</c:when>
-                            		<c:when test="${module.code ne display}">
-                            			 <tr class="odd" onclick="func_test('${module.code}')">
-			                           		<td>${module.name}</td>
-				                            <td>${module.code}</td>
-				                            <td>${module.caseOfUse}</td>
-				                            <td>${module.total}</td>
-				                            <c:choose>
-                            		        	<c:when test="${module.total < 7.5}"> 
-		                               				<td class="center info">
-		                                   				Muy Fácil
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total < 12.5}"> 
-		                               				<td class="center success">
-		                                   				Fácil
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total < 17.5}"> 
-		                               				<td class="center warning">
-		                                   				Normal
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total < 22.5}"> 
-		                               				<td class="center danger">
-		                                   				Complicado
-	                                	   		</c:when>
-	                                	   		<c:when test="${module.total > 22.5}"> 
-		                               				<td class="center danger2">
-		                                   				Muy Complicado
-	                                	   		</c:when>
-	                                	   	</c:choose>
-	                                	   	<c:choose>
-	                                	   
-	                                	   	<c:when test="${empty display}">
-			                                	
-			                                  	<spring:url value="/criterios/${module.code}/edit" var="editUrl" />
-			                                   	<spring:url value="/criterios/${module.code}/delete" var="deleteUrl" />
-			                                   	
-			                                   	<div style="float:right">
-			                                   		<form name="deleteRow" action="${deleteUrl}" method="POST"><button type="submit" class="button delete glyphicon glyphicon-trash"/></form>
-			                                   	</div>
-			                                   	<div style="float:right">
-			                                   		<form name="editRow" action="${editUrl}" method="POST"><button type="submit" class="button edit glyphicon glyphicon-pencil"/></form>
-			                                  	</div>
-			                                  	
-			                                </c:when>
-			                                	</c:choose>
-			                               </td>
-			                           	</tr>
-                            		</c:when>
-                          			</c:choose>
-                           </c:forEach>-->
                         </tbody>
                      </table>
                      <!-- /.table-responsive -->
@@ -374,6 +279,7 @@
       </div>
       <!-- /#page-wrapper -->
 		<script>
+		$.noConflict();
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   
 			});

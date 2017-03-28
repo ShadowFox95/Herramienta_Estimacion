@@ -5,17 +5,19 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-	<spring:url value="/resources/core/res/custom/custom.css" var="coreCss" />
-	<spring:url value="/resources/core/res/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
-	<link href="${bootstrapCss}" rel="stylesheet" />
-	<link href="${coreCss}" rel="stylesheet" />
-	<!-- Bootstrap Core JavaScript -->
-<spring:url value="/resources/core/res/bootstrap/js/bootstrap.min.js" var="bootstrapJs" />
 
+<spring:url value="/resources/core/res/custom/custom.css" var="coreCss" />
+<spring:url value="/resources/core/res/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
+<link href="${bootstrapCss}" rel="stylesheet" />
+<link href="${coreCss}" rel="stylesheet" />
+<!-- Bootstrap Core JavaScript -->
+<spring:url value="/resources/core/res/bootstrap/js/bootstrap.min.js" var="bootstrapJs" />
 <spring:url value="/resources/core/res/jquery/jquery.min.js" var="jQuery" />
 <script src="${jQuery}"></script>
 <script src="${bootstrapJs}"></script>
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.13/r-2.1.1/datatables.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.13/r-2.1.1/datatables.js"></script>
 
 
 </head>
