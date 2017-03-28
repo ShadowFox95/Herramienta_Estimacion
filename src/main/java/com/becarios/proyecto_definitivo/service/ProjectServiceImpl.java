@@ -63,7 +63,7 @@ public class ProjectServiceImpl implements ProjectService {
         proyecto.setDescripcion(descripcion);
         proyecto.setIsEditado(isEditado);
         dao.saveProject(proyecto);
-        return false;
+        return true;
     }
 
 }

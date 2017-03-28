@@ -23,7 +23,7 @@
 <body onload="check()">
 <c:set var="url" value="${ pageContext.request.requestURI }" />
 	<div id="wrapper">
-    	<div class="nav-side-menu">
+		<div class="nav-side-menu">
         	<div class="brand"><a href="/proyecto-definitivo/">USUARIO</a></div>
          	<i class="glyphicon glyphicon-menu-hamburger toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
          	<div class="menu-list">

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
+import com.becarios.proyecto_definitivo.web.controller.ControladorPrincipal;
 
 @Controller
 public class ControladorCriterios {
@@ -26,7 +27,7 @@ public class ControladorCriterios {
 
     // Show main page
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
-    public String mainTables(ModelMap model, @RequestParam(value="ProjectCode",required=false) Integer idProyecto ) {
+    public String mainTables(ModelMap model ) {
         // if (!show.isEmpty()) {
         // model.addAttribute("perfiles", tablasTemp.get(0));
         // model.addAttribute("vista", tablasTemp.get(1));
@@ -38,11 +39,11 @@ public class ControladorCriterios {
         // }
         // model.addAttribute("integracion", tablasTemp.get(5));
         //
-    	if (idProyecto!=null) {
+    	
 			
 		
-        model.addAttribute("projectCode", idProyecto);
-        List<CasosDeUso> modulos = module.findAllModulo(idProyecto);
+        model.addAttribute("projectCode", ControladorPrincipal.idProyecto);
+        List<CasosDeUso> modulos = module.findAllModulo(ControladorPrincipal.idProyecto);
 
         model.addAttribute("modules", modulos);
     	
@@ -56,10 +57,10 @@ public class ControladorCriterios {
         }
 
         // Loads default row when empty
-        if (modulos.isEmpty()) {
-            module.createModulo(idProyecto);
-        }
-    	}
+       /* if (modulos.isEmpty()) {
+            module.createModulo(ControladorPrincipal.idProyecto);
+        
+    	}*/
         return "forward:/factores-ajuste";
 
     }
@@ -89,7 +90,7 @@ public class ControladorCriterios {
             return "redirect:/criterios/" + idProyecto + "/ErrorSaveNull";
         }
 
-        if (!module.AddModulo(idProyecto, id, code, caseOfUse, name, perfilesTotal, perfilesNro, perfilesComplejidad,
+        if (!module.AddModulo(idProyecto, code, caseOfUse, name, perfilesTotal, perfilesNro, perfilesComplejidad,
                 vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, vistaBotones, negocioTotal,
                 negocioNro, negocioLogica, persistenciaTotal, persistenciaNro, persistenciaAccesos, cuTotal,
                 cuDificultad, integracionTotal, integracionNro, integracionComplejidad)) {
@@ -123,10 +124,13 @@ public class ControladorCriterios {
     }
 
     // Adds a table row
-    @RequestMapping(value = "/criterios/{projectCode}/addRow", method = RequestMethod.POST)
-    public String addRow(ModelMap model, @PathVariable("projectCode") int idProyecto) {
+    @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
+    public String addRow(ModelMap model) {
 
-        module.createModulo(idProyecto);
+        module.AddModulo(ControladorPrincipal.idProyecto, "nombre", "nombre", "Nombre", 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0);
 
         return "redirect:/load";
     }

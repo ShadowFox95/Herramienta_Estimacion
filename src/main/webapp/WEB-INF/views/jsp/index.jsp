@@ -27,7 +27,7 @@
              	</c:when>
              	<c:otherwise>
              	             <ul class="nav nav-tabs ">
-                    <li id="proyectoLi" class=""><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyecto</a>          
+                    <li id="proyectoLi" class=""><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyectos</a>          
                     </li>
                     <li id="criteriosLi" class=""><a href="#criterios" data-toggle="tab" aria-expanded="false">Criterios</a>
                     </li>

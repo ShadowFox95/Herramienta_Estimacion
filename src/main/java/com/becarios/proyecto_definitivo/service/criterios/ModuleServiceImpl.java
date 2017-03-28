@@ -68,11 +68,14 @@ public class ModuleServiceImpl implements ModuleService {
         CasosDeUsoId c = new CasosDeUsoId();
         c.setIdProyecto(id);
         m.setId(c);
-
+        
+        
+        
+        dao.saveModule(m);
     }
 
     @Override
-    public boolean AddModulo(int idProyecto, int id, String code, String caseOfUse, String name, int perfilesTotal,
+    public boolean AddModulo(int idProyecto, String code, String caseOfUse, String name, int perfilesTotal,
             int perfilesNro, int perfilesComplejidad, int vistaTotal, int vistaNro, int vistaCampos,
             int vistaComplejidad, int vistaListados, int vistaBotones, int negocioTotal, int negocioNro,
             int negocioLogica, int persistenciaTotal, int persistenciaNro, int persistenciaAccesos, int cuTotal,
@@ -83,19 +86,24 @@ public class ModuleServiceImpl implements ModuleService {
             modulo.setCodigo(code);
             modulo.setModulo(caseOfUse);
             modulo.setNombre(name);
+            CasosDeUsoId caso = new CasosDeUsoId();
+            caso.setIdProyecto(idProyecto);
+            modulo.setId(caso);
 
+            
+            
             // Llamar al service para que lo guarde
 
             // Crea objeto Perfiles
             Perfiles perfiles = new Perfiles();
-            perfiles.setCasosdeUsosCodigo(id);
+            perfiles.setCasosdeUsosCodigo(modulo.getId().getId());
             perfiles.setNro(perfilesNro);
             perfiles.setComplejidad(perfilesComplejidad);
             perfiles.setTotal(perfilesTotal);
 
             // Crea objeto Vista
             Vista vista = new Vista();
-            vista.setCasosdeUsosCodigo(id);
+            vista.setCasosdeUsosCodigo(modulo.getId().getId());
             vista.setNro(vistaNro);
             vista.setBotones(vistaBotones);
             vista.setCampos(vistaCampos);
@@ -105,27 +113,27 @@ public class ModuleServiceImpl implements ModuleService {
 
             // Crea objeto Negocio
             Negocio negocio = new Negocio();
-            negocio.setCasosdeUsosCodigo(id);
+            negocio.setCasosdeUsosCodigo(modulo.getId().getId());
             negocio.setNro(negocioNro);
             negocio.setLogica(negocioLogica);
             negocio.setTotal(negocioTotal);
 
             // Crea objeto Persistencia
             Persistencia persistencia = new Persistencia();
-            persistencia.setCasosdeUsosCodigo(id);
+            persistencia.setCasosdeUsosCodigo(modulo.getId().getId());
             persistencia.setNro(persistenciaNro);
             persistencia.setAccesos(persistenciaAccesos);
             persistencia.setTotal(persistenciaTotal);
 
             // Crea objeto CUOriginal
             Cuoriginal cu = new Cuoriginal();
-            cu.setCasosdeUsosCodigo(id);
+            cu.setCasosdeUsosCodigo(modulo.getId().getId());
             cu.setComplejidad(cuDificultad);
             cu.setTotal(cuTotal);
 
             // Crea objeto Integracion
             Integracion integracion = new Integracion();
-            integracion.setCasosdeUsosCodigo(id);
+            integracion.setCasosdeUsosCodigo(modulo.getId().getId());
             integracion.setNro(integracionNro);
             integracion.setComplejidad(integracionComplejidad);
             integracion.setTotal(integracionTotal);
@@ -145,8 +153,8 @@ public class ModuleServiceImpl implements ModuleService {
             this.saveModulo(modulo);
             // Not implemented yet
             dao.saveModule(modulo);
-            // dao.saveTablas(perfiles, vista, negocio, persistencia, cu,
-            // integracion);
+            dao.saveAllTablas(perfiles, vista, negocio, persistencia, cu, integracion);
+
 
         } catch (Exception e) {
             return false;

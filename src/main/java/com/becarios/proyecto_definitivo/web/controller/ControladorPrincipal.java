@@ -19,7 +19,8 @@ public class ControladorPrincipal {
 
     private boolean first = true;
     private String control = "";
-
+    public static int idProyecto=1;
+    
     // Redirect to main page
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
