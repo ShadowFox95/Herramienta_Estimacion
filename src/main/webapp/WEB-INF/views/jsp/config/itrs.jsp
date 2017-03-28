@@ -5,8 +5,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>EF - ITRs</title>
- <jsp:include page="../fragments/sidebar.jsp" />
-  <div id="page-wrapper-menu">
+
+
+
+
+				<div class="col-lg-12">
+					<h1 class="page-header">Configuracion ITR's</h1>
+				</div>
+				<!-- /.col-lg-12 -->
+
  <div class="col-lg-12">
          	 <div class="panel panel-default">
 	         	<div class="panel-heading">
@@ -164,15 +171,16 @@
 	         	</div>
 	         	<div class="panel-footer table-footer-fix clearfix">	
                     <span style="float:right">
-                        <form name="row" action="/proyecto-definitivo/config/saveITRs" method="POST">
+                        <form name="row" action="/proyecto-definitivo/return" method="POST">
                            <button type="submit" class="custom-color right-button corner-button">
                            <i class="glyphicon glyphicon-plus"></i> Guardar Valores
                            </button>
                         </form>
                    	</span> 
                  </div>
-        	 </div>
+        	 
             </div>
+
    </div>
 </body>
 </html>

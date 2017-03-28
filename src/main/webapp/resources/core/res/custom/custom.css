@@ -505,3 +505,8 @@ a, a:visited, a:hover, a:active {
 	margin-top: 15px;
 	font-size : 50px;
 }
+.huge-button:hover{
+	background-color: #337ab7;
+    border-color: #2d6a9f !important;
+    background-color: #2d6a9f !important;
+}

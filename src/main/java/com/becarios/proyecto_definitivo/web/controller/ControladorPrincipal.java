@@ -66,7 +66,8 @@ public class ControladorPrincipal {
     @RequestMapping(value = "/addProject", method = RequestMethod.GET)
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
-        Proyecto pro = new Proyecto("Nuevo Proyecto", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1, "");
+        Proyecto pro = new Proyecto("Nuevo Proyecto", (proyectos.get(proyectos.size() - 1).getCodigo()) + 1,
+                "Descripcion");
         proyectos.add(pro);
         p.setCodigo(pro.getCodigo());
         p.setNombre(pro.getNombre());
@@ -86,7 +87,6 @@ public class ControladorPrincipal {
                 p.setNombre(proyectos.get(i).getNombre());
                 p.setDescripcion(proyectos.get(i).getDescripcion());
                 p.setEditado(proyectos.get(i).isEditado());
-                System.out.println(proyectos.get(i).getDescripcion());
             }
         }
         control = "proyecto";
@@ -116,10 +116,16 @@ public class ControladorPrincipal {
         return "forward:/" + page + "/" + operation + "/";
     }
 
-    @RequestMapping(value = "/dev", method = RequestMethod.GET)
-    public String index(ModelMap model) {
+    @RequestMapping(value = "/config", method = RequestMethod.GET)
+    public String config(ModelMap model) {
+        control = "config";
+        return "forward:/";
+    }
 
-        return "config/itrs";
+    @RequestMapping(value = "/return", method = RequestMethod.POST)
+    public String volver(ModelMap model) {
+        control = "proyecto";
+        return "redirect:/";
     }
 
 }
