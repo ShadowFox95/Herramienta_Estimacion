@@ -88,8 +88,9 @@
 					<div class="row">
                 
              <div class="col-lg-3 col-md-6">
+             <a href="config" class="">
                 <div class="panel panel-blue">
-                        <div class="panel-heading config-panel">
+                        <div class="panel-heading config-panel huge-button">
                             <div class="row">
                                 <div class="col-xs-3">
                                     <i class="glyphicon glyphicon-wrench"></i>
@@ -101,14 +102,15 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        
                             <div class="panel-footer">
                                 <span class="pull-left">Configurar</span>
                                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
-                        </a>
+                        
                     </div>
+                    </a>
                 </div>
                 </div>
             </div>

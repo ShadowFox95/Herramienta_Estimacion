@@ -35,7 +35,6 @@ import com.becarios.proyecto_definitivo.dto.horas_costes.GobiernoexternoDto;
 import com.becarios.proyecto_definitivo.dto.horas_costes.RiesgoDto;
 import com.becarios.proyecto_definitivo.dto.horas_costes.ValoracionfinalDto;
 import com.becarios.proyecto_definitivo.dto.itr.ItrDto;
-import com.becarios.proyecto_definitivo.model.Modulo;
 
 public class ReadExcel {
 
@@ -72,8 +71,8 @@ public class ReadExcel {
         Workbook workbook = new XSSFWorkbook(inputStream);
 
         getProjectParameters(workbook);
-        getCriteriosParameters(workbook);
-        getFactoresAjusteParameters(workbook);
+        ExcelToCriterios.getCriteriosParameters(workbook);
+        ExcelToFactoresAjuste.getFactoresAjusteParameters(workbook);
         getHorasCostesParameters(workbook);
 
         workbook.close();
@@ -82,75 +81,56 @@ public class ReadExcel {
     }
 
     private static void getProjectParameters(Workbook workbook) {
+        System.out.println();
+        System.out.println("==============");
+        System.out.println("== Proyecto ==");
+        System.out.println("==============");
+        System.out.println();
+        Sheet sheet = workbook.getSheetAt(0);
 
-    }
-
-    private static void getCriteriosParameters(Workbook workbook) {
-
-    }
-
-    private static void getFactoresAjusteParameters(Workbook workbook) {
+        Row row = sheet.getRow(4);
+        Cell cell = row.getCell(1);
+        System.out.println("Tipo de Desarrollo: " + cell.getStringCellValue());
 
     }
 
     private static void getHorasCostesParameters(Workbook workbook) {
-
+        System.out.println();
+        System.out.println("==================");
+        System.out.println("== Horas Costes ==");
+        System.out.println("==================");
+        System.out.println();
     }
 
     private static void getCondicionantesParameters(Workbook workbook) {
-
+        System.out.println();
+        System.out.println("====================");
+        System.out.println("== Condicionantes ==");
+        System.out.println("====================");
+        System.out.println();
     }
 
     private static void getItrParameters(Workbook workbook) {
-
-    }
-
-    private static void pass(int cn, Cell c, Modulo m) {
-        switch (cn) {
-        case 1:
-            System.out.print("Name: ");
-            m.setName(c.getStringCellValue());
-            System.out.println(c.getStringCellValue());
-            break;
-        case 3:
-            System.out.print("Code: ");
-            m.setCode(c.getStringCellValue());
-            System.out.println(c.getStringCellValue());
-            break;
-        case 4:
-            System.out.print("Case of use: ");
-            m.setCaseOfUse(c.getStringCellValue());
-            System.out.println(c.getStringCellValue());
-            break;
-        case 5:
-            System.out.print("Perfiles NRO: ");
-            c.getNumericCellValue();
-            System.out.println(c.getNumericCellValue());
-            break;
-        case 6:
-            System.out.print("Perfiles complejidad: ");
-            m.setCaseOfUse(c.getStringCellValue());
-            System.out.println(c.getStringCellValue());
-            break;
-
-        default:
-            break;
-        }
+        System.out.println();
+        System.out.println("===========");
+        System.out.println("== ITR'S ==");
+        System.out.println("===========");
+        System.out.println();
     }
 
     @Autowired
     @SuppressWarnings("deprecation")
-    private static void checktype(Cell c) {
+    public static void checktype(Cell c) {
         switch (c.getCellType()) {
         case Cell.CELL_TYPE_STRING:
-            System.out.print(c.getStringCellValue());
+            System.out.println(c.getStringCellValue());
 
             break;
         case Cell.CELL_TYPE_BOOLEAN:
-            System.out.print(c.getBooleanCellValue());
+            System.out.println(c.getBooleanCellValue());
             break;
         case Cell.CELL_TYPE_NUMERIC:
-            System.out.print(c.getNumericCellValue());
+            System.out.println(c.getNumericCellValue());
 
             break;
         case Cell.CELL_TYPE_BLANK:
@@ -159,10 +139,10 @@ public class ReadExcel {
         case Cell.CELL_TYPE_FORMULA:
             switch (c.getCachedFormulaResultType()) {
             case Cell.CELL_TYPE_NUMERIC:
-                System.out.print(c.getNumericCellValue());
+                System.out.println(c.getNumericCellValue());
                 break;
             case Cell.CELL_TYPE_STRING:
-                System.out.print(c.getRichStringCellValue());
+                System.out.println(c.getRichStringCellValue());
                 break;
 
             default:
@@ -172,43 +152,43 @@ public class ReadExcel {
 
     }
 
-    private void plantilla(Workbook workbook) {
-        Sheet sheet = workbook.getSheetAt(0);
-
-        int rownum = 10;
-        int maxrow = 49;
-        System.out.println(rownum + "/" + maxrow);
-
-        int rowStart = 9;
-        int rowEnd = sheet.getLastRowNum() - 32;
-        for (int rowNum = rowStart; rowNum < rowEnd; rowNum++) {
-            System.out.println("== ROW - " + (rowNum + 1) + " ==");
-            Row r = sheet.getRow(rowNum);
-            if (r == null) {
-                // This whole row is empty
-                // Handle it as needed
-                System.out.println("Empty");
-                continue;
-            }
-
-            int lastColumn = r.getLastCellNum();
-
-            for (int cn = 0; cn < lastColumn; cn++) {
-                Cell c = r.getCell(cn, Row.RETURN_BLANK_AS_NULL);
-                if (c == null) {
-                    // System.out.print("?");
-                    // System.out.print(" | ");
-                } else {
-
-                    pass(cn, c, new Modulo());
-                    System.out.print(" | ");
-
-                }
-
-            }
-            System.out.println();
-        }
-
-    }
+    // private void plantilla(Workbook workbook) {
+    // Sheet sheet = workbook.getSheetAt(0);
+    //
+    // int rownum = 10;
+    // int maxrow = 49;
+    // System.out.println(rownum + "/" + maxrow);
+    //
+    // int rowStart = 9;
+    // int rowEnd = sheet.getLastRowNum() - 32;
+    // for (int rowNum = rowStart; rowNum < rowEnd; rowNum++) {
+    // System.out.println("== ROW - " + (rowNum + 1) + " ==");
+    // Row r = sheet.getRow(rowNum);
+    // if (r == null) {
+    // // This whole row is empty
+    // // Handle it as needed
+    // System.out.println("Empty");
+    // continue;
+    // }
+    //
+    // int lastColumn = r.getLastCellNum();
+    //
+    // for (int cn = 0; cn < lastColumn; cn++) {
+    // Cell c = r.getCell(cn, Row.RETURN_BLANK_AS_NULL);
+    // if (c == null) {
+    // // System.out.print("?");
+    // // System.out.print(" | ");
+    // } else {
+    //
+    // // pass(cn, c, new Modulo());
+    // System.out.print(" | ");
+    //
+    // }
+    //
+    // }
+    // System.out.println();
+    // }
+    //
+    // }
 
 }

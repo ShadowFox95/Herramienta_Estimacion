@@ -138,7 +138,8 @@
                 $.ajax({
                     type: "POST",
                     url: "testing/addRow",
-                    success: function(module){      
+                    success: function(module){   
+                       $("#showAtributos").hide();  
                        console.log(module);
                        refreshTable(module);
                        $("#showAtributos").hide();
@@ -237,6 +238,10 @@
                            </tr>
                         </thead>
 					    <tbody id="moduleTable">
+<<<<<<< HEAD
+=======
+                           
+>>>>>>> branch 'vista' of git@github.com:ShadowFox95/Herramienta_Estimacion.git
                         </tbody>
                      </table>
                      <!-- /.table-responsive -->
@@ -253,11 +258,7 @@
                     <!-- Button -->
                     <div class="panel-footer table-footer-fix clearfix">	
                     	<span style="float:left">
-                        <!-- <form name="row" action="/proyecto-definitivo/goto/criterios/addRow" method="POST">
-                           <button type="submit" class="custom-color left-button corner-button">
-                           <i class="glyphicon glyphicon-plus"></i> Crear Módulo
-                           </button>
-                        </form> -->
+
                          <button type="submit" class="custom-color left-button corner-button" onClick='doAjaxAddRow()'>
                            <i class="glyphicon glyphicon-plus"></i> Crear Módulo
                            </button>

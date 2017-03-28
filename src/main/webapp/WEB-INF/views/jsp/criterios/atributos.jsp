@@ -19,7 +19,7 @@
                         	Complejidad 
                         	<span style="float:right">
                         	<spring:url value="/resources/core/images/perfiles.png" var="image_perf" />
-                        	<a href="" onclick="return false" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_perf}' height='91' width='739'>">
+                        	<a href="#" onclick="return false"  title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_perf}' height='91' width='739'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span></a></span>
                         </th>
                         <th>Total</th>
@@ -64,24 +64,24 @@
                         <th>Campos
                             <span style="float:right">
                         	<spring:url value="/resources/core/images/vista/campos.png" var="image_pv1" />
-                        	<a  href="#" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv1}' height='127' width='610'>">
+                        	<a  href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv1}' height='127' width='610'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span></a></span>
                         </th>
                         <th>Complejidad
                             <span style="float:right">
                         	<spring:url value="/resources/core/images/vista/logica.png" var="image_pv2" />
-                        	<a href="#"  title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv2}' height='127' width='493'>">
+                        	<a href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv2}' height='127' width='493'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span></a></span>
                         </th>
                         <th>Listados
                             <span style="float:right">
                         	<spring:url value="/resources/core/images/vista/listados.png" var="image_pv3" />
-                        	<a href="#"  title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv3}' height='127' width='610'>">
+                        	<a href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv3}' height='127' width='610'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span></a></span></th>
                         <th>Botones                        	
                         	<span style="float:right">
                         	<spring:url value="/resources/core/images/vista/acciones.png" var="image_pv4" />
-                        	<a href="#"  title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv4}' height='127' width='493'>">
+                        	<a href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pv4}' height='127' width='493'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span></a></span></th>
                         <th>Total</th>
                      </tr>
@@ -155,7 +155,7 @@
                         <th>Logica
                         <span style="float:right">
                         	<spring:url value="/resources/core/images/negocio.png" var="image_neg" />
-                        	<a href="#" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_neg}' height='127' width='737'>">
+                        	<a href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_neg}' height='127' width='737'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span>
                         	</a>
                         </span>
@@ -205,7 +205,7 @@
                         <th>Accesos
                         <span style="float:right">
                         	<spring:url value="/resources/core/images/persistencia.png" var="image_pers" />
-                        	<a href="#"  title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pers}' height='127' width='540'>">
+                        	<a href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_pers}' height='127' width='540'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span>
                         	</a>
                         </span>
@@ -256,7 +256,7 @@
                         <th>Dificultad
                         <span style="float:right">
                         	<spring:url value="/resources/core/images/cu.png" var="image_cu" />
-                        	<a href="#"  title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_cu}' height='127' width='512'>">
+                        	<a href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_cu}' height='127' width='512'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span>
                         	</a>
                         </span>
@@ -302,7 +302,7 @@
                         <th>Complejidad
                         <span style="float:right">
                         	<spring:url value="/resources/core/images/integracion.png" var="image_inte" />
-                        	<a href="#" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_inte}' height='91' width='396'>">
+                        	<a href="#" onclick="return false" title="" data-toggle="popover" data-placement="top" data-html="true" data-delay='{"show":"500", "hide":"150"}' data-trigger="focus" html=true data-content="<img src='${image_inte}' height='91' width='396'>">
                         	<span class="blu glyphicon glyphicon-info-sign"></span>
                         	</a>
                         </span>
