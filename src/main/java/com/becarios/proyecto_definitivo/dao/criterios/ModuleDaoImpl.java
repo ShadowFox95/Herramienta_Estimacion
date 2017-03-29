@@ -46,7 +46,7 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
     }
 
     @Override
-    public ArrayList<Object> FindAllTablas(int idModulo) {
+    public ArrayList<Object> findAllTablas(int idModulo) {
         ArrayList<Object> lista = new ArrayList<Object>();
 
         lista.add(getSession().get(Perfiles.class, idModulo));

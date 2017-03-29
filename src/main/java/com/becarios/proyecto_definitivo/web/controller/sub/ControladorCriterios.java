@@ -20,11 +20,10 @@ import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
 
 @Controller
 public class ControladorCriterios {
-    // private Proyecto proyecto = new Proyecto("test", 0, "Descripcion");
+
     @Autowired
     private String show = "";
-    // private List<CasosDeUso> rows = proyecto.getRows();
-    // private List<Tabla> tablasTemp = new ArrayList<Tabla>();
+
     private String codigo;
     private String notification = "";
     private String notificationType = "info";
@@ -35,72 +34,75 @@ public class ControladorCriterios {
     // Show main page
     @RequestMapping(value = "/testing", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> showTables(ModelMap model) {
-        return null;
-        // rows = proyecto.getRows();
-        // return rows;
+        // Cambiar '0' por 'idProyecto'
+        return moduleService.findAllModulo(0);
     }
 
     @RequestMapping(value = "/testing/addRow", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> addRowAjax(ModelMap model) {
-        return null;
-        // proyecto.crearCasosDeUso();
-        // rows = proyecto.getRows();
-        // return rows;
+        
+        //añadir parametros de addmodulo        
+        moduleService.AddModulo(idProyecto, code, caseOfUse, name, 
+                perfilesTotal, perfilesNro, perfilesComplejidad, 
+                vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, vistaBotones, 
+                negocioTotal, negocioNro, negocioLogica, 
+                persistenciaTotal, persistenciaNro, persistenciaAccesos, 
+                cuTotal, cuDificultad, 
+                integracionTotal, integracionNro, integracionComplejidad)
+
+        //Cambiar '0' por 'idProyecto'
+        return moduleService.findAllModulo(0);
     }
 
     @RequestMapping(value = "/testing/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<CasosDeUso> saveRowAjax(ModelMap model, @PathVariable("idToSave") String code,
             @RequestBody CasosDeUso data) {
-        return null;
-        // System.out.println(data.getTablas().get(0) + " " + "TEST");
+        moduleService.saveModulo(data);
 
-        // rows = proyecto.getRows();
-        // return rows;
+        // Cambiar '0' por 'idProyecto'
+        return moduleService.findAllModulo(0);
+
     }
 
     @RequestMapping(value = "/testing/delete/{idToDelete}", method = RequestMethod.DELETE)
-    public @ResponseBody List<CasosDeUso> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") String code) {
-        CasosDeUso row = new CasosDeUso();
-        int c = 0;
-        // while (c < rows.size()) {
-        // row = rows.get(c);
-        // if (code.equals(row.getCodigo())) {
-        // rows.remove(c);
-        // // proyecto.setRows(rows);
-        // }
-        // c++;
-        return null;
+    public @ResponseBody List<CasosDeUso> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") int id) {
+
+        moduleService.deleteModuloByCode(id);
+
+        // Cambiar '0' por 'idProyecto'
+        return moduleService.findAllModulo(0);
     }
 
-    // rows = proyecto.getRows();
-    // return rows;
-    // }
+    @RequestMapping(value = "/testing/edit", method = RequestMethod.PUT)
 
-    /*
-     * @RequestMapping(value = "/testing/edit", method = RequestMethod.PUT)
-     * 
-     * @ResponseBody public List<Tabla> editRowAjax(ModelMap model) { CasosDeUso
-     * row = new CasosDeUso(); int c = 0; while (c < rows.size()) { row =
-     * rows.get(c); if (code.equals(row.getCode())) { tablasTemp =
-     * row.getTablas(); break; } c++; } rows = proyecto.getRows(); return
-     * tablasTemp; }
-     */
+    @ResponseBody
+    public List<Object> editRowAjax(ModelMap model) {
+        CasosDeUso row = new CasosDeUso();
+        moduleService.updateModulo(row);
+        // Cambiar '0' por 'id'
+        return moduleService.findAllTablas(0);
+    }
 
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
     public String mainTables(ModelMap model) {
-        // model.addAttribute("modules", rows);
-        if (!show.isEmpty()) {
-            // model.addAttribute("perfiles", tablasTemp.get(0));
-            // model.addAttribute("vista", tablasTemp.get(1));
-            // model.addAttribute("negocio", tablasTemp.get(2));
-            // model.addAttribute("persistencia", tablasTemp.get(3));
+        // Cambiar '0' a 'id'
+        List<CasosDeUso> rows = moduleService.findAllModulo(0);
 
-            if (true) { /* proyecto.isEditado() */
-                // model.addAttribute("cu", tablasTemp.get(4));
-            }
-
-            // model.addAttribute("integracion", tablasTemp.get(5));
-        }
+        model.addAttribute("modules", rows);
+        
+//        if (!show.isEmpty()) {
+//             model.addAttribute("perfiles", tablasTemp.get(0));
+//             model.addAttribute("vista", tablasTemp.get(1));
+//             model.addAttribute("negocio", tablasTemp.get(2));
+//             model.addAttribute("persistencia", tablasTemp.get(3));
+//
+//            if (true) { /* proyecto.isEditado() */
+//                 model.addAttribute("cu", tablasTemp.get(4));
+//            }
+//
+//             model.addAttribute("integracion", tablasTemp.get(5));
+//        }
+        
         model.addAttribute("display", show);
 
         // Notifications
@@ -111,20 +113,16 @@ public class ControladorCriterios {
         }
 
         // Loads default row when empty
-        // if (rows.isEmpty()) {
-        // proyecto.crearCasosDeUso();
-        // }
+        if (rows.isEmpty()) {
+            moduleService.AddModulo(idProyecto, code, caseOfUse, name, 
+                    perfilesTotal, perfilesNro, perfilesComplejidad, 
+                    vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados, vistaBotones, 
+                    negocioTotal, negocioNro, negocioLogica, 
+                    persistenciaTotal, persistenciaNro, persistenciaAccesos, 
+                    cuTotal, cuDificultad, integracionTotal, integracionNro, integracionComplejidad)
+        }
 
         return "forward:/factores-ajuste";
-
-    }
-
-    @RequestMapping(value = "/criterios/load/", method = RequestMethod.GET)
-    public String Tables(ModelMap model, @ModelAttribute("proyecto") Proyecto project) {
-        // proyecto = project;
-        // rows = proyecto.getRows();
-
-        return "redirect:/load";
 
     }
 
@@ -145,23 +143,12 @@ public class ControladorCriterios {
             @RequestParam("integracionTotal") int integracionTotal,
             @RequestParam("integracionComplejidad") int integracionComplejidad,
             @RequestParam("integracionNro") int integracionNro) {
-        CasosDeUso row = new CasosDeUso();
+
         int index = 0;
         code = code.trim();
         if (code.equals("")) {
             return "redirect:/criterios/ErrorSaveNull";
         }
-        // for (int i = 0; i < rows.size(); i++) {
-        // row = rows.get(i);
-        if (code.equals(row.getCodigo()) && !code.equals(codigo)) {
-            return "redirect:/criterios/ErrorSaveRow";
-        }
-
-        if (codigo.equals(row.getCodigo())) {
-            // index = i;
-
-        }
-        // }
 
         // if (!proyecto.GuardarDatos(codigo, perfilesTotal, perfilesNro,
         // perfilesComplejidad, vistaTotal, vistaNro,
@@ -183,7 +170,7 @@ public class ControladorCriterios {
         notificationType = "info";
         notification = "Se han aplicado los cambios";
 
-        return "redirect:/load";
+        return "redirect:/";
     }
 
     // discard changes
@@ -193,7 +180,7 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Se han descartado los cambios";
-        return "redirect:/load";
+        return "redirect:/";
     }
 
     // Adds a table row
@@ -201,7 +188,7 @@ public class ControladorCriterios {
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
 
-        return "redirect:/load";
+        return "redirect:/";
     }
 
     // Delete a table row
@@ -214,7 +201,7 @@ public class ControladorCriterios {
         show = "";
         notificationType = "info";
         notification = "Módulo " + code + " eliminada correctamente";
-        return "redirect:/load";
+        return "redirect:/";
 
     }
 
@@ -225,7 +212,7 @@ public class ControladorCriterios {
         int c = 0;
 
         codigo = code;
-        return "redirect:/load";
+        return "redirect:/";
 
     }
 
@@ -234,20 +221,20 @@ public class ControladorCriterios {
     public String ErrorSaveRow(ModelMap model) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. El codigo esta repetido";
-        return "redirect:/load";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/criterios/ErrorSaveData", method = RequestMethod.GET)
     public String ErrorSaveData(ModelMap model) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. Intentelo de nuevo más tarde";
-        return "redirect:/load";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/criterios/ErrorSaveNull", method = RequestMethod.GET)
     public String ErrorSaveNull(ModelMap model) {
         notificationType = "danger";
         notification = "Los datos no han sido guardados correctamente. Introduzca un codigo válido";
-        return "redirect:/load";
+        return "redirect:/";
     }
 }

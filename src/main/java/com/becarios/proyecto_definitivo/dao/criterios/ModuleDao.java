@@ -21,7 +21,7 @@ public interface ModuleDao {
 
     List<CasosDeUso> findAllModules(int id);
 
-    ArrayList<Object> FindAllTablas(int idModulo);
+    ArrayList<Object> findAllTablas(int idModulo);
     
     void saveAllTablas(Perfiles perfiles, Vista vista, Negocio negocio, Persistencia persistencia, Cuoriginal cuoriginal, Integracion integracion);
 }

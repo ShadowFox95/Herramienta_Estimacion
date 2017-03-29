@@ -68,9 +68,7 @@ public class ModuleServiceImpl implements ModuleService {
         CasosDeUsoId c = new CasosDeUsoId();
         c.setIdProyecto(id);
         m.setId(c);
-        
-        
-        
+
         dao.saveModule(m);
     }
 
@@ -90,8 +88,6 @@ public class ModuleServiceImpl implements ModuleService {
             caso.setIdProyecto(idProyecto);
             modulo.setId(caso);
 
-            
-            
             // Llamar al service para que lo guarde
 
             // Crea objeto Perfiles
@@ -139,6 +135,7 @@ public class ModuleServiceImpl implements ModuleService {
             integracion.setTotal(integracionTotal);
 
             float total;
+
             // lo calcula el procedure de la base de datos.
             // if (editado){
             if (!true) {
@@ -155,11 +152,15 @@ public class ModuleServiceImpl implements ModuleService {
             dao.saveModule(modulo);
             dao.saveAllTablas(perfiles, vista, negocio, persistencia, cu, integracion);
 
-
         } catch (Exception e) {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<Object> findAllTablas(int idModulo) {
+        return dao.findAllTablas(idModulo);
     }
 
 }
