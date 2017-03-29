@@ -27,6 +27,15 @@ public class ControladorHorasCostes {
     @RequestMapping(value = "/estimacion-horas", method = RequestMethod.GET)
     public String index(ModelMap model) {
 
+        // Cambiar '0' por 'idProyecto'
+        service.findDeliveryById(0);
+        service.findDeliveryExternoById(0);
+        service.findGestionById(0);
+        service.findGestionExternoById(0);
+        service.findGobiernoById(0);
+        service.findGobiernoExternoById(0);
+        service.findRiesgoById(0);
+        service.findValoracionFinalById(0);
         return "estimacion-horas/horas";
     }
 

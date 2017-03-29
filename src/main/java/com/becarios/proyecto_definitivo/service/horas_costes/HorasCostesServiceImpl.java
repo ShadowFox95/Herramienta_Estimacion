@@ -50,7 +50,7 @@ public class HorasCostesServiceImpl implements HorasCostesService {
     }
 
     @Override
-    public List<Gobiernoexterno> findGobietnoExternoById(int id) {
+    public List<Gobiernoexterno> findGobiernoExternoById(int id) {
         return dao.findAllGobext(id);
     }
 

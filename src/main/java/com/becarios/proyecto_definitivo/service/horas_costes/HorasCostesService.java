@@ -23,7 +23,7 @@ public interface HorasCostesService {
 
     List<Gobierno> findGobiernoById(int id);
 
-    List<Gobiernoexterno> findGobietnoExternoById(int id);
+    List<Gobiernoexterno> findGobiernoExternoById(int id);
 
     List<Riesgo> findRiesgoById(int id);
 
