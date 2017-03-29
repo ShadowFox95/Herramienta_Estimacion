@@ -2,6 +2,9 @@ package com.becarios.proyecto_definitivo.service.horas_costes;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.becarios.proyecto_definitivo.dao.horas_ajustes.HorasCostesDao;
 import com.becarios.proyecto_definitivo.model.horas_costes.Delivery;
 import com.becarios.proyecto_definitivo.model.horas_costes.Deliveryexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Gestion;
@@ -13,75 +16,74 @@ import com.becarios.proyecto_definitivo.model.horas_costes.Valoracionfinal;
 
 public class HorasCostesServiceImpl implements HorasCostesService {
 
-    // @Autowired
-    // HorasCostesDao dao;
+    @Autowired
+    HorasCostesDao dao;
 
     @Override
     public List<Delivery> findDeliveryById(int id) {
-        // dao.getAllDelivery(id);
-        return null;
+        return dao.findAllDeliv(id);
+
     }
 
     @Override
     public List<Deliveryexterno> findDeliveryExternoById(int id) {
-        // dao.getAllDeliveryexterno(id);
-        return null;
+        return dao.findAllDelivext(id);
+
     }
 
     @Override
     public List<Gestion> findGestionById(int id) {
-        // dao.getAllGestion(id);
-        return null;
+        return dao.findAllGest(id);
+
     }
 
     @Override
     public List<Gestionexterno> findGestionExternoById(int id) {
-        // dao.getAllGestionexterno(id);
-        return null;
+        return dao.findAllGestext(id);
+
     }
 
     @Override
     public List<Gobierno> findGobiernoById(int id) {
-        // dao.getAllGobierno(id);
-        return null;
+        return dao.findAllGob(id);
+
     }
 
     @Override
     public List<Gobiernoexterno> findGobietnoExternoById(int id) {
-        // dao.getAllGobiernoexterno(id);
-        return null;
+        return dao.findAllGobext(id);
     }
 
     @Override
     public List<Riesgo> findRiesgoById(int id) {
-        // dao.getAllRiesgo(id);
-        return null;
+        return dao.findAllRiesg(id);
+
     }
 
     @Override
     public List<Valoracionfinal> findValoracionFinalById(int id) {
-        // dao.getAllValoracinofinal(id);
-        return null;
+        return dao.findAllValofin(id);
+
     }
 
     @Override
     public boolean save(Object row) {
         if (row instanceof Delivery) {
-            // dao.saveDelivery(row)
+            dao.saveDeliv((Delivery) row);
         } else if (row instanceof Deliveryexterno) {
-            // dao.saveDeliveryexterno(row)
+            dao.saveDelivext((Deliveryexterno) row);
         } else if (row instanceof Gestion) {
-            // dao.saveGestion(row)
+            dao.saveGest((Gestion) row);
         } else if (row instanceof Gestionexterno) {
-            // dao.saveGestionexterno(row)
+            dao.saveGestext((Gestionexterno) row);
         } else if (row instanceof Gobierno) {
-            // dao.saveGobierno(row)
+            dao.saveGob((Gobierno) row);
         } else if (row instanceof Gobiernoexterno) {
-            // dao.saveGobiernoexterno(row)
+            dao.saveGobext((Gobiernoexterno) row);
         } else if (row instanceof Riesgo) {
-            // dao.saveRiesgo(row)
+            dao.saveRiesg((Riesgo) row);
         } else if (row instanceof Valoracionfinal) {
-            // dao.saveValoracinofinal(row)
+            dao.saveValofin((Valoracionfinal) row);
         }
         return false;
     }
