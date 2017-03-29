@@ -54,6 +54,75 @@
 						</table>
 					</div>
 			</div>
+			<div class="row">
+			<div class="col-lg-12 width-fix1">
+         	 <div class="panel panel-default">
+	         	<div class="panel-heading">
+	         	 	Ajustes Adicionales
+	         	</div>	
+	         	<div class="panel-body">
+	         	<div class="col-xs-8">
+<div class="panel panel-default ">
+					<div class="panel-heading">
+					<strong>¿Editado?</strong> 
+					</div>
+						<!-- /.panel-heading -->
+						<table width="100%" class="table table-striped tableForm" id="dataTables-example">
+							
+							<tbody>
+								<tr>
+									<spring:url value="/criterios/saveRow" var="saveUrl" />
+									<td>
+										<select class="form-control" id="editado" name="editado">
+                              		<option value="0">Si</option>
+                              		<option value="1">No</option>
+                           		</select>
+									</td>
+
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					</div>
+	         	
+	         	<div class="col-xs-4">
+					<div class="row">
+                
+             <div class="col-lg-3 col-md-6">
+             <a href="config" class="">
+                <div class="panel panel-blue">
+                        <div class="panel-heading config-panel huge-button">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="glyphicon glyphicon-wrench"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="config-box">
+                                    ITR's
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                            <div class="panel-footer">
+                                <span class="pull-left">Configurar</span>
+                                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        
+                    </div>
+                    </a>
+                </div>
+                </div>
+            </div>
+        	 </div>
+            </div>
+			
+					
+					
+			</div>
+		</div>
 		</div>
 		<!-- /.page-wrapper -->
 	</body>

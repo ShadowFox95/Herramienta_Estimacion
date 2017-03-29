@@ -5,55 +5,49 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+
 	<spring:url value="/resources/core/res/custom/custom.css" var="coreCss" />
 	<spring:url value="/resources/core/res/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
 	<link href="${bootstrapCss}" rel="stylesheet" />
 	<link href="${coreCss}" rel="stylesheet" />
-<<<<<<< Upstream, based on origin/marius
-<<<<<<< Upstream, based on origin/marius
-=======
-=======
->>>>>>> 8e71248 a
-<<<<<<< Upstream, based on origin/marius
 
->>>>>>> 5232b94 a
 	<!-- Bootstrap Core JavaScript -->
 <spring:url value="/resources/core/res/bootstrap/js/bootstrap.min.js" var="bootstrapJs" />
 
+
+<spring:url value="/resources/core/res/custom/custom.css" var="coreCss" />
+<spring:url value="/resources/core/res/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
+<link href="${bootstrapCss}" rel="stylesheet" />
+<link href="${coreCss}" rel="stylesheet" />
+<!-- Bootstrap Core JavaScript -->
+<spring:url value="/resources/core/res/bootstrap/js/bootstrap.min.js" var="bootstrapJs" />
 <spring:url value="/resources/core/res/jquery/jquery.min.js" var="jQuery" />
 <script src="${jQuery}"></script>
 <script src="${bootstrapJs}"></script>
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.13/r-2.1.1/datatables.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.13/r-2.1.1/datatables.js"></script>
 
 
-=======
+
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 	<script src="/resources/core/js/datatable.js"></script>
->>>>>>> 9adbb87 added control.js
-=======
+
 	<!-- Bootstrap Core JavaScript -->
 <spring:url value="/resources/core/res/bootstrap/js/bootstrap.min.js" var="bootstrapJs" />
 
 <spring:url value="/resources/core/res/jquery/jquery.min.js" var="jQuery" />
 <script src="${jQuery}"></script>
 <script src="${bootstrapJs}"></script>
-
-
-
->>>>>>> 2cb83f4 some changes
 </head>
 
 <body onload="check()">
 <c:set var="url" value="${ pageContext.request.requestURI }" />
 	<div id="wrapper">
-<<<<<<< Upstream, based on origin/marius
+
 		<div class="nav-side-menu">
-=======
     	<div class="nav-side-menu">
-<<<<<<< Upstream, based on origin/marius
-<<<<<<< Upstream, based on origin/marius
->>>>>>> a308922 New Sidebar Progress
         	<div class="brand"><a href="/proyecto-definitivo/">USUARIO</a></div>
          	<i class="glyphicon glyphicon-menu-hamburger toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
          	<div class="menu-list">
@@ -84,13 +78,9 @@
         			</li>
            			
         		</ul>
-        		
-
-=======
+        	
         	<div class="brand"><a href="/proyecto-definitivo/index/">Estimación funcionalidades</a></div>
-=======
         	<div class="brand"><a href="/proyecto-definitivo/index/">USUARIO</a></div>
->>>>>>> 2cb83f4 some changes
          	<i class="glyphicon glyphicon-menu-hamburger toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
          	<div class="menu-list">
             	<ul id="menu-content" class="menu-content collapse out">
@@ -120,12 +110,6 @@
         			</li>
            			
         		</ul>
-<<<<<<< Upstream, based on origin/marius
->>>>>>> be54e77 New Sidebar Progress
-=======
-        		
-
->>>>>>> 2cb83f4 some changes
      		</div>
   		</div>
 	</div>

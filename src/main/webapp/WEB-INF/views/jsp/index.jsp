@@ -27,6 +27,9 @@
              		<jsp:include page="./bienvenida.jsp"/>
              		</div>
              	</c:when>
+             	<c:when test="${control == 'config'}">
+             		<jsp:include page="./config/itrs.jsp"/>
+             	</c:when>
              	<c:otherwise>
              	             <ul class="nav nav-tabs ">
                     <li id="proyectoLi" class=""><a href="#proyecto" data-toggle="tab" aria-expanded="true">Proyectos</a>          
@@ -46,7 +49,6 @@
                      <i class="glyphicon glyphicon-floppy-save"></i>
                      </button>
                 </form>
-  		
 		</div> 
                             <!-- Tab panes -->
                             <div class="tab-content">

@@ -158,7 +158,7 @@
         	 </div>
          </div>
 	         	<div class="panel-body">
-	         		<table width="100%" class="table table-striped table-bordered tableForm">
+	         		<table width="100%" class="table table-condensed table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-9">Delivery</th>
@@ -188,7 +188,7 @@
 	         				</tr>
 	         			</tbody>
 	         		</table>
-	         		<table width="100%" class="table table-striped table-bordered tableForm">
+	         		<table width="100%" class="table table-condensed table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-9">Gestión de la Calidad/Seguridad/Despliegues</th>
@@ -224,7 +224,7 @@
 	         				</tr>
 	         			</tbody>
 	         		</table>
-					<table width="100%" class="table table-striped table-bordered tableForm">
+					<table width="100%" class="table table-condensed table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-9">Gobierno</th>

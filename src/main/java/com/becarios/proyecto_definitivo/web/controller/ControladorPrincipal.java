@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.becarios.proyecto_definitivo.dto.ProyectoDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 import com.becarios.proyecto_definitivo.service.ProjectService;
 
@@ -19,13 +20,18 @@ public class ControladorPrincipal {
 
     private boolean first = true;
     private String control = "";
+
     public static int idProyecto = 1;
+
+    private static ProyectoDto p = new ProyectoDto();
 
     // Redirect to main page
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
+
         model.addAttribute("projectes", project.findAllProjects());
+
         model.addAttribute("control", control);
 
         return "forward:/criterios";
@@ -49,13 +55,16 @@ public class ControladorPrincipal {
     @RequestMapping(value = "/addProject", method = RequestMethod.GET)
     public String addRow(ModelMap model) {
         // Desplazar a clase para modelo por defecto
+
         project.AddProject("Nombre", "Codigo", "Descripcion", false);
+
         control = "proyecto";
         return "redirect:/";
 
     }
 
     @RequestMapping(value = "/cargar/{code}", method = RequestMethod.GET)
+
     public String editRow(ModelMap model, @PathVariable("code") int id) {
         // module.findtables(id);
 
@@ -81,15 +90,15 @@ public class ControladorPrincipal {
         return "forward:/" + page + "/" + operation + "/";
     }
 
-    @RequestMapping(value = "/crear-proyecto", method = RequestMethod.GET)
-    public String create() {
-        control = "proyecto";
-        return "forward:/criterios";
+    @RequestMapping(value = "/config", method = RequestMethod.GET)
+    public String config(ModelMap model) {
+        control = "config";
+        return "forward:/";
     }
 
-    @RequestMapping(value = "/dev", method = RequestMethod.GET)
-    public String index(ModelMap model) {
-
-        return "config/itrs";
+    @RequestMapping(value = "/return", method = RequestMethod.POST)
+    public String volver(ModelMap model) {
+        control = "proyecto";
+        return "redirect:/";
     }
 }

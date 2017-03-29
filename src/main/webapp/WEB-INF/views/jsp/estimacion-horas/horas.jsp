@@ -39,7 +39,7 @@
          	 </div>
 	         	<div class="panel-body">
 	         	 <div class="col-lg-7">
-	         		<table width="100%" class="table table-striped table-bordered tableForm">
+	         		<table width="100%" class="table table-condensed table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-8">Valoración final</th>
