@@ -23,7 +23,8 @@ public class ControladorPrincipal {
 
     public static int idProyecto = 1;
 
-    private static ProyectoDto p = new ProyectoDto();
+    @Autowired
+    private static ProyectoDto p;
 
     // Redirect to main page
 
