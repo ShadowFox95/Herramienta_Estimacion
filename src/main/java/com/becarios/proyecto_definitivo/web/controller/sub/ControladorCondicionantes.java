@@ -8,7 +8,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.becarios.proyecto_definitivo.dto.condicionantes.CondicionantesDto;
+import com.becarios.proyecto_definitivo.dto.condicionantes.CondicionantesIdDto;
 import com.becarios.proyecto_definitivo.model.condicionantes.Condicionantes;
+import com.becarios.proyecto_definitivo.model.condicionantes.CondicionantesId;
 import com.becarios.proyecto_definitivo.service.condicionantes.CondicionantesService;
 
 @Controller
@@ -16,6 +19,9 @@ public class ControladorCondicionantes {
 
     @Autowired
     CondicionantesService condicionantesService;
+
+    @Autowired
+    CondicionantesDto condicionantesActual;
 
     @RequestMapping(value = "/condicionantes", method = RequestMethod.GET)
     public String index(ModelMap model) {
@@ -36,5 +42,19 @@ public class ControladorCondicionantes {
     public String delete(int id) {
         condicionantesService.deleteCondicionantes(id);
         return "redirect:" + "/";
+    }
+
+    private void passCondicionantesToDto(Condicionantes condicionantes) {
+        condicionantesActual
+                .setId(new CondicionantesIdDto(condicionantes.getId().getId(), condicionantes.getId().getIdProyecto()));
+        condicionantesActual.setDescripcion(condicionantes.getDescripcion());
+        condicionantesActual.setEstimacion(condicionantes.isEstimacion());
+    }
+
+    private void passDtoToCondicionantes(Condicionantes condicionantes) {
+        condicionantes.setId(new CondicionantesId(condicionantesActual.getId().getId(),
+                condicionantesActual.getId().getIdProyecto()));
+        condicionantes.setDescripcion(condicionantesActual.getDescripcion());
+        condicionantes.setEstimacion(condicionantes.isEstimacion());
     }
 }

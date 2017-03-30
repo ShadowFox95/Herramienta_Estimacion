@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.becarios.proyecto_definitivo.dto.ProyectoDto;
-import com.becarios.proyecto_definitivo.dto.criterios.CasosDeUsoIdDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 import com.becarios.proyecto_definitivo.service.ProjectService;
 
@@ -104,9 +103,18 @@ public class ControladorPrincipal {
     }
 
     private void passProyectoToDto(Proyecto proyecto) {
-        proyectoActual.set(new CasosDeUsoIdDto(casoDeUso.getId().getId(), casoDeUso.getId().getIdProyecto()));
-        proyectoActual.setCodigo(casoDeUso.getCodigo());
-        proyectoActual.setNombre(casoDeUso.getNombre());
-        proyectoActual.setTotalFila(casoDeUso.getTotalFila());
+        proyectoActual.setId(proyecto.getId());
+        proyectoActual.setCodigoProyecto(proyecto.getCodigoProyecto());
+        proyectoActual.setNombre(proyecto.getNombre());
+        proyectoActual.setDescripcion(proyecto.getDescripcion());
+        proyectoActual.setEditado(proyecto.isEditado());
+    }
+
+    private void passDtoToProyecto(Proyecto proyecto) {
+        proyecto.setId(proyectoActual.getId());
+        proyecto.setCodigoProyecto(proyectoActual.getCodigoProyecto());
+        proyecto.setNombre(proyectoActual.getNombre());
+        proyecto.setDescripcion(proyectoActual.getDescripcion());
+        proyecto.setEditado(proyectoActual.isEditado());
     }
 }

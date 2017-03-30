@@ -33,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
         if (entity != null) {
             entity.setNombre(proyecto.getNombre());
             entity.setDescripcion(proyecto.getDescripcion());
-            entity.setIsEditado(proyecto.isIsEditado());
+            entity.setEditado(proyecto.isEditado());
         }
 
     }
@@ -56,12 +56,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public boolean AddProject(String nombre, String codigoProyecto, String descripcion, boolean isEditado) {
+    public boolean AddProject(String nombre, String codigoProyecto, String descripcion, boolean editado) {
         Proyecto proyecto = new Proyecto();
         proyecto.setCodigoProyecto(codigoProyecto);
         proyecto.setNombre(nombre);
         proyecto.setDescripcion(descripcion);
-        proyecto.setIsEditado(isEditado);
+        proyecto.setEditado(editado);
         dao.saveProject(proyecto);
         return true;
     }

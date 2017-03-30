@@ -16,26 +16,26 @@ import javax.persistence.Table;
 @Table(name = "proyecto", catalog = "HE")
 public class Proyecto implements java.io.Serializable {
 
-    private static Integer id;
+    private Integer id;
     private String descripcion;
     private String codigoProyecto;
     private String nombre;
-    private boolean isEditado;
+    private boolean editado;
 
     public Proyecto() {
     }
 
-    public Proyecto(String codigoProyecto, String nombre, boolean isEditado) {
+    public Proyecto(String codigoProyecto, String nombre, boolean editado) {
         this.codigoProyecto = codigoProyecto;
         this.nombre = nombre;
-        this.isEditado = isEditado;
+        this.editado = editado;
     }
 
-    public Proyecto(String descripcion, String codigoProyecto, String nombre, boolean isEditado) {
+    public Proyecto(String descripcion, String codigoProyecto, String nombre, boolean editado) {
         this.descripcion = descripcion;
         this.codigoProyecto = codigoProyecto;
         this.nombre = nombre;
-        this.isEditado = isEditado;
+        this.editado = editado;
     }
 
     @Id
@@ -43,11 +43,11 @@ public class Proyecto implements java.io.Serializable {
 
     @Column(name = "Id", unique = true, nullable = false)
     public Integer getId() {
-        return Proyecto.id;
+        return this.id;
     }
 
     public void setId(Integer id) {
-        Proyecto.id = id;
+        this.id = id;
     }
 
     @Column(name = "Descripcion", length = 45)
@@ -78,12 +78,12 @@ public class Proyecto implements java.io.Serializable {
     }
 
     @Column(name = "IsEditado", nullable = false)
-    public boolean isIsEditado() {
-        return this.isEditado;
+    public boolean isEditado() {
+        return this.editado;
     }
 
-    public void setIsEditado(boolean isEditado) {
-        this.isEditado = isEditado;
+    public void setEditado(boolean Editado) {
+        this.editado = Editado;
     }
 
 }
