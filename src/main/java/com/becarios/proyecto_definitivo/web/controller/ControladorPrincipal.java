@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.becarios.proyecto_definitivo.dto.ProyectoDto;
+import com.becarios.proyecto_definitivo.dto.criterios.CasosDeUsoIdDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 import com.becarios.proyecto_definitivo.service.ProjectService;
 
@@ -18,13 +19,12 @@ public class ControladorPrincipal {
     @Autowired
     ProjectService project;
 
-    private boolean first = true;
     private String control = "";
 
     public static int idProyecto = 1;
 
     @Autowired
-    private static ProyectoDto p;
+    private static ProyectoDto proyectoActual;
 
     // Redirect to main page
 
@@ -101,5 +101,12 @@ public class ControladorPrincipal {
     public String volver(ModelMap model) {
         control = "proyecto";
         return "redirect:/";
+    }
+
+    private void passProyectoToDto(Proyecto proyecto) {
+        proyectoActual.set(new CasosDeUsoIdDto(casoDeUso.getId().getId(), casoDeUso.getId().getIdProyecto()));
+        proyectoActual.setCodigo(casoDeUso.getCodigo());
+        proyectoActual.setNombre(casoDeUso.getNombre());
+        proyectoActual.setTotalFila(casoDeUso.getTotalFila());
     }
 }

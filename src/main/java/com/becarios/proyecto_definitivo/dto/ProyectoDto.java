@@ -13,17 +13,17 @@ import com.becarios.proyecto_definitivo.model.criterios.Vista;
 
 public class ProyectoDto {
 
-    private String nombre;
-    private int codigo;
+    private static Integer id;
     private String descripcion;
-    private boolean editado = false;
-    List<CasosDeUso> rows = new ArrayList<CasosDeUso>();
+    private String codigo;
+    private String nombre;
+    private boolean Editado;
 
     public ProyectoDto() {
 
     }
 
-    public ProyectoDto(String nombre, int codigo, String descripcion) {
+    public ProyectoDto(int id, String nombre, String codigo, String descripcion, boolean Editado) {
         this.setNombre(nombre);
         this.codigo = codigo;
         this.setDescripcion(descripcion);
