@@ -28,39 +28,7 @@
 
 				</div>
 			</div>
-<<<<<<< Upstream, based on origin/marius
-<<<<<<< Upstream, based on origin/vista
-=======
-<<<<<<< Upstream, based on origin/marius
->>>>>>> 5232b94 a
 
-=======
-			<div class="panel-footer table-footer-fix clearfix">
-				<span style="float: right">
-<<<<<<< Upstream, based on origin/marius
-					
-						<button type="submit"
-							class="custom-color right-button corner-button">
-							<i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-						</button>
-					
-				</span>
-			</div>
-			</form>
->>>>>>> 99c06fb Controlador factoresAjuste Fixed!
-=======
-					<form name="row"
-						action="/proyecto-definitivo/estimacion-horas/saveHoras"
-						method="POST">
-						<button type="submit"
-							class="custom-color right-button corner-button">
-							<i class="glyphicon glyphicon-floppy-save"></i> Guardar Proyecto
-						</button>
-					</form>
-				</span>
-			</div>
->>>>>>> 9adbb87 added control.js
->>>>>>> 5232b94 a
 		</div>
 	</div>
 

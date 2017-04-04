@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.springframework.stereotype.Repository;
+
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorAjuste;
 import com.becarios.proyecto_definitivo.model.horas_costes.Delivery;
@@ -15,6 +17,7 @@ import com.becarios.proyecto_definitivo.model.horas_costes.Gobiernoexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Riesgo;
 import com.becarios.proyecto_definitivo.model.horas_costes.Valoracionfinal;
 
+@Repository
 public class HorasCostesDaoImpl extends AbstractDao<Integer, Object> implements HorasCostesDao {
 
     @Override

@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.springframework.stereotype.Repository;
+
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.itr.Itr;
 
+@Repository
 public class ItrDaoImpl extends AbstractDao<Integer, Itr> implements ItrDao {
 	
 	@Override

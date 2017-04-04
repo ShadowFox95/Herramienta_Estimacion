@@ -18,7 +18,7 @@ public class ControladorFactoresAjuste {
 
     // Servicio de FactoresAjuste
     @Autowired
-    FactoresAjusteService service;
+    private FactoresAjusteService service;
 
     @RequestMapping(value = "/factores-ajuste", method = RequestMethod.GET)
     public String index(ModelMap model) {

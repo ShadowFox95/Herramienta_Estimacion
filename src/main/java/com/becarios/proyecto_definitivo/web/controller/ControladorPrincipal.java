@@ -63,15 +63,6 @@ public class ControladorPrincipal {
 
     }
 
-    @RequestMapping(value = "/cargar/{code}", method = RequestMethod.GET)
-
-    public String editRow(ModelMap model, @PathVariable("code") int id) {
-        // module.findtables(id);
-
-        return "forward:/";
-
-    }
-
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String updateProject(@ModelAttribute("proyecto") Proyecto proyecto) {
         project.saveProject(proyecto);
@@ -107,7 +98,7 @@ public class ControladorPrincipal {
         proyectoActual.setCodigoProyecto(proyecto.getCodigoProyecto());
         proyectoActual.setNombre(proyecto.getNombre());
         proyectoActual.setDescripcion(proyecto.getDescripcion());
-        proyectoActual.setEditado(proyecto.isEditado());
+        proyectoActual.setEditado(proyecto.isIsEditado());
     }
 
     private void passDtoToProyecto(Proyecto proyecto) {
@@ -115,6 +106,6 @@ public class ControladorPrincipal {
         proyecto.setCodigoProyecto(proyectoActual.getCodigoProyecto());
         proyecto.setNombre(proyectoActual.getNombre());
         proyecto.setDescripcion(proyectoActual.getDescripcion());
-        proyecto.setEditado(proyectoActual.isEditado());
+        proyecto.setIsEditado(proyectoActual.isEditado());
     }
 }

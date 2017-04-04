@@ -3,6 +3,7 @@ package com.becarios.proyecto_definitivo.web.controller.sub;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,6 @@ public class ControladorCondicionantes {
     @Autowired
     CondicionantesService condicionantesService;
 
-    @Autowired
     CondicionantesDto condicionantesActual;
 
     @RequestMapping(value = "/condicionantes", method = RequestMethod.GET)

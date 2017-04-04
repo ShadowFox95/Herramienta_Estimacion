@@ -24,7 +24,7 @@ public class ControladorHorasCostes {
     @Autowired
     private HorasCostesService service;
 
-    @RequestMapping(value = "/estimacion-horas", method = RequestMethod.GET)
+    @RequestMapping(value = "/horas-costes", method = RequestMethod.GET)
     public String index(ModelMap model) {
 
         // Cambiar '0' por 'idProyecto'
@@ -36,7 +36,7 @@ public class ControladorHorasCostes {
         service.findGobiernoExternoById(0);
         service.findRiesgoById(0);
         service.findValoracionFinalById(0);
-        return "estimacion-horas/horas";
+        return "forward:/condicionantes";
     }
 
     @RequestMapping(value = "/costes/{id}/save", method = RequestMethod.GET)

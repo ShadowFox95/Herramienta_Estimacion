@@ -3,6 +3,8 @@ package com.becarios.proyecto_definitivo.service.horas_costes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.becarios.proyecto_definitivo.dao.horas_ajustes.HorasCostesDao;
 import com.becarios.proyecto_definitivo.model.horas_costes.Delivery;
@@ -14,6 +16,8 @@ import com.becarios.proyecto_definitivo.model.horas_costes.Gobiernoexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Riesgo;
 import com.becarios.proyecto_definitivo.model.horas_costes.Valoracionfinal;
 
+@Service("HorasCostesService")
+@Transactional
 public class HorasCostesServiceImpl implements HorasCostesService {
 
     @Autowired

@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.springframework.stereotype.Repository;
+
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.condicionantes.Condicionantes;
 
+@Repository
 public class CondicionantesDaoImpl extends AbstractDao<Integer, Condicionantes> implements CondicionantesDao {
 
 	  @Override

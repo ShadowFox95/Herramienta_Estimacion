@@ -30,11 +30,14 @@ import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
 import com.becarios.proyecto_definitivo.model.criterios.Persistencia;
 import com.becarios.proyecto_definitivo.model.criterios.Vista;
 import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
+import com.becarios.proyecto_definitivo.web.controller.ControladorPrincipal;
 
 @Controller
 public class ControladorCriterios {
 
     @Autowired
+    private ModuleService service;
+    
     private String show = "";
 
     private String codigo;
@@ -63,17 +66,18 @@ public class ControladorCriterios {
     public @ResponseBody List<CasosDeUso> addRowAjax(ModelMap model) {
 
         // añadir parametros de addmodulo
-        // moduleService.AddModulo(idProyecto, code, caseOfUse, name,
-        // perfilesTotal, perfilesNro, perfilesComplejidad,
-        // vistaTotal, vistaNro, vistaCampos, vistaComplejidad, vistaListados,
-        // vistaBotones,
-        // negocioTotal, negocioNro, negocioLogica,
-        // persistenciaTotal, persistenciaNro, persistenciaAccesos,
-        // cuTotal, cuDificultad,
-        // integracionTotal, integracionNro, integracionComplejidad)
+         /*moduleService.AddModulo(ControladorPrincipal.idProyecto, "Codigo-test", "Caso de Uso", "Nombre",
+         0, 0, 0,
+         0, 0, 0, 0, 0,
+         0,
+         0, 0, 0,
+         0, 0, 0,
+         0, 0,
+         0, 0, 0);*/
+    	moduleService.createModulo(1);
 
-        // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(0);
+//         Cambiar '0' por 'idProyecto'
+        return moduleService.findAllModulo(1);
     }
 
     @RequestMapping(value = "/testing/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -209,7 +213,19 @@ public class ControladorCriterios {
     // Adds a table row
     @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
     public String addRow(ModelMap model) {
-        // Desplazar a clase para modelo por defecto
+        /*moduleService.AddModulo(ControladorPrincipal.idProyecto, "Codigo-test", "Caso de Uso", "Nombre",
+        0, 0, 0,
+        0, 0, 0, 0, 0,
+        0,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0,
+        0, 0, 0);*/
+    	moduleService.createModulo(1);
+
+//        Cambiar '0' por 'idProyecto'
+        model.addAttribute("modulo",moduleService.findAllModulo(ControladorPrincipal.idProyecto));
+       //return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
 
         return "redirect:/";
     }

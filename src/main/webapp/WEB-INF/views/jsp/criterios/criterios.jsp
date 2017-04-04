@@ -11,8 +11,8 @@
       	 $.ajax({
              type: "POST",
              url: "testing",
-             success: function(data){
-                refreshTable(data);
+             success: function(module){
+                refreshTable(module);
                 $("#showAtributos").hide();
              },
               error: function(e){
@@ -21,29 +21,29 @@
          });
         });
       	function refreshTable(module){
-	      	 var table = "";
+      		      	 var table = "";
 	      	 if(module.length == 0) {
 	      	     table = "<tr><td colspan='5'>No hay datos para mostrar</td></tr>";
 	      	     $("#showAtributos").hide();
 	      	 } else {
 		      	 for(i=0; i < module.length; i++){
-			            table += "<tr><td>"+module[i].name+"</td>";
-			            table += "<td>"+module[i].code+"</td>";
-			            table += "<td>"+module[i].caseOfUse+"</td>";
-			            table += "<td>"+module[i].total+"</td>";
-						if(module[i].total < 7.5){
+			            table += "<tr><td>"+module[i].nombre+"</td>";
+			            table += "<td>"+module[i].codigo+"</td>";
+			            table += "<td>"+module[i].modulo+"</td>";
+			            table += "<td>"+module[i].totalFila+"</td>";
+						if(module[i].totalFila < 7.5){
 						    table += "<td class='center info'>Muy Fácil";
-						} else if(module[i].total < 12.5){
+						} else if(module[i].totalFila < 12.5){
 						    table += "<td class='center success'>Fácil";
-						} else if(module[i].total < 17.5) {
+						} else if(module[i].totalFila < 17.5) {
 						    table += "<td class='center warning'>Normal";
-						} else if(module[i].total < 22.5){
+						} else if(module[i].totalFila < 22.5){
 						    table += "<td class='center danger'>Complicado";
 						} else {
 						    table += "<td class='center danger2'>Muy Complicado";
 						} 
-			            table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].code
-			      	     	+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].code+"' onClick='doAjaxEdit(id)'/></div>";
+			            table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].id[0]
+			      	     	+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].id[0]+"' onClick='doAjaxEdit(id)'/></div>";
 			         	table += "</td></tr>";
 			      }
 	      	 }
@@ -139,10 +139,9 @@
                     type: "POST",
                     url: "testing/addRow",
                     success: function(module){   
-                       $("#showAtributos").hide();  
+                       $("#showAtributos").hide();
                        console.log(module);
                        refreshTable(module);
-                       $("#showAtributos").hide();
                     },
 	                error: function(e){
 	                	console.log('Error: ' + e);
@@ -227,7 +226,7 @@
                   </div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
-                     <table width="100%" class="table table-responsive table-striped table-bordered table-hover tableForm" id="criteriosTable">
+                     <table width="100%" class="table table-responsive table-striped table-bordered table-hover tableForm" id="dataTables-example">
                         <thead>
                            <tr>
                               <th class="col-xs-2">Nombre</th>
@@ -238,10 +237,7 @@
                            </tr>
                         </thead>
 					    <tbody id="moduleTable">
-<<<<<<< HEAD
-=======
                            
->>>>>>> branch 'vista' of git@github.com:ShadowFox95/Herramienta_Estimacion.git
                         </tbody>
                      </table>
                      <!-- /.table-responsive -->
@@ -280,7 +276,6 @@
       </div>
       <!-- /#page-wrapper -->
 		<script>
-		$.noConflict();
 			$(document).ready(function(){
 			    $('[data-toggle="popover"]').popover();   
 			});

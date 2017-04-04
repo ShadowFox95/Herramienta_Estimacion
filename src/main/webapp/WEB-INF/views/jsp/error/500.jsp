@@ -20,10 +20,6 @@
          </div>
          </div>
 
-<<<<<<< Upstream, based on origin/marius
 
-=======
-	<jsp:include page="../fragments/footer.jsp" />
->>>>>>> efd4d37 Gestor de Proyectos
 </body>
 </html>

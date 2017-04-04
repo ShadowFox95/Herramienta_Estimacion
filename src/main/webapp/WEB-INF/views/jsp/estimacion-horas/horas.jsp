@@ -6,22 +6,9 @@
 <html lang="en">
    <head>
       <title>EF - Estimación de horas</title>
-<<<<<<< Upstream, based on origin/marius
-<<<<<<< Upstream, based on origin/marius
          </head>
       <body>
        
-=======
-      </head>
-=======
-         </head>
->>>>>>> bd633e2 Prueba
-      <body>
-<<<<<<< Upstream, based on origin/marius
->>>>>>> efd4d37 Gestor de Proyectos
-=======
-       
->>>>>>> bd633e2 Prueba
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -32,14 +19,12 @@
          <!-- /.row -->
          
          <div class="row">
-
-         	 <div class="panel panel-default col-fix">
-
+         	 <div class="panel panel-default">
          	 <div class="panel-heading">
          	 </div>
 	         	<div class="panel-body">
 	         	 <div class="col-lg-7">
-	         		<table width="100%" class="table table-condensed table-striped table-bordered tableForm">
+	         		<table width="100%" class="table table-striped table-bordered tableForm">
 	         			<thead>
 	         				<tr>
 	         					<th class="col-xs-8">Valoración final</th>
@@ -81,19 +66,7 @@
 	         			<tbody>
 	         				<tr>
 	         					<td class="col-xs-2">Horas de Contingencia</td>
-<<<<<<< Upstream, based on origin/marius
-=======
-<<<<<<< Upstream, based on origin/marius
-
->>>>>>> 6150068 a
 	         					<td class="text-right col-xs-1"><strong id="horascontingencia">0.00</strong></td>
-<<<<<<< Upstream, based on origin/marius
-=======
-
-=======
-	         					<td class="text-right col-xs-1"><strong id="horascontingencia">0.00</strong></td>
->>>>>>> bd633e2 Prueba
->>>>>>> 6150068 a
 	         				</tr>
 	         			</tbody>
 	         		</table>
