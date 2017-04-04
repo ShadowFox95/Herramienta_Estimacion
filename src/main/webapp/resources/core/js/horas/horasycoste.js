@@ -10,12 +10,15 @@ var POR_FASEANALISIS = 11;
 var POR_FASEPRUEBAS = 10;
 var EXT_GESTIONPROYECTO = 10;
 
+//Mover estas variables a un lugar opaco
+/*
 var itr_cen_gdo1 = 13.8306180811852;
 var itr_cen_gdo2 = 18.2090389615274;
 var itr_cen_gdo3 = 24.7538719574876;
 var itr_cen_gdo4 = 28.5336109998986;
 var itr_cen_gdo5 = 34.8401613499305;
 var itr_cen_gdo6 = 46.9998410368089;
+var itr_cen_gdo7 = 62.3345186248741;
 
 var itr_os_gdo1 = 15.2337185382185;
 var itr_os_gdo2 = 18.6636558595665;
@@ -23,7 +26,8 @@ var itr_os_gdo3 = 26.2576267839576;
 var itr_os_gdo4 = 30.7380019223918;
 var itr_os_gdo5 = 37.6112692844241;
 var itr_os_gdo6 = 47.8412934221327;
-var itr_os_gdo7 = 59.5468850343965;
+var itr_os_gdo7 = 59.5468850343965;*/
+//
 
 var totaldelivery = 0;
 var totaldeliveryhoras = 0;
@@ -163,6 +167,7 @@ function setValuesGobiernoExt() {
 function calcCoste(id_name) {
     var aux = 0;
     var horas_value = parseInt(document.getElementById(id_name + '_horas').innerHTML);
+	var piramide_mediaITRs = parseFloat(document.getElementById(id_name + '_itrmedio').innerHTML);
     if (horas_value != 0) {
         switch (id_name) {
         case "testing_ext":
@@ -182,6 +187,22 @@ function calcCoste(id_name) {
             aux = horas_value * itr_os_gdo5;
             break;
         case "gestion":
+        case "construccion":
+        case "diseno":
+        case "despliegues":
+        case "analisis":
+        case "testing":
+        case "calidad":
+        case "seguridad":
+        case "gestionproyecto":
+        case "dm":
+        case "evaluacion":
+			aux = horas_value * piramide_mediaITRs;
+			break;
+        default:
+        }
+		/* v1.0
+		case "gestion":
             aux = ((horas_value * 0.5) * itr_cen_gdo6) + ((horas_value * 0.5) * itr_cen_gdo3);
             break;
         case "construccion":
@@ -203,9 +224,7 @@ function calcCoste(id_name) {
             break;
         case "evaluacion":
             aux = horas_value * itr_cen_gdo6;
-            break;
-        default:
-        }
+            break;*/
     }
     document.getElementById(id_name + '_coste').innerHTML = aux.toFixed(2);
 

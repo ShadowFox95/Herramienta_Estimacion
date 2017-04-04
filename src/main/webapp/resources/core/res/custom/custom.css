@@ -189,6 +189,13 @@ a, a:visited, a:hover, a:active {
  	border: 1px;
 }
 
+.chgreen{
+	color: #53d926;
+}
+
+.chred{
+	color: #dc2a2a;
+}
 
 .left-button {
 	border: 1px solid transparent;
@@ -208,9 +215,15 @@ a, a:visited, a:hover, a:active {
 }
 
 .form-custom{
-	height: 24px !important;
+	height: 22px !important;
 	padding: 0 2px;
 	padding-right: 6px;
+}
+
+.form-custom2{
+	height: 22px !important;
+	padding: 0 2px;
+	padding-right: 0px;
 }
 
 .form-custom-factor{

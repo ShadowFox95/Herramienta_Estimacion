@@ -19,195 +19,23 @@
               	console.log('Error: ' + e);
               }
          });
+      	 // Crear función Ajax para cargar ITRs
+      	 itr_cen_gdo1 = 13.8306180811852;
+      	 itr_cen_gdo2 = 18.2090389615274;
+      	 itr_cen_gdo3 = 24.7538719574876;
+      	 itr_cen_gdo4 = 28.5336109998986;
+      	 itr_cen_gdo5 = 34.8401613499305;
+      	 itr_cen_gdo6 = 46.9998410368089;
+      	 itr_cen_gdo7 = 62.3345186248741;
+
+      	 itr_os_gdo1 = 15.2337185382185;
+      	 itr_os_gdo2 = 18.6636558595665;
+      	 itr_os_gdo3 = 26.2576267839576;
+      	 itr_os_gdo4 = 30.7380019223918;
+      	 itr_os_gdo5 = 37.6112692844241;
+      	 itr_os_gdo6 = 47.8412934221327;
+      	 itr_os_gdo7 = 59.5468850343965;
         });
-      	function refreshTable(module){
-	      	 var table = "";
-	      	 if(module.length == 0) {
-	      	     table = "<tr><td colspan='5'>No hay datos para mostrar</td></tr>";
-	      	     $("#showAtributos").hide();
-	      	 } else {
-		      	 for(i=0; i < module.length; i++){
-			            table += "<tr><td>"+module[i].name+"</td>";
-			            table += "<td>"+module[i].code+"</td>";
-			            table += "<td>"+module[i].caseOfUse+"</td>";
-			            table += "<td>"+module[i].total+"</td>";
-						if(module[i].total < 7.5){
-						    table += "<td class='center info'>Muy Fácil";
-						} else if(module[i].total < 12.5){
-						    table += "<td class='center success'>Fácil";
-						} else if(module[i].total < 17.5) {
-						    table += "<td class='center warning'>Normal";
-						} else if(module[i].total < 22.5){
-						    table += "<td class='center danger'>Complicado";
-						} else {
-						    table += "<td class='center danger2'>Muy Complicado";
-						} 
-			            table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].code
-			      	     	+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].code+"' onClick='doAjaxEdit(id)'/></div>";
-			         	table += "</td></tr>";
-			      }
-	      	 }
-	        
-	         $("#moduleTable").html(table); 
-      	}
-      	
-      	function editTable(module, id){
-	      	 var table = "";
-	      	 var selected = "";
-	      	 console.log(id);
-	      	 if(module.length == 0) {
-	      	     table = "<tr><td colspan='5'>No hay datos para mostrar</td></tr>";
-	      	     $("#showAtributos").hide();
-	      	 } else {
-		      	 for(i=0; i < module.length; i++){
-		      	     	if (id == module[i].code){
-	      	     	    	table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='"+module[i].name+"' maxlength='25'></td>";
-			      	     	table += "<td><input type='text' class='altura form-control' id='selected_code' value='"+module[i].code+"' maxlength='10'></td>";
-					      	table += "<td><input type='text' class='altura form-control' id='selected_caseOfUse' value='"+module[i].caseOfUse+"' maxlength='30'></td>";
-					      	table += "<td>"+module[i].total+"</td>";
-					      	if(module[i].total < 7.5){
-					      	table += "<td class='center info'>Muy Fácil";
-							} else if(module[i].total < 12.5){
-							    table += "<td class='center success'>Fácil";
-							} else if(module[i].total < 17.5) {
-							    table += "<td class='center warning'>Normal";
-							} else if(module[i].total < 22.5){
-							    table += "<td class='center danger'>Complicado";
-							} else {
-							    table += "<td class='center danger2'>Muy Complicado";
-							} 
-					      	table += "<div style='float:right'><div style='float:left'><button type='submit' class='button ok glyphicon glyphicon-ok' id='"+module[i].code
-				      	     	+"' onClick='doAjaxSaveRow(id)'></button></div><div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' onClick='doAjaxEdit()'></button></div></div>";
-				      	  	table += "</td></tr>";
-					      	populateAtributos(module[i].tablas);
-		      	     	} else{
-			      	      	table += "<tr><td>"+module[i].name+"</td>";
-				            table += "<td>"+module[i].code+"</td>";
-				            table += "<td>"+module[i].caseOfUse+"</td>";
-				            table += "<td>"+module[i].total+"</td>";
-							if(module[i].total < 7.5){
-							    table += "<td class='center info'>Muy Fácil";
-							} else if(module[i].total < 12.5){
-							    table += "<td class='center success'>Fácil";
-							} else if(module[i].total < 17.5) {
-							    table += "<td class='center warning'>Normal";
-							} else if(module[i].total < 22.5){
-							    table += "<td class='center danger'>Complicado";
-							} else {
-							    table += "<td class='center danger2'>Muy Complicado";
-							} 
-							
-				            //table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"+module[i].code
-				      	    // 	+"' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"+module[i].code+"' onClick='doAjaxEdit(id)'/></div>";
-				         	table += "</td></tr>";
-		      	     	}
-			      }
-		      	 // table = selected + table;
-	      	 }
-	        
-	         $("#moduleTable").html(table); 
- 	}
-      	function populateAtributos(tabla){
-      		document.getElementById('sel_perf').value=tabla[0].complejidad;
-      		$("#mult_perf").value=tabla[0].nro;
-      		$("#out_perf").html(tabla[0].total);
-      		
-      		document.getElementById('sel_pv_boto').value=tabla[1].botones;
-      		document.getElementById('sel_pv_camp').value=tabla[1].campos;
-      		document.getElementById('sel_pv_comp').value=tabla[1].complejidad;
-      		document.getElementById('sel_pv_list').value=tabla[1].listados;
-      		$("#mult_pv").value=tabla[1].nro;
-      		$("#out_pv").html(tabla[1].total);
-      		
-      		document.getElementById('sel_neg').value=tabla[2].logica;
-      		$("#mult_neg").value=tabla[2].nro;
-      		$("#out_neg").html(tabla[2].total);
-      		
-      		document.getElementById('sel_pers').value=tabla[3].accesos;
-      		$("#mult_pers").value=tabla[3].nro;
-      		$("#out_pers").html(tabla[3].total);
-      		
-      		document.getElementById('sel_cu').value=tabla[4].dificultad;
-      		$("#out_cu").html(tabla[4].total);
-      		
-      		document.getElementById('sel_inte').value=tabla[5].complejidad;
-      		$("#mult_inte").value=tabla[5].nro;
-      		$("#out_inte").html(tabla[5].total);
- 		}
-	      function doAjaxAddRow() {
-                $.ajax({
-                    type: "POST",
-                    url: "testing/addRow",
-                    success: function(module){   
-                       $("#showAtributos").hide();  
-                       console.log(module);
-                       refreshTable(module);
-                       $("#showAtributos").hide();
-                    },
-	                error: function(e){
-	                	console.log('Error: ' + e);
-	                }
-                });
-               
-            }
-	      function doAjaxEdit(id){
-	          $.ajax({
-	                    type: "POST",
-	                    url: "testing",
-	                    success: function(module){     
-	                        if(id == undefined){
-	                            refreshTable(module);
-	                            $("#showAtributos").hide();
-	                        } else {
-	                            editTable(module, id);
-	                            $("#showAtributos").show();
-	                        }
-	                        
-	                    },
-		                error: function(e){
-		                    console.log('Error: ' + e);
-		                }
-	                });
-	      }
-	      function doAjaxSaveRow(id){
-	          var perfiles = {};
-	          perfiles["complejidad"] = 0;
-	          perfiles["nro"] = 0;
-	          perfiles["total"] = 5;
-	          var data = {};
-	          data["name"] = "test52";
-	          data["caseOfUse"] = "test123";
-	          data["code"] = "test";
-	          data["tablas"] = [perfiles];
-	          $.ajax({
-	                    type: "POST",
-	                    url: "testing/saveRow/"+id,
-	                    dataType: "json",
-		                contentType: "application/json; charset=utf-8",
-	                    data: JSON.stringify(data),
-	                    success: function(module){     
-	                        refreshTable(module);
-	                        $("#showAtributos").hide();
-	                    },
-		                error: function(e){
-		                    console.log('Error: ' + e);
-		                }
-		                
-	                });
-	      }
-	      function doAjaxDelete(id){
-	          $.ajax({
-	                    type: "DELETE",
-	                    url: "testing/delete/"+id,
-	                    success: function(module){      
-	                        console.log(module);
-							refreshTable(module);
-	                    },
-		                error: function(e){
-		                    console.log('Error: ' + e);
-		                }
-	                });
-	      }
 		</script>
     </head>
       <body>
@@ -238,10 +66,6 @@
                            </tr>
                         </thead>
 					    <tbody id="moduleTable">
-<<<<<<< HEAD
-=======
-                           
->>>>>>> branch 'vista' of git@github.com:ShadowFox95/Herramienta_Estimacion.git
                         </tbody>
                      </table>
                      <!-- /.table-responsive -->
