@@ -59,7 +59,7 @@ public class ControladorCriterios {
     @RequestMapping(value = "/testing", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> showTables(ModelMap model) {
         // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(0);
+        return moduleService.findAllModulo(1);
     }
 
     @RequestMapping(value = "/testing/addRow", method = RequestMethod.POST)

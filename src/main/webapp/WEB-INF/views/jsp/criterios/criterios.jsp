@@ -54,44 +54,43 @@
       	function editTable(module, id){
 	      	 var table = "";
 	      	 var selected = "";
-	      	 console.log(id);
 	      	 if(module.length == 0) {
 	      	     table = "<tr><td colspan='5'>No hay datos para mostrar</td></tr>";
 	      	     $("#showAtributos").hide();
 	      	 } else {
 		      	 for(i=0; i < module.length; i++){
-		      	     	if (id == module[i].code){
-	      	     	    	table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='"+module[i].name+"' maxlength='25'></td>";
-			      	     	table += "<td><input type='text' class='altura form-control' id='selected_code' value='"+module[i].code+"' maxlength='10'></td>";
-					      	table += "<td><input type='text' class='altura form-control' id='selected_caseOfUse' value='"+module[i].caseOfUse+"' maxlength='30'></td>";
-					      	table += "<td>"+module[i].total+"</td>";
-					      	if(module[i].total < 7.5){
+		      	     	if (id == module[i].id[0]){
+	      	     	    	table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='"+module[i].nombre+"' maxlength='25'></td>";
+			      	     	table += "<td><input type='text' class='altura form-control' id='selected_code' value='"+module[i].codigo+"' maxlength='10'></td>";
+					      	table += "<td><input type='text' class='altura form-control' id='selected_caseOfUse' value='"+module[i].modulo+"' maxlength='30'></td>";
+					      	table += "<td>"+module[i].totalFila+"</td>";
+					      	if(module[i].totalFila < 7.5){
 					      	table += "<td class='center info'>Muy Fácil";
-							} else if(module[i].total < 12.5){
+							} else if(module[i].totalFila < 12.5){
 							    table += "<td class='center success'>Fácil";
-							} else if(module[i].total < 17.5) {
+							} else if(module[i].totalFila < 17.5) {
 							    table += "<td class='center warning'>Normal";
-							} else if(module[i].total < 22.5){
+							} else if(module[i].totalFila < 22.5){
 							    table += "<td class='center danger'>Complicado";
 							} else {
 							    table += "<td class='center danger2'>Muy Complicado";
 							} 
-					      	table += "<div style='float:right'><div style='float:left'><button type='submit' class='button ok glyphicon glyphicon-ok' id='"+module[i].code
+					      	table += "<div style='float:right'><div style='float:left'><button type='submit' class='button ok glyphicon glyphicon-ok' id='"+module[i].id[0]
 				      	     	+"' onClick='doAjaxSaveRow(id)'></button></div><div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' onClick='doAjaxEdit()'></button></div></div>";
 				      	  	table += "</td></tr>";
-					      	populateAtributos(module[i].tablas);
+					      	//populateAtributos(module[i].tablas);
 		      	     	} else{
-			      	      	table += "<tr><td>"+module[i].name+"</td>";
-				            table += "<td>"+module[i].code+"</td>";
-				            table += "<td>"+module[i].caseOfUse+"</td>";
-				            table += "<td>"+module[i].total+"</td>";
-							if(module[i].total < 7.5){
+			      	      	table += "<tr><td>"+module[i].nombre+"</td>";
+				            table += "<td>"+module[i].codigo+"</td>";
+				            table += "<td>"+module[i].modulo+"</td>";
+				            table += "<td>"+module[i].totalFila+"</td>";
+							if(module[i].totalFila < 7.5){
 							    table += "<td class='center info'>Muy Fácil";
-							} else if(module[i].total < 12.5){
+							} else if(module[i].totalFila < 12.5){
 							    table += "<td class='center success'>Fácil";
-							} else if(module[i].total < 17.5) {
+							} else if(module[i].totalFila < 17.5) {
 							    table += "<td class='center warning'>Normal";
-							} else if(module[i].total < 22.5){
+							} else if(module[i].totalFila < 22.5){
 							    table += "<td class='center danger'>Complicado";
 							} else {
 							    table += "<td class='center danger2'>Muy Complicado";
@@ -153,7 +152,8 @@
 	          $.ajax({
 	                    type: "POST",
 	                    url: "testing",
-	                    success: function(module){     
+	                    success: function(module){
+	                    console.log(id);
 	                        if(id == undefined){
 	                            refreshTable(module);
 	                            $("#showAtributos").hide();
