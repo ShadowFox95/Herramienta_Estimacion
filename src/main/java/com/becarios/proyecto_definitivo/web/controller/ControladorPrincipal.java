@@ -63,7 +63,7 @@ public class ControladorPrincipal {
 
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveProject", method = RequestMethod.POST)
     public String updateProject(@ModelAttribute("proyecto") Proyecto proyecto) {
         project.saveProject(proyecto);
         return "redirect:/";
