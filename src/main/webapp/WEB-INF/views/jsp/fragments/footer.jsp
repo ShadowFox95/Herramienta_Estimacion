@@ -8,13 +8,14 @@
 <!-- Selectors -->
 <spring:url value="/resources/core/js/criterios/selectors.js" var="selectors" />
 <spring:url value="/resources/core/js/horas/horasycoste.js" var="control" />
-<!-- DataTables JavaScript -->
-
-
 <spring:url value="/resources/core/js/factores/factores.js" var="factoresJs" />
+<spring:url value="/resources/core/js/piramide/piramide.js" var="piramideJs" />
 <spring:url value="/resources/core/js/control.js" var="controlJs" />
 
 <spring:url value="/resources/core/js/lib/big.js/big.min.js" var="bigDecimal" />
+
+<!-- Ajax -->
+<spring:url value="/resources/core/ajax/CriteriosAjax.js" var="CriteriosAjax" />
 
 <script src="${controlJs}"></script>
 <script src="${bigDecimal}"></script>
@@ -23,6 +24,6 @@
 <script src="${selectors}"></script>
 <script src="${control}"></script>
 <script src="${factoresJs}"></script>
+<script src="${piramideJs}"></script>
 
-
- 
+<script src="${CriteriosAjax}"></script>

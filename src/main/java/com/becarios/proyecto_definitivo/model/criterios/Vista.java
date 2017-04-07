@@ -24,7 +24,7 @@ public class Vista implements java.io.Serializable {
     public Vista() {
     }
 
-    public Vista(int casosdeUsosCodigo, int nro, int complejidad, int total, int campos, int listados, int botones) {
+    public Vista(int casosdeUsosCodigo, int nro, int complejidad, int campos, int listados, int botones, int total) {
         this.casosdeUsosCodigo = casosdeUsosCodigo;
         this.nro = nro;
         this.complejidad = complejidad;

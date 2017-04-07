@@ -15,13 +15,14 @@ public interface ModuleDao {
 
     CasosDeUso findByCode(int Id);
 
-    void saveModule(CasosDeUso modulo);
+    int saveModule(CasosDeUso modulo);
 
-    void deleteModuleByCode(int idModulo);
+    void deleteModuleByCode(int idModulo, int idProyecto);
 
     List<CasosDeUso> findAllModules(int id);
 
     ArrayList<Object> findAllTablas(int idModulo);
-    
-    void saveAllTablas(Perfiles perfiles, Vista vista, Negocio negocio, Persistencia persistencia, Cuoriginal cuoriginal, Integracion integracion);
+
+    void saveAllTablas(Perfiles perfiles, Vista vista, Negocio negocio, Persistencia persistencia,
+            Cuoriginal cuoriginal, Integracion integracion);
 }

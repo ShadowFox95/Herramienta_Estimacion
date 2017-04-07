@@ -38,6 +38,8 @@
                     </li>
                     <li id="horasLi" class=""><a href="#horas" data-toggle="tab" aria-expanded="false">Horas y Costes</a>
                     </li>
+                     <li id="piramideLi" class=""><a href="#piramide" data-toggle="tab" aria-expanded="false">Pirámide</a>
+                    </li>
                     <li id="condicionantesLi" class=""><a href="#condicionantes" data-toggle="tab" aria-expanded="false">Condicionantes</a>
                     </li>
 				</li>
@@ -65,6 +67,9 @@
                                 </div>
                                 <div class="tab-pane fade" id="factores-ajuste">
                                     <jsp:include page="./factores-ajuste/factores-ajuste.jsp" />
+                                </div>
+                                <div class="tab-pane fade" id="piramide">
+                                    <jsp:include page="./piramide/piramide.jsp" />
                                 </div>
                                 <div class="tab-pane fade" id="condicionantes">
                                     <jsp:include page="./condicionantes/condicionantes.jsp" />

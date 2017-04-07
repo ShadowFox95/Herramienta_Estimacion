@@ -1,5 +1,6 @@
 package com.becarios.proyecto_definitivo.dao.criterios;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
+import com.becarios.proyecto_definitivo.model.criterios.CasosDeUsoId;
 import com.becarios.proyecto_definitivo.model.criterios.Cuoriginal;
 import com.becarios.proyecto_definitivo.model.criterios.Integracion;
 import com.becarios.proyecto_definitivo.model.criterios.Negocio;
@@ -24,16 +26,24 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
         return getByKey(idModulo);
     }
 
+    // @SuppressWarnings("unused")
     @Override
-    public void saveModule(CasosDeUso modulo) {
+    public int saveModule(CasosDeUso modulo) {
         getSession().saveOrUpdate(modulo);
+        getSession().flush();
+        int lastId = ((BigInteger) getSession().createNativeQuery("SELECT LAST_INSERT_ID()").getSingleResult())
+                .intValue();
+        return lastId;
     }
 
     @Override
-    public void deleteModuleByCode(int idModulo) {
-        CasosDeUso modulo;
-        modulo = (CasosDeUso) getSession().load(CasosDeUso.class, idModulo);
-        getSession().delete(modulo);
+    public void deleteModuleByCode(int idModulo, int idProyecto) {
+        CasosDeUso m = new CasosDeUso();
+        CasosDeUsoId mId = new CasosDeUsoId();
+        mId.setIdProyecto(idProyecto);
+        mId.setId(idModulo);
+        m = (CasosDeUso) getSession().load(CasosDeUso.class, mId);
+        getSession().delete(m);
         getSession().flush();
     }
 
@@ -58,16 +68,16 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
 
         return lista;
     }
-    
+
     @Override
-    public void saveAllTablas(Perfiles perfiles, Vista vista, Negocio negocio, Persistencia persistencia, Cuoriginal cuoriginal, Integracion integracion){
-    	getSession().saveOrUpdate(perfiles);
-    	getSession().saveOrUpdate(vista);
-    	getSession().saveOrUpdate(negocio);
-    	getSession().saveOrUpdate(persistencia);
-    	getSession().saveOrUpdate(cuoriginal);
-    	getSession().saveOrUpdate(integracion);
+    public void saveAllTablas(Perfiles perfiles, Vista vista, Negocio negocio, Persistencia persistencia,
+            Cuoriginal cuoriginal, Integracion integracion) {
+        getSession().saveOrUpdate(perfiles);
+        getSession().saveOrUpdate(vista);
+        getSession().saveOrUpdate(negocio);
+        getSession().saveOrUpdate(persistencia);
+        getSession().saveOrUpdate(cuoriginal);
+        getSession().saveOrUpdate(integracion);
     }
-    
 
 }

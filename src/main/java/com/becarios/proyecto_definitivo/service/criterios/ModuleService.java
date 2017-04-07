@@ -12,13 +12,13 @@ public interface ModuleService {
 
     void updateModulo(CasosDeUso modulo);
 
-    void deleteModuloByCode(int id);
+    void deleteModuloByCode(int id, int idProyecto);
 
     List<CasosDeUso> findAllModulo(int id);
 
     void createModulo(int id);
 
-    boolean AddModulo(int idProyecto, String code,String caseOfUse, String name, int perfilesTotal, int perfilesNro,
+    boolean AddModulo(int idProyecto, String code, String caseOfUse, String name, int perfilesTotal, int perfilesNro,
             int perfilesComplejidad, int vistaTotal, int vistaNro, int vistaCampos, int vistaComplejidad,
             int vistaListados, int vistaBotones, int negocioTotal, int negocioNro, int negocioLogica,
             int persistenciaTotal, int persistenciaNro, int persistenciaAccesos, int cuTotal, int cuDificultad,

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.becarios.proyecto_definitivo.dto.criterios.CasosDeUsoDto;
@@ -30,14 +29,13 @@ import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
 import com.becarios.proyecto_definitivo.model.criterios.Persistencia;
 import com.becarios.proyecto_definitivo.model.criterios.Vista;
 import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
-import com.becarios.proyecto_definitivo.web.controller.ControladorPrincipal;
 
 @Controller
 public class ControladorCriterios {
 
     @Autowired
     private ModuleService service;
-    
+
     private String show = "";
 
     private String codigo;
@@ -56,57 +54,52 @@ public class ControladorCriterios {
     private ModuleService moduleService;
 
     // Show main page
-    @RequestMapping(value = "/testing", method = RequestMethod.POST)
+    @RequestMapping(value = "/criteriosAjax", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> showTables(ModelMap model) {
         // Cambiar '0' por 'idProyecto'
         return moduleService.findAllModulo(1);
     }
 
-    @RequestMapping(value = "/testing/addRow", method = RequestMethod.POST)
+    @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> addRowAjax(ModelMap model) {
 
         // añadir parametros de addmodulo
-         /*moduleService.AddModulo(ControladorPrincipal.idProyecto, "Codigo-test", "Caso de Uso", "Nombre",
-         0, 0, 0,
-         0, 0, 0, 0, 0,
-         0,
-         0, 0, 0,
-         0, 0, 0,
-         0, 0,
-         0, 0, 0);*/
-    	moduleService.createModulo(1);
+        /*
+         * moduleService.AddModulo(ControladorPrincipal.idProyecto,
+         * "Codigo-test", "Caso de Uso", "Nombre", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         * 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+         */
+        moduleService.createModulo(1);
 
-//         Cambiar '0' por 'idProyecto'
+        // Cambiar '0' por 'idProyecto'
         return moduleService.findAllModulo(1);
     }
 
-    @RequestMapping(value = "/testing/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/criterios/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<CasosDeUso> saveRowAjax(ModelMap model, @PathVariable("idToSave") String code,
             @RequestBody CasosDeUso data) {
         moduleService.saveModulo(data);
 
         // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(0);
+        return moduleService.findAllModulo(1);
 
     }
 
-    @RequestMapping(value = "/testing/delete/{idToDelete}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/criterios/delete/{idToDelete}", method = RequestMethod.DELETE)
     public @ResponseBody List<CasosDeUso> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") int id) {
-
-        moduleService.deleteModuloByCode(id);
+        moduleService.deleteModuloByCode(id, 1); // Cambiar "0" por idproyecto
 
         // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(0);
+        return moduleService.findAllModulo(1);
     }
 
-    @RequestMapping(value = "/testing/edit", method = RequestMethod.PUT)
-
+    @RequestMapping(value = "/criterios/edit", method = RequestMethod.POST)
     @ResponseBody
     public List<Object> editRowAjax(ModelMap model) {
         CasosDeUso row = new CasosDeUso();
         moduleService.updateModulo(row);
         // Cambiar '0' por 'id'
-        return moduleService.findAllTablas(0);
+        return moduleService.findAllTablas(1);
     }
 
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
@@ -153,103 +146,117 @@ public class ControladorCriterios {
         return "forward:/factores-ajuste";
 
     }
-
-    // saves the name changes
-    @RequestMapping(value = "/criterios/saveRow", method = RequestMethod.POST)
-    public String saveRow(@RequestParam("moduleCode") String code, @RequestParam("moduleName") String name,
-            @RequestParam("moduleCaseOfUse") String caseOfUse, @RequestParam("perfilesTotal") int perfilesTotal,
-            @RequestParam("perfilesNro") int perfilesNro, @RequestParam("perfilesComplejidad") int perfilesComplejidad,
-            @RequestParam("vistaTotal") int vistaTotal, @RequestParam("vistaNro") int vistaNro,
-            @RequestParam("vistaCampos") int vistaCampos, @RequestParam("vistaComplejidad") int vistaComplejidad,
-            @RequestParam("vistaListados") int vistaListados, @RequestParam("vistaBotones") int vistaBotones,
-            @RequestParam("negocioTotal") int negocioTotal, @RequestParam("negocioNro") int negocioNro,
-            @RequestParam("negocioLogica") int negocioLogica, @RequestParam("persistenciaTotal") int persistenciaTotal,
-            @RequestParam("persistenciaNro") int persistenciaNro,
-            @RequestParam("persistenciaAccesos") int persistenciaAccesos,
-            @RequestParam(value = "cuTotal", defaultValue = "0") int cuTotal,
-            @RequestParam(value = "cuDificultad", defaultValue = "0") int cuDificultad,
-            @RequestParam("integracionTotal") int integracionTotal,
-            @RequestParam("integracionComplejidad") int integracionComplejidad,
-            @RequestParam("integracionNro") int integracionNro) {
-
-        code = code.trim();
-        if (code.equals("")) {
-            return "redirect:/criterios/ErrorSaveNull";
-        }
-
-        // if (!proyecto.GuardarDatos(codigo, perfilesTotal, perfilesNro,
-        // perfilesComplejidad, vistaTotal, vistaNro,
-        // vistaCampos, vistaComplejidad, vistaListados, vistaBotones,
-        // negocioTotal, negocioNro, negocioLogica,
-        // persistenciaTotal, persistenciaNro, persistenciaAccesos, cuTotal,
-        // cuDificultad, integracionTotal,
-        // integracionNro, integracionComplejidad)) {
-
-        // } else {
-        // proyecto.CalcularTotal(codigo, perfilesTotal, vistaTotal,
-        // negocioTotal, persistenciaTotal, cuTotal,
-        // integracionTotal);
-        // }
-        // rows.get(index).apply(code, name, caseOfUse);
-
-        show = "";
-
-        notificationType = "info";
-        notification = "Se han aplicado los cambios";
-
-        return "redirect:/";
-    }
-
-    // discard changes
-    @RequestMapping(value = "/criterios/discard", method = RequestMethod.POST)
-    public String discard() {
-        // Desplazar a clase para modelo por defecto
-        show = "";
-        notificationType = "info";
-        notification = "Se han descartado los cambios";
-        return "redirect:/";
-    }
-
-    // Adds a table row
-    @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
-    public String addRow(ModelMap model) {
-        /*moduleService.AddModulo(ControladorPrincipal.idProyecto, "Codigo-test", "Caso de Uso", "Nombre",
-        0, 0, 0,
-        0, 0, 0, 0, 0,
-        0,
-        0, 0, 0,
-        0, 0, 0,
-        0, 0,
-        0, 0, 0);*/
-    	moduleService.createModulo(1);
-
-//        Cambiar '0' por 'idProyecto'
-        model.addAttribute("modulo",moduleService.findAllModulo(ControladorPrincipal.idProyecto));
-       //return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
-
-        return "redirect:/";
-    }
-
-    // Delete a table row
-    @RequestMapping(value = "/criterios/{code}/delete", method = RequestMethod.GET)
-    public String deleteRow(@PathVariable("code") String code) {
-        // Desplazar a otra clase
-
-        show = "";
-        notificationType = "info";
-        notification = "Módulo " + code + " eliminada correctamente";
-        return "redirect:/";
-
-    }
-
-    @RequestMapping(value = "/criterios/{code}/edit", method = RequestMethod.POST)
-    public String editRow(@PathVariable("code") String code) {
-        show = code;
-
-        codigo = code;
-        return "redirect:/";
-
-    }
+    //
+    // // saves the name changes
+    // @RequestMapping(value = "/criterios/saveRow", method =
+    // RequestMethod.POST)
+    // public String saveRow(@RequestParam("moduleCode") String code,
+    // @RequestParam("moduleName") String name,
+    // @RequestParam("moduleCaseOfUse") String caseOfUse,
+    // @RequestParam("perfilesTotal") int perfilesTotal,
+    // @RequestParam("perfilesNro") int perfilesNro,
+    // @RequestParam("perfilesComplejidad") int perfilesComplejidad,
+    // @RequestParam("vistaTotal") int vistaTotal, @RequestParam("vistaNro") int
+    // vistaNro,
+    // @RequestParam("vistaCampos") int vistaCampos,
+    // @RequestParam("vistaComplejidad") int vistaComplejidad,
+    // @RequestParam("vistaListados") int vistaListados,
+    // @RequestParam("vistaBotones") int vistaBotones,
+    // @RequestParam("negocioTotal") int negocioTotal,
+    // @RequestParam("negocioNro") int negocioNro,
+    // @RequestParam("negocioLogica") int negocioLogica,
+    // @RequestParam("persistenciaTotal") int persistenciaTotal,
+    // @RequestParam("persistenciaNro") int persistenciaNro,
+    // @RequestParam("persistenciaAccesos") int persistenciaAccesos,
+    // @RequestParam(value = "cuTotal", defaultValue = "0") int cuTotal,
+    // @RequestParam(value = "cuDificultad", defaultValue = "0") int
+    // cuDificultad,
+    // @RequestParam("integracionTotal") int integracionTotal,
+    // @RequestParam("integracionComplejidad") int integracionComplejidad,
+    // @RequestParam("integracionNro") int integracionNro) {
+    //
+    // code = code.trim();
+    // if (code.equals("")) {
+    // return "redirect:/criterios/ErrorSaveNull";
+    // }
+    //
+    // // if (!proyecto.GuardarDatos(codigo, perfilesTotal, perfilesNro,
+    // // perfilesComplejidad, vistaTotal, vistaNro,
+    // // vistaCampos, vistaComplejidad, vistaListados, vistaBotones,
+    // // negocioTotal, negocioNro, negocioLogica,
+    // // persistenciaTotal, persistenciaNro, persistenciaAccesos, cuTotal,
+    // // cuDificultad, integracionTotal,
+    // // integracionNro, integracionComplejidad)) {
+    //
+    // // } else {
+    // // proyecto.CalcularTotal(codigo, perfilesTotal, vistaTotal,
+    // // negocioTotal, persistenciaTotal, cuTotal,
+    // // integracionTotal);
+    // // }
+    // // rows.get(index).apply(code, name, caseOfUse);
+    //
+    // show = "";
+    //
+    // notificationType = "info";
+    // notification = "Se han aplicado los cambios";
+    //
+    // return "redirect:/";
+    // }
+    //
+    // // discard changes
+    // @RequestMapping(value = "/criterios/discard", method =
+    // RequestMethod.POST)
+    // public String discard() {
+    // // Desplazar a clase para modelo por defecto
+    // show = "";
+    // notificationType = "info";
+    // notification = "Se han descartado los cambios";
+    // return "redirect:/";
+    // }
+    //
+    // // Adds a table row
+    // @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
+    // public String addRow(ModelMap model) {
+    // moduleService.AddModulo(ControladorPrincipal.idProyecto, "Codigo-test",
+    // "Caso de Uso", "Nombre",
+    // 0, 0, 0,
+    // 0, 0, 0, 0, 0,
+    // 0,
+    // 0, 0, 0,
+    // 0, 0, 0,
+    // 0, 0,
+    // 0, 0, 0);
+    // moduleService.createModulo(1);
+    //
+    //// Cambiar '0' por 'idProyecto'
+    // model.addAttribute("modulo",moduleService.findAllModulo(ControladorPrincipal.idProyecto));
+    // //return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
+    //
+    // return "redirect:/";
+    // }
+    //
+    // // Delete a table row
+    // @RequestMapping(value = "/criterios/{code}/delete", method =
+    // RequestMethod.GET)
+    // public String deleteRow(@PathVariable("code") String code) {
+    // // Desplazar a otra clase
+    //
+    // show = "";
+    // notificationType = "info";
+    // notification = "Módulo " + code + " eliminada correctamente";
+    // return "redirect:/";
+    //
+    // }
+    //
+    // @RequestMapping(value = "/criterios/{code}/edit", method =
+    // RequestMethod.POST)
+    // public String editRow(@PathVariable("code") String code) {
+    // show = code;
+    //
+    // codigo = code;
+    // return "redirect:/";
+    //
+    // }
 
     // Displays the error message if the code it's not unique
     @RequestMapping(value = "/criterios/ErrorSaveRow", method = RequestMethod.GET)
