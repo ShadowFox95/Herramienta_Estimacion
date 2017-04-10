@@ -1,14 +1,21 @@
 package com.becarios.proyecto_definitivo.web.controller.sub;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencia;
+import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorAjuste;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
 import com.becarios.proyecto_definitivo.service.factores_ajuste.FactoresAjusteService;
@@ -28,6 +35,16 @@ public class ControladorFactoresAjuste {
         return "forward:/horas-costes";
 
     }
+    
+   /* @RequestMapping(value = "/factores-ajuste/save/{idToSave}", method = RequestMethod.GET)
+    public List<FactorAjuste> save(@RequestParam("idToSave") int id) {
+    	FactorAjuste row= new FactorAjuste(1,1);
+        service.save(row);
+
+        // Cambiar '0' por 'idProyecto'
+        return service.findFactoresAjusteById(1);
+
+    }*/
 
     // @RequestMapping(value = "/factores-ajuste/{id}/", method =
     // RequestMethod.GET)
@@ -38,8 +55,10 @@ public class ControladorFactoresAjuste {
     // return "factores-ajuste/factores-ajuste";
     // }
 
-    @RequestMapping(value = "/factores-ajuste/{id}/save", method = RequestMethod.POST)
-    public String save(@PathVariable("id") int id, @RequestParam("rendimiento_aplica") boolean rendimientoAplica,
+    
+    @RequestMapping(value = "/factores-ajuste/{id}/save", method = RequestMethod.GET)
+    public String save(@PathVariable("id") int id) 
+    		/*@RequestParam("rendimiento_aplica") boolean rendimientoAplica,
             @RequestParam("rendimiento_definicion") int rendimientoDefinicion,
             @RequestParam("rendimiento_exigencia") int rendimientoExigencia,
             @RequestParam("rendimiento_impacto") int rendimientoImpacto,
@@ -98,122 +117,125 @@ public class ControladorFactoresAjuste {
             @RequestParam("capacidades_calculado") int capacidadesFactorCalculado,
 
             @RequestParam("calidad_valoracion") int calidadValoracion,
-            @RequestParam("calidad_calculado") int calidadFactorCalculado
-
-    ) {
+            @RequestParam("calidad_calculado") int calidadFactorCalculado*/
+     {
 
         // Clase FactoresAjuste
         FactorComplejidadTecnica rendimiento = new FactorComplejidadTecnica();
-        rendimiento.setIdProyecto(id);
+        rendimiento.setIdProyecto(1);
         rendimiento.setNombre("rendimiento");
-        rendimiento.setAplica(rendimientoAplica);
-        rendimiento.setGradoDefinicion(rendimientoDefinicion);
-        rendimiento.setGradoExigencia(rendimientoExigencia);
-        rendimiento.setImpacto(rendimientoImpacto);
-        rendimiento.setRiesgo(rendimientoRiesgo);
+        rendimiento.setAplica(true);
+        rendimiento.setGradoDefinicion(1);
+        rendimiento.setGradoExigencia(1);
+        rendimiento.setImpacto(1);
+        rendimiento.setRiesgo(1);
         service.save(rendimiento);
 
-        FactorComplejidadTecnica usabilidad = new FactorComplejidadTecnica();
-        usabilidad.setIdProyecto(id);
+        /*FactorComplejidadTecnica usabilidad = new FactorComplejidadTecnica();
+        usabilidad.setIdProyecto(1);
         usabilidad.setNombre("usabilidad");
         usabilidad.setAplica(usabilidadAplica);
         usabilidad.setGradoDefinicion(usabilidadDefinicion);
         usabilidad.setGradoExigencia(usabilidadExigencia);
         usabilidad.setImpacto(usabilidadImpacto);
         usabilidad.setRiesgo(usabilidadRiesgo);
-        service.save(usabilidad);
+        falta un service-save(usabilidad y en las demas igual, solo guardare una de cada 3/3)
+        
 
         FactorComplejidadTecnica portabilidad = new FactorComplejidadTecnica();
-        portabilidad.setIdProyecto(id);
+        portabilidad.setIdProyecto(1);
         portabilidad.setNombre("portabilidad");
         portabilidad.setAplica(rendimientoAplica);
         portabilidad.setGradoDefinicion(portabilidadDefinicion);
         portabilidad.setImpacto(portabilidadImpacto);
         portabilidad.setRiesgo(portabilidadRiesgo);
-        service.save(portabilidad);
+        
 
         FactorComplejidadTecnica concurrencia = new FactorComplejidadTecnica();
-        concurrencia.setIdProyecto(id);
+        concurrencia.setIdProyecto(1);
         concurrencia.setNombre("concurrencia");
         concurrencia.setAplica(concurrenciaAplica);
         concurrencia.setGradoDefinicion(concurrenciaDefinicion);
         concurrencia.setGradoExigencia(concurrenciaExigencia);
         concurrencia.setImpacto(concurrenciaImpacto);
         concurrencia.setRiesgo(concurrenciaRiesgo);
-        service.save(concurrencia);
+        
 
         FactorComplejidadTecnica seguridad = new FactorComplejidadTecnica();
-        seguridad.setIdProyecto(id);
+        seguridad.setIdProyecto(1);
         seguridad.setNombre("seguridad");
         seguridad.setAplica(seguridadAplica);
         seguridad.setGradoDefinicion(seguridadDefinicion);
         seguridad.setGradoExigencia(seguridadExigencia);
         seguridad.setImpacto(seguridadImpacto);
         seguridad.setRiesgo(seguridadRiesgo);
-        service.save(seguridad);
+        */
 
         ArquitecturaReferencia solucion = new ArquitecturaReferencia();
-        solucion.setIdProyecto(id);
+        solucion.setIdProyecto(1);
         solucion.setNombre("solucion");
-        solucion.setAplica(solucionAplica);
-        solucion.setDefinido(solucionDefinido);
-        solucion.setGradoConocimento(solucionConocimiento);
-        solucion.setImpacto(solucionImpacto);
-        solucion.setRiesgo(solucionRiesgo);
+        solucion.setAplica(true);
+        solucion.setDefinido(true);
+        solucion.setGradoConocimento(1);
+        solucion.setImpacto(1);
+        solucion.setRiesgo(1);
         service.save(solucion);
 
-        ArquitecturaReferencia integracion = new ArquitecturaReferencia();
-        integracion.setIdProyecto(id);
+        /*ArquitecturaReferencia integracion = new ArquitecturaReferencia();
+        integracion.setIdProyecto(1);
         integracion.setNombre("integracion");
         integracion.setAplica(integracionAplica);
         integracion.setDefinido(integracionDefinido);
         integracion.setGradoConocimento(integracionConocimiento);
         integracion.setImpacto(integracionImpacto);
         integracion.setRiesgo(integracionRiesgo);
-        service.save(integracion);
+       
 
         ArquitecturaReferencia logica = new ArquitecturaReferencia();
-        logica.setIdProyecto(id);
+        logica.setIdProyecto(1);
         logica.setNombre("logica");
         logica.setAplica(logicaAplica);
         logica.setDefinido(logicaDefinido);
         logica.setGradoConocimento(logicaConocimiento);
         logica.setImpacto(logicaImpacto);
         logica.setRiesgo(logicaRiesgo);
-        service.save(logica);
+       
 
         ArquitecturaReferencia despliegue = new ArquitecturaReferencia();
-        despliegue.setIdProyecto(id);
+        despliegue.setIdProyecto(1);
         despliegue.setNombre("despliegue");
         despliegue.setAplica(despliegueAplica);
         despliegue.setDefinido(despliegueDefinido);
         despliegue.setGradoConocimento(despliegueConocimiento);
         despliegue.setImpacto(despliegueImpacto);
         despliegue.setRiesgo(despliegueRiesgo);
-        service.save(despliegue);
+        
+        */
 
         FactorComplejidadAmbiental experiencia = new FactorComplejidadAmbiental();
-        experiencia.setIdProyecto(id);
+        experiencia.setIdProyecto(1);
         experiencia.setNombre("experiencia");
-        experiencia.setValoracion(experienciaValoracion);
-        experiencia.setFactorCalculado(experienciaFactorCalculado);
+        experiencia.setValoracion(1);
+        experiencia.setFactorCalculado(1);
         service.save(experiencia);
 
-        FactorComplejidadAmbiental capacidades = new FactorComplejidadAmbiental();
+        /*FactorComplejidadAmbiental capacidades = new FactorComplejidadAmbiental();
         capacidades.setIdProyecto(id);
-        capacidades.setNombre("capacidades");
+        capacidades.setNombre("capacidade s");
         capacidades.setValoracion(capacidadesValoracion);
         capacidades.setFactorCalculado(capacidadesFactorCalculado);
-        service.save(capacidades);
+        
 
         FactorComplejidadAmbiental calidad = new FactorComplejidadAmbiental();
-        calidad.setIdProyecto(id);
+        calidad.setIdProyecto(1);
         calidad.setNombre("calidad");
         calidad.setValoracion(calidadValoracion);
         calidad.setFactorCalculado(calidadFactorCalculado);
-        service.save(calidad);
+        */
 
         return "redirect:/";
     }
-
 }
+
+
+
