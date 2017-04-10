@@ -28,17 +28,19 @@
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach var="proyecto" items="${projectes}">
+								
 								<tr>
 									<spring:url value="/criterios/saveRow" var="saveUrl" />
 									<td>
-										<input class="form-control" type="text" value="${pro.nombre}" />
+										<input class="form-control" type="text" value="${proyecto.nombre}" />
 									</td>
 									<td>
-										<input class="form-control" type="text" value="${pro.codigo}" />
+										<input class="form-control" type="text" value="${proyecto.codigo}" />
 									</td>
 									<td>
 										<div class="col-xs-11">
-											<input class="form-control" type="text" value="${pro.descripcion}" />
+											<input class="form-control" type="text" value="${proyecto.descripcion}" />
 										</div>
 										<spring:url value="/proyecto-definitivo/2/delete" var="deleteProjectUrl" />
 										<div class="col-xs-1">
@@ -48,6 +50,7 @@
 										</div>
 									</td>
 								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

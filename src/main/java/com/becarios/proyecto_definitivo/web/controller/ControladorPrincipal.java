@@ -34,12 +34,14 @@ public class ControladorPrincipal {
 
         model.addAttribute("control", control);
 
+        
         return "forward:/criterios";
 
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
+    	
         return "/index";
 
     }
