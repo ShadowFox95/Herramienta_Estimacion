@@ -26,7 +26,6 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
         return getByKey(idModulo);
     }
 
-    // @SuppressWarnings("unused")
     @Override
     public int saveModule(CasosDeUso modulo) {
         getSession().saveOrUpdate(modulo);

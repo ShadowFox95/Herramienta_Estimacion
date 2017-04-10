@@ -31,7 +31,7 @@ function refreshTable(module) {
     $("#moduleTable").html(table);
 }
 
-function editTable(module, id) {
+function editTable(module, tablas) {
     var table = "";
     var selected = "";
     if (module.length == 0) {
@@ -39,7 +39,7 @@ function editTable(module, id) {
         $("#showAtributos").hide();
     } else {
         for (i = 0; i < module.length; i++) {
-            if (id == module[i].id.id) {
+            if (tablas[0].casosdeUsosCodigo == module[i].id.id) {
                 table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='"
                         + module[i].nombre + "' maxlength='25'></td>";
                 table += "<td><input type='text' class='altura form-control' id='selected_code' value='"
@@ -62,7 +62,8 @@ function editTable(module, id) {
                         + module[i].id.id
                         + "' onClick='doAjaxSaveRow(id)'></button></div><div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' onClick='doAjaxEdit()'></button></div></div>";
                 table += "</td></tr>";
-                // populateAtributos(module[i].tablas);
+
+                populateAtributos(tablas);
             } else {
                 table += "<tr><td>" + module[i].nombre + "</td>";
                 table += "<td>" + module[i].codigo + "</td>";
@@ -95,6 +96,7 @@ function editTable(module, id) {
 
     $("#moduleTable").html(table);
 }
+
 function populateAtributos(tabla) {
     document.getElementById('sel_perf').value = tabla[0].complejidad;
     $("#mult_perf").value = tabla[0].nro;
@@ -122,6 +124,7 @@ function populateAtributos(tabla) {
     $("#mult_inte").value = tabla[5].nro;
     $("#out_inte").html(tabla[5].total);
 }
+
 function doAjaxAddRow() {
     $.ajax({
         type : "POST",
@@ -137,26 +140,46 @@ function doAjaxAddRow() {
     });
 
 }
-function doAjaxEdit(id) {
+
+function doAjaxGetTablas(tablas) {
     $.ajax({
         type : "POST",
-        url : "criterios/edit",
+        url : "criteriosAjax",
         success : function(module) {
-            console.log(id);
-            if (id == undefined) {
-                refreshTable(module);
-                $("#showAtributos").hide();
-            } else {
-                editTable(module, id);
-                $("#showAtributos").show();
-            }
-
-        },
-        error : function(e) {
-            console.log('Error: ' + e);
+            editTable(module, tablas);
         }
     });
 }
+
+function doAjaxEdit(id) {
+    if (id == undefined) {
+        $.ajax({
+            type : "POST",
+            url : "criteriosAjax",
+            success : function(module) {
+                refreshTable(module);
+                $("#showAtributos").hide();
+            },
+            error : function(e) {
+                console.log('Error: ' + e);
+            }
+        });
+    } else {
+        $.ajax({
+            type : "POST",
+            url : "criterios/edit/" + id,
+            success : function(tablas) {
+                console.log(tablas);
+                doAjaxGetTablas(tablas);
+                $("#showAtributos").show();
+            },
+            error : function(e) {
+                console.log('Error: ' + e);
+            }
+        });
+    }
+}
+
 function doAjaxSaveRow(id) {
     var perfiles = {};
     perfiles["complejidad"] = 0;
@@ -183,6 +206,7 @@ function doAjaxSaveRow(id) {
 
     });
 }
+
 function doAjaxDelete(id) {
     $.ajax({
         type : "DELETE",

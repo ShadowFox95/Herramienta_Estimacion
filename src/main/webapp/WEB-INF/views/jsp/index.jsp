@@ -46,7 +46,7 @@
 			</ul>
 			<form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
                      <button type="submit" class="custom-color button-tab">
-                     <i class="glyphicon glyphicon-floppy-save"></i>
+                     <i class="glyphicon glyphicon-floppy-save"></i>  Guardar
                      </button>
                 </form>
 		</div> 

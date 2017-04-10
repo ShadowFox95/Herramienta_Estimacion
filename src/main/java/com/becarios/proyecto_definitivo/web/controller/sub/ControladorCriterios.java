@@ -93,13 +93,11 @@ public class ControladorCriterios {
         return moduleService.findAllModulo(1);
     }
 
-    @RequestMapping(value = "/criterios/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/criterios/edit/{idToEdit}", method = RequestMethod.POST)
     @ResponseBody
-    public List<Object> editRowAjax(ModelMap model) {
-        CasosDeUso row = new CasosDeUso();
-        moduleService.updateModulo(row);
-        // Cambiar '0' por 'id'
-        return moduleService.findAllTablas(1);
+    public List<Object> editRowAjax(ModelMap model, @PathVariable("idToEdit") int id) {
+        List<Object> lista = moduleService.findAllTablas(id);
+        return lista;
     }
 
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
