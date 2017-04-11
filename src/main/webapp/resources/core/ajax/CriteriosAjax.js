@@ -117,8 +117,7 @@ function populateAtributos(tabla) {
     $("#mult_pers").value = tabla[3].nro;
     $("#out_pers").html(tabla[3].total);
 
-    document.getElementById('sel_cu').value = tabla[4].dificultad;
-    console.log(tabla[4].dificultad);
+    document.getElementById('sel_cu').value = tabla[4].complejidad;
     $("#out_cu").html(tabla[4].total);
 
     document.getElementById('sel_inte').value = tabla[5].complejidad;
