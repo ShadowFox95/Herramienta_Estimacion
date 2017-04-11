@@ -33,9 +33,6 @@ import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
 @Controller
 public class ControladorCriterios {
 
-    @Autowired
-    private ModuleService service;
-
     private String show = "";
 
     private String codigo;
