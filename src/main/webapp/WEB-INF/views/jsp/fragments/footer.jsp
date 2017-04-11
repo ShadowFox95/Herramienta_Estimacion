@@ -16,6 +16,7 @@
 
 <!-- Ajax -->
 <spring:url value="/resources/core/ajax/CriteriosAjax.js" var="CriteriosAjax" />
+<spring:url value="/resources/core/ajax/ProyectoAjax.js" var="ProyectoAjax" />
 
 <script src="${controlJs}"></script>
 <script src="${bigDecimal}"></script>
@@ -27,3 +28,4 @@
 <script src="${piramideJs}"></script>
 
 <script src="${CriteriosAjax}"></script>
+<script src="${ProyectoAjax}"></script>
