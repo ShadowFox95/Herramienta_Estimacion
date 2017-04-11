@@ -7,7 +7,6 @@ function refreshTableProject(project) {
             table += "<tr><td>" + project[i].nombre + "</td>";
             table += "<td>" + project[i].codigoProyecto + "</td>";
             table += "<td>" + project[i].descripcion + "</td>";
-
             table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"
                     + project[i].id
                     + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
@@ -18,7 +17,7 @@ function refreshTableProject(project) {
 
     $("#projectTable").html(table);
 }
-
+/*
 function editTable(module, tablas) {
     var table = "";
     var selected = "";
@@ -83,9 +82,9 @@ function editTable(module, tablas) {
     }
 
     $("#moduleTable").html(table);
-}
+}*/
 
-function populateAtributos(tabla) {
+/*function populateAtributos(tabla) {
     document.getElementById('sel_perf').value = tabla[0].complejidad;
     $("#mult_perf").value = tabla[0].nro;
     $("#out_perf").html(tabla[0].total);
@@ -202,6 +201,21 @@ function doAjaxDelete(id) {
         success : function(module) {
             console.log(module);
             refreshTable(module);
+        },
+        error : function(e) {
+            console.log('Error: ' + e);
+        }
+    });
+}*/
+
+
+function doAjaxLoadProjectTables() {
+    $.ajax({
+        type : "POST",
+        url : "projectAjax",
+        success : function(project) {
+            console.log(project);
+            refreshTableProject(project);
         },
         error : function(e) {
             console.log('Error: ' + e);

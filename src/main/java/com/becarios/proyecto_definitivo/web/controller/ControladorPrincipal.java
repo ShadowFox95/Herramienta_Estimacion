@@ -1,5 +1,7 @@
 package com.becarios.proyecto_definitivo.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -7,9 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.becarios.proyecto_definitivo.dto.ProyectoDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
+import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.service.ProjectService;
 
 @Controller
@@ -27,6 +31,13 @@ public class ControladorPrincipal {
 
     // Redirect to main page
 
+    @RequestMapping(value = "/projectAjax", method = RequestMethod.POST)
+    public @ResponseBody List<Proyecto> loadTabla() {
+    	
+        return project.findAllProjects();
+    }
+    
+    
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
 
