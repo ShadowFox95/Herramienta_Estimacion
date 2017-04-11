@@ -36,13 +36,13 @@ public class Itr implements java.io.Serializable {
 	private double gbsOnsiteGdo6;
 	private double gbsOnsiteGdo7;
 	private double dir;
+	private double dcta;
 	private double itsCenitGdo1;
 	private double itsCenitGdo2;
 	private double itsCenitGdo3;
 	private double itsCenitGdo4;
 	private double itsCenitGdo5;
 	private double itsCenitGdo6;
-	private double itsCenitGdo7;
 	private double itsOnsiteGdo1;
 	private double itsOnsiteGdo2;
 	private double itsOnsiteGdo3;
@@ -58,9 +58,9 @@ public class Itr implements java.io.Serializable {
 			double gbsCenitGdo5, double gbsCenitGdo6, double gbsCenitGdo7, double gbsSapGdo1, double gbsSapGdo2,
 			double gbsSapGdo3, double gbsSapGdo4, double gbsSapGdo5, double gbsSapGdo6, double gbsSapGdo7,
 			double gbsOnsiteGdo1, double gbsOnsiteGdo2, double gbsOnsiteGdo3, double gbsOnsiteGdo4,
-			double gbsOnsiteGdo5, double gbsOnsiteGdo6, double gbsOnsiteGdo7, double dir, double itsCenitGdo1,
+			double gbsOnsiteGdo5, double gbsOnsiteGdo6, double gbsOnsiteGdo7, double dir,double dcta, double itsCenitGdo1,
 			double itsCenitGdo2, double itsCenitGdo3, double itsCenitGdo4, double itsCenitGdo5, double itsCenitGdo6,
-			double itsCenitGdo7, double itsOnsiteGdo1, double itsOnsiteGdo2, double itsOnsiteGdo3, double itsOnsiteGdo4,
+			double itsOnsiteGdo1, double itsOnsiteGdo2, double itsOnsiteGdo3, double itsOnsiteGdo4,
 			double itsOnsiteGdo5, double itsOnsiteGdo6, double itsOnsiteGdo7) {
 		this.idProyecto = idProyecto;
 		this.gbsCenitGdo1 = gbsCenitGdo1;
@@ -85,13 +85,13 @@ public class Itr implements java.io.Serializable {
 		this.gbsOnsiteGdo6 = gbsOnsiteGdo6;
 		this.gbsOnsiteGdo7 = gbsOnsiteGdo7;
 		this.dir = dir;
+		this.dcta=dcta;
 		this.itsCenitGdo1 = itsCenitGdo1;
 		this.itsCenitGdo2 = itsCenitGdo2;
 		this.itsCenitGdo3 = itsCenitGdo3;
 		this.itsCenitGdo4 = itsCenitGdo4;
 		this.itsCenitGdo5 = itsCenitGdo5;
 		this.itsCenitGdo6 = itsCenitGdo6;
-		this.itsCenitGdo7 = itsCenitGdo7;
 		this.itsOnsiteGdo1 = itsOnsiteGdo1;
 		this.itsOnsiteGdo2 = itsOnsiteGdo2;
 		this.itsOnsiteGdo3 = itsOnsiteGdo3;
@@ -364,13 +364,13 @@ public class Itr implements java.io.Serializable {
 		this.itsCenitGdo6 = itsCenitGdo6;
 	}
 
-	@Column(name = "ITS_CENIT_GDO7", nullable = false, precision = 22, scale = 0)
-	public double getItsCenitGdo7() {
-		return this.itsCenitGdo7;
+	@Column(name = "DCTA", nullable = false, precision = 22, scale = 0)
+	public double getDcta() {
+		return this.dcta;
 	}
 
-	public void setItsCenitGdo7(double itsCenitGdo7) {
-		this.itsCenitGdo7 = itsCenitGdo7;
+	public void setDcta(double DCTA) {
+		this.dcta = DCTA;
 	}
 
 	@Column(name = "ITS_ONSITE_GDO1", nullable = false, precision = 22, scale = 0)
