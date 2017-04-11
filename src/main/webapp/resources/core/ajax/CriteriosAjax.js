@@ -248,7 +248,7 @@ function doAjaxSaveRow(id) {
     
     var data = {casosUso, perfiles, vista, negocio, persistencia, cuoriginal, integracion};
 
-    console.log(data);
+    console.log(data);// pr
     $.ajax({
         type : "POST",
         url : "criterios/saveRow/" + id,
