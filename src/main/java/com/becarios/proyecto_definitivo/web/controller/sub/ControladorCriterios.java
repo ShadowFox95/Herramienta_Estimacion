@@ -76,7 +76,7 @@ public class ControladorCriterios {
     public @ResponseBody List<CasosDeUso> saveRowAjax(ModelMap model, @PathVariable("idToSave") String code,
             @RequestBody CasosDeUso data) {
         moduleService.saveModulo(data);
-
+        
         // Cambiar '0' por 'idProyecto'
         return moduleService.findAllModulo(1);
 

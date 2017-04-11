@@ -6,7 +6,7 @@ function refreshTableProject(project) {
         for (i = 0; i < project.length; i++) {
             table += "<tr><td>" + project[i].nombre + "</td>";
             table += "<td>" + project[i].codigoProyecto + "</td>";
-            table += "<td>" + project[i].descripcion + "</td>";
+            table += "<td>" + project[i].descripcion;
             table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"
                     + project[i].id
                     + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
@@ -16,6 +16,10 @@ function refreshTableProject(project) {
     }
 
     $("#projectTable").html(table);
+}
+
+function editProject(project, id){
+	var tabla="";
 }
 /*
 function editTable(module, tablas) {
@@ -137,36 +141,22 @@ function doAjaxGetTablas(tablas) {
         }
     });
 }
-
-function doAjaxEdit(id) {
-    if (id == undefined) {
-        $.ajax({
-            type : "POST",
-            url : "criteriosAjax",
-            success : function(module) {
-                refreshTable(module);
-                $("#showAtributos").hide();
-            },
-            error : function(e) {
-                console.log('Error: ' + e);
-            }
-        });
-    } else {
+*/
+function doAjaxEditProject(id) {
         $.ajax({
             type : "POST",
             url : "criterios/edit/" + id,
-            success : function(tablas) {
-                console.log(tablas);
-                doAjaxGetTablas(tablas);
-                $("#showAtributos").show();
+            success : function(project) {
+                console.log(project);
+                doAjaxLoadProjectTables(project);
             },
             error : function(e) {
                 console.log('Error: ' + e);
             }
         });
-    }
+    
 }
-
+/*
 function doAjaxSaveRow(id) {
     var perfiles = {};
     perfiles["complejidad"] = 0;
@@ -193,20 +183,20 @@ function doAjaxSaveRow(id) {
 
     });
 }
-
-function doAjaxDelete(id) {
+*/
+function doAjaxDeleteProject(id) {
     $.ajax({
         type : "DELETE",
-        url : "criterios/delete/" + id,
-        success : function(module) {
-            console.log(module);
-            refreshTable(module);
+        url : "projecte/delete/"+ id,
+        success : function(project) {
+            console.log(project);
+            refreshTableProject(project);
         },
         error : function(e) {
             console.log('Error: ' + e);
         }
     });
-}*/
+}
 
 
 function doAjaxLoadProjectTables() {

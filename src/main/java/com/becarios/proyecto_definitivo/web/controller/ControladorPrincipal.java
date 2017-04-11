@@ -38,17 +38,23 @@ public class ControladorPrincipal {
     }
     
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+   @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
 
-        model.addAttribute("projectes", project.findAllProjects());
+     //   model.addAttribute("projectes", project.findAllProjects());
 
-        model.addAttribute("control", control);
+       model.addAttribute("control", control);
 
         
         return "forward:/criterios";
-
     }
+   
+   @RequestMapping(value = "/project/edit/{idToEdit}", method = RequestMethod.POST)
+   @ResponseBody
+   public List<Proyecto> editRowAjaxProject(@PathVariable("idToEdit") int id) {
+       List<Proyecto> lista = project.findAllProjects();
+       return lista;
+   }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
@@ -57,12 +63,11 @@ public class ControladorPrincipal {
 
     }
 
-    @RequestMapping(value = "/{code}/delete", method = RequestMethod.POST)
-    public String deleteRow(@PathVariable("code") int id) {
-        // Desplazar a otra clase
-        project.deleteProjectByCode(id);
-        return "redirect:/";
+    @RequestMapping(value = "/projecte/delete/{idToDelete}", method = RequestMethod.DELETE)
+    public @ResponseBody List<Proyecto> deleteProjectAjax(ModelMap model, @PathVariable("idToDelete") int id) {
+    	project.deleteProjectByCode(id); 
 
+        return project.findAllProjects();
     }
 
     @RequestMapping(value = "/addProject", method = RequestMethod.GET)
