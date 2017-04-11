@@ -3,6 +3,22 @@
 <html>
 	<head>
 		<title>EF - Proyectos</title>
+		 <script type="text/javascript">
+      	$( "#projectTable" ).ready(function() {
+      		 $.ajax({
+		        type : "POST",
+		        url : "projectAjax",
+		        success : function(project) {
+		            console.log(project);
+		            refreshTableProject(project);
+		        },
+		        error : function(e) {
+		            console.log('Error: ' + e);
+		        }
+		    });
+        });
+      	
+		</script>
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -27,27 +43,8 @@
 									<th class="col-xs-5">Descripción</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<spring:url value="/criterios/saveRow" var="saveUrl" />
-									<td>
-										<input class="form-control" type="text" value="${pro.nombre}" />
-									</td>
-									<td>
-										<input class="form-control" type="text" value="${pro.codigo}" />
-									</td>
-									<td>
-										<div class="col-xs-11">
-											<input class="form-control" type="text" value="${pro.descripcion}" />
-										</div>
-										<spring:url value="/proyecto-definitivo/2/delete" var="deleteProjectUrl" />
-										<div class="col-xs-1">
-											<form name="deleteRow" action="${deleteProjectUrl}" method="POST">
-												<button type="submit" class="button delete glyphicon glyphicon-trash" />
-											</form>
-										</div>
-									</td>
-								</tr>
+							<tbody id="projectTable">
+
 							</tbody>
 						</table>
 					</div>

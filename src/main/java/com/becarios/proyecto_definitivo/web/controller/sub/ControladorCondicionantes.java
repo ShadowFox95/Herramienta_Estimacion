@@ -1,19 +1,17 @@
 package com.becarios.proyecto_definitivo.web.controller.sub;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.becarios.proyecto_definitivo.dto.condicionantes.CondicionantesDto;
-import com.becarios.proyecto_definitivo.dto.condicionantes.CondicionantesIdDto;
 import com.becarios.proyecto_definitivo.model.condicionantes.Condicionantes;
 import com.becarios.proyecto_definitivo.model.condicionantes.CondicionantesId;
 import com.becarios.proyecto_definitivo.service.condicionantes.CondicionantesService;
+
 
 @Controller
 public class ControladorCondicionantes {
@@ -30,11 +28,15 @@ public class ControladorCondicionantes {
         return "forward:/index";
     }
 
-    @RequestMapping(value = "/condicionantes/save")
-    public String save(List<Condicionantes> condicionantes) {
-        for (Condicionantes condicionante : condicionantes) {
+    @RequestMapping(value = "/condicionantes/{idToSave}/save", method = RequestMethod.GET)
+    public String save(Condicionantes condi) {
+    	CondicionantesId condiID=new CondicionantesId(23,1);
+        Condicionantes c=new Condicionantes(condiID,"FuncionaCondi",true);
+    	condicionantesService.addCondicionantes(c);
+
+    	/*for (Condicionantes condicionante : condicionantes) {
             condicionantesService.addCondicionantes(condicionante);
-        }
+        }*/
         return "redirect:" + "/";
     }
 
@@ -44,7 +46,7 @@ public class ControladorCondicionantes {
         return "redirect:" + "/";
     }
 
-    private void passCondicionantesToDto(Condicionantes condicionantes) {
+   /* private void passCondicionantesToDto(Condicionantes condicionantes) {
         condicionantesActual
                 .setId(new CondicionantesIdDto(condicionantes.getId().getId(), condicionantes.getId().getIdProyecto()));
         condicionantesActual.setDescripcion(condicionantes.getDescripcion());
@@ -56,5 +58,5 @@ public class ControladorCondicionantes {
                 condicionantesActual.getId().getIdProyecto()));
         condicionantes.setDescripcion(condicionantesActual.getDescripcion());
         condicionantes.setEstimacion(condicionantes.isEstimacion());
-    }
+    }*/
 }
