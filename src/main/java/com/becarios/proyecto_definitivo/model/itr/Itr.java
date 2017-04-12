@@ -103,7 +103,7 @@ public class Itr implements java.io.Serializable {
 
 	@Id
 
-	@Column(name = "idProyecto", unique = true, nullable = false)
+	@Column(name = "idProyecto", nullable = false)
 	public int getIdProyecto() {
 		return this.idProyecto;
 	}

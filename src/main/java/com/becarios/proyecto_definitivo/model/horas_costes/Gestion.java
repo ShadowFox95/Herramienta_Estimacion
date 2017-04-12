@@ -37,7 +37,7 @@ public class Gestion implements java.io.Serializable {
 
 	@Id
 
-	@Column(name = "idProyecto", unique = true, nullable = false)
+	@Column(name = "idProyecto", nullable = false)
 	public int getIdProyecto() {
 		return this.idProyecto;
 	}
@@ -46,6 +46,7 @@ public class Gestion implements java.io.Serializable {
 		this.idProyecto = idProyecto;
 	}
 
+	@Id
 	@Column(name = "Nombre", nullable = false, length = 45)
 	public String getNombre() {
 		return this.nombre;
