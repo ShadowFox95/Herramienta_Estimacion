@@ -77,7 +77,7 @@ public class ControladorCriterios {
     }
 
     @RequestMapping(value = "/criterios/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody List<CasosDeUso> saveRowAjax(ModelMap model, @PathVariable("idToSave") String code,
+    public @ResponseBody List<CasosDeUso> saveRowAjax(@PathVariable("idToSave") String code,
             @RequestBody TablasEditDto data) {
 
         moduleService.editTable(1, Integer.parseInt(code), data);

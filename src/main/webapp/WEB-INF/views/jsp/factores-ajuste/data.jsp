@@ -212,11 +212,11 @@
                 <td colspan="3"></td>
                 <td class="text-center"><strong>TCF</strong>
                 </td>
-                <td class="text-right align-fix"><strong id="tcf_impacto">0</strong></td>
-                <input type="hidden" id="tcf_impacto_hidden" value="0" />
+                <td class="text-right align-fix"><strong id="tcf_impacto">1</strong></td>
+                <input type="hidden" id="tcf_impacto_hidden" value="1" />
 
-                <td class="text-right align-fix"><strong id="tcf_riesgo">0</strong></td>
-                <input type="hidden" id="tcf_riesgo_hidden" value="0" />
+                <td class="text-right align-fix"><strong id="tcf_riesgo">1</strong></td>
+                <input type="hidden" id="tcf_riesgo_hidden" value="1" />
             </tr>
         </tfoot>
     </table>
@@ -360,10 +360,10 @@
                 <td colspan="3"></td>
                 <td class="text-center"><strong>TCF</strong>
                 </td>
-                <td class="text-right align-fix"><strong id="tcf_impacto2">0</strong></td>
-                <input type="hidden" id="tcf_impacto2_hidden" value="0" />
-                <td class="text-right align-fix"><strong id="tcf_riesgo2">0</strong></td>
-                <input type="hidden" id="tcf_riesgo2_hidden" value="0" />
+                <td class="text-right align-fix"><strong id="tcf_impacto2">1</strong></td>
+                <input type="hidden" id="tcf_impacto2_hidden" value="1" />
+                <td class="text-right align-fix"><strong id="tcf_riesgo2">1</strong></td>
+                <input type="hidden" id="tcf_riesgo2_hidden" value="1" />
             </tr>
         </tfoot>
     </table>
@@ -437,7 +437,7 @@
                 <td class="text-center"><strong>ECF</strong>
                 </td>
                 <td class="text-right align-fix"><strong id="ecf">1.1</strong></td>
-                <input type="hidden" id="ecf_hidden" value="0" />
+                <input type="hidden" id="ecf_hidden" value="1" />
             </tr>
         </tfoot>
     </table>

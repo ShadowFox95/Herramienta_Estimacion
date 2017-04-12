@@ -35,10 +35,10 @@
 	         			<tbody>
 	         				<tr>
 	         					<td>Total ADM-DW</td>
-	         					<td id="totalhoras_admdw" class="text-right">0</td>
-	         					<td id="totalcoste_admdw" class="text-right">0.00</td>
+	         					<td class="text-right"><strong id="totalhoras_admdw">0</strong></td>
+	         					<td class="text-right"><strong id="totalcoste_admdw">0.00</strong></td>
 	         				</tr>
-	         				<tr>
+	         				<!-- <tr>
 	         					<td >Total Centro de Testing</td>
 	         					<td id="totalhoras_centrotesting" class="text-right">0</td>
 	         					<td id="totalcoste_centrotesting" class="text-right">0.00</td>
@@ -52,7 +52,7 @@
 	         					<td><strong>Total</strong></td>
 	         					<td class="text-right"><strong id="totalhoras_valorfinal">0</strong></td>
 	         					<td class="text-right"><strong id="totalcoste_valorfinal">&euro; 0.00</strong></td>
-	         				</tr>
+	         				</tr> -->
 	         			</tbody>
 	         		</table>
 	         		</div>
@@ -80,7 +80,7 @@
        	
 		<div class="row">      	
          <jsp:include page="./centroInterno.jsp"></jsp:include>
-         <jsp:include page="./centroExterno.jsp"></jsp:include>
+         <!--<jsp:include page="./centroExterno.jsp"></jsp:include>-->
  		</div> 
       </div>
       <!-- /.page-wrapper -->

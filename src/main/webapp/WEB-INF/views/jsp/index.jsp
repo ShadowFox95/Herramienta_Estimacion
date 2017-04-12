@@ -44,11 +44,9 @@
                     </li>
 				</li>
 			</ul>
-			<form name="row" action="/proyecto-definitivo/criterios/saveProject" method="POST">
-                     <button type="submit" class="custom-color button-tab">
-                     <i class="glyphicon glyphicon-floppy-save"></i>  Guardar
-                     </button>
-                </form>
+               <button type="submit" class="custom-color button-tab" onclick="doAjaxSaveAll()">
+               		<i class="glyphicon glyphicon-floppy-save"></i>  Guardar
+               </button>
 		</div> 
                             <!-- Tab panes -->
                             <div class="tab-content">

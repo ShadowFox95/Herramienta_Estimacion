@@ -190,14 +190,13 @@ function doAjaxSaveRow(id) {
     casosUso["nombre"] = document.getElementById('selected_name').value;
     casosUso["codigo"] = document.getElementById('selected_code').value;
     casosUso["modulo"] = document.getElementById('selected_caseOfUse').value;
-    
-    
+
     var perfiles = {};
     perfiles["casosdeUsosCodigo"] = auxid;
     perfiles["complejidad"] = document.getElementById('sel_perf').value;
     perfiles["nro"] = document.getElementById('mult_perf').value;
     perfiles["total"] = parseInt(document.getElementById('out_perf').innerHTML);
-    
+
     var vista = {};
     vista["casosdeUsosCodigo"] = auxid;
     vista["complejidad"] = document.getElementById('sel_pv_comp').value;
@@ -205,14 +204,14 @@ function doAjaxSaveRow(id) {
     vista["botones"] = document.getElementById('sel_pv_boto').value;
     vista["campos"] = document.getElementById('sel_pv_camp').value;
     vista["listados"] = document.getElementById('sel_pv_list').value;
-    vista["total"] =  parseInt(document.getElementById('out_pv').innerHTML);
+    vista["total"] = parseInt(document.getElementById('out_pv').innerHTML);
 
     var negocio = {};
     negocio["casosdeUsosCodigo"] = auxid;
     negocio["logica"] = document.getElementById('sel_neg').value;
     negocio["nro"] = document.getElementById('mult_neg').value;
     negocio["total"] = parseInt(document.getElementById('out_neg').innerHTML);
-    
+
     var persistencia = {};
     persistencia["casosdeUsosCodigo"] = auxid;
     persistencia["accesos"] = document.getElementById('sel_pers').value;
@@ -223,7 +222,7 @@ function doAjaxSaveRow(id) {
     cuoriginal["casosdeUsosCodigo"] = auxid;
     cuoriginal["complejidad"] = document.getElementById('sel_cu').value;
     cuoriginal["total"] = parseInt(document.getElementById('out_cu').innerHTML);
-    
+
     var integracion = {};
     integracion["casosdeUsosCodigo"] = auxid;
     integracion["complejidad"] = document.getElementById('sel_inte').value;
@@ -245,8 +244,15 @@ function doAjaxSaveRow(id) {
         auxtotal = 25;
     }
     casosUso["totalFila"] = auxtotal;
-    
-    var data = {casosUso, perfiles, vista, negocio, persistencia, cuoriginal, integracion};
+
+    var data = {};
+    data["casosUso"] = casosUso;
+    data["perfiles"] = perfiles;
+    data["vista"] = vista;
+    data["negocio"] = negocio;
+    data["persistencia"] = persistencia;
+    data["cuoriginal"] = cuoriginal;
+    data["integracion"] = integracion;
 
     console.log(data);// pr
     $.ajax({
