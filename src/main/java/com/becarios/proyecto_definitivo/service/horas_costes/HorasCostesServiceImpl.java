@@ -92,4 +92,14 @@ public class HorasCostesServiceImpl implements HorasCostesService {
         return false;
     }
 
+    @Override
+    public void saveRiesgo(Riesgo r) {
+        dao.saveRiesg(r);
+    }
+
+    @Override
+    public void saveValoracionFinal(Valoracionfinal vf) {
+        dao.saveValofin(vf);
+    }
+
 }

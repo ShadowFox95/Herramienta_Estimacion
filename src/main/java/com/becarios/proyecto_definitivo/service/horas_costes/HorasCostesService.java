@@ -31,4 +31,8 @@ public interface HorasCostesService {
 
     boolean save(Object row);
 
+    void saveRiesgo(Riesgo r);
+
+    void saveValoracionFinal(Valoracionfinal vf);
+
 }
