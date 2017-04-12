@@ -117,7 +117,7 @@ function populateAtributos(tabla) {
     $("#mult_pers").value = tabla[3].nro;
     $("#out_pers").html(tabla[3].total);
 
-    document.getElementById('sel_cu').value = tabla[4].dificultad;
+    document.getElementById('sel_cu').value = tabla[4].complejidad;
     $("#out_cu").html(tabla[4].total);
 
     document.getElementById('sel_inte').value = tabla[5].complejidad;
@@ -181,15 +181,80 @@ function doAjaxEdit(id) {
 }
 
 function doAjaxSaveRow(id) {
+    auxid = parseInt(id);
+    var aux = {};
+    aux["id"] = auxid;
+    aux["idProyecto"] = 1;
+    var casosUso = {};
+    casosUso["id"] = aux;
+    casosUso["nombre"] = document.getElementById('selected_name').value;
+    casosUso["codigo"] = document.getElementById('selected_code').value;
+    casosUso["modulo"] = document.getElementById('selected_caseOfUse').value;
+
     var perfiles = {};
-    perfiles["complejidad"] = 0;
-    perfiles["nro"] = 0;
-    perfiles["total"] = 5;
+    perfiles["casosdeUsosCodigo"] = auxid;
+    perfiles["complejidad"] = document.getElementById('sel_perf').value;
+    perfiles["nro"] = document.getElementById('mult_perf').value;
+    perfiles["total"] = parseInt(document.getElementById('out_perf').innerHTML);
+
+    var vista = {};
+    vista["casosdeUsosCodigo"] = auxid;
+    vista["complejidad"] = document.getElementById('sel_pv_comp').value;
+    vista["nro"] = document.getElementById('mult_pv').value;
+    vista["botones"] = document.getElementById('sel_pv_boto').value;
+    vista["campos"] = document.getElementById('sel_pv_camp').value;
+    vista["listados"] = document.getElementById('sel_pv_list').value;
+    vista["total"] = parseInt(document.getElementById('out_pv').innerHTML);
+
+    var negocio = {};
+    negocio["casosdeUsosCodigo"] = auxid;
+    negocio["logica"] = document.getElementById('sel_neg').value;
+    negocio["nro"] = document.getElementById('mult_neg').value;
+    negocio["total"] = parseInt(document.getElementById('out_neg').innerHTML);
+
+    var persistencia = {};
+    persistencia["casosdeUsosCodigo"] = auxid;
+    persistencia["accesos"] = document.getElementById('sel_pers').value;
+    persistencia["nro"] = document.getElementById('mult_pers').value;
+    persistencia["total"] = parseInt(document.getElementById('out_pers').innerHTML);
+
+    var cuoriginal = {};
+    cuoriginal["casosdeUsosCodigo"] = auxid;
+    cuoriginal["complejidad"] = document.getElementById('sel_cu').value;
+    cuoriginal["total"] = parseInt(document.getElementById('out_cu').innerHTML);
+
+    var integracion = {};
+    integracion["casosdeUsosCodigo"] = auxid;
+    integracion["complejidad"] = document.getElementById('sel_inte').value;
+    integracion["nro"] = document.getElementById('mult_inte').value;
+    integracion["total"] = parseInt(document.getElementById('out_inte').innerHTML);
+
+    var auxtotal = (perfiles["total"] + vista["total"] + negocio["total"] + persistencia["total"] + cuoriginal["total"]) / 7;
+    if (auxtotal == 0) {
+        auxtotal = 0;
+    } else if (auxtotal < 7.5) {
+        auxtotal = 5;
+    } else if (auxtotal < 12.5) {
+        auxtotal = 10;
+    } else if (auxtotal < 17.5) {
+        auxtotal = 15;
+    } else if (auxtotal < 22.5) {
+        auxtotal = 20;
+    } else {
+        auxtotal = 25;
+    }
+    casosUso["totalFila"] = auxtotal;
+
     var data = {};
-    data["name"] = "test52";
-    data["caseOfUse"] = "test123";
-    data["code"] = "test";
-    data["tablas"] = [ perfiles ];
+    data["casosUso"] = casosUso;
+    data["perfiles"] = perfiles;
+    data["vista"] = vista;
+    data["negocio"] = negocio;
+    data["persistencia"] = persistencia;
+    data["cuoriginal"] = cuoriginal;
+    data["integracion"] = integracion;
+
+    console.log(data);// pr
     $.ajax({
         type : "POST",
         url : "criterios/saveRow/" + id,

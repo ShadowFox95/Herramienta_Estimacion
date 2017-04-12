@@ -1,4 +1,4 @@
-var totalhoras = 240;
+var totalhoras = 240; // Cambiar por calculo real
 var totalNROCriterios = 0;
 var tcf_comptecnica_riesgo = 0;
 var tcf_arquitecturaref_riesgo = 0;
@@ -10,6 +10,7 @@ var POR_FASEANALISIS = 11;
 var POR_FASEPRUEBAS = 10;
 var EXT_GESTIONPROYECTO = 10;
 
+// Cambiar itrs por BD
 var itr_cen_gdo1 = 13.8306180811852;
 var itr_cen_gdo2 = 18.2090389615274;
 var itr_cen_gdo3 = 24.7538719574876;
@@ -112,14 +113,15 @@ function setCosteDelivery() {
     func3 = document.getElementById('testing_coste').innerHTML;
 }
 
-function setValuesDeliveryExt() {
-    testingExt = document.getElementById('testing_ext_por').innerHTML;
-    testingExt2 = document.getElementById('testing_ext_horas').innerHTML;
-    testingExt3 = document.getElementById('testing_ext_coste').innerHTML;
-    analisisExt = document.getElementById('analisis_ext_por').innerHTML;
-    analisisExt2 = document.getElementById('analisis_ext_horas').innerHTML;
-    analisisExt3 = document.getElementById('analisis_ext_coste').innerHTML;
-}
+/*
+ * function setValuesDeliveryExt() { testingExt =
+ * document.getElementById('testing_ext_por').innerHTML; testingExt2 =
+ * document.getElementById('testing_ext_horas').innerHTML; testingExt3 =
+ * document.getElementById('testing_ext_coste').innerHTML; analisisExt =
+ * document.getElementById('analisis_ext_por').innerHTML; analisisExt2 =
+ * document.getElementById('analisis_ext_horas').innerHTML; analisisExt3 =
+ * document.getElementById('analisis_ext_coste').innerHTML; }
+ */
 
 function setValuesExtras() {
     cal = document.getElementById('calidad_por').innerHTML;
@@ -133,17 +135,18 @@ function setValuesExtras() {
     desp3 = document.getElementById('despliegues_coste').innerHTML;
 }
 
-function setValuesExtrasExt() {
-    calidadExt = document.getElementById('calidad_ext_por').innerHTML;
-    seguridadExt = document.getElementById('seguridad_ext_por').innerHTML;
-    desplieguesExt = document.getElementById('despliegues_ext_por').innerHTML;
-    calidadExt2 = document.getElementById('calidad_ext_horas').innerHTML;
-    seguridadExt2 = document.getElementById('seguridad_ext_horas').innerHTML;
-    desplieguesExt2 = document.getElementById('despliegues_ext_horas').innerHTML;
-    calidadExt3 = document.getElementById('calidad_ext_coste').innerHTML;
-    seguridadExt3 = document.getElementById('seguridad_ext_coste').innerHTML;
-    desplieguesExt3 = document.getElementById('despliegues_ext_coste').innerHTML;
-}
+/*
+ * function setValuesExtrasExt() { calidadExt =
+ * document.getElementById('calidad_ext_por').innerHTML; seguridadExt =
+ * document.getElementById('seguridad_ext_por').innerHTML; desplieguesExt =
+ * document.getElementById('despliegues_ext_por').innerHTML; calidadExt2 =
+ * document.getElementById('calidad_ext_horas').innerHTML; seguridadExt2 =
+ * document.getElementById('seguridad_ext_horas').innerHTML; desplieguesExt2 =
+ * document.getElementById('despliegues_ext_horas').innerHTML; calidadExt3 =
+ * document.getElementById('calidad_ext_coste').innerHTML; seguridadExt3 =
+ * document.getElementById('seguridad_ext_coste').innerHTML; desplieguesExt3 =
+ * document.getElementById('despliegues_ext_coste').innerHTML; }
+ */
 
 function setValuesGobierno() {
     proy = document.getElementById('gestionproyecto_por').value;
@@ -154,11 +157,14 @@ function setValuesGobierno() {
     dm3 = document.getElementById('dm_coste').innerHTML;
 }
 
-function setValuesGobiernoExt() {
-    gestionProyectoExt = document.getElementById('gestionproyecto_ext_por').innerHTML;
-    gestionProyectoExt2 = document.getElementById('gestionproyecto_ext_horas').innerHTML;
-    gestionProyectoExt3 = document.getElementById('gestionproyecto_ext_coste').innerHTML;
-}
+/*
+ * function setValuesGobiernoExt() { gestionProyectoExt =
+ * document.getElementById('gestionproyecto_ext_por').innerHTML;
+ * gestionProyectoExt2 =
+ * document.getElementById('gestionproyecto_ext_horas').innerHTML;
+ * gestionProyectoExt3 =
+ * document.getElementById('gestionproyecto_ext_coste').innerHTML; }
+ */
 
 function calcCoste(id_name) {
     var aux = 0;
@@ -258,7 +264,7 @@ function sumaDelivery(id_name) {
     calcHoras(id_name);
     calcCoste(id_name);
     refreshTotalDelivery();
-    refreshTableDeliveryExt();
+    // refreshTableDeliveryExt();
 }
 
 function getPrevValue(id_value) {
@@ -269,14 +275,12 @@ function getPrevValue(id_value) {
     return prev_value;
 }
 
-function refreshTableDeliveryExt() {
-    var id_name = "testing";
-    selectDelivery(id_name);
-    id_name = "analisis";
-    selectDelivery(id_name);
-    id_name = "testing"; // Se requiere para recalcular el valor
-    selectDelivery(id_name);
-}
+/*
+ * function refreshTableDeliveryExt() { var id_name = "testing";
+ * selectDelivery(id_name); id_name = "analisis"; selectDelivery(id_name);
+ * id_name = "testing"; // Se requiere para recalcular el valor
+ * selectDelivery(id_name); }
+ */
 
 function selectDelivery(id_name) {
     var value = 0;
@@ -312,7 +316,7 @@ function selectDelivery(id_name) {
     calcHorasSel(id_name);
     calcCoste(id_name);
     refreshTotalDelivery();
-    calcDeliveryExt(id_name, aux2);
+    // calcDeliveryExt(id_name, aux2);
 }
 
 //
@@ -358,17 +362,19 @@ function selectExtras(id_name) {
         document.getElementById(id_name + '_por').innerHTML = "0";
         document.getElementById(id_name + '_horas').innerHTML = "0";
         document.getElementById(id_name + '_coste').innerHTML = "0.00";
-        id_name = id_name + '_ext';
+        // id_name = id_name + '_ext';
     } else {
-        document.getElementById(id_name + '_ext_por').innerHTML = "0";
-        document.getElementById(id_name + '_ext_horas').innerHTML = "0";
-        document.getElementById(id_name + '_ext_coste').innerHTML = "0.00";
-    }
-    document.getElementById(id_name + '_por').innerHTML = niv_value;
+        document.getElementById(id_name + '_por').innerHTML = niv_value;
+    }/*
+         * else { document.getElementById(id_name + '_ext_por').innerHTML = "0";
+         * document.getElementById(id_name + '_ext_horas').innerHTML = "0";
+         * document.getElementById(id_name + '_ext_coste').innerHTML = "0.00"; }
+         */
+
     calcHorasExtras(id_name);
     calcCoste(id_name);
     refreshTotalExtras();
-    refreshTotalExtrasExt();
+    // refreshTotalExtrasExt();
     // calcExtrasExt(id_name);
 }
 
@@ -418,22 +424,24 @@ function sumaGobiernoSelect(id_name) {
         id_value = (100 - parseInt(test)) + parseInt(id_value);
         document.getElementById(id_name + '_por').value = id_value;
     }
-    document.getElementById(id_name + '_ext_por').innerHTML = id_value;
+    // document.getElementById(id_name + '_ext_por').innerHTML = id_value;
     if (ip_value == 0) {
         // document.getElementById(id_name+'_por').value = 0;
         document.getElementById(id_name + '_horas').innerHTML = "0";
         document.getElementById(id_name + '_coste').innerHTML = "0.00"
-        id_name = id_name + "_ext";
+        id_value = 0;
+        // id_name = id_name + "_ext";
         calcHorasExtras(id_name);
     } else {
-        document.getElementById(id_name + '_ext_por').innerHTML = "0";
-        document.getElementById(id_name + '_ext_horas').innerHTML = "0";
-        document.getElementById(id_name + '_ext_coste').innerHTML = "0.00";
         calcHorasGobierno(id_name);
+        calcCoste(id_name);
+        // document.getElementById(id_name + '_ext_por').innerHTML = "0";
+        // document.getElementById(id_name + '_ext_horas').innerHTML = "0";
+        // document.getElementById(id_name + '_ext_coste').innerHTML = "0.00";
     }
-    calcCoste(id_name);
+
     refreshTotalGobierno();
-    refreshTotalGobiernoExt();
+    // refreshTotalGobiernoExt();
 }
 
 function getPrevValueGob(id_value) {
@@ -462,89 +470,97 @@ function refreshTotalGobierno() {
 
 // //////////////////////
 
-function calcDeliveryExt(id_name, aux) {
-    document.getElementById(id_name + '_ext_por').innerHTML = aux;
-    document.getElementById(id_name + '_ext_horas').innerHTML = Math.round(aux * (window.totaldeliveryhoras / 100));
-    refreshTotalDeliveryExt();
-    calcCoste(id_name + "_ext");
-    refreshTotalDeliveryExtCoste();
-}
+/*
+ * function calcDeliveryExt(id_name, aux) { document.getElementById(id_name +
+ * '_ext_por').innerHTML = aux; document.getElementById(id_name +
+ * '_ext_horas').innerHTML = Math.round(aux * (window.totaldeliveryhoras /
+ * 100)); refreshTotalDeliveryExt(); calcCoste(id_name + "_ext");
+ * refreshTotalDeliveryExtCoste(); }
+ */
 
-function refreshTotalDeliveryExt() {
-    setValuesDeliveryExt();
-    totaldeliveryext = parseInt(testingExt) + parseInt(analisisExt);
-    totaldeliveryhorasext = parseInt(testingExt2) + parseInt(analisisExt2);
-    document.getElementById('delivery_ext_por').innerHTML = window.totaldeliveryext + "%";
-    document.getElementById('delivery_ext_horas').innerHTML = window.totaldeliveryhorasext;
-}
+/*
+ * function refreshTotalDeliveryExt() { setValuesDeliveryExt(); totaldeliveryext =
+ * parseInt(testingExt) + parseInt(analisisExt); totaldeliveryhorasext =
+ * parseInt(testingExt2) + parseInt(analisisExt2);
+ * document.getElementById('delivery_ext_por').innerHTML =
+ * window.totaldeliveryext + "%";
+ * document.getElementById('delivery_ext_horas').innerHTML =
+ * window.totaldeliveryhorasext; }
+ */
 
-function refreshTotalDeliveryExtCoste() {
-    setValuesDeliveryExt();
-    totaldeliverycosteext = parseFloat(testingExt3) + parseFloat(analisisExt3);
-    document.getElementById('delivery_ext_coste').innerHTML = "&euro;&nbsp;" + window.totaldeliverycosteext.toFixed(2);
-    refreshTotalHorasOnSite();
-}
+/*
+ * function refreshTotalDeliveryExtCoste() { setValuesDeliveryExt();
+ * totaldeliverycosteext = parseFloat(testingExt3) + parseFloat(analisisExt3);
+ * document.getElementById('delivery_ext_coste').innerHTML = "&euro;&nbsp;" +
+ * window.totaldeliverycosteext.toFixed(2); refreshTotalHorasOnSite(); }
+ */
 
-function refreshTotalExtrasExt() {
-    setValuesExtrasExt();
-    totalextrasext = parseInt(calidadExt) + parseInt(seguridadExt) + parseInt(desplieguesExt);
-    totalextrashorasext = parseInt(calidadExt2) + parseInt(seguridadExt2) + parseInt(desplieguesExt2);
-    totalextrascosteext = parseFloat(calidadExt3) + parseFloat(seguridadExt3) + parseFloat(desplieguesExt3);
-    document.getElementById('extras_ext_por').innerHTML = window.totalextrasext + "%";
-    document.getElementById('extras_ext_horas').innerHTML = window.totalextrashorasext;
-    document.getElementById('extras_ext_coste').innerHTML = "&euro;&nbsp;" + window.totalextrascosteext.toFixed(2);
-    refreshTotalHorasOnSite();
-}
+/*
+ * function refreshTotalExtrasExt() { setValuesExtrasExt(); totalextrasext =
+ * parseInt(calidadExt) + parseInt(seguridadExt) + parseInt(desplieguesExt);
+ * totalextrashorasext = parseInt(calidadExt2) + parseInt(seguridadExt2) +
+ * parseInt(desplieguesExt2); totalextrascosteext = parseFloat(calidadExt3) +
+ * parseFloat(seguridadExt3) + parseFloat(desplieguesExt3);
+ * document.getElementById('extras_ext_por').innerHTML = window.totalextrasext +
+ * "%"; document.getElementById('extras_ext_horas').innerHTML =
+ * window.totalextrashorasext;
+ * document.getElementById('extras_ext_coste').innerHTML = "&euro;&nbsp;" +
+ * window.totalextrascosteext.toFixed(2); refreshTotalHorasOnSite(); }
+ */
 
-function refreshTotalGobiernoExt() {
-    setValuesGobiernoExt();
-    totalgobiernoext = parseInt(gestionProyectoExt);
-    totalgobiernohorasext = parseInt(gestionProyectoExt2);
-    totalgobiernocosteext = parseFloat(gestionProyectoExt3);
-    document.getElementById('gobierno_ext_por').innerHTML = window.totalgobiernoext + "%";
-    document.getElementById('gobierno_ext_horas').innerHTML = window.totalgobiernohorasext;
-    document.getElementById('gobierno_ext_coste').innerHTML = "&euro;&nbsp;" + window.totalgobiernocosteext.toFixed(2);
-    refreshTotalHorasCentroTesting();
-    refreshTotalHorasOnSite();
-}
+/*
+ * function refreshTotalGobiernoExt() { setValuesGobiernoExt(); totalgobiernoext =
+ * parseInt(gestionProyectoExt); totalgobiernohorasext =
+ * parseInt(gestionProyectoExt2); totalgobiernocosteext =
+ * parseFloat(gestionProyectoExt3);
+ * document.getElementById('gobierno_ext_por').innerHTML =
+ * window.totalgobiernoext + "%";
+ * document.getElementById('gobierno_ext_horas').innerHTML =
+ * window.totalgobiernohorasext;
+ * document.getElementById('gobierno_ext_coste').innerHTML = "&euro;&nbsp;" +
+ * window.totalgobiernocosteext.toFixed(2); // refreshTotalHorasCentroTesting(); //
+ * refreshTotalHorasOnSite(); }
+ */
 
 // //////////////////////
-
 function refreshTotalHorasADMDW() {
     totalHorasADMDW = parseInt(totaldeliveryhoras) + parseInt(totalextrashoras) + parseInt(totalgobiernohoras);
     totalCosteADMDW = parseFloat(totaldeliverycoste) + parseFloat(totalextrascoste) + parseFloat(totalgobiernocoste);
     document.getElementById('totalhoras_admdw').innerHTML = totalHorasADMDW;
     document.getElementById('totalcoste_admdw').innerHTML = totalCosteADMDW.toFixed(2);
-    refreshTotalValorFinal();
+    // refreshTotalValorFinal();
+    calcHorasContingencia();
 }
-
-function refreshTotalHorasCentroTesting() {
-    totalHorasCentroTesting = document.getElementById('testing_ext_horas').innerHTML;
-    totalCosteCentroTesting = document.getElementById('testing_ext_coste').innerHTML;
-    document.getElementById('totalhoras_centrotesting').innerHTML = parseInt(totalHorasCentroTesting);
-    document.getElementById('totalcoste_centrotesting').innerHTML = parseFloat(totalCosteCentroTesting).toFixed(2);
-    refreshTotalValorFinal();
-}
-
-function refreshTotalHorasOnSite() {
-    var aux = document.getElementById('testing_ext_horas').innerHTML;
-    var aux2 = document.getElementById('analisis_ext_coste').innerHTML;
-    totalHorasOnSite = parseInt(totaldeliveryhorasext) - parseInt(aux) + parseInt(totalextrashorasext)
-            + parseInt(totalgobiernohorasext);
-    totalCosteOnSite = parseFloat(aux2) + parseFloat(totalextrascosteext) + parseFloat(totalgobiernocosteext);
-    document.getElementById('totalhoras_onsite').innerHTML = totalHorasOnSite;
-    document.getElementById('totalcoste_onsite').innerHTML = totalCosteOnSite.toFixed(2);
-    refreshTotalValorFinal();
-}
-
-function refreshTotalValorFinal() {
-    totalValorFinal = parseInt(totalHorasADMDW) + parseInt(totalHorasCentroTesting) + parseInt(totalHorasOnSite);
-    totalValorFinalCoste = parseFloat(totalCosteADMDW) + parseFloat(totalCosteCentroTesting)
-            + parseFloat(totalCosteOnSite);
-    document.getElementById('totalhoras_valorfinal').innerHTML = totalValorFinal;
-    document.getElementById('totalcoste_valorfinal').innerHTML = "&euro;&nbsp;" + totalValorFinalCoste.toFixed(2);
-    calcHorasContingencia();// Provisional
-}
+/*
+ * function refreshTotalHorasCentroTesting() { totalHorasCentroTesting =
+ * document.getElementById('testing_ext_horas').innerHTML;
+ * totalCosteCentroTesting =
+ * document.getElementById('testing_ext_coste').innerHTML;
+ * document.getElementById('totalhoras_centrotesting').innerHTML =
+ * parseInt(totalHorasCentroTesting);
+ * document.getElementById('totalcoste_centrotesting').innerHTML =
+ * parseFloat(totalCosteCentroTesting).toFixed(2); refreshTotalValorFinal(); }
+ * 
+ * function refreshTotalHorasOnSite() { var aux =
+ * document.getElementById('testing_ext_horas').innerHTML; var aux2 =
+ * document.getElementById('analisis_ext_coste').innerHTML; totalHorasOnSite =
+ * parseInt(totaldeliveryhorasext) - parseInt(aux) +
+ * parseInt(totalextrashorasext) + parseInt(totalgobiernohorasext);
+ * totalCosteOnSite = parseFloat(aux2) + parseFloat(totalextrascosteext) +
+ * parseFloat(totalgobiernocosteext);
+ * document.getElementById('totalhoras_onsite').innerHTML = totalHorasOnSite;
+ * document.getElementById('totalcoste_onsite').innerHTML =
+ * totalCosteOnSite.toFixed(2); refreshTotalValorFinal(); }
+ * 
+ * function refreshTotalValorFinal() { totalValorFinal =
+ * parseInt(totalHorasADMDW) + parseInt(totalHorasCentroTesting) +
+ * parseInt(totalHorasOnSite); totalValorFinalCoste =
+ * parseFloat(totalCosteADMDW) + parseFloat(totalCosteCentroTesting) +
+ * parseFloat(totalCosteOnSite);
+ * document.getElementById('totalhoras_valorfinal').innerHTML = totalValorFinal;
+ * document.getElementById('totalcoste_valorfinal').innerHTML = "&euro;&nbsp;" +
+ * totalValorFinalCoste.toFixed(2); calcHorasContingencia(); }
+ */
 
 function calcHorasContingencia() {
     horasContingencia = (totalhoras * tcf_comptecnica_riesgo * tcf_arquitecturaref_riesgo) - totalhoras;
@@ -557,5 +573,6 @@ function calcTotalHoras() {
     tcf_compTecnica_impacto = document.getElementById("tcf_impacto").innerHTML;
     ecf_factCompljAmbiental = document.getElementById("ecf").innerHTML;
     tcf_arquitecturaRef_impacto = document.getElementById("tcf_impacto2").innerHTML;
-    totalhoras = totalNROCriterios * factorProductividad * tcf_compTecnica_impacto * ecf_factCompljAmbiental * tcf_arquitecturaRef_impacto;
+    totalhoras = totalNROCriterios * factorProductividad * tcf_compTecnica_impacto * ecf_factCompljAmbiental
+            * tcf_arquitecturaRef_impacto;
 }

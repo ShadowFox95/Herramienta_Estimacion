@@ -17,6 +17,8 @@
 <!-- Ajax -->
 <spring:url value="/resources/core/ajax/CriteriosAjax.js" var="CriteriosAjax" />
 <spring:url value="/resources/core/ajax/ProyectoAjax.js" var="ProyectoAjax" />
+<spring:url value="/resources/core/ajax/FactoresAjax.js" var="FactoresAjax" />
+<spring:url value="/resources/core/ajax/HorasCosteAjax.js" var="HorasCosteAjax" />
 
 <script src="${controlJs}"></script>
 <script src="${bigDecimal}"></script>
@@ -29,3 +31,5 @@
 
 <script src="${CriteriosAjax}"></script>
 <script src="${ProyectoAjax}"></script>
+<script src="${FactoresAjax}"></script>
+<script src="${HorasCosteAjax}"></script>

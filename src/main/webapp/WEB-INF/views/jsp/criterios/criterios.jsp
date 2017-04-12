@@ -70,6 +70,7 @@
                            
                         </tbody>
                      </table>
+                     <input type="hidden" id="totalNROCriterios" value="0">
                      <!-- /.table-responsive -->
                      
                      <!-- Notification -->

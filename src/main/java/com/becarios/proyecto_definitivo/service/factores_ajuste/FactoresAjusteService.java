@@ -7,7 +7,6 @@ import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorAjuste;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
 import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
 
-
 public interface FactoresAjusteService {
 
     List<FactorAjuste> findFactoresAjusteById(int id);
@@ -19,4 +18,6 @@ public interface FactoresAjusteService {
     List<ArquitecturaReferencia> findArquitecturaReferenciaById(int id);
 
     boolean save(Object row);
+
+    void saveFactorAjuste(FactorAjuste f);
 }

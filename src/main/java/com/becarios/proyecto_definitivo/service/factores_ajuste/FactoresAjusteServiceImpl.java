@@ -16,14 +16,13 @@ import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidad
 @Transactional
 public class FactoresAjusteServiceImpl implements FactoresAjusteService {
 
-     @Autowired
+    @Autowired
     private FactorAjusteDao factoresAjusteDao;
-
 
     @Override
     public List<FactorAjuste> findFactoresAjusteById(int id) {
         return factoresAjusteDao.findAllFacAjus(id);
-        
+
     }
 
     @Override
@@ -47,16 +46,21 @@ public class FactoresAjusteServiceImpl implements FactoresAjusteService {
             // factoresAjusteDao.saveFactoresAjuste((FactorAjuste) row);
 
         } else if (row instanceof FactorComplejidadAmbiental) {
-        	factoresAjusteDao.saveFacAmb((FactorComplejidadAmbiental) row);
+            factoresAjusteDao.saveFacAmb((FactorComplejidadAmbiental) row);
 
         } else if (row instanceof FactorComplejidadTecnica) {
-        	factoresAjusteDao.saveFacTec((FactorComplejidadTecnica) row);
+            factoresAjusteDao.saveFacTec((FactorComplejidadTecnica) row);
 
         } else if (row instanceof ArquitecturaReferencia) {
-        	factoresAjusteDao.saveArqRef((ArquitecturaReferencia) row);
+            factoresAjusteDao.saveArqRef((ArquitecturaReferencia) row);
 
         }
         return false;
+    }
+
+    @Override
+    public void saveFactorAjuste(FactorAjuste f) {
+        factoresAjusteDao.saveFacAjus(f);
     }
 
 }
