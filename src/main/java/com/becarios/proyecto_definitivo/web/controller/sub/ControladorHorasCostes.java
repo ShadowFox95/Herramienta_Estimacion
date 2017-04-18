@@ -81,9 +81,7 @@ public class ControladorHorasCostes {
     }
 
     @RequestMapping(value = "/costes/{id}/save", method = RequestMethod.GET)
-    public String save(@PathVariable("id") int id)
-
-    {
+    public String save(@PathVariable("id") int id) {
         // Centro ADM-DW
         Delivery gestionConfiguracion = new Delivery();
         gestionConfiguracion.setIdProyecto(1);
@@ -104,25 +102,6 @@ public class ControladorHorasCostes {
         GestionCalidad.setCoste(1);
         service.save(GestionCalidad);
 
-        /*
-         * Gestion GestionSeguridad = new Gestion(); GestionSeguridad.setNombre(
-         * "Gestión de seguridad"); GestionSeguridad.setNivel(seguridadNivel);
-         * GestionSeguridad.setPorcentaje(seguridadPorcentaje);
-         * GestionSeguridad.setInternaPractica(seguridadInternaPractica);
-         * GestionSeguridad.setHoras(seguridadHoras);
-         * GestionSeguridad.setCoste(seguridadCoste);
-         * service.save(GestionSeguridad);
-         * 
-         * Gestion GestionDespliegues = new Gestion();
-         * GestionDespliegues.setNombre("Gestión de despliegues");
-         * GestionDespliegues.setNivel(desplieguesNivel);
-         * GestionDespliegues.setPorcentaje(desplieguesPorcentaje);
-         * GestionDespliegues.setInternaPractica(desplieguesInternaPractica);
-         * GestionDespliegues.setHoras(desplieguesHoras);
-         * GestionDespliegues.setCoste(desplieguesCoste);
-         * service.save(GestionDespliegues);
-         */
-
         // Gobierno
         Gobierno GestionProyecto = new Gobierno();
         GestionProyecto.setIdProyecto(1);
@@ -133,14 +112,6 @@ public class ControladorHorasCostes {
         GestionProyecto.setCoste(1);
         service.save(GestionProyecto);
 
-        /*
-         * Gobierno GestionDm = new Gobierno(); GestionDm.setNombre(
-         * "Gestion del DM"); GestionDm.setPorcentaje(gestionDmPorcentaje);
-         * GestionDm.setInternaPractica(gestionDmInternaPractica);
-         * GestionDm.setHoras(gestionDmHoras);
-         * GestionDm.setCoste(gestionDmCoste); service.save(GestionDm);
-         */
-
         Deliveryexterno testingExterno = new Deliveryexterno();
         testingExterno.setIdProyecto(1);
         testingExterno.setNombre("Centro de Testing");
@@ -148,14 +119,6 @@ public class ControladorHorasCostes {
         testingExterno.setHoras(1);
         testingExterno.setCoste(1);
         service.save(testingExterno);
-
-        /*
-         * Deliveryexterno analisisExterno = new Deliveryexterno();
-         * analisisExterno.setIdProyecto(1);
-         * analisisExterno.setNombre("Análisis");
-         * analisisExterno.setPorcentaje(1); analisisExterno.setHoras(1);
-         * analisisExterno.setCoste(1); service.save(analisisExterno);
-         */
 
         Gestionexterno calidadExterno = new Gestionexterno();
         calidadExterno.setIdProyecto(1);
@@ -165,29 +128,6 @@ public class ControladorHorasCostes {
         calidadExterno.setCoste(1);
         service.save(calidadExterno);
 
-        /*
-         * Gestionexterno seguridadExterno = new Gestionexterno();
-         * seguridadExterno.setNombre("Gestión de seguridad");
-         * seguridadExterno.setPorcentaje(seguridadExtPorcentaje);
-         * seguridadExterno.setHoras(seguridadExtHoras);
-         * seguridadExterno.setCoste(seguridadExtCoste);
-         * service.save(seguridadExterno);
-         * 
-         * Gestionexterno desplieguesExterno = new Gestionexterno();
-         * desplieguesExterno.setNombre("Gestión de despliegues");
-         * desplieguesExterno.setPorcentaje(desplieguesExtPorcentaje);
-         * desplieguesExterno.setHoras(desplieguesExtHoras);
-         * desplieguesExterno.setCoste(desplieguesExtCoste);
-         * service.save(desplieguesExterno);
-         * 
-         * Gobiernoexterno gestionProyectoExterno = new Gobiernoexterno();
-         * gestionProyectoExterno.setNombre("Gestión del proyecto");
-         * gestionProyectoExterno.setPorcentaje(gestionProyectoExtPorcentaje);
-         * gestionProyectoExterno.setHoras(gestionProyectoExtHoras);
-         * gestionProyectoExterno.setCoste(gestionProyectoExtCoste);
-         * service.save(gestionProyectoExterno);
-         */
-
         // Valoracion Final
         Valoracionfinal totalADM = new Valoracionfinal();
         totalADM.setIdProyecto(1);
@@ -195,18 +135,6 @@ public class ControladorHorasCostes {
         totalADM.setHoras(1);
         totalADM.setCoste(1);
         service.save(totalADM);
-
-        /*
-         * Valoracionfinal totalTesting = new Valoracionfinal();
-         * totalTesting.setNombre("Total centro de Testing");
-         * totalTesting.setHoras(totalTestingHoras);
-         * totalTesting.setCoste(totalTestingCoste); service.save(totalTesting);
-         * 
-         * Valoracionfinal totalOnSite = new Valoracionfinal();
-         * totalOnSite.setNombre("Total OnSite");
-         * totalOnSite.setHoras(totalOnSiteHoras);
-         * totalOnSite.setCoste(totalOnSiteCoste); service.save(totalOnSite);
-         */
 
         // Riesgo
         Riesgo riesgo = new Riesgo();
