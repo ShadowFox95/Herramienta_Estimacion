@@ -2,6 +2,7 @@ package com.becarios.proyecto_definitivo.service.criterios;
 
 import java.util.List;
 
+import com.becarios.proyecto_definitivo.dto.criterios.TablasEditDto;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 
 public interface ModuleService {
@@ -25,4 +26,6 @@ public interface ModuleService {
             int integracionTotal, int integracionNro, int integracionComplejidad);
 
     List<Object> findAllTablas(int idModulo);
+
+    void editTable(int idProyecto, int id, TablasEditDto tablas);
 }

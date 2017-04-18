@@ -80,7 +80,7 @@ function calculate2(fila) {
     } else {
         document.getElementById(fila + "_definido").disabled = false;
 
-        var definido = 0;
+        var definido = false;
         definido = document.getElementById(fila + "_definido").value;
         if (definido == 0) {
             document.getElementById(fila + "_conocimiento").disabled = true;
