@@ -3,22 +3,7 @@
 <html>
 	<head>
 		<title>EF - Proyectos</title>
-		 <script type="text/javascript">
-      	$( "#projectTable" ).ready(function() {
-      		 $.ajax({
-		        type : "POST",
-		        url : "projectAjax",
-		        success : function(project) {
-		            console.log(project);
-		            refreshTableProject(project);
-		        },
-		        error : function(e) {
-		            console.log('Error: ' + e);
-		        }
-		    });
-        });
-      	
-		</script>
+
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -43,7 +28,7 @@
 									<th class="col-xs-5">Descripción</th>
 								</tr>
 							</thead>
-							<tbody id="projectTable">
+							<tbody >
 
 							</tbody>
 						</table>

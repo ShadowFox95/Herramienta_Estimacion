@@ -15,7 +15,22 @@
 <spring:url value="/resources/core/res/jquery/jquery.min.js" var="jQuery" />
 <script src="${jQuery}"></script>
 <script src="${bootstrapJs}"></script>
-
+		 <script type="text/javascript">
+      	$( "#projectTable" ).ready(function() {
+      		 $.ajax({
+		        type : "POST",
+		        url : "projectAjax",
+		        success : function(project) {
+		            console.log(project);
+		            refreshTableProject(project);
+		        },
+		        error : function(e) {
+		            console.log('Error: ' + e);
+		        }
+		    });
+        });
+      	
+		</script>
 
 
 </head>
@@ -35,10 +50,14 @@
     	      				<b>Proyectos</b> <span class="fa arrow"></span>
     	      			</a>
     	      			<div class="collapse" id="toggleDemo" style="height: 0px;">
+    	      			 
     	       				<ul class="expandibles">
-								<c:forEach var="proyecto" items="${proyectos}">
-    	          					<li><a href="/proyecto-definitivo/cargar/${proyecto.codigo}">${proyecto.nombre} (${proyecto.codigo})</a></li>
-								</c:forEach>
+    	       				<div id="projectTable">
+    	       						
+    	       				</div>
+							
+    	          			
+							
 								</ul>
 								<ul>
 							<li>

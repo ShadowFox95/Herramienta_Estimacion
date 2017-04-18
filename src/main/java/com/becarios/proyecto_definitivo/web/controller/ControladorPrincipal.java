@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.becarios.proyecto_definitivo.dto.ProyectoDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
-import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.service.ProjectService;
 
 @Controller
@@ -33,39 +32,37 @@ public class ControladorPrincipal {
 
     @RequestMapping(value = "/projectAjax", method = RequestMethod.POST)
     public @ResponseBody List<Proyecto> loadTabla() {
-    	
+
         return project.findAllProjects();
     }
-    
-    
-   @RequestMapping(value = "/", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect(ModelMap model) {
 
-     //   model.addAttribute("projectes", project.findAllProjects());
+        model.addAttribute("projectes", project.findAllProjects());
 
-       model.addAttribute("control", control);
+        model.addAttribute("control", control);
 
-        
         return "forward:/criterios";
     }
-   
-   @RequestMapping(value = "/project/edit/{idToEdit}", method = RequestMethod.POST)
-   @ResponseBody
-   public List<Proyecto> editRowAjaxProject(@PathVariable("idToEdit") int id) {
-       List<Proyecto> lista = project.findAllProjects();
-       return lista;
-   }
+
+    @RequestMapping(value = "/project/edit/{idToEdit}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Proyecto> editRowAjaxProject(@PathVariable("idToEdit") int id) {
+        List<Proyecto> lista = project.findAllProjects();
+        return lista;
+    }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
-    	
+
         return "/index";
 
     }
 
     @RequestMapping(value = "/projecte/delete/{idToDelete}", method = RequestMethod.DELETE)
     public @ResponseBody List<Proyecto> deleteProjectAjax(ModelMap model, @PathVariable("idToDelete") int id) {
-    	project.deleteProjectByCode(id); 
+        project.deleteProjectByCode(id);
 
         return project.findAllProjects();
     }
