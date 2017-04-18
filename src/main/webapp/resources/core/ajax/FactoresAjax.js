@@ -6,6 +6,7 @@ function doAjaxSaveFactores() {
     var aux1;
     var aux2;
     var boolean;
+    var aux11;
     // Factores Complejidad Tecnica
     var factoresComplejidadTecnica1 = {};
     factoresComplejidadTecnica1["nombre"] = "rendimiento";
@@ -118,14 +119,18 @@ function doAjaxSaveFactores() {
     }
     arquitecturaReferencia1["aplica"] = boolean;
     if (!document.getElementById('solucion_definido').disabled) {
-        aux1 = document.getElementById('solucion_definido').value;
+        if(document.getElementById('solucion_definido').value == 0){
+        	aux1=false;
+        }else{
+        	aux1=true
+        }
         if (!document.getElementById('solucion_conocimiento').disabled) {
             aux2 = document.getElementById('solucion_conocimiento').value;
         } else {
-            aux2 = 0;
+            aux2=false;
         }
     } else {
-        aux1 = 0;
+        aux1 = false;
     }
     arquitecturaReferencia1["definido"] = aux1;
     arquitecturaReferencia1["gradoConocimento"] = aux2;
@@ -141,14 +146,18 @@ function doAjaxSaveFactores() {
     }
     arquitecturaReferencia2["aplica"] = boolean;
     if (!document.getElementById('integracion_definido').disabled) {
-        aux1 = document.getElementById('integracion_definido').value;
+        if(document.getElementById('solucion_definido').value == 0){
+        	aux1=false;
+        }else{
+        	aux1=true
+        }
         if (!document.getElementById('integracion_conocimiento').disabled) {
             aux2 = document.getElementById('integracion_conocimiento').value;
         } else {
             aux2 = 0;
         }
     } else {
-        aux1 = 0;
+        aux1 = false;
     }
     arquitecturaReferencia2["definido"] = aux1;
     arquitecturaReferencia2["gradoConocimento"] = aux2;
@@ -164,14 +173,18 @@ function doAjaxSaveFactores() {
     }
     arquitecturaReferencia3["aplica"] = boolean;
     if (!document.getElementById('logica_definido').disabled) {
-        aux1 = document.getElementById('logica_definido').value;
+        if(document.getElementById('solucion_definido').value == 0){
+        	aux1=false;
+        }else{
+        	aux1=true
+        }
         if (!document.getElementById('logica_conocimiento').disabled) {
             aux2 = document.getElementById('logica_conocimiento').value;
         } else {
             aux2 = 0;
         }
     } else {
-        aux1 = 0;
+        aux1 = false;
     }
     arquitecturaReferencia3["definido"] = aux1;
     arquitecturaReferencia3["gradoConocimento"] = aux2;
@@ -187,14 +200,18 @@ function doAjaxSaveFactores() {
     }
     arquitecturaReferencia4["aplica"] = boolean;
     if (!document.getElementById('despliegue_definido').disabled) {
-        aux1 = document.getElementById('despliegue_definido').value;
+        if(document.getElementById('solucion_definido').value == 0){
+        	aux1=false;
+        }else{
+        	aux1=true
+        }
         if (!document.getElementById('despliegue_conocimiento').disabled) {
             aux2 = document.getElementById('despliegue_conocimiento').value;
         } else {
             aux2 = 0;
         }
     } else {
-        aux1 = 0;
+        aux1 = false;
     }
     arquitecturaReferencia4["definido"] = aux1;
     arquitecturaReferencia4["gradoConocimento"] = aux2;
@@ -243,5 +260,8 @@ function doAjaxSaveFactores() {
         success : function() {
 
         },
+        error : function(e) {
+            console.log('Error: ' + e);
+        }
     });
 }

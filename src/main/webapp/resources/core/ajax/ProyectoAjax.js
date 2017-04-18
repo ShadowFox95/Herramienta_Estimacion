@@ -1,3 +1,9 @@
+function doAjaxSaveAll() {
+    doAjaxSaveFactores();
+   doAjaxSaveHorasCoste();
+    // Implementar SavePiramide
+}
+
 function refreshTableProject(project) {
     var table = "";
     if (project.length == 0) {
@@ -8,12 +14,26 @@ function refreshTableProject(project) {
             table += "<td>" + project[i].codigoProyecto + "</td>";
             table += "<td>" + project[i].descripcion;
             table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"
-                    + project[i].id
-                    + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
-                    + project[i].id + "' onClick='doAjaxEditProject(id)'/></div>";
+                + project[i].id
+                + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
+                + project[i].id + "' onClick='doAjaxEditProject(id)'/></div>";
             table += "</td></tr>";
         }
     }
+    
+    
+    
+    /*
+     * 
+     * table += "<td>" + project[i].descripcion;
+    table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"
+        + project[i].id
+        + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
+        + project[i].id + "' onClick='doAjaxEditProject(id)'/></div>";
+table += "</td></tr>";
+    
+    */
+    
 
     $("#projectTable").html(table);
 }
@@ -145,7 +165,7 @@ function doAjaxGetTablas(tablas) {
 function doAjaxEditProject(id) {
         $.ajax({
             type : "POST",
-            url : "criterios/edit/" + id,
+            url : "project/edit/" + id,
             success : function(project) {
                 console.log(project);
                 doAjaxLoadProjectTables(project);

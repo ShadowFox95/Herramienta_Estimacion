@@ -19,6 +19,7 @@ import com.becarios.proyecto_definitivo.dto.criterios.IntegracionDto;
 import com.becarios.proyecto_definitivo.dto.criterios.NegocioDto;
 import com.becarios.proyecto_definitivo.dto.criterios.PerfilesDto;
 import com.becarios.proyecto_definitivo.dto.criterios.PersistenciaDto;
+import com.becarios.proyecto_definitivo.dto.criterios.TablasEditDto;
 import com.becarios.proyecto_definitivo.dto.criterios.VistaDto;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUsoId;
@@ -32,6 +33,9 @@ import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
 
 @Controller
 public class ControladorCriterios {
+
+    @Autowired
+    private ModuleService service;
 
     private String show = "";
 
@@ -73,13 +77,12 @@ public class ControladorCriterios {
     }
 
     @RequestMapping(value = "/criterios/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody List<CasosDeUso> saveRowAjax(ModelMap model, @PathVariable("idToSave") String code,
-            @RequestBody CasosDeUso data) {
-        moduleService.saveModulo(data);
-        
+    public @ResponseBody List<CasosDeUso> saveRowAjax(@PathVariable("idToSave") String code,
+            @RequestBody TablasEditDto data) {
+
+        moduleService.editTable(1, Integer.parseInt(code), data);
         // Cambiar '0' por 'idProyecto'
         return moduleService.findAllModulo(1);
-
     }
 
     @RequestMapping(value = "/criterios/delete/{idToDelete}", method = RequestMethod.DELETE)

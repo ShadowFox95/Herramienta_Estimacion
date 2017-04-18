@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.becarios.proyecto_definitivo.dao.criterios.ModuleDao;
+import com.becarios.proyecto_definitivo.dto.criterios.TablasEditDto;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUsoId;
 import com.becarios.proyecto_definitivo.model.criterios.Cuoriginal;
@@ -78,6 +79,19 @@ public class ModuleServiceImpl implements ModuleService {
         Integracion integracion = new Integracion(idRow, 1, 2, 2);
 
         dao.saveAllTablas(perfiles, vista, negocio, persistencia, cuoriginal, integracion);
+    }
+
+    @Override
+    public void editTable(int idProyecto, int id, TablasEditDto tablas) {
+        CasosDeUso c = tablas.getCasosUso();
+        CasosDeUsoId cid = new CasosDeUsoId();
+        cid.setId(c.getId().getId());
+        cid.setIdProyecto(idProyecto);
+        c.setIdProyecto(idProyecto);
+        c.setId(cid);
+        dao.saveModule(c);
+        dao.saveAllTablas(tablas.getPerfiles(), tablas.getVista(), tablas.getNegocio(), tablas.getPersistencia(),
+                tablas.getCuoriginal(), tablas.getIntegracion());
     }
 
     @Override

@@ -57,7 +57,7 @@
 	         	</div>	
 	         	<div class="panel-body">
 	         	<div class="col-xs-8">
-			<div class="panel panel-default ">
+<div class="panel panel-default ">
 					<div class="panel-heading">
 					<strong>¿Editado?</strong> 
 					</div>
