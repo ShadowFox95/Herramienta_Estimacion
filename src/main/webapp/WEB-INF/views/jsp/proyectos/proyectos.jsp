@@ -43,10 +43,7 @@
 									<th class="col-xs-5">Descripción</th>
 								</tr>
 							</thead>
-							<tbody >
-								<div id="projectTable">
-								
-								</div>
+							<tbody id="projectTable" >
 							</tbody>
 						</table>
 					</div>

@@ -16,7 +16,7 @@
 <script src="${jQuery}"></script>
 <script src="${bootstrapJs}"></script>
 		 <script type="text/javascript">
-      	$( "#projectTable" ).ready(function() {
+      	$( "#projectList" ).ready(function() {
       		 $.ajax({
 		        type : "POST",
 		        url : "projectAjax",
@@ -52,7 +52,7 @@
     	      			<div class="collapse" id="toggleDemo" style="height: 0px;">
     	      			 
     	       				<ul class="expandibles">
-    	       				<div id="projectTable">
+    	       				<div id="projectList">
     	       						
     	       				</div>
 							

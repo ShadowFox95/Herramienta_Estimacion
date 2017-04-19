@@ -31,9 +31,10 @@ function refreshTableProject(project) { // Project es una lista
         for (i = 0; i < project.length; i++) {
             table += "<li><a onclick='doAjaxEditProject("+project[i].id+")'>" + project[i].nombre +" ("+project[i].codigoProyecto+")"+ "</a></li";
 
-    $("#projectTable").html(table);
+    $("#projectList").html(table);
 }
 }}
+
 
 function refreshProjectInfo(project){ // Project es un objeto
     var table = "";
@@ -45,7 +46,10 @@ function refreshProjectInfo(project){ // Project es un objeto
         + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
         + project.id + "' onClick='doAjaxEditProject(id)'/></div>";
     table += "</td></tr>";
+
+    $("#projectTable").html(table);
 }
+
 //table += "<td>" + project[i].codigoProyecto + "</td>";
 
 
