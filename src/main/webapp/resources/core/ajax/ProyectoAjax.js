@@ -29,22 +29,22 @@ function refreshTableProject(project) {
         table = "";
     } else {
         for (i = 0; i < project.length; i++) {
-            table += "<li><a href="
-            ">" + project[i].nombre + "</td>";
-            table += "<td>" + project[i].codigoProyecto + "</td>";
-            table += "<td>" + project[i].descripcion;
-            table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"
-                    + project[i].id
-                    + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
-                    + project[i].id + "' onClick='doAjaxEditProject(id)'/></div>";
-            table += "</td></tr>";
-        }
-    }
-    /*
-     * <li><a
-     * href="/proyecto-definitivo/cargar/${proyecto.codigo}">${proyecto.nombre}
-     * (${proyecto.codigo})</a></li>
-     */
+            table += "<li><a href=\"/proyecto-definitivo/cargar/${proyecto.codigo}\">" + project[i].nombre +" ("+project[i].codigo+")"+ "</a></li";
+// table += "<td>" + project[i].codigoProyecto + "</td>";
+          
+ //"<td>" + project[i].descripcion;
+            // table 
+            //e='float:right'><button type='submit'
+            // class='button delete glyphicon glyphicon-trash' id='"
+            // + 
+
+            // + "' onClick='doAjaxDid)'/></div><div
+            // style='float:right'><button type='submit' class='button edit
+            // glyphicon glyphicon-pencil' id='"
+            // + project[
+            // Click='doAjaxEditProject(id)'/></div>";
+            // table += "</td></tr>";
+      
 
     /*
      * 
@@ -59,6 +59,7 @@ function refreshTableProject(project) {
 
     $("#projectTable").html(table);
 }
+}}
 
 function editProject(project, id) {
     var tabla = "";
@@ -93,13 +94,12 @@ function editProject(project, id) {
  * F�cil"; } else if (module[i].totalFila < 12.5) { table += "<td class='center success'>F�cil"; }
  * else if (module[i].totalFila < 17.5) { table += "<td class='center warning'>Normal"; }
  * else if (module[i].totalFila < 22.5) { table += "<td class='center danger'>Complicado"; }
- * else { table += "<td class='center danger2'>Muy Complicado"; }
- *  // table += "<div style='float:right'><button type='submit' //
- * class='button delete glyphicon glyphicon-trash' // id='"+module[i].code //
- * +"' onClick='doAjaxDelete(id)'/></div><div // style='float:right'><button
- * type='submit' class='button edit // glyphicon glyphicon-pencil'
- * id='"+module[i].code+"' // onClick='doAjaxEdit(id)'/></div>"; table += "</td></tr>"; } } //
- * table = selected + table; }
+ * else { table += "<td class='center danger2'>Muy Complicado"; } // table += "<div
+ * style='float:right'><button type='submit' // class='button delete glyphicon
+ * glyphicon-trash' // id='"+module[i].code // +"' onClick='doAjaxDelete(id)'/></div><div //
+ * style='float:right'><button type='submit' class='button edit // glyphicon
+ * glyphicon-pencil' id='"+module[i].code+"' // onClick='doAjaxEdit(id)'/></div>";
+ * table += "</td></tr>"; } } // table = selected + table; }
  * 
  * $("#moduleTable").html(table); }
  */
@@ -130,8 +130,7 @@ function editProject(project, id) {
  * function doAjaxAddRow() { $.ajax({ type : "POST", url : "criterios/addRow",
  * success : function(module) { $("#showAtributos").hide(); console.log(module);
  * refreshTable(module); }, error : function(e) { console.log('Error: ' + e); }
- * });
- *  }
+ * }); }
  * 
  * function doAjaxGetTablas(tablas) { $.ajax({ type : "POST", url :
  * "criteriosAjax", success : function(module) { editTable(module, tablas); }
@@ -149,7 +148,6 @@ function doAjaxEditProject(id) {
             console.log('Error: ' + e);
         }
     });
-
 }
 /*
  * function doAjaxSaveRow(id) { var perfiles = {}; perfiles["complejidad"] = 0;
