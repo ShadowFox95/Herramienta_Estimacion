@@ -29,7 +29,7 @@ function refreshTableProject(project) { // Project es una lista
         table = "";
     } else {
         for (i = 0; i < project.length; i++) {
-            table += "<li><a onclick='doAjaxEditProject("+project[i].id+")'>" + project[i].nombre +" ("+project[i].codigoProyecto+")"+ "</a></li";
+            table += "<li><a onclick='doAjaxEditProject("+project[i].id+")'>" + project[i].nombre +" ("+project[i].codigoProyecto+")"+ "</a></li>";
 
     $("#projectList").html(table);
 }

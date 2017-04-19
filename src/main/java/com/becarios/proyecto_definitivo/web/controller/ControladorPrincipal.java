@@ -49,6 +49,7 @@ public class ControladorPrincipal {
     @RequestMapping(value = "/project/edit/{idToEdit}", method = RequestMethod.POST)
     @ResponseBody
     public Proyecto editRowAjaxProject(@PathVariable("idToEdit") int id) {
+        idProyecto = id;
         Proyecto p = project.findByCode(id);
         return p;
     }

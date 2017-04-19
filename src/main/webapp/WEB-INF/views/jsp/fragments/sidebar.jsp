@@ -49,9 +49,9 @@
     	      			<a href="#" id="collapsable" data-toggle="collapse" data-target="#toggleDemo" class="collapsed" aria-expanded="false">
     	      				<b>Proyectos</b> <span class="fa arrow"></span>
     	      			</a>
+    	      			
     	      			<div class="collapse" id="toggleDemo" style="height: 0px;">
-    	      			 
-    	       				<ul class="expandibles">
+    	      			<ul class="expandibles">
     	       				<div id="projectList">
     	       						
     	       				</div>
