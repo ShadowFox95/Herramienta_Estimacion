@@ -23,43 +23,45 @@ function doAjaxSaveAll() {
 // table += "</td></tr>";
 // }
 // }
-function refreshTableProject(project) {
+function refreshTableProject(project) { // Project es una lista
     var table = "";
     if (project.length == 0) {
         table = "";
     } else {
         for (i = 0; i < project.length; i++) {
-            table += "<li><a href=\"/proyecto-definitivo/cargar/${proyecto.codigo}\">" + project[i].nombre +" ("+project[i].codigo+")"+ "</a></li";
-// table += "<td>" + project[i].codigoProyecto + "</td>";
-          
- //"<td>" + project[i].descripcion;
-            // table 
-            //e='float:right'><button type='submit'
-            // class='button delete glyphicon glyphicon-trash' id='"
-            // + 
-
-            // + "' onClick='doAjaxDid)'/></div><div
-            // style='float:right'><button type='submit' class='button edit
-            // glyphicon glyphicon-pencil' id='"
-            // + project[
-            // Click='doAjaxEditProject(id)'/></div>";
-            // table += "</td></tr>";
-      
-
-    /*
-     * 
-     * table += "<td>" + project[i].descripcion; table += "<div
-     * style='float:right'><button type='submit' class='button delete glyphicon
-     * glyphicon-trash' id='" + project[i].id + "'
-     * onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button
-     * type='submit' class='button edit glyphicon glyphicon-pencil' id='" +
-     * project[i].id + "' onClick='doAjaxEditProject(id)'/></div>"; table += "</td></tr>";
-     * 
-     */
+            table += "<li><a onclick='doAjaxEditProject("+project[i].id+")'>" + project[i].nombre +" ("+project[i].codigoProyecto+")"+ "</a></li";
 
     $("#projectTable").html(table);
 }
 }}
+
+function refreshProjectInfo(project){ // Project es un objeto
+    var table = "";
+	table += "<tr><td>" + project.nombre + "</td>";
+    table += "<td>" + project.codigoProyecto + "</td>";
+    table += "<td>" + project.descripcion;
+    table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"
+		+ project.id
+        + "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
+        + project.id + "' onClick='doAjaxEditProject(id)'/></div>";
+    table += "</td></tr>";
+}
+//table += "<td>" + project[i].codigoProyecto + "</td>";
+
+
+     
+
+   /*
+    * 
+    * table += "<td>" + project[i].descripcion; table += "<div
+    * style='float:right'><button type='submit' class='button delete glyphicon
+    * glyphicon-trash' id='" + project[i].id + "'
+    * onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button
+    * type='submit' class='button edit glyphicon glyphicon-pencil' id='" +
+    * project[i].id + "' onClick='doAjaxEditProject(id)'/></div>"; table += "</td></tr>";
+    * 
+    */
+
 
 function editProject(project, id) {
     var tabla = "";
@@ -142,7 +144,7 @@ function doAjaxEditProject(id) {
         url : "project/edit/" + id,
         success : function(project) {
             console.log(project);
-            doAjaxLoadProjectTables(project);
+            refreshProjectInfo(project);
         },
         error : function(e) {
             console.log('Error: ' + e);
