@@ -63,16 +63,7 @@ public class ControladorCriterios {
 
     @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> addRowAjax(ModelMap model) {
-
-        // añadir parametros de addmodulo
-        /*
-         * moduleService.AddModulo(ControladorPrincipal.idProyecto,
-         * "Codigo-test", "Caso de Uso", "Nombre", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         * 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-         */
         moduleService.createModulo(1);
-
-        // Cambiar '0' por 'idProyecto'
         return moduleService.findAllModulo(1);
     }
 

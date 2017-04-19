@@ -1,6 +1,7 @@
 function doAjaxSaveAll() {
     doAjaxSaveFactores();
     doAjaxSaveHorasCoste();
+    doAjaxSavePiramide();
     // Implementar SavePiramide
 }
 

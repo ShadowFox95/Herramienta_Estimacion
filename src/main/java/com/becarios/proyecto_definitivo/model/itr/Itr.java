@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.itr;
-// Generated 22-mar-2017 16:09:41 by Hibernate Tools 5.2.0.CR1
+// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +36,6 @@ public class Itr implements java.io.Serializable {
 	private double gbsOnsiteGdo6;
 	private double gbsOnsiteGdo7;
 	private double dir;
-	private double dcta;
 	private double itsCenitGdo1;
 	private double itsCenitGdo2;
 	private double itsCenitGdo3;
@@ -50,6 +49,7 @@ public class Itr implements java.io.Serializable {
 	private double itsOnsiteGdo5;
 	private double itsOnsiteGdo6;
 	private double itsOnsiteGdo7;
+	private double dcta;
 
 	public Itr() {
 	}
@@ -58,10 +58,10 @@ public class Itr implements java.io.Serializable {
 			double gbsCenitGdo5, double gbsCenitGdo6, double gbsCenitGdo7, double gbsSapGdo1, double gbsSapGdo2,
 			double gbsSapGdo3, double gbsSapGdo4, double gbsSapGdo5, double gbsSapGdo6, double gbsSapGdo7,
 			double gbsOnsiteGdo1, double gbsOnsiteGdo2, double gbsOnsiteGdo3, double gbsOnsiteGdo4,
-			double gbsOnsiteGdo5, double gbsOnsiteGdo6, double gbsOnsiteGdo7, double dir,double dcta, double itsCenitGdo1,
+			double gbsOnsiteGdo5, double gbsOnsiteGdo6, double gbsOnsiteGdo7, double dir, double itsCenitGdo1,
 			double itsCenitGdo2, double itsCenitGdo3, double itsCenitGdo4, double itsCenitGdo5, double itsCenitGdo6,
 			double itsOnsiteGdo1, double itsOnsiteGdo2, double itsOnsiteGdo3, double itsOnsiteGdo4,
-			double itsOnsiteGdo5, double itsOnsiteGdo6, double itsOnsiteGdo7) {
+			double itsOnsiteGdo5, double itsOnsiteGdo6, double itsOnsiteGdo7, double dcta) {
 		this.idProyecto = idProyecto;
 		this.gbsCenitGdo1 = gbsCenitGdo1;
 		this.gbsCenitGdo2 = gbsCenitGdo2;
@@ -85,7 +85,6 @@ public class Itr implements java.io.Serializable {
 		this.gbsOnsiteGdo6 = gbsOnsiteGdo6;
 		this.gbsOnsiteGdo7 = gbsOnsiteGdo7;
 		this.dir = dir;
-		this.dcta=dcta;
 		this.itsCenitGdo1 = itsCenitGdo1;
 		this.itsCenitGdo2 = itsCenitGdo2;
 		this.itsCenitGdo3 = itsCenitGdo3;
@@ -99,11 +98,12 @@ public class Itr implements java.io.Serializable {
 		this.itsOnsiteGdo5 = itsOnsiteGdo5;
 		this.itsOnsiteGdo6 = itsOnsiteGdo6;
 		this.itsOnsiteGdo7 = itsOnsiteGdo7;
+		this.dcta = dcta;
 	}
 
 	@Id
 
-	@Column(name = "idProyecto", nullable = false)
+	@Column(name = "idProyecto", unique = true, nullable = false)
 	public int getIdProyecto() {
 		return this.idProyecto;
 	}
@@ -364,15 +364,6 @@ public class Itr implements java.io.Serializable {
 		this.itsCenitGdo6 = itsCenitGdo6;
 	}
 
-	@Column(name = "DCTA", nullable = false, precision = 22, scale = 0)
-	public double getDcta() {
-		return this.dcta;
-	}
-
-	public void setDcta(double DCTA) {
-		this.dcta = DCTA;
-	}
-
 	@Column(name = "ITS_ONSITE_GDO1", nullable = false, precision = 22, scale = 0)
 	public double getItsOnsiteGdo1() {
 		return this.itsOnsiteGdo1;
@@ -434,6 +425,15 @@ public class Itr implements java.io.Serializable {
 
 	public void setItsOnsiteGdo7(double itsOnsiteGdo7) {
 		this.itsOnsiteGdo7 = itsOnsiteGdo7;
+	}
+
+	@Column(name = "DCTA", nullable = false, precision = 22, scale = 0)
+	public double getDcta() {
+		return this.dcta;
+	}
+
+	public void setDcta(double dcta) {
+		this.dcta = dcta;
 	}
 
 }

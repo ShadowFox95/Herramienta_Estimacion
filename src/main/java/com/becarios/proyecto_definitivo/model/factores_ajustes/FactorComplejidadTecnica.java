@@ -1,9 +1,11 @@
 package com.becarios.proyecto_definitivo.model.factores_ajustes;
-// Generated 22-mar-2017 16:09:41 by Hibernate Tools 5.2.0.CR1
+// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,8 +15,7 @@ import javax.persistence.Table;
 @Table(name = "factor_complejidad_tecnica", catalog = "HE")
 public class FactorComplejidadTecnica implements java.io.Serializable {
 
-	private int idProyecto;
-	private String nombre;
+	private FactorComplejidadTecnicaId id;
 	private boolean aplica;
 	private int gradoDefinicion;
 	private int gradoExigencia;
@@ -24,10 +25,9 @@ public class FactorComplejidadTecnica implements java.io.Serializable {
 	public FactorComplejidadTecnica() {
 	}
 
-	public FactorComplejidadTecnica(int idProyecto, String nombre, boolean aplica, int gradoDefinicion,
+	public FactorComplejidadTecnica(FactorComplejidadTecnicaId id, boolean aplica, int gradoDefinicion,
 			int gradoExigencia, int impacto, int riesgo) {
-		this.idProyecto = idProyecto;
-		this.nombre = nombre;
+		this.id = id;
 		this.aplica = aplica;
 		this.gradoDefinicion = gradoDefinicion;
 		this.gradoExigencia = gradoExigencia;
@@ -35,25 +35,17 @@ public class FactorComplejidadTecnica implements java.io.Serializable {
 		this.riesgo = riesgo;
 	}
 
-	@Id
+	@EmbeddedId
 
-	@Column(name = "idProyecto", nullable = false)
-	public int getIdProyecto() {
-		return this.idProyecto;
+	@AttributeOverrides({
+			@AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
+			@AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
+	public FactorComplejidadTecnicaId getId() {
+		return this.id;
 	}
 
-	public void setIdProyecto(int idProyecto) {
-		this.idProyecto = idProyecto;
-	}
-
-	@Id
-	@Column(name = "Nombre", nullable = false, length = 45)
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setId(FactorComplejidadTecnicaId id) {
+		this.id = id;
 	}
 
 	@Column(name = "Aplica", nullable = false)

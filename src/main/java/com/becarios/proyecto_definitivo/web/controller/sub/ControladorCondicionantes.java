@@ -45,18 +45,4 @@ public class ControladorCondicionantes {
         condicionantesService.deleteCondicionantes(id);
         return "redirect:" + "/";
     }
-
-   /* private void passCondicionantesToDto(Condicionantes condicionantes) {
-        condicionantesActual
-                .setId(new CondicionantesIdDto(condicionantes.getId().getId(), condicionantes.getId().getIdProyecto()));
-        condicionantesActual.setDescripcion(condicionantes.getDescripcion());
-        condicionantesActual.setEstimacion(condicionantes.isEstimacion());
-    }
-
-    private void passDtoToCondicionantes(Condicionantes condicionantes) {
-        condicionantes.setId(new CondicionantesId(condicionantesActual.getId().getId(),
-                condicionantesActual.getId().getIdProyecto()));
-        condicionantes.setDescripcion(condicionantesActual.getDescripcion());
-        condicionantes.setEstimacion(condicionantes.isEstimacion());
-    }*/
 }

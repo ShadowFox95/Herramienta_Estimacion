@@ -1,6 +1,5 @@
 package com.becarios.proyecto_definitivo.model;
-// default package
-// Generated 04-abr-2017 16:50:21 by Hibernate Tools 5.2.0.CR1
+// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
