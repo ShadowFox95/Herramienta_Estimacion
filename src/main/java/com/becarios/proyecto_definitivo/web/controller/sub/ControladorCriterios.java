@@ -30,16 +30,13 @@ import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
 import com.becarios.proyecto_definitivo.model.criterios.Persistencia;
 import com.becarios.proyecto_definitivo.model.criterios.Vista;
 import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
+import com.becarios.proyecto_definitivo.web.controller.ControladorPrincipal;
 
 @Controller
 public class ControladorCriterios {
 
-    @Autowired
-    private ModuleService service;
-
     private String show = "";
 
-    private String codigo;
     private String notification = "";
     private String notificationType = "info";
 
@@ -58,7 +55,7 @@ public class ControladorCriterios {
     @RequestMapping(value = "/criteriosAjax", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> showTables(ModelMap model) {
         // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
@@ -70,27 +67,29 @@ public class ControladorCriterios {
          * "Codigo-test", "Caso de Uso", "Nombre", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
          * 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
          */
-        moduleService.createModulo(1);
+        moduleService.createModulo(ControladorPrincipal.idProyecto);
 
         // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<CasosDeUso> saveRowAjax(@PathVariable("idToSave") String code,
             @RequestBody TablasEditDto data) {
 
-        moduleService.editTable(1, Integer.parseInt(code), data);
-        // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        moduleService.editTable(ControladorPrincipal.idProyecto, Integer.parseInt(code), data);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/delete/{idToDelete}", method = RequestMethod.DELETE)
     public @ResponseBody List<CasosDeUso> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") int id) {
-        moduleService.deleteModuloByCode(id, 1); // Cambiar "0" por idproyecto
+        moduleService.deleteModuloByCode(id, ControladorPrincipal.idProyecto); // Cambiar
+                                                                               // "0"
+                                                                               // por
+                                                                               // idproyecto
 
         // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/edit/{idToEdit}", method = RequestMethod.POST)
