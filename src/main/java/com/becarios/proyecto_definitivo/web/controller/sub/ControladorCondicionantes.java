@@ -30,8 +30,7 @@ public class ControladorCondicionantes {
 
     @RequestMapping(value = "/condicionantes/{idToSave}/save", method = RequestMethod.GET)
     public String save(Condicionantes condi) {
-    	CondicionantesId condiID=new CondicionantesId(23,1);
-        Condicionantes c= new Condicionantes(condiID,"FuncionaCondi",true,1);
+        Condicionantes c= new Condicionantes();
     	condicionantesService.addCondicionantes(c);
 
     	/*for (Condicionantes condicionante : condicionantes) {
