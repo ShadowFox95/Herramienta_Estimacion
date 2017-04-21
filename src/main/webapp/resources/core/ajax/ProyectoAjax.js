@@ -67,8 +67,8 @@ function editProject(project) {
     table += "<td><div style='float:left' class='col-lg-8'><input type='text' class='altura form-control' id='project_description' value='" + project.descripcion + "' maxlength='60'></div><div style='float:right' class='col-lg-6'>";
     table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' id='" +
         project.id +
-        "' onClick='doAjaxDeleteProject(id)'/></div><div style='float:right'><button type='submit' class='button ok glyphicon glyphicon-ok' id='" +
-        project.id + "' onClick='doAjaxEditProject(id)'/></div>";
+        "' onClick='doAjaxChangeProject(id)'/></div><div style='float:right'><button type='submit' class='button ok glyphicon glyphicon-ok' id='" +
+        project.id + "' onClick='doAjaxSaveEditedProject(id)'/></div>";
     table += "</div></td></tr>";
 
 
@@ -106,6 +106,30 @@ function doAjaxEditProject(id) {
         }
     });
 }
+
+function doAjaxSaveEditedProject(id) {	
+	var data = {};
+	data["nombre"] = document.getElementById("project_name").value;
+	data["codigoProyecto"] = document.getElementById("project_code").value;
+	data["descripcion"] = document.getElementById("project_description").value;
+    
+    $.ajax({
+        type: "POST",
+        url: "project/save/" + id,
+		dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        success: function(project) {
+            console.log(project);
+            refreshProjectInfo(project);
+			doAjaxLoadProjectTables();
+        },
+        error: function(e) {
+            console.log('Error: ' + e);
+        }
+    });
+}
+
 
 function doAjaxDeleteProject(id) {
     $.ajax({
