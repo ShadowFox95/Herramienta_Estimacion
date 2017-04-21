@@ -6,7 +6,8 @@ import com.becarios.proyecto_definitivo.model.piramide.Piramide;
 
 public interface PiramideService {
 	
-	 void savePiramide(Piramide piramide);
+	 boolean savePiramide(Piramide piramide);
+	 
 	 List<Piramide> findPiramideById(int id);
 
 }

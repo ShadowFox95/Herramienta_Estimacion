@@ -18,6 +18,7 @@ import com.becarios.proyecto_definitivo.model.horas_costes.Gestionexterno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Gobierno;
 import com.becarios.proyecto_definitivo.model.horas_costes.Riesgo;
 import com.becarios.proyecto_definitivo.model.horas_costes.Valoracionfinal;
+import com.becarios.proyecto_definitivo.model.horas_costes.ValoracionfinalId;
 import com.becarios.proyecto_definitivo.service.horas_costes.HorasCostesService;
 import com.becarios.proyecto_definitivo.web.controller.ControladorPrincipal;
 
@@ -44,19 +45,37 @@ public class ControladorHorasCostes {
 
     @RequestMapping(value = "/costes/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody void saveHorasCostes(@RequestBody HorasCostesSaveDTO data) {
-        int idProyecto = ControladorPrincipal.idProyecto;
+        int idProyecto = 1;
+        System.out.println("Esto no esta pagado..."+data.getDelivery1().toString()+"-----------");
+        
         data.getRiesgo().setIdProyecto(idProyecto);
+        data.getRiesgo().setNombre("Horas de Contingencia");
         service.saveRiesgo(data.getRiesgo());
 
         data.getValoracionFinal().getId().setIdProyecto(idProyecto);
+        data.getValoracionFinal().getId().setNombre("Total ADM-DW");
         service.saveValoracionFinal(data.getValoracionFinal());
 
+        
+        System.out.println("Esto no esta pagado..."+data.getDelivery1().toString()+"-----------");
         data.getDelivery1().getId().setIdProyecto(idProyecto);
+        System.out.println("Esto no esta pagado..."+data.getDelivery1().toString()+"-----------");
+        data.getDelivery1().getId().setNombre("Gestion");
+        
         data.getDelivery2().getId().setIdProyecto(idProyecto);
+        data.getDelivery2().getId().setNombre("Evaluacion");
+        
         data.getDelivery3().getId().setIdProyecto(idProyecto);
+        data.getDelivery3().getId().setNombre("Analisis");
+        
         data.getDelivery4().getId().setIdProyecto(idProyecto);
+        data.getDelivery4().getId().setNombre("Diseño");
+        
         data.getDelivery5().getId().setIdProyecto(idProyecto);
+        data.getDelivery5().getId().setNombre("Construcción");
+        
         data.getDelivery6().getId().setIdProyecto(idProyecto);
+        data.getDelivery6().getId().setNombre("Pruebas");
 
         service.save(data.getDelivery1());
         service.save(data.getDelivery2());
@@ -65,16 +84,25 @@ public class ControladorHorasCostes {
         service.save(data.getDelivery5());
         service.save(data.getDelivery6());
 
+        
         data.getGestion1().getId().setIdProyecto(idProyecto);
+        data.getGestion1().getId().setNombre("Calidad");
+        
         data.getGestion2().getId().setIdProyecto(idProyecto);
+        data.getGestion2().getId().setNombre("Seguridad");
+        
         data.getGestion3().getId().setIdProyecto(idProyecto);
+        data.getGestion3().getId().setNombre("Despliegues");
 
         service.save(data.getGestion1());
         service.save(data.getGestion2());
         service.save(data.getGestion3());
 
         data.getGobierno1().getId().setIdProyecto(idProyecto);
+        data.getGobierno1().getId().setNombre("Proyecto");
+        
         data.getGobierno2().getId().setIdProyecto(idProyecto);
+        data.getGobierno2().getId().setNombre("DM");
 
         service.save(data.getGobierno1());
         service.save(data.getGobierno2());

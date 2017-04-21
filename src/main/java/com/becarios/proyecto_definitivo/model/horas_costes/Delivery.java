@@ -81,4 +81,12 @@ public class Delivery implements java.io.Serializable {
 		this.coste = coste;
 	}
 
+	@Override
+	public String toString() {
+		return "Delivery [id=" + id + ", porcentaje=" + porcentaje + ", internaPractica=" + internaPractica + ", horas="
+				+ horas + ", coste=" + coste + "]";
+	}
+	
+	
+
 }
