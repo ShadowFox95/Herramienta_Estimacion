@@ -9,14 +9,16 @@ function doAjaxSavePiramide() {
     delivery_gestion["gdo5"] = document.getElementById('gestion_gdo5').value;
     delivery_gestion["gdo6"] = document.getElementById('gestion_gdo6').value;
     delivery_gestion["gdo7"] = document.getElementById('gestion_gdo7').value;
-    if	(document.getElementById('gestion_gdo7').value==0){
+    if	(document.getElementById('gestion_checker').value==0){
     	delivery_gestion["validez"]=false;
     }else{
     	delivery_gestion["validez"]=true;
     }
     
     delivery_gestion["itrmedio"] = document.getElementById('gestion_itrmedio').value;
-    
+    if(delivery_gestion["itrmedio"] == undefined){
+    	delivery_gestion["itrmedio"] = 0;
+    }
 /*
     var piramide2 = {};
     piramide2["nombre"] = "evaluacion";
@@ -145,7 +147,7 @@ function doAjaxSavePiramide() {
     console.log(data);
     $.ajax({
         type : "POST",
-        url : "costes/save",
+        url : "piramide/save",
         dataType : "json",
         contentType : "application/json; charset=utf-8",
         data : JSON.stringify(data),

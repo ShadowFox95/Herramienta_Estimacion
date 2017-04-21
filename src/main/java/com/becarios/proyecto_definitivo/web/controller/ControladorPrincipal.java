@@ -109,20 +109,4 @@ public class ControladorPrincipal {
         control = "proyecto";
         return "redirect:/";
     }
-
-    private void passProyectoToDto(Proyecto proyecto) {
-        proyectoActual.setId(proyecto.getId());
-        proyectoActual.setCodigoProyecto(proyecto.getCodigoProyecto());
-        proyectoActual.setNombre(proyecto.getNombre());
-        proyectoActual.setDescripcion(proyecto.getDescripcion());
-        proyectoActual.setEditado(proyecto.isIsEditado());
-    }
-
-    private void passDtoToProyecto(Proyecto proyecto) {
-        proyecto.setId(proyectoActual.getId());
-        proyecto.setCodigoProyecto(proyectoActual.getCodigoProyecto());
-        proyecto.setNombre(proyectoActual.getNombre());
-        proyecto.setDescripcion(proyectoActual.getDescripcion());
-        proyecto.setIsEditado(proyectoActual.isEditado());
-    }
 }

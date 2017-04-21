@@ -30,8 +30,7 @@ public class ControladorCondicionantes {
 
     @RequestMapping(value = "/condicionantes/{idToSave}/save", method = RequestMethod.GET)
     public String save(Condicionantes condi) {
-    	CondicionantesId condiID=new CondicionantesId(23,1);
-        Condicionantes c= new Condicionantes(condiID,"FuncionaCondi",true,1);
+        Condicionantes c= new Condicionantes();
     	condicionantesService.addCondicionantes(c);
 
     	/*for (Condicionantes condicionante : condicionantes) {
@@ -45,18 +44,4 @@ public class ControladorCondicionantes {
         condicionantesService.deleteCondicionantes(id);
         return "redirect:" + "/";
     }
-
-   /* private void passCondicionantesToDto(Condicionantes condicionantes) {
-        condicionantesActual
-                .setId(new CondicionantesIdDto(condicionantes.getId().getId(), condicionantes.getId().getIdProyecto()));
-        condicionantesActual.setDescripcion(condicionantes.getDescripcion());
-        condicionantesActual.setEstimacion(condicionantes.isEstimacion());
-    }
-
-    private void passDtoToCondicionantes(Condicionantes condicionantes) {
-        condicionantes.setId(new CondicionantesId(condicionantesActual.getId().getId(),
-                condicionantesActual.getId().getIdProyecto()));
-        condicionantes.setDescripcion(condicionantesActual.getDescripcion());
-        condicionantes.setEstimacion(condicionantes.isEstimacion());
-    }*/
 }

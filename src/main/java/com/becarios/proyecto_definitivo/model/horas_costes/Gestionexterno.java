@@ -1,9 +1,11 @@
 package com.becarios.proyecto_definitivo.model.horas_costes;
-// Generated 22-mar-2017 16:09:41 by Hibernate Tools 5.2.0.CR1
+// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,8 +15,7 @@ import javax.persistence.Table;
 @Table(name = "gestionexterno", catalog = "HE")
 public class Gestionexterno implements java.io.Serializable {
 
-	private int idProyecto;
-	private String nombre;
+	private GestionexternoId id;
 	private int porcentaje;
 	private int horas;
 	private int coste;
@@ -22,33 +23,24 @@ public class Gestionexterno implements java.io.Serializable {
 	public Gestionexterno() {
 	}
 
-	public Gestionexterno(int idProyecto, String nombre, int porcentaje, int horas, int coste) {
-		this.idProyecto = idProyecto;
-		this.nombre = nombre;
+	public Gestionexterno(GestionexternoId id, int porcentaje, int horas, int coste) {
+		this.id = id;
 		this.porcentaje = porcentaje;
 		this.horas = horas;
 		this.coste = coste;
 	}
 
-	@Id
+	@EmbeddedId
 
-	@Column(name = "idProyecto", nullable = false)
-	public int getIdProyecto() {
-		return this.idProyecto;
+	@AttributeOverrides({
+			@AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
+			@AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
+	public GestionexternoId getId() {
+		return this.id;
 	}
 
-	public void setIdProyecto(int idProyecto) {
-		this.idProyecto = idProyecto;
-	}
-
-	@Id
-	@Column(name = "Nombre", nullable = false, length = 45)
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setId(GestionexternoId id) {
+		this.id = id;
 	}
 
 	@Column(name = "Porcentaje", nullable = false)

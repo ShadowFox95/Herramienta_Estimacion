@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.becarios.proyecto_definitivo.dao.AbstractDao;
 import com.becarios.proyecto_definitivo.model.criterios.CasosDeUso;
-import com.becarios.proyecto_definitivo.model.criterios.CasosDeUsoId;
 import com.becarios.proyecto_definitivo.model.criterios.Cuoriginal;
 import com.becarios.proyecto_definitivo.model.criterios.Integracion;
 import com.becarios.proyecto_definitivo.model.criterios.Negocio;
@@ -38,10 +37,9 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
     @Override
     public void deleteModuleByCode(int idModulo, int idProyecto) {
         CasosDeUso m = new CasosDeUso();
-        CasosDeUsoId mId = new CasosDeUsoId();
-        mId.setIdProyecto(idProyecto);
-        mId.setId(idModulo);
-        m = (CasosDeUso) getSession().load(CasosDeUso.class, mId);
+        m.setIdProyecto(idProyecto);
+        m.setId(idModulo);
+        m = (CasosDeUso) getSession().load(CasosDeUso.class, idModulo);
         getSession().delete(m);
         getSession().flush();
     }

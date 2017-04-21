@@ -1,4 +1,5 @@
 package com.becarios.proyecto_definitivo.model;
+
 // default package
 
 // Generated 04-abr-2017 16:50:21 by Hibernate Tools 5.2.0.CR1

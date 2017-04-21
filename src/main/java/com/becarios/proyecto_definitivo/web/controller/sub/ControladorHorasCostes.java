@@ -48,15 +48,15 @@ public class ControladorHorasCostes {
         data.getRiesgo().setIdProyecto(idProyecto);
         service.saveRiesgo(data.getRiesgo());
 
-        data.getValoracionFinal().setIdProyecto(idProyecto);
+        data.getValoracionFinal().getId().setIdProyecto(idProyecto);
         service.saveValoracionFinal(data.getValoracionFinal());
 
-        data.getDelivery1().setIdProyecto(idProyecto);
-        data.getDelivery2().setIdProyecto(idProyecto);
-        data.getDelivery3().setIdProyecto(idProyecto);
-        data.getDelivery4().setIdProyecto(idProyecto);
-        data.getDelivery5().setIdProyecto(idProyecto);
-        data.getDelivery6().setIdProyecto(idProyecto);
+        data.getDelivery1().getId().setIdProyecto(idProyecto);
+        data.getDelivery2().getId().setIdProyecto(idProyecto);
+        data.getDelivery3().getId().setIdProyecto(idProyecto);
+        data.getDelivery4().getId().setIdProyecto(idProyecto);
+        data.getDelivery5().getId().setIdProyecto(idProyecto);
+        data.getDelivery6().getId().setIdProyecto(idProyecto);
 
         service.save(data.getDelivery1());
         service.save(data.getDelivery2());
@@ -65,22 +65,22 @@ public class ControladorHorasCostes {
         service.save(data.getDelivery5());
         service.save(data.getDelivery6());
 
-        data.getGestion1().setIdProyecto(idProyecto);
-        data.getGestion2().setIdProyecto(idProyecto);
-        data.getGestion3().setIdProyecto(idProyecto);
+        data.getGestion1().getId().setIdProyecto(idProyecto);
+        data.getGestion2().getId().setIdProyecto(idProyecto);
+        data.getGestion3().getId().setIdProyecto(idProyecto);
 
         service.save(data.getGestion1());
         service.save(data.getGestion2());
         service.save(data.getGestion3());
 
-        data.getGobierno1().setIdProyecto(idProyecto);
-        data.getGobierno2().setIdProyecto(idProyecto);
+        data.getGobierno1().getId().setIdProyecto(idProyecto);
+        data.getGobierno2().getId().setIdProyecto(idProyecto);
 
         service.save(data.getGobierno1());
         service.save(data.getGobierno2());
     }
 
-    @RequestMapping(value = "/costes/{id}/save", method = RequestMethod.GET)
+  /*  @RequestMapping(value = "/costes/{id}/save", method = RequestMethod.GET)
     public String save(@PathVariable("id") int id) {
         // Centro ADM-DW
         Delivery gestionConfiguracion = new Delivery();
@@ -146,6 +146,6 @@ public class ControladorHorasCostes {
 
         return "redirect:/";
 
-    }
+    }*/
 
 }

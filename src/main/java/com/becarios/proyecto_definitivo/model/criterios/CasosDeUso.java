@@ -1,6 +1,5 @@
 package com.becarios.proyecto_definitivo.model.criterios;
-// default package
-// Generated 04-abr-2017 16:50:21 by Hibernate Tools 5.2.0.CR1
+// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,18 +15,14 @@ import javax.persistence.Table;
 @Table(name = "casos_de_uso", catalog = "HE")
 public class CasosDeUso implements java.io.Serializable {
 
-	private CasosDeUsoId id;
+	private Integer id;
 	private String codigo;
 	private double totalFila;
 	private String nombre;
 	private String modulo;
 	private int idProyecto;
 
-	public CasosDeUso(CasosDeUsoId casosDeUsoId) {
-		this.id=casosDeUsoId;
-	}
 	public CasosDeUso() {
-		
 	}
 
 	public CasosDeUso(String codigo, double totalFila, String nombre, String modulo, int idProyecto) {
@@ -42,12 +37,12 @@ public class CasosDeUso implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "Id", unique = true, nullable = false)
-	public CasosDeUsoId getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(CasosDeUsoId casosDeUsoId) {
-		this.id = casosDeUsoId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Column(name = "Codigo", nullable = false, length = 45)
@@ -86,7 +81,7 @@ public class CasosDeUso implements java.io.Serializable {
 		this.modulo = modulo;
 	}
 
-	@Column(name = "IdProyecto", nullable = false, insertable=false, updatable=false)
+	@Column(name = "IdProyecto", nullable = false)
 	public int getIdProyecto() {
 		return this.idProyecto;
 	}
