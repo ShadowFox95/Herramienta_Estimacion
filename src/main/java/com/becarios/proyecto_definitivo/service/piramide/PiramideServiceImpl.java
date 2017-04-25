@@ -7,13 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.becarios.proyecto_definitivo.dao.Piramide.PiramideDao;
-import com.becarios.proyecto_definitivo.dao.factores_ajustes.FactorAjusteDao;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencia;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorAjuste;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
 import com.becarios.proyecto_definitivo.model.piramide.Piramide;
 
-@Service("piramidesService")
+@Service("PiramideService")
 @Transactional
 public class PiramideServiceImpl implements PiramideService {
 
@@ -23,13 +19,18 @@ public class PiramideServiceImpl implements PiramideService {
 
     @Override
     public List<Piramide> findAllById(int id) {
-        return PiramideDao.findAllPiramid(id);
+        return dao.findAllPiramide(id);
     }
 
     @Override
-    boolean void savePiramide(Piramide pira) {
-        PiramideDao.savePiram(pira);
+    public boolean savePiramide(Piramide piramide) {
+        dao.savePiramide(piramide);
         return true;
     }
+
+	@Override
+	public void deletePiramideById(int id) {
+		dao.deletePiramide(id);
+	}
 
 }

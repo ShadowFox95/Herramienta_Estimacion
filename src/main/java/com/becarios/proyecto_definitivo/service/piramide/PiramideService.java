@@ -8,6 +8,8 @@ public interface PiramideService {
 	
 	 boolean savePiramide(Piramide piramide);
 	 
-	 List<Piramide> findPiramideById(int id);
+	 List<Piramide> findAllById(int id);
+	 
+	 void deletePiramideById (int id);
 
 }
