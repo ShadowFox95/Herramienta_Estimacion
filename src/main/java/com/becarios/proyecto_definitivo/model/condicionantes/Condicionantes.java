@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.condicionantes;
-// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
+// Generated 21-abr-2017 13:47:07 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,57 +15,57 @@ import javax.persistence.Table;
 @Table(name = "condicionantes", catalog = "HE")
 public class Condicionantes implements java.io.Serializable {
 
-	private Integer id;
-	private int idProyecto;
-	private String descripcion;
-	private boolean estimacion;
+    private Integer id;
+    private int idProyecto;
+    private String descripcion;
+    private boolean estimacion;
 
-	public Condicionantes() {
-	}
+    public Condicionantes() {
+    }
 
-	public Condicionantes(int idProyecto, String descripcion, boolean estimacion) {
-		this.idProyecto = idProyecto;
-		this.descripcion = descripcion;
-		this.estimacion = estimacion;
-	}
+    public Condicionantes(int idProyecto, String descripcion, boolean estimacion) {
+        this.idProyecto = idProyecto;
+        this.descripcion = descripcion;
+        this.estimacion = estimacion;
+    }
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
+    @Column(name = "id", unique = true, nullable = false)
+    public Integer getId() {
+        return this.id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	@Column(name = "idProyecto", nullable = false)
-	public int getIdProyecto() {
-		return this.idProyecto;
-	}
+    @Column(name = "idProyecto", nullable = false)
+    public int getIdProyecto() {
+        return this.idProyecto;
+    }
 
-	public void setIdProyecto(int idProyecto) {
-		this.idProyecto = idProyecto;
-	}
+    public void setIdProyecto(int idProyecto) {
+        this.idProyecto = idProyecto;
+    }
 
-	@Column(name = "descripcion", nullable = false, length = 250)
-	public String getDescripcion() {
-		return this.descripcion;
-	}
+    @Column(name = "descripcion", nullable = false, length = 250)
+    public String getDescripcion() {
+        return this.descripcion;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	@Column(name = "estimacion", nullable = false)
-	public boolean isEstimacion() {
-		return this.estimacion;
-	}
+    @Column(name = "estimacion", nullable = false)
+    public boolean isEstimacion() {
+        return this.estimacion;
+    }
 
-	public void setEstimacion(boolean estimacion) {
-		this.estimacion = estimacion;
-	}
+    public void setEstimacion(boolean estimacion) {
+        this.estimacion = estimacion;
+    }
 
 }

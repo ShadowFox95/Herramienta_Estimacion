@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.factores_ajustes;
-// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
+// Generated 21-abr-2017 13:47:07 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -15,48 +15,48 @@ import javax.persistence.Table;
 @Table(name = "factor_complejidad_ambiental", catalog = "HE")
 public class FactorComplejidadAmbiental implements java.io.Serializable {
 
-	private FactorComplejidadAmbientalId id;
-	private int valoracion;
-	private int factorCalculado;
+    private FactorComplejidadAmbientalId id;
+    private int valoracion;
+    private int factorCalculado;
 
-	public FactorComplejidadAmbiental() {
-	}
+    public FactorComplejidadAmbiental() {
+    }
 
-	public FactorComplejidadAmbiental(FactorComplejidadAmbientalId id, int valoracion, int factorCalculado) {
-		this.id = id;
-		this.valoracion = valoracion;
-		this.factorCalculado = factorCalculado;
-	}
+    public FactorComplejidadAmbiental(FactorComplejidadAmbientalId id, int valoracion, int factorCalculado) {
+        this.id = id;
+        this.valoracion = valoracion;
+        this.factorCalculado = factorCalculado;
+    }
 
-	@EmbeddedId
+    @EmbeddedId
 
-	@AttributeOverrides({
-			@AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
-			@AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
-	public FactorComplejidadAmbientalId getId() {
-		return this.id;
-	}
+    @AttributeOverrides({
+            @AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
+            @AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
+    public FactorComplejidadAmbientalId getId() {
+        return this.id;
+    }
 
-	public void setId(FactorComplejidadAmbientalId id) {
-		this.id = id;
-	}
+    public void setId(FactorComplejidadAmbientalId id) {
+        this.id = id;
+    }
 
-	@Column(name = "Valoracion", nullable = false)
-	public int getValoracion() {
-		return this.valoracion;
-	}
+    @Column(name = "Valoracion", nullable = false)
+    public int getValoracion() {
+        return this.valoracion;
+    }
 
-	public void setValoracion(int valoracion) {
-		this.valoracion = valoracion;
-	}
+    public void setValoracion(int valoracion) {
+        this.valoracion = valoracion;
+    }
 
-	@Column(name = "factorCalculado", nullable = false)
-	public int getFactorCalculado() {
-		return this.factorCalculado;
-	}
+    @Column(name = "factorCalculado", nullable = false)
+    public int getFactorCalculado() {
+        return this.factorCalculado;
+    }
 
-	public void setFactorCalculado(int factorCalculado) {
-		this.factorCalculado = factorCalculado;
-	}
+    public void setFactorCalculado(int factorCalculado) {
+        this.factorCalculado = factorCalculado;
+    }
 
 }

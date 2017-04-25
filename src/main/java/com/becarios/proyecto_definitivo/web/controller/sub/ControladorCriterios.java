@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.becarios.proyecto_definitivo.dto.criterios.CasosDeUsoDto;
 import com.becarios.proyecto_definitivo.dto.criterios.CuoriginalDto;
 import com.becarios.proyecto_definitivo.dto.criterios.IntegracionDto;
 import com.becarios.proyecto_definitivo.dto.criterios.NegocioDto;
@@ -28,6 +27,7 @@ import com.becarios.proyecto_definitivo.model.criterios.Perfiles;
 import com.becarios.proyecto_definitivo.model.criterios.Persistencia;
 import com.becarios.proyecto_definitivo.model.criterios.Vista;
 import com.becarios.proyecto_definitivo.service.criterios.ModuleService;
+import com.becarios.proyecto_definitivo.web.controller.ControladorPrincipal;
 
 @Controller
 public class ControladorCriterios {
@@ -37,11 +37,9 @@ public class ControladorCriterios {
 
     private String show = "";
 
-    private String codigo;
     private String notification = "";
     private String notificationType = "info";
 
-    private CasosDeUsoDto casoDeUsoActual;
     private CuoriginalDto cuActual;
     private IntegracionDto integracionActual;
     private NegocioDto negocioActual;
@@ -55,53 +53,41 @@ public class ControladorCriterios {
     // Show main page
     @RequestMapping(value = "/criteriosAjax", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> showTables(ModelMap model) {
-        // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/addRow", method = RequestMethod.POST)
     public @ResponseBody List<CasosDeUso> addRowAjax(ModelMap model) {
 
-        // añadir parametros de addmodulo
-        /*
-         * moduleService.AddModulo(ControladorPrincipal.idProyecto,
-         * "Codigo-test", "Caso de Uso", "Nombre", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         * 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-         */
-        moduleService.createModulo(1);
+        moduleService.createModulo(ControladorPrincipal.idProyecto);
 
-        // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/saveRow/{idToSave}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody List<CasosDeUso> saveRowAjax(@PathVariable("idToSave") String code,
+    public @ResponseBody List<CasosDeUso> saveRowAjax(@PathVariable("idToSave") int id,
             @RequestBody TablasEditDto data) {
 
-        moduleService.editTable(1, Integer.parseInt(code), data);
-        // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        moduleService.editTable(ControladorPrincipal.idProyecto, id, data);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/delete/{idToDelete}", method = RequestMethod.DELETE)
     public @ResponseBody List<CasosDeUso> deleteRowAjax(ModelMap model, @PathVariable("idToDelete") int id) {
-        moduleService.deleteModuloByCode(id, 1); // Cambiar "0" por idproyecto
+        moduleService.deleteModuloByCode(id, ControladorPrincipal.idProyecto);
 
-        // Cambiar '0' por 'idProyecto'
-        return moduleService.findAllModulo(1);
+        return moduleService.findAllModulo(ControladorPrincipal.idProyecto);
     }
 
     @RequestMapping(value = "/criterios/edit/{idToEdit}", method = RequestMethod.POST)
-    @ResponseBody
-    public List<Object> editRowAjax(ModelMap model, @PathVariable("idToEdit") int id) {
+    public @ResponseBody List<Object> editRowAjax(ModelMap model, @PathVariable("idToEdit") int id) {
         List<Object> lista = moduleService.findAllTablas(id);
         return lista;
     }
 
     @RequestMapping(value = "/criterios", method = RequestMethod.GET)
     public String mainTables(ModelMap model) {
-        // Cambiar '0' a 'id'
-        List<CasosDeUso> rows = moduleService.findAllModulo(0);
+        List<CasosDeUso> rows = moduleService.findAllModulo(ControladorPrincipal.idProyecto);
 
         model.addAttribute("modules", rows);
 

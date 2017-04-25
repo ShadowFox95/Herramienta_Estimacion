@@ -1,8 +1,5 @@
 package com.becarios.proyecto_definitivo.model;
-
-// default package
-
-// Generated 04-abr-2017 16:50:21 by Hibernate Tools 5.2.0.CR1
+// Generated 21-abr-2017 13:47:07 by Hibernate Tools 4.3.1.Final
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -23,22 +20,22 @@ public class Proyecto implements java.io.Serializable {
     private String descripcion;
     private String codigoProyecto;
     private String nombre;
-    private boolean editado;
+    private boolean isEditado;
 
     public Proyecto() {
     }
 
-    public Proyecto(String codigoProyecto, String nombre, boolean editado) {
+    public Proyecto(String codigoProyecto, String nombre, boolean isEditado) {
         this.codigoProyecto = codigoProyecto;
         this.nombre = nombre;
-        this.editado = editado;
+        this.isEditado = isEditado;
     }
 
-    public Proyecto(String descripcion, String codigoProyecto, String nombre, boolean editado) {
+    public Proyecto(String descripcion, String codigoProyecto, String nombre, boolean isEditado) {
         this.descripcion = descripcion;
         this.codigoProyecto = codigoProyecto;
         this.nombre = nombre;
-        this.editado = editado;
+        this.isEditado = isEditado;
     }
 
     @Id
@@ -82,11 +79,11 @@ public class Proyecto implements java.io.Serializable {
 
     @Column(name = "IsEditado", nullable = false)
     public boolean isIsEditado() {
-        return this.editado;
+        return this.isEditado;
     }
 
-    public void setIsEditado(boolean editado) {
-        this.editado = editado;
+    public void setIsEditado(boolean isEditado) {
+        this.isEditado = isEditado;
     }
 
 }

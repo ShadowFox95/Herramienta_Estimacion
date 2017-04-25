@@ -40,6 +40,9 @@ public class ModuleServiceImpl implements ModuleService {
         if (entity != null) {
             entity.setNombre(modulo.getNombre());
             entity.setModulo(modulo.getModulo());
+            entity.setCodigo(modulo.getCodigo());
+            entity.setId(modulo.getId());
+            entity.setIdProyecto(modulo.getIdProyecto());
             entity.setTotalFila(modulo.getTotalFila());
         }
 

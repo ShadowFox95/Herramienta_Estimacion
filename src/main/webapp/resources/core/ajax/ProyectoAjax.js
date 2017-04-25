@@ -84,6 +84,7 @@ function doAjaxChangeProject(id) {
         url: "project/edit/" + id,
         success: function(project) {
             console.log(project);
+			doAjaxEdit();
             refreshProjectInfo(project);
             refreshEditado(project);
         },

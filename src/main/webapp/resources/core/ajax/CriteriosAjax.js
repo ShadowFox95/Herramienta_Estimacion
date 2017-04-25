@@ -21,9 +21,9 @@ function refreshTable(module) {
                 table += "<td class='center danger2'>Muy Complicado";
             }
             table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='" +
-                module[i].id.id +
+                module[i].id +
                 "' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='" +
-                module[i].id.id + "' onClick='doAjaxEdit(id)'/></div>";
+                module[i].id + "' onClick='doAjaxEdit(id)'/></div>";
             table += "</td></tr>";
         }
     }
@@ -39,7 +39,7 @@ function editTable(module, tablas) {
         $("#showAtributos").hide();
     } else {
         for (i = 0; i < module.length; i++) {
-            if (tablas[0].casosdeUsosCodigo == module[i].id.id) {
+            if (tablas[i].casosdeUsosCodigo == module[i].id) {
                 table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='" +
                     module[i].nombre + "' maxlength='25'></td>";
                 table += "<td><input type='text' class='altura form-control' id='selected_code' value='" +
@@ -59,7 +59,7 @@ function editTable(module, tablas) {
                     table += "<td class='center danger2'>Muy Complicado";
                 }
                 table += "<div style='float:right'><div style='float:left'><button type='submit' class='button ok glyphicon glyphicon-ok' id='" +
-                    module[i].id.id +
+                    module[i].id +
                     "' onClick='doAjaxSaveRow(id)'></button></div><div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' onClick='doAjaxEdit()'></button></div></div>";
                 table += "</td></tr>";
                 populateAtributos(tablas);
@@ -173,11 +173,10 @@ function doAjaxEdit(id) {
 
 function doAjaxSaveRow(id) {
     auxid = parseInt(id);
-    var aux = {};
-    aux["id"] = auxid;
-    aux["idProyecto"] = 1;
+    
     var casosUso = {};
-    casosUso["id"] = aux;
+    casosUso["id"] = auxid;
+	casosUso["idProyecto"] = 1;
     casosUso["nombre"] = document.getElementById('selected_name').value;
     casosUso["codigo"] = document.getElementById('selected_code').value;
     casosUso["modulo"] = document.getElementById('selected_caseOfUse').value;

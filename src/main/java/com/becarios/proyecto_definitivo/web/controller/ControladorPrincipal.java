@@ -23,7 +23,7 @@ public class ControladorPrincipal {
 
     private String control = "";
 
-    public static int idProyecto = 1;
+    public static int idProyecto = 0;
 
     @Autowired
     private static ProyectoDto proyectoActual;
