@@ -17,7 +17,19 @@
 		        }
 		    });
         });
-      	
+      	$( "#editado" ).ready(function() {
+      		 $.ajax({
+		        type : "POST",
+		        url : "projectAjax",
+		        success : function(project) {
+		            console.log(project);
+		            refreshEditado(project);
+		        },
+		        error : function(e) {
+		            console.log('Error: ' + e);
+		        }
+		    });
+        });
 		</script>
 	</head>
 	<body>
@@ -68,9 +80,8 @@
 									<spring:url value="/criterios/saveRow" var="saveUrl" />
 									<td>
 										<select class="form-control" id="editado" name="editado">
-                              		<option value="0">Si</option>
-                              		<option value="1">No</option>
-                           		</select>
+		                              		
+                           				</select>
 									</td>
 
 

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +23,7 @@ public class ControladorPrincipal {
 
     private String control = "";
 
-    public static int idProyecto = 1;
+    public static int idProyecto = 0;
 
     @Autowired
     private static ProyectoDto proyectoActual;
@@ -79,10 +79,11 @@ public class ControladorPrincipal {
 
     }
 
-    @RequestMapping(value = "/saveProject", method = RequestMethod.POST)
-    public String updateProject(@ModelAttribute("proyecto") Proyecto proyecto) {
-        project.saveProject(proyecto);
-        return "redirect:/";
+    @RequestMapping(value = "/project/save/{idToSave}", method = RequestMethod.POST)
+    public @ResponseBody Proyecto saveRowAjax(@RequestBody ProyectoDto data) {
+
+        project.updateProject(idProyecto, data);
+        return project.findByCode(idProyecto);
 
     }
 

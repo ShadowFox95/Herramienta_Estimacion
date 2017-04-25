@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -46,9 +46,11 @@ public class ModuleDaoImpl extends AbstractDao<Integer, CasosDeUso> implements M
 
     @Override
     public List<CasosDeUso> findAllModules(int id) {
-        CriteriaQuery<CasosDeUso> cq = getSession().getCriteriaBuilder().createQuery(CasosDeUso.class);
-        cq.from(CasosDeUso.class);
-        List<CasosDeUso> listaModelo = getSession().createQuery(cq).getResultList();
+
+        TypedQuery<CasosDeUso> tq = sessionFactory.createEntityManager()
+                .createQuery("SELECT c FROM CasosDeUso c WHERE c.idProyecto = :idProyecto", CasosDeUso.class);
+        tq.setParameter("idProyecto", id);
+        List<CasosDeUso> listaModelo = tq.getResultList();
         return listaModelo;
     }
 

@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.factores_ajustes;
-// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
+// Generated 21-abr-2017 13:47:07 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -15,82 +15,82 @@ import javax.persistence.Table;
 @Table(name = "arquitectura_referencia", catalog = "HE")
 public class ArquitecturaReferencia implements java.io.Serializable {
 
-	private ArquitecturaReferenciaId id;
-	private boolean aplica;
-	private boolean definido;
-	private int gradoConocimento;
-	private int impacto;
-	private int riesgo;
+    private ArquitecturaReferenciaId id;
+    private boolean aplica;
+    private boolean definido;
+    private int gradoConocimento;
+    private int impacto;
+    private int riesgo;
 
-	public ArquitecturaReferencia() {
-	}
+    public ArquitecturaReferencia() {
+    }
 
-	public ArquitecturaReferencia(ArquitecturaReferenciaId id, boolean aplica, boolean definido, int gradoConocimento,
-			int impacto, int riesgo) {
-		this.id = id;
-		this.aplica = aplica;
-		this.definido = definido;
-		this.gradoConocimento = gradoConocimento;
-		this.impacto = impacto;
-		this.riesgo = riesgo;
-	}
+    public ArquitecturaReferencia(ArquitecturaReferenciaId id, boolean aplica, boolean definido, int gradoConocimento,
+            int impacto, int riesgo) {
+        this.id = id;
+        this.aplica = aplica;
+        this.definido = definido;
+        this.gradoConocimento = gradoConocimento;
+        this.impacto = impacto;
+        this.riesgo = riesgo;
+    }
 
-	@EmbeddedId
+    @EmbeddedId
 
-	@AttributeOverrides({
-			@AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
-			@AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
-	public ArquitecturaReferenciaId getId() {
-		return this.id;
-	}
+    @AttributeOverrides({
+            @AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
+            @AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
+    public ArquitecturaReferenciaId getId() {
+        return this.id;
+    }
 
-	public void setId(ArquitecturaReferenciaId id) {
-		this.id = id;
-	}
+    public void setId(ArquitecturaReferenciaId id) {
+        this.id = id;
+    }
 
-	@Column(name = "Aplica", nullable = false)
-	public boolean isAplica() {
-		return this.aplica;
-	}
+    @Column(name = "Aplica", nullable = false)
+    public boolean isAplica() {
+        return this.aplica;
+    }
 
-	public void setAplica(boolean aplica) {
-		this.aplica = aplica;
-	}
+    public void setAplica(boolean aplica) {
+        this.aplica = aplica;
+    }
 
-	@Column(name = "Definido", nullable = false)
-	public boolean isDefinido() {
-		return this.definido;
-	}
+    @Column(name = "Definido", nullable = false)
+    public boolean isDefinido() {
+        return this.definido;
+    }
 
-	public void setDefinido(boolean definido) {
-		this.definido = definido;
-	}
+    public void setDefinido(boolean definido) {
+        this.definido = definido;
+    }
 
-	@Column(name = "gradoConocimento", nullable = false)
-	public int getGradoConocimento() {
-		return this.gradoConocimento;
-	}
+    @Column(name = "gradoConocimento", nullable = false)
+    public int getGradoConocimento() {
+        return this.gradoConocimento;
+    }
 
-	public void setGradoConocimento(int gradoConocimento) {
-		this.gradoConocimento = gradoConocimento;
-	}
+    public void setGradoConocimento(int gradoConocimento) {
+        this.gradoConocimento = gradoConocimento;
+    }
 
-	@Column(name = "Impacto", nullable = false)
-	public int getImpacto() {
-		return this.impacto;
-	}
+    @Column(name = "Impacto", nullable = false)
+    public int getImpacto() {
+        return this.impacto;
+    }
 
-	public void setImpacto(int impacto) {
-		this.impacto = impacto;
-	}
+    public void setImpacto(int impacto) {
+        this.impacto = impacto;
+    }
 
-	@Column(name = "Riesgo", nullable = false)
-	public int getRiesgo() {
-		return this.riesgo;
-	}
+    @Column(name = "Riesgo", nullable = false)
+    public int getRiesgo() {
+        return this.riesgo;
+    }
 
-	public void setRiesgo(int riesgo) {
-		this.riesgo = riesgo;
-	}
+    public void setRiesgo(int riesgo) {
+        this.riesgo = riesgo;
+    }
 
 }

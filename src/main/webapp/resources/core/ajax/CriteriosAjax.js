@@ -20,10 +20,10 @@ function refreshTable(module) {
             } else {
                 table += "<td class='center danger2'>Muy Complicado";
             }
-            table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='"
-                    + module[i].id.id
-                    + "' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='"
-                    + module[i].id.id + "' onClick='doAjaxEdit(id)'/></div>";
+            table += "<div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-trash' id='" +
+                module[i].id +
+                "' onClick='doAjaxDelete(id)'/></div><div style='float:right'><button type='submit' class='button edit glyphicon glyphicon-pencil' id='" +
+                module[i].id + "' onClick='doAjaxEdit(id)'/></div>";
             table += "</td></tr>";
         }
     }
@@ -39,13 +39,13 @@ function editTable(module, tablas) {
         $("#showAtributos").hide();
     } else {
         for (i = 0; i < module.length; i++) {
-            if (tablas[0].casosdeUsosCodigo == module[i].id.id) {
-                table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='"
-                        + module[i].nombre + "' maxlength='25'></td>";
-                table += "<td><input type='text' class='altura form-control' id='selected_code' value='"
-                        + module[i].codigo + "' maxlength='10'></td>";
-                table += "<td><input type='text' class='altura form-control' id='selected_caseOfUse' value='"
-                        + module[i].modulo + "' maxlength='30'></td>";
+            if (tablas[i].casosdeUsosCodigo == module[i].id) {
+                table += "<tr class='active'><td><input type='text' class='altura form-control' id='selected_name' value='" +
+                    module[i].nombre + "' maxlength='25'></td>";
+                table += "<td><input type='text' class='altura form-control' id='selected_code' value='" +
+                    module[i].codigo + "' maxlength='10'></td>";
+                table += "<td><input type='text' class='altura form-control' id='selected_caseOfUse' value='" +
+                    module[i].modulo + "' maxlength='30'></td>";
                 table += "<td>" + module[i].totalFila + "</td>";
                 if (module[i].totalFila < 7.5) {
                     table += "<td class='center info'>Muy Fácil";
@@ -58,11 +58,10 @@ function editTable(module, tablas) {
                 } else {
                     table += "<td class='center danger2'>Muy Complicado";
                 }
-                table += "<div style='float:right'><div style='float:left'><button type='submit' class='button ok glyphicon glyphicon-ok' id='"
-                        + module[i].id.id
-                        + "' onClick='doAjaxSaveRow(id)'></button></div><div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' onClick='doAjaxEdit()'></button></div></div>";
+                table += "<div style='float:right'><div style='float:left'><button type='submit' class='button ok glyphicon glyphicon-ok' id='" +
+                    module[i].id +
+                    "' onClick='doAjaxSaveRow(id)'></button></div><div style='float:right'><button type='submit' class='button delete glyphicon glyphicon-remove' onClick='doAjaxEdit()'></button></div></div>";
                 table += "</td></tr>";
-
                 populateAtributos(tablas);
             } else {
                 table += "<tr><td>" + module[i].nombre + "</td>";
@@ -80,14 +79,6 @@ function editTable(module, tablas) {
                 } else {
                     table += "<td class='center danger2'>Muy Complicado";
                 }
-
-                // table += "<div style='float:right'><button type='submit'
-                // class='button delete glyphicon glyphicon-trash'
-                // id='"+module[i].code
-                // +"' onClick='doAjaxDelete(id)'/></div><div
-                // style='float:right'><button type='submit' class='button edit
-                // glyphicon glyphicon-pencil' id='"+module[i].code+"'
-                // onClick='doAjaxEdit(id)'/></div>";
                 table += "</td></tr>";
             }
         }
@@ -127,14 +118,14 @@ function populateAtributos(tabla) {
 
 function doAjaxAddRow() {
     $.ajax({
-        type : "POST",
-        url : "criterios/addRow",
-        success : function(module) {
+        type: "POST",
+        url: "criterios/addRow",
+        success: function(module) {
             $("#showAtributos").hide();
             console.log(module);
             refreshTable(module);
         },
-        error : function(e) {
+        error: function(e) {
             console.log('Error: ' + e);
         }
     });
@@ -143,9 +134,9 @@ function doAjaxAddRow() {
 
 function doAjaxGetTablas(tablas) {
     $.ajax({
-        type : "POST",
-        url : "criteriosAjax",
-        success : function(module) {
+        type: "POST",
+        url: "criteriosAjax",
+        success: function(module) {
             editTable(module, tablas);
         }
     });
@@ -154,26 +145,26 @@ function doAjaxGetTablas(tablas) {
 function doAjaxEdit(id) {
     if (id == undefined) {
         $.ajax({
-            type : "POST",
-            url : "criteriosAjax",
-            success : function(module) {
+            type: "POST",
+            url: "criteriosAjax",
+            success: function(module) {
                 refreshTable(module);
                 $("#showAtributos").hide();
             },
-            error : function(e) {
+            error: function(e) {
                 console.log('Error: ' + e);
             }
         });
     } else {
         $.ajax({
-            type : "POST",
-            url : "criterios/edit/" + id,
-            success : function(tablas) {
+            type: "POST",
+            url: "criterios/edit/" + id,
+            success: function(tablas) {
                 console.log(tablas);
                 doAjaxGetTablas(tablas);
                 $("#showAtributos").show();
             },
-            error : function(e) {
+            error: function(e) {
                 console.log('Error: ' + e);
             }
         });
@@ -182,11 +173,10 @@ function doAjaxEdit(id) {
 
 function doAjaxSaveRow(id) {
     auxid = parseInt(id);
-    var aux = {};
-    aux["id"] = auxid;
-    aux["idProyecto"] = 1;
+    
     var casosUso = {};
-    casosUso["id"] = aux;
+    casosUso["id"] = auxid;
+	casosUso["idProyecto"] = 1;
     casosUso["nombre"] = document.getElementById('selected_name').value;
     casosUso["codigo"] = document.getElementById('selected_code').value;
     casosUso["modulo"] = document.getElementById('selected_caseOfUse').value;
@@ -254,18 +244,18 @@ function doAjaxSaveRow(id) {
     data["cuoriginal"] = cuoriginal;
     data["integracion"] = integracion;
 
-    console.log(data);// pr
+    console.log(data); // pr
     $.ajax({
-        type : "POST",
-        url : "criterios/saveRow/" + id,
-        dataType : "json",
-        contentType : "application/json; charset=utf-8",
-        data : JSON.stringify(data),
-        success : function(module) {
+        type: "POST",
+        url: "criterios/saveRow/" + id,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        success: function(module) {
             refreshTable(module);
             $("#showAtributos").hide();
         },
-        error : function(e) {
+        error: function(e) {
             console.log('Error: ' + e);
         }
 
@@ -274,13 +264,13 @@ function doAjaxSaveRow(id) {
 
 function doAjaxDelete(id) {
     $.ajax({
-        type : "DELETE",
-        url : "criterios/delete/" + id,
-        success : function(module) {
+        type: "DELETE",
+        url: "criterios/delete/" + id,
+        success: function(module) {
             console.log(module);
             refreshTable(module);
         },
-        error : function(e) {
+        error: function(e) {
             console.log('Error: ' + e);
         }
     });

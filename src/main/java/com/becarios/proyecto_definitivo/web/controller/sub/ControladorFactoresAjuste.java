@@ -4,17 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.becarios.proyecto_definitivo.dto.factores_ajuste.FactoresSaveDto;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.ArquitecturaReferencia;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadAmbiental;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnica;
-import com.becarios.proyecto_definitivo.model.factores_ajustes.FactorComplejidadTecnicaId;
 import com.becarios.proyecto_definitivo.service.factores_ajuste.FactoresAjusteService;
 import com.becarios.proyecto_definitivo.web.controller.ControladorPrincipal;
 
@@ -82,40 +77,28 @@ public class ControladorFactoresAjuste {
 
     }
 
-   
-
-/*    @RequestMapping(value = "/factores-ajuste/{id}/save", method = RequestMethod.GET)
-    public String save(@PathVariable("id") int id)
-    {
-        // Clase FactoresAjuste
-        FactorComplejidadTecnica rendimiento = new FactorComplejidadTecnica();
-        rendimiento.setIdProyecto(1);
-        rendimiento.setNombre("rendimiento");
-        rendimiento.setAplica(true);
-        rendimiento.setGradoDefinicion(1);
-        rendimiento.setGradoExigencia(1);
-        rendimiento.setImpacto(1);
-        rendimiento.setRiesgo(1);
-        service.save(rendimiento);
-
-
-        ArquitecturaReferencia solucion = new ArquitecturaReferencia();
-        solucion.setIdProyecto(1);
-        solucion.setNombre("solucion");
-        solucion.setAplica(true);
-        solucion.setDefinido(true);
-        solucion.setGradoConocimento(1);
-        solucion.setImpacto(1);
-        solucion.setRiesgo(1);
-        service.save(solucion);
-
-        FactorComplejidadAmbiental experiencia = new FactorComplejidadAmbiental();
-        experiencia.setIdProyecto(1);
-        experiencia.setNombre("experiencia");
-        experiencia.setValoracion(1);
-        experiencia.setFactorCalculado(1);
-        service.save(experiencia);
-
-        return "redirect:/";
-    }*/
+    /*
+     * @RequestMapping(value = "/factores-ajuste/{id}/save", method =
+     * RequestMethod.GET) public String save(@PathVariable("id") int id) { //
+     * Clase FactoresAjuste FactorComplejidadTecnica rendimiento = new
+     * FactorComplejidadTecnica(); rendimiento.setIdProyecto(1);
+     * rendimiento.setNombre("rendimiento"); rendimiento.setAplica(true);
+     * rendimiento.setGradoDefinicion(1); rendimiento.setGradoExigencia(1);
+     * rendimiento.setImpacto(1); rendimiento.setRiesgo(1);
+     * service.save(rendimiento);
+     * 
+     * 
+     * ArquitecturaReferencia solucion = new ArquitecturaReferencia();
+     * solucion.setIdProyecto(1); solucion.setNombre("solucion");
+     * solucion.setAplica(true); solucion.setDefinido(true);
+     * solucion.setGradoConocimento(1); solucion.setImpacto(1);
+     * solucion.setRiesgo(1); service.save(solucion);
+     * 
+     * FactorComplejidadAmbiental experiencia = new
+     * FactorComplejidadAmbiental(); experiencia.setIdProyecto(1);
+     * experiencia.setNombre("experiencia"); experiencia.setValoracion(1);
+     * experiencia.setFactorCalculado(1); service.save(experiencia);
+     * 
+     * return "redirect:/"; }
+     */
 }

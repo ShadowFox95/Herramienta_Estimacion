@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.horas_costes;
-// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
+// Generated 21-abr-2017 13:47:07 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -15,59 +15,59 @@ import javax.persistence.Table;
 @Table(name = "deliveryexterno", catalog = "HE")
 public class Deliveryexterno implements java.io.Serializable {
 
-	private DeliveryexternoId id;
-	private int porcentaje;
-	private int horas;
-	private int coste;
+    private DeliveryexternoId id;
+    private int porcentaje;
+    private int horas;
+    private int coste;
 
-	public Deliveryexterno() {
-	}
+    public Deliveryexterno() {
+    }
 
-	public Deliveryexterno(DeliveryexternoId id, int porcentaje, int horas, int coste) {
-		this.id = id;
-		this.porcentaje = porcentaje;
-		this.horas = horas;
-		this.coste = coste;
-	}
+    public Deliveryexterno(DeliveryexternoId id, int porcentaje, int horas, int coste) {
+        this.id = id;
+        this.porcentaje = porcentaje;
+        this.horas = horas;
+        this.coste = coste;
+    }
 
-	@EmbeddedId
+    @EmbeddedId
 
-	@AttributeOverrides({
-			@AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
-			@AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
-	public DeliveryexternoId getId() {
-		return this.id;
-	}
+    @AttributeOverrides({
+            @AttributeOverride(name = "idProyecto", column = @Column(name = "idProyecto", nullable = false)),
+            @AttributeOverride(name = "nombre", column = @Column(name = "Nombre", nullable = false, length = 45)) })
+    public DeliveryexternoId getId() {
+        return this.id;
+    }
 
-	public void setId(DeliveryexternoId id) {
-		this.id = id;
-	}
+    public void setId(DeliveryexternoId id) {
+        this.id = id;
+    }
 
-	@Column(name = "Porcentaje", nullable = false)
-	public int getPorcentaje() {
-		return this.porcentaje;
-	}
+    @Column(name = "Porcentaje", nullable = false)
+    public int getPorcentaje() {
+        return this.porcentaje;
+    }
 
-	public void setPorcentaje(int porcentaje) {
-		this.porcentaje = porcentaje;
-	}
+    public void setPorcentaje(int porcentaje) {
+        this.porcentaje = porcentaje;
+    }
 
-	@Column(name = "Horas", nullable = false)
-	public int getHoras() {
-		return this.horas;
-	}
+    @Column(name = "Horas", nullable = false)
+    public int getHoras() {
+        return this.horas;
+    }
 
-	public void setHoras(int horas) {
-		this.horas = horas;
-	}
+    public void setHoras(int horas) {
+        this.horas = horas;
+    }
 
-	@Column(name = "Coste", nullable = false)
-	public int getCoste() {
-		return this.coste;
-	}
+    @Column(name = "Coste", nullable = false)
+    public int getCoste() {
+        return this.coste;
+    }
 
-	public void setCoste(int coste) {
-		this.coste = coste;
-	}
+    public void setCoste(int coste) {
+        this.coste = coste;
+    }
 
 }

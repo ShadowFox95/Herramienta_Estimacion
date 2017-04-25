@@ -1,5 +1,5 @@
 package com.becarios.proyecto_definitivo.model.factores_ajustes;
-// Generated 19-abr-2017 17:37:47 by Hibernate Tools 5.2.0.CR1
+// Generated 21-abr-2017 13:47:07 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,35 +13,35 @@ import javax.persistence.Table;
 @Table(name = "factor_ajuste", catalog = "HE")
 public class FactorAjuste implements java.io.Serializable {
 
-	private int idProyecto;
-	private int factorProductividad;
+    private int idProyecto;
+    private int factorProductividad;
 
-	public FactorAjuste() {
-	}
+    public FactorAjuste() {
+    }
 
-	public FactorAjuste(int idProyecto, int factorProductividad) {
-		this.idProyecto = idProyecto;
-		this.factorProductividad = factorProductividad;
-	}
+    public FactorAjuste(int idProyecto, int factorProductividad) {
+        this.idProyecto = idProyecto;
+        this.factorProductividad = factorProductividad;
+    }
 
-	@Id
+    @Id
 
-	@Column(name = "idProyecto", unique = true, nullable = false)
-	public int getIdProyecto() {
-		return this.idProyecto;
-	}
+    @Column(name = "idProyecto", unique = true, nullable = false)
+    public int getIdProyecto() {
+        return this.idProyecto;
+    }
 
-	public void setIdProyecto(int idProyecto) {
-		this.idProyecto = idProyecto;
-	}
+    public void setIdProyecto(int idProyecto) {
+        this.idProyecto = idProyecto;
+    }
 
-	@Column(name = "Factor_Productividad", nullable = false)
-	public int getFactorProductividad() {
-		return this.factorProductividad;
-	}
+    @Column(name = "Factor_Productividad", nullable = false)
+    public int getFactorProductividad() {
+        return this.factorProductividad;
+    }
 
-	public void setFactorProductividad(int factorProductividad) {
-		this.factorProductividad = factorProductividad;
-	}
+    public void setFactorProductividad(int factorProductividad) {
+        this.factorProductividad = factorProductividad;
+    }
 
 }

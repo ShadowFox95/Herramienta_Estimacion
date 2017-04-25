@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.becarios.proyecto_definitivo.dao.ProjectDao;
+import com.becarios.proyecto_definitivo.dto.ProyectoDto;
 import com.becarios.proyecto_definitivo.model.Proyecto;
 
 @Service("projectService")
@@ -28,13 +29,16 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void updateProject(Proyecto proyecto) {
-        Proyecto entity = dao.findByCode(proyecto.getId());
+    public void updateProject(int idProyecto, ProyectoDto proyecto) {
+        Proyecto entity = dao.findByCode(idProyecto);
         if (entity != null) {
             entity.setNombre(proyecto.getNombre());
+            entity.setCodigoProyecto(proyecto.getCodigoProyecto());
             entity.setDescripcion(proyecto.getDescripcion());
-            entity.setIsEditado(proyecto.isIsEditado());
+            entity.setIsEditado(proyecto.isEditado());
         }
+
+        dao.saveProject(entity);
 
     }
 
